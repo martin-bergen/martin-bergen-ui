@@ -1,0 +1,471 @@
+@import "tailwindcss";
+
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Berget brand colors */
+    --color-moss: var(--moss);
+    --color-lichen: var(--lichen);
+    --color-spruce: var(--spruce);
+    --color-fjord: var(--fjord);
+    --color-peak: var(--peak);
+    --color-cloud: var(--cloud);
+    --color-slate: var(--slate);
+    --color-night: var(--night);
+}
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-border, currentcolor);
+    }
+}
+
+@layer utilities {
+    body.kcBodyClass {
+        @apply bg-none bg-no-repeat bg-center bg-fixed;
+        font-family: "DM Sans", "Inter", sans-serif;
+    }
+
+    body.oauth {
+        @apply bg-none bg-no-repeat bg-center bg-fixed;
+    }
+
+    html[dir="rtl"] .children {
+        @apply text-right;
+    }
+
+    .required {
+        @apply text-red-600;
+    }
+}
+
+/* Berget dark theme (default) */
+:root {
+    --radius: 0.5rem;
+    --background: hsl(0 0% 4%);
+    --foreground: hsl(0 0% 100%);
+    --card: hsl(0 0% 7%);
+    --card-foreground: hsl(0 0% 100%);
+    --popover: hsl(0 0% 7%);
+    --popover-foreground: hsl(0 0% 100%);
+    --primary: hsl(45 15% 88%);
+    --primary-foreground: hsl(0 0% 4%);
+    --secondary: hsl(151 29% 49%);
+    --secondary-foreground: hsl(0 0% 100%);
+    --muted: hsl(0 0% 10%);
+    --muted-foreground: hsl(0 0% 65%);
+    --accent: hsl(151 33% 62%);
+    --accent-foreground: hsl(0 0% 4%);
+    --destructive: hsl(0 72% 51%);
+    --destructive-foreground: hsl(0 0% 100%);
+    --border: hsl(45 15% 88% / 0.05);
+    --input: hsl(0 0% 15%);
+    --ring: hsl(45 15% 88%);
+
+    /* Berget brand */
+    --moss: hsl(151 44% 52%);
+    --lichen: hsl(151 37% 63%);
+    --spruce: hsl(153 38% 30%);
+    --fjord: hsl(204 67% 21%);
+    --peak: hsl(0 0% 100%);
+    --cloud: hsl(25 10% 84%);
+    --slate: hsl(0 0% 10%);
+    --night: hsl(0 0% 4%);
+}
+
+/* Berget light theme */
+.light {
+    --background: hsl(0 0% 96%);
+    --foreground: hsl(0 0% 10%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(0 0% 10%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(0 0% 10%);
+    --primary: hsl(151 29% 49%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary: hsl(151 33% 62%);
+    --secondary-foreground: hsl(0 0% 10%);
+    --muted: hsl(0 0% 90%);
+    --muted-foreground: hsl(0 0% 40%);
+    --accent: hsl(45 15% 88%);
+    --accent-foreground: hsl(0 0% 10%);
+    --destructive: hsl(0 72% 51%);
+    --destructive-foreground: hsl(0 0% 100%);
+    --border: hsl(0 0% 0% / 0.1);
+    --input: hsl(0 0% 90%);
+    --ring: hsl(151 29% 49%);
+}
+
+@layer utilities {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-text-fill-color: var(--foreground) !important;
+        transition: background-color 9999s ease-in-out 0s;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground m-0 text-sm;
+    }
+}
+
+/* ============================================
+   Berget Keycloak Global Styles
+   From prototype: berget-design-system
+   These styles apply to DefaultPage components
+   and ensure consistent Berget branding
+   ============================================ */
+
+/* Font feature settings for DM Sans */
+body {
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Serif font for headings */
+h1, h2, h3 {
+    font-family: "Ovo", "Georgia", serif;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+}
+
+/* Background grid pattern */
+body.kcBodyClass {
+    background-color: hsl(0 0% 4%);
+    background-image: linear-gradient(
+            to bottom,
+            rgba(229, 221, 213, 0.02) 1px,
+            transparent 1px
+        ),
+        linear-gradient(to right, rgba(229, 221, 213, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Centered auth container */
+.berget-auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Logo animation */
+@keyframes logoFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+    }
+}
+
+.logo-animate {
+    animation:
+        logoFadeIn 0.6s ease-out forwards,
+        logoGlow 3s ease-in-out 0.6s infinite;
+}
+
+/* Stat card style - elevated dark card */
+.stat-card {
+    background: hsl(0 0% 7%);
+    border: 1px solid rgba(229, 221, 213, 0.05);
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+    border-color: rgba(229, 221, 213, 0.1);
+    box-shadow:
+        0 0 0 1px rgba(229, 221, 213, 0.05),
+        0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide Keycloak default header branding */
+#kc-header-wrapper,
+.kc-header {
+    display: none;
+}
+
+/* Hide extra horizontal rules */
+hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0;
+}
+
+hr + hr,
+.form-group + hr,
+hr:first-child,
+hr:last-child {
+    display: none;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+/* Social login section */
+#kc-social-providers,
+.kc-social-providers {
+    margin-top: 1rem;
+}
+
+#kc-social-providers hr,
+.kc-social-providers hr {
+    display: none;
+}
+
+#kc-social-providers h2,
+.kc-social-providers h2,
+#kc-social-providers h3,
+.kc-social-providers h3,
+#kc-social-providers h4,
+.kc-social-providers h4 {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+#kc-social-providers ul,
+.kc-social-providers ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+}
+
+#kc-social-providers li,
+.kc-social-providers li {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+#kc-social-providers ul a,
+.kc-social-providers ul a,
+.kc-social-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    padding: 0.875rem 1.5rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.75rem !important;
+    color: white !important;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 0.9375rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+}
+
+#kc-social-providers ul a:hover,
+.kc-social-providers ul a:hover,
+.kc-social-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-1px);
+}
+
+/* Form actions */
+#kc-form-buttons,
+.form-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Registration link */
+#kc-registration,
+.kc-registration-link {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+}
+
+#kc-registration hr,
+.kc-registration-link hr {
+    display: none;
+}
+
+#kc-registration a,
+.kc-registration-link a {
+    color: hsl(151 44% 52%) !important;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#kc-registration a:hover,
+.kc-registration-link a:hover {
+    color: hsl(151 37% 63%) !important;
+}
+
+/* Remember me / forgot password row */
+.login-pf-settings,
+#kc-form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#kc-form-options a,
+.login-pf-settings a {
+    color: hsl(151 44% 52%) !important;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+#kc-form-options a:hover,
+.login-pf-settings a:hover {
+    color: hsl(151 37% 63%) !important;
+}
+
+/* OTP code input */
+#kc-otp-code {
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    padding: 1rem;
+}
+
+/* QR Code styling */
+#kc-totp-secret-qr-code {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+#kc-totp-secret-qr-code img {
+    border-radius: 0.5rem;
+    background: white;
+    padding: 1rem;
+}
+
+/* Terms page */
+#kc-terms-text {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Error messages */
+.pf-c-form__helper-text.pf-m-error,
+.kc-feedback-text,
+.input-error,
+span.kc-feedback-text,
+.alert-error {
+    color: #f87171 !important;
+    font-size: 0.8125rem;
+    margin-top: 0.375rem;
+    display: block;
+}
+
+/* Info page */
+#kc-info,
+.kc-info {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Logout confirm */
+#kc-logout-confirm {
+    text-align: center;
+}
+
+#kc-logout-confirm p {
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .login-pf-settings,
+    #kc-form-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #kc-form-buttons {
+        flex-direction: column;
+    }
+}

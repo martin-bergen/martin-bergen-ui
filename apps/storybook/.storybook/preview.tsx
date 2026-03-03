@@ -87,6 +87,8 @@ const preview: Preview = {
           "Organisms",
           "Templates",
           "Utilities",
+          "login",
+          "email",
           "*",
         ],
       },

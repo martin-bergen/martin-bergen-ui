@@ -6,7 +6,9 @@
   "license": "ISC",
   "scripts": {
     "build": "pnpm --filter @berget-ai/ui build",
-    "storybook": "pnpm --filter storybook dev"
+    "storybook": "pnpm --filter storybook dev",
+    "build-keycloak-theme": "pnpm --filter keycloak-theme run build-keycloak-theme",
+    "start-keycloak": "pnpm --filter keycloak-theme run start-keycloak"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["esbuild"],

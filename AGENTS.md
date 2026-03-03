@@ -1,6 +1,6 @@
 # AGENTS.md
 
-The Berget Design System is a React component library built on shadcn/ui and Radix UI primitives, published as `@berget-ai/ui` to GitHub Packages. Monorepo using pnpm workspaces with two packages: the UI library (`packages/ui`) and a Storybook docs app (`apps/storybook`).
+The Berget Design System is a React component library built on shadcn/ui and Radix UI primitives, published as `@berget-ai/ui` to GitHub Packages. Monorepo using pnpm workspaces with three packages: the UI library (`packages/ui`), a Storybook docs app (`apps/storybook`), and a Keycloak theme (`apps/keycloak-theme`).
 
 ## Commands
 
@@ -19,6 +19,12 @@ pnpm --filter @berget-ai/ui typecheck
 
 # Build Storybook static site
 pnpm --filter storybook build
+
+# Build Keycloak theme JAR (requires Maven)
+pnpm build-keycloak-theme           # or: pnpm --filter keycloak-theme run build-keycloak-theme
+
+# Start local Keycloak with custom theme (requires Docker)
+pnpm start-keycloak
 ```
 
 ## Architecture
@@ -27,6 +33,7 @@ pnpm --filter storybook build
 
 - `packages/ui/` — the component library (tsup build → ESM + CJS + types)
 - `apps/storybook/` — Storybook 10 app that imports from `@berget-ai/ui`
+- `apps/keycloak-theme/` — Keycloakify-based Keycloak login theme (Vite build → JAR)
 
 **Component organization** follows atomic design in `packages/ui/src/components/`:
 
@@ -54,4 +61,14 @@ pnpm --filter storybook build
 
 ## Publishing
 
-Published to GitHub Packages (`npm.pkg.github.com`) via the `release.yml` workflow (manual dispatch with version bump type). Git tags follow `v{version}` format.
+Published to GitHub Packages (`npm.pkg.github.com`) via the `release.yml` workflow (manual dispatch with version bump type). Git tags follow `v{version}` format. The Keycloak theme JAR is attached as a GitHub Release artifact.
+
+## Keycloak Theme
+
+The `apps/keycloak-theme/` directory contains a custom Keycloak login theme built with Keycloakify v11, React, Tailwind CSS v4, and shadcn/ui components. It uses Berget design tokens (HSL CSS variables) for consistent branding.
+
+- Theme name in Keycloak: `berget`
+- Source: `apps/keycloak-theme/src/login/` — login pages, template, and components
+- Styles: `apps/keycloak-theme/src/login/index.css` — Berget-branded design tokens
+- Build output: `apps/keycloak-theme/dist_keycloak/*.jar`
+- Requires Maven (`mvn`) for JAR packaging

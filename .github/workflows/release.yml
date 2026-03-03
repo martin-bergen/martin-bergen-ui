@@ -75,3 +75,19 @@ jobs:
         run: pnpm publish --filter @berget-ai/ui --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Java for Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Build Keycloak Theme
+        run: pnpm --filter keycloak-theme run build-keycloak-theme
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.new_version }}
+          files: apps/keycloak-theme/dist_keycloak/*.jar
+          generate_release_notes: true

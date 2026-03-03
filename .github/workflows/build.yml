@@ -32,3 +32,12 @@ jobs:
 
       - name: Build Storybook
         run: pnpm --filter storybook build
+
+      - name: Setup Java for Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Build Keycloak Theme
+        run: pnpm --filter keycloak-theme run build-keycloak-theme

@@ -1,3 +1,6 @@
 node_modules/
 dist/
+dist_keycloak/
 storybook-static/
+.keycloakify/
+package-lock.json
