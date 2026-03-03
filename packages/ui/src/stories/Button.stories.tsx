@@ -17,6 +17,7 @@ It supports all native button attributes and can be used with the \`asChild\` pr
 
 **Features:**
 - Multiple variants (default, primary, secondary, outline, ghost, destructive, link, highlight, stone, icon)
+- Multiple sizes (sm, default, lg, icon)
 - Icon support via lucide-react
 - Loading states
 - Disabled states
@@ -44,6 +45,11 @@ It supports all native button attributes and can be used with the \`asChild\` pr
       ],
       description: "Visual style variant",
     },
+    size: {
+      control: "select",
+      options: ["sm", "default", "lg", "icon"],
+      description: "Size of the button",
+    },
     width: {
       control: "select",
       options: ["default", "full"],
@@ -67,6 +73,7 @@ export const Interactive: Story = {
   args: {
     children: "Button",
     variant: "default",
+    size: "default",
     width: "default",
   },
   render: (args: React.ComponentProps<typeof Button>) => (
@@ -111,6 +118,59 @@ export const AllVariants: Story = {
           <Button>
             <Loader2 className="w-4 h-4 animate-spin" />
             Loading
+          </Button>
+        </div>
+      </div>
+    </div>
+  ),
+}
+
+export const Sizes: Story = {
+  parameters: { controls: { hide: true } },
+  args: { children: undefined as unknown as string },
+  render: () => (
+    <div className="flex flex-col gap-8">
+      <div>
+        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button size="sm">Small</Button>
+          <Button size="default">Default</Button>
+          <Button size="lg">Large</Button>
+          <Button size="icon">
+            <Plus className="w-4 h-4" strokeWidth={1.5} />
+          </Button>
+        </div>
+      </div>
+      <div className="border-t border-border pt-4">
+        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes with variant &quot;primary&quot;</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button variant="primary" size="sm">Small</Button>
+          <Button variant="primary" size="default">Default</Button>
+          <Button variant="primary" size="lg">Large</Button>
+          <Button variant="primary" size="icon">
+            <Plus className="w-4 h-4" strokeWidth={1.5} />
+          </Button>
+        </div>
+      </div>
+      <div className="border-t border-border pt-4">
+        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes with variant &quot;outline&quot;</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button variant="outline" size="sm">Small</Button>
+          <Button variant="outline" size="default">Default</Button>
+          <Button variant="outline" size="lg">Large</Button>
+          <Button variant="outline" size="icon">
+            <Plus className="w-4 h-4" strokeWidth={1.5} />
+          </Button>
+        </div>
+      </div>
+      <div className="border-t border-border pt-4">
+        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes with variant &quot;ghost&quot;</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button variant="ghost" size="sm">Small</Button>
+          <Button variant="ghost" size="default">Default</Button>
+          <Button variant="ghost" size="lg">Large</Button>
+          <Button variant="ghost" size="icon">
+            <Plus className="w-4 h-4" strokeWidth={1.5} />
           </Button>
         </div>
       </div>
