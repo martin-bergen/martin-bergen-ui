@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Button } from "../components/button"
+import { Button } from "../components/atoms/button"
 import { ArrowRight, Download, Loader2, Mail, Plus } from "lucide-react"
 import { cn } from "../lib/utils"
 
