@@ -27,14 +27,37 @@ export type { CheckboxProps } from "./components/atoms/checkbox";
 export { Divider, dividerVariants } from "./components/atoms/divider";
 export type { DividerProps } from "./components/atoms/divider";
 
+export {
+  GradientBackground,
+  gradientBackgroundVariants,
+} from "./components/foundations/gradient-background";
+export type { GradientBackgroundProps } from "./components/foundations/gradient-background";
+
+export { GrainyGradientBackground } from "./components/foundations/grainy-gradient-background";
+export type {
+  GrainyGradientBackgroundProps,
+  EllipseConfig,
+  EllipseColor,
+  EllipseAnimation,
+} from "./components/foundations/grainy-gradient-background";
+
+export { GridBackground } from "./components/foundations/grid-background";
+export type { GridBackgroundProps } from "./components/foundations/grid-background";
+
 export { Input } from "./components/atoms/input";
 export type { InputProps } from "./components/atoms/input";
 
 export { Link, linkVariants } from "./components/atoms/link";
 export type { LinkProps } from "./components/atoms/link";
 
+export { NetworkBackground } from "./components/foundations/network-background";
+export type { NetworkBackgroundProps } from "./components/foundations/network-background";
+
 export { Panel, panelVariants } from "./components/atoms/panel";
 export type { PanelProps } from "./components/atoms/panel";
+
+export { PatternBackground } from "./components/foundations/pattern-background";
+export type { PatternBackgroundProps } from "./components/foundations/pattern-background";
 
 export { Select, selectVariants } from "./components/atoms/select";
 export type { SelectProps, SelectOption } from "./components/atoms/select";

@@ -32,6 +32,11 @@
   --color-warning: hsl(var(--warning));
   --color-error: hsl(var(--error));
   --color-info: hsl(var(--info));
+
+  /* Float animations for GrainyGradientBackground */
+  --animate-float-slow: float-slow 20s ease-in-out infinite;
+  --animate-float-medium: float-medium 14s ease-in-out infinite;
+  --animate-float-fast: float-fast 8s ease-in-out infinite;
 }
 
 @layer base {
@@ -107,5 +112,53 @@
     --warning: 71 100% 75%;
     --error: 6 74% 50%;
     --info: 217 68% 53%;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-8px) translateX(4px);
+  }
+  66% {
+    transform: translateY(4px) translateX(-6px);
+  }
+}
+
+@keyframes float-medium {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-12px) translateX(6px);
+  }
+  50% {
+    transform: translateY(6px) translateX(-8px);
+  }
+  75% {
+    transform: translateY(-4px) translateX(10px);
+  }
+}
+
+@keyframes float-fast {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  20% {
+    transform: translateY(-10px) translateX(8px);
+  }
+  40% {
+    transform: translateY(8px) translateX(-6px);
+  }
+  60% {
+    transform: translateY(-6px) translateX(12px);
+  }
+  80% {
+    transform: translateY(4px) translateX(-10px);
   }
 }
