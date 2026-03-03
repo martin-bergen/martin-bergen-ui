@@ -1,0 +1,14 @@
+{
+  "name": "berget-ui",
+  "version": "1.0.0",
+  "description": "Berget Design System monorepo",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "build": "pnpm --filter @berget/ui build",
+    "storybook": "pnpm --filter storybook dev"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}
