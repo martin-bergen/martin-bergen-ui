@@ -1,0 +1,71 @@
+name: Release to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Version bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      custom_version:
+        description: 'Custom version (optional, overrides version_type)'
+        required: false
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bump version and create tag
+        id: version
+        run: |
+          if [ -n "${{ github.event.inputs.custom_version }}" ]; then
+            new_version="${{ github.event.inputs.custom_version }}"
+            (cd packages/ui && pnpm version $new_version --no-git-tag-version --allow-same-version)
+          else
+            (cd packages/ui && pnpm version ${{ github.event.inputs.version_type }} --no-git-tag-version)
+            new_version=$(node -p "require('./packages/ui/package.json').version")
+          fi
+
+          git add packages/ui/package.json
+          git commit -m "chore: bump version to $new_version"
+          git tag "v$new_version"
+          git push origin main
+          git push origin "v$new_version"
+
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+          echo "Released version: $new_version"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.new_version }}
+          name: Release ${{ steps.version.outputs.new_version }}
+          generate_release_notes: true

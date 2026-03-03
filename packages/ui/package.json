@@ -1,5 +1,5 @@
 {
-  "name": "@berget/ui",
+  "name": "@berget-ai/ui",
   "version": "0.1.0",
   "description": "Berget Design System - Scandinavian-inspired design system with console aesthetic",
   "type": "module",
@@ -22,6 +22,10 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
