@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "../components/atoms/card"
+} from "../../components/atoms/card"
 
 const meta: Meta<typeof Card> = {
   title: "Atoms/Card",

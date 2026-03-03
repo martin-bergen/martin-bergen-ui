@@ -3,7 +3,7 @@ import {
   Alert,
   AlertTitle,
   AlertDescription,
-} from "../components/molecules/alert";
+} from "../../components/molecules/alert";
 
 const meta: Meta<typeof Alert> = {
   title: "Molecules/Alert",

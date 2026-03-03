@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { BergetSymbol } from "../components/atoms/berget-symbol"
+import { BergetLogotype } from "../../components/atoms/berget-logotype"
 
-const meta: Meta<typeof BergetSymbol> = {
-  title: "Atoms/BergetSymbol",
-  component: BergetSymbol,
+const meta: Meta<typeof BergetLogotype> = {
+  title: "Atoms/BergetLogotype",
+  component: BergetLogotype,
   parameters: {
     layout: "centered",
   },
@@ -11,7 +11,7 @@ const meta: Meta<typeof BergetSymbol> = {
   argTypes: {
     size: {
       control: { type: "range", min: 24, max: 200, step: 8 },
-      description: "Height of the symbol in pixels",
+      description: "Height of the logotype in pixels",
     },
     variant: {
       control: "select",
@@ -22,7 +22,7 @@ const meta: Meta<typeof BergetSymbol> = {
 }
 
 export default meta
-type Story = StoryObj<typeof BergetSymbol>
+type Story = StoryObj<typeof BergetLogotype>
 
 export const Interactive: Story = {
   args: {
@@ -33,7 +33,7 @@ export const Interactive: Story = {
     <div
       className={args.variant === "light" ? "bg-background p-8" : "bg-white p-8"}
     >
-      <BergetSymbol {...args} />
+      <BergetLogotype {...args} />
     </div>
   ),
 }
@@ -47,7 +47,7 @@ export const AllVariants: Story = {
           Light (for dark backgrounds)
         </p>
         <div className="bg-background p-6 rounded-md">
-          <BergetSymbol size={48} variant="light" />
+          <BergetLogotype size={48} variant="light" />
         </div>
       </div>
       <div>
@@ -55,7 +55,7 @@ export const AllVariants: Story = {
           Dark (for light backgrounds)
         </p>
         <div className="bg-white p-6 rounded-md">
-          <BergetSymbol size={48} variant="dark" />
+          <BergetLogotype size={48} variant="dark" />
         </div>
       </div>
       <div>
@@ -64,19 +64,19 @@ export const AllVariants: Story = {
         </p>
         <div className="flex items-end gap-8 bg-background p-6 rounded-md">
           <div className="text-center">
-            <BergetSymbol size={24} variant="light" />
+            <BergetLogotype size={24} variant="light" />
             <p className="text-xs text-muted-foreground mt-2">24px</p>
           </div>
           <div className="text-center">
-            <BergetSymbol size={32} variant="light" />
+            <BergetLogotype size={32} variant="light" />
             <p className="text-xs text-muted-foreground mt-2">32px</p>
           </div>
           <div className="text-center">
-            <BergetSymbol size={48} variant="light" />
+            <BergetLogotype size={48} variant="light" />
             <p className="text-xs text-muted-foreground mt-2">48px</p>
           </div>
           <div className="text-center">
-            <BergetSymbol size={96} variant="light" />
+            <BergetLogotype size={96} variant="light" />
             <p className="text-xs text-muted-foreground mt-2">96px</p>
           </div>
         </div>
