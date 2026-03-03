@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { BergetLogotype } from "../components/atoms/berget-logotype"
 
 const meta: Meta<typeof BergetLogotype> = {
-  title: "Components/BergetLogotype",
+  title: "Atoms/BergetLogotype",
   component: BergetLogotype,
   parameters: {
     layout: "centered",

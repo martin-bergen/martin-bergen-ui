@@ -8,7 +8,7 @@ const defaultOptions = [
 ]
 
 const meta: Meta<typeof Select> = {
-  title: "Components/Select",
+  title: "Atoms/Select",
   component: Select,
   parameters: {
     layout: "padded",

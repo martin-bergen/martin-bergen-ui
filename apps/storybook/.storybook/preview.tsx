@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import React from "react";
 import "../src/styles.css";
 
 // Force dark background on Storybook wrapper elements
@@ -76,6 +77,20 @@ const preview: Preview = {
         { name: "light", value: "#f5f5f5" },
       ],
     },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: [
+          "Foundations",
+          "Atoms",
+          "Molecules",
+          "Organisms",
+          "Templates",
+          "Utilities",
+          "*",
+        ],
+      },
+    },
   },
 
   globalTypes: {
@@ -101,7 +116,7 @@ const preview: Preview = {
     (Story, context) => {
       const isDark = context.globals["darkMode"] !== false;
       document.documentElement.classList.toggle("light", !isDark);
-      return Story();
+      return <Story />;
     },
   ],
 };

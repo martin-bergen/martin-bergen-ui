@@ -14,7 +14,7 @@ import {
 } from "lucide-react"
 
 const meta: Meta<typeof Badge> = {
-  title: "Components/Badge",
+  title: "Atoms/Badge",
   component: Badge,
   parameters: {
     layout: "centered",
