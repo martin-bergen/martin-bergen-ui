@@ -10,7 +10,7 @@ import {
 } from "../components/atoms/card"
 
 const meta: Meta<typeof Card> = {
-  title: "Components/Card",
+  title: "Atoms/Card",
   component: Card,
   tags: ["autodocs"],
   argTypes: {

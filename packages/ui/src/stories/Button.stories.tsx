@@ -5,7 +5,7 @@ import { ArrowRight, Download, Loader2, Mail, Plus } from "lucide-react"
 import { cn } from "../lib/utils"
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Button",
+  title: "Atoms/Button",
   component: Button,
   parameters: {
     layout: "centered",
