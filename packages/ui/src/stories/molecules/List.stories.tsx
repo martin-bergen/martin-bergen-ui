@@ -4,8 +4,8 @@ import {
   ListItem,
   ListHeader,
   FeatureList,
-} from "../components/molecules/list";
-import { Panel } from "../components/atoms/panel";
+} from "../../components/molecules/list";
+import { Panel } from "../../components/atoms/panel";
 import { Key, Database, Server, Users } from "lucide-react";
 
 const meta: Meta<typeof List> = {

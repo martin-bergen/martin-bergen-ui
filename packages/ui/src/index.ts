@@ -22,6 +22,9 @@ export type { BergetSymbolProps } from "./components/atoms/berget-symbol";
 export { Button, buttonVariants } from "./components/atoms/button";
 export type { ButtonProps } from "./components/atoms/button";
 
+export { ChatInput } from "./components/atoms/chat-input";
+export type { ChatInputProps } from "./components/atoms/chat-input";
+
 export {
   Card,
   CardHeader,
