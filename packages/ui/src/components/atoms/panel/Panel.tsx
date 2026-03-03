@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../lib/utils"
+import { cn } from "../../../lib/utils"
 
 const panelVariants = cva(
   "rounded-2xl border bg-slate border-slate/40 backdrop-blur-[12px] relative overflow-hidden",
