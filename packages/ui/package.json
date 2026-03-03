@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/berget-ai/berget-ui.git"
+    "url": "git://github.com/berget-ai/ui.git"
   },
   "exports": {
     ".": {
