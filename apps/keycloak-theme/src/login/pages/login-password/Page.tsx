@@ -1,7 +1,6 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Label } from "@berget-ai/ui";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group';
-import { Label } from "@/components/ui/label";
 import { PasswordVisibilityButton } from "@/login/components/PasswordVisibilityButton";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";

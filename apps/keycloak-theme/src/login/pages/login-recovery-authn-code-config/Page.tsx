@@ -1,6 +1,5 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button, Checkbox } from "@berget-ai/ui";
-import { Label } from "@/components/ui/label";
+import { Button, Checkbox, Label } from "@berget-ai/ui";
 import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
@@ -95,12 +94,12 @@ export function Page() {
                     <Checkbox
                         id="kcRecoveryCodesConfirmationCheck"
                         name="kcRecoveryCodesConfirmationCheck"
-                        onChange={e => {
+                        onCheckedChange={checked => {
                             const saveButton = document.getElementById(
                                 "saveRecoveryAuthnCodesBtn"
                             ) as HTMLButtonElement | null;
                             if (saveButton) {
-                                saveButton.disabled = !e.target.checked;
+                                saveButton.disabled = !(checked === true);
                             }
                         }}
                     />

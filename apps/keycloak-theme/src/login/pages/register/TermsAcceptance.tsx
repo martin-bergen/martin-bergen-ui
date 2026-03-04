@@ -1,6 +1,5 @@
-import { Checkbox } from "@berget-ai/ui";
+import { Checkbox, Label } from "@berget-ai/ui";
 import { FieldError } from "@/components/ui/field";
-import { Label } from "@/components/ui/label";
 import { useI18n } from "@/login/i18n";
 import type { KcContext } from "@/login/KcContext";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
@@ -27,8 +26,8 @@ export function TermsAcceptance(props: {
                         id="termsAccepted"
                         name="termsAccepted"
                         checked={areTermsAccepted}
-                        onChange={e =>
-                            onAreTermsAcceptedValueChange(e.target.checked)
+                        onCheckedChange={checked =>
+                            onAreTermsAcceptedValueChange(checked === true)
                         }
                         aria-invalid={messagesPerField.existsError("termsAccepted")}
                     />

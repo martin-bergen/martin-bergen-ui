@@ -1,5 +1,4 @@
-import { Button } from "@berget-ai/ui";
-import { Label } from "@/components/ui/label";
+import { Button, Label } from "@berget-ai/ui";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
 import { assert } from "tsafe/assert";
