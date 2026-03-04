@@ -1,5 +1,6 @@
 import { defineConfig } from "tsup";
 import { copyFileSync, mkdirSync } from "fs";
+import path from "path";
 
 export default defineConfig({
   entry: ["src/index.ts"],
@@ -7,9 +8,12 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom", "lucide-react"],
   esbuildOptions(options) {
     options.jsx = "automatic";
+    options.alias = {
+      "@": path.resolve(import.meta.dirname, "src"),
+    };
   },
   async onSuccess() {
     mkdirSync("dist/styles", { recursive: true });
