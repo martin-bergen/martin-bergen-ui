@@ -87,6 +87,7 @@
     --destructive: hsl(0 72% 51%);
     --destructive-foreground: hsl(0 0% 100%);
     --border: hsl(45 15% 88% / 0.05);
+    --border-hover: hsl(45 15% 88% / 0.1);
     --input: hsl(0 0% 15%);
     --ring: hsl(45 15% 88%);
 
@@ -121,6 +122,7 @@
     --destructive: hsl(0 72% 51%);
     --destructive-foreground: hsl(0 0% 100%);
     --border: hsl(0 0% 0% / 0.1);
+    --border-hover: hsl(0 0% 0% / 0.2);
     --input: hsl(0 0% 90%);
     --ring: hsl(151 29% 49%);
 }
@@ -212,18 +214,18 @@ body.kcBodyClass {
         logoGlow 3s ease-in-out 0.6s infinite;
 }
 
-/* Stat card style - elevated dark card */
+/* Stat card style - elevated card */
 .stat-card {
-    background: hsl(0 0% 7%);
-    border: 1px solid rgba(229, 221, 213, 0.05);
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stat-card:hover {
-    border-color: rgba(229, 221, 213, 0.1);
+    border-color: var(--border-hover);
     box-shadow:
-        0 0 0 1px rgba(229, 221, 213, 0.05),
+        0 0 0 1px var(--color-border),
         0 20px 40px -20px rgba(0, 0, 0, 0.5);
 }
 
