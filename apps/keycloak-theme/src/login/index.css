@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @source "../**/*.{ts,tsx}";
+@source "../../../packages/ui/src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -24,6 +25,7 @@
     --color-border: var(--border);
     --color-input: var(--input);
     --color-ring: var(--ring);
+    --color-error: var(--error);
 
     /* Berget brand colors */
     --color-moss: var(--moss);
@@ -97,6 +99,7 @@
     --cloud: hsl(25 10% 84%);
     --slate: hsl(0 0% 10%);
     --night: hsl(0 0% 4%);
+    --error: hsl(6 74% 50%);
 }
 
 /* Berget light theme */
