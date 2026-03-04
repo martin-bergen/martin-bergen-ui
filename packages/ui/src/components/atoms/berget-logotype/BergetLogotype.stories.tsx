@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { BergetLogotype } from "../../components/atoms/berget-logotype"
+import { BergetLogotype } from "."
 
 const meta: Meta<typeof BergetLogotype> = {
   title: "Atoms/BergetLogotype",

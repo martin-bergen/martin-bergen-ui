@@ -1,7 +1,7 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { ChatInput } from "../../components/atoms/chat-input"
-import { Button } from "../../components/atoms/button"
+import { ChatInput } from "."
+import { Button } from "../button"
 import { ArrowUp, Mic, Plus } from "lucide-react"
 
 const meta: Meta<typeof ChatInput> = {

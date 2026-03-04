@@ -6,7 +6,7 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "../../components/molecules/tabs";
+} from ".";
 import { Home, Search, User } from "lucide-react";
 
 const meta: Meta<typeof Tabs> = {

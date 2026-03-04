@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { SectionHeader } from "../../components/molecules/section-header";
+import { SectionHeader } from ".";
 
 const meta: Meta<typeof SectionHeader> = {
   title: "Molecules/SectionHeader",

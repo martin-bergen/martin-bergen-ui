@@ -1,13 +1,13 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { GridBackground } from "../../components/foundations/grid-background"
-import { GradientBackground } from "../../components/foundations/gradient-background"
-import { NetworkBackground } from "../../components/foundations/network-background"
-import { GrainyGradientBackground } from "../../components/foundations/grainy-gradient-background"
-import { PatternBackground } from "../../components/foundations/pattern-background"
-import { Card, CardContent } from "../../components/atoms/card"
-import { Button } from "../../components/atoms/button"
-import { Badge } from "../../components/atoms/badge"
+import { GridBackground } from "./grid-background"
+import { GradientBackground } from "./gradient-background"
+import { NetworkBackground } from "./network-background"
+import { GrainyGradientBackground } from "./grainy-gradient-background"
+import { PatternBackground } from "./pattern-background"
+import { Card, CardContent } from "../atoms/card"
+import { Button } from "../atoms/button"
+import { Badge } from "../atoms/badge"
 
 const meta = {
   title: "Foundations/Backgrounds",

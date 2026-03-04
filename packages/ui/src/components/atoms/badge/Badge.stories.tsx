@@ -1,6 +1,6 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Badge } from "../../components/atoms/badge"
+import { Badge } from "."
 import {
   Shield,
   Lock,

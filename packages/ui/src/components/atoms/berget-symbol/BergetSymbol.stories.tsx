@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { BergetSymbol } from "../../components/atoms/berget-symbol"
+import { BergetSymbol } from "."
 
 const meta: Meta<typeof BergetSymbol> = {
   title: "Atoms/BergetSymbol",

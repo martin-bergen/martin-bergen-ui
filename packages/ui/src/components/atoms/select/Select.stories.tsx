@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Select } from "../../components/atoms/select"
+import { Select } from "."
 
 const defaultOptions = [
   { value: "option1", label: "Option 1" },
