@@ -75,6 +75,8 @@ export type { GridBackgroundProps } from "./components/foundations/grid-backgrou
 export { Input } from "./components/atoms/input";
 export type { InputProps } from "./components/atoms/input";
 
+export { Label } from "./components/atoms/label";
+
 export { Link, linkVariants } from "./components/atoms/link";
 export type { LinkProps } from "./components/atoms/link";
 
