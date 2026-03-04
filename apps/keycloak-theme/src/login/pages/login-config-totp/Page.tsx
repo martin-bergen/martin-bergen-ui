@@ -1,6 +1,5 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Input } from "@berget-ai/ui";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";

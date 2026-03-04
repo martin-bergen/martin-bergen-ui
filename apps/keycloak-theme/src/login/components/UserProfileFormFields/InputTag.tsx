@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/input";
+import { Input } from "@berget-ai/ui";
 import { InputGroupInput } from '@/components/ui/input-group';
 import { assert } from "tsafe/assert";
 import { useI18n } from "../../i18n";

@@ -1,7 +1,6 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Input } from "@berget-ai/ui";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group';
 import { Label } from "@/components/ui/label";
 import { useKcContext } from "@/login/KcContext";

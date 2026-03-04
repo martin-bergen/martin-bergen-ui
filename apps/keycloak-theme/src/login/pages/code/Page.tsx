@@ -1,8 +1,6 @@
+import { Button, Input } from "@berget-ai/ui";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Input } from "@/components/ui/input";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
-
-import { Button } from "@berget-ai/ui";
 
 import { MdContentCopy } from "react-icons/md";
 

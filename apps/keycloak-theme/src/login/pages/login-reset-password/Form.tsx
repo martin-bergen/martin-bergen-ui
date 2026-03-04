@@ -1,6 +1,5 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Input } from "@berget-ai/ui";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { assert } from "tsafe/assert";
 import { useKcContext } from "../../KcContext";

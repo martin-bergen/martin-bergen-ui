@@ -1,5 +1,4 @@
-import { Button } from "@berget-ai/ui";
-import { Input } from "@/components/ui/input";
+import { Button, Input } from "@berget-ai/ui";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
