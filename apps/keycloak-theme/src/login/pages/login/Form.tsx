@@ -1,5 +1,4 @@
-import { Button, Input } from "@berget-ai/ui";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button, Checkbox, Input } from "@berget-ai/ui";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group';
 import { Label } from "@/components/ui/label";

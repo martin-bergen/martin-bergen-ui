@@ -1,4 +1,4 @@
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@berget-ai/ui";
 import { useI18n } from "@/login/i18n";
 import { Label } from "@radix-ui/react-label";
 

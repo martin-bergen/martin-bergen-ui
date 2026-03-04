@@ -47,13 +47,19 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       id,
       disabled,
       defaultChecked,
+      checked: controlledChecked,
+      onChange,
       ...props
     },
     ref
   ) => {
     const checkboxId = id || React.useId()
     const errorId = `${checkboxId}-error`
-    const [isChecked, setIsChecked] = React.useState(defaultChecked || false)
+    const isControlled = controlledChecked !== undefined
+    const [internalChecked, setInternalChecked] = React.useState(
+      defaultChecked || false
+    )
+    const isChecked = isControlled ? controlledChecked : internalChecked
 
     return (
       <div className="flex items-start gap-3">
@@ -67,7 +73,12 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             aria-describedby={error ? errorId : undefined}
             className="peer sr-only"
             checked={isChecked}
-            onChange={(e) => setIsChecked(e.target.checked)}
+            onChange={(e) => {
+              if (!isControlled) {
+                setInternalChecked(e.target.checked)
+              }
+              onChange?.(e)
+            }}
             {...props}
           />
           <label

@@ -1,5 +1,5 @@
 import { cn } from "@/components/lib/utils";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@berget-ai/ui";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { assert } from "tsafe/assert";
@@ -100,12 +100,12 @@ export function InputTagSelects(props: InputFieldByTypeProps) {
                                 : valueOrValues === option
                         }
                         disabled={attribute.readOnly}
-                        onCheckedChange={checked =>
+                        onChange={e =>
                             dispatchFormAction({
                                 action: "update",
                                 name: attribute.name,
                                 valueOrValues: (() => {
-                                    const isChecked = checked === true;
+                                    const isChecked = e.target.checked;
 
                                     if (valueOrValues instanceof Array) {
                                         const newValues = [...valueOrValues];

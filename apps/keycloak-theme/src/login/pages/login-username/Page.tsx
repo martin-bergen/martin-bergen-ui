@@ -1,5 +1,4 @@
-import { Button, Input } from "@berget-ai/ui";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button, Checkbox, Input } from "@berget-ai/ui";
 import { Label } from "@/components/ui/label";
 import { clsx } from "keycloakify/tools/clsx";
 import { useState } from "react";

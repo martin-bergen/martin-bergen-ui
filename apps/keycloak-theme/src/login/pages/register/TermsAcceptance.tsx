@@ -1,4 +1,4 @@
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@berget-ai/ui";
 import { FieldError } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 import { useI18n } from "@/login/i18n";
@@ -27,8 +27,8 @@ export function TermsAcceptance(props: {
                         id="termsAccepted"
                         name="termsAccepted"
                         checked={areTermsAccepted}
-                        onCheckedChange={checked =>
-                            onAreTermsAcceptedValueChange(!!checked)
+                        onChange={e =>
+                            onAreTermsAcceptedValueChange(e.target.checked)
                         }
                         aria-invalid={messagesPerField.existsError("termsAccepted")}
                     />
