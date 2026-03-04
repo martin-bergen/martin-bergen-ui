@@ -119,3 +119,28 @@ export type {
 
 export { Textarea, textareaVariants } from "./components/atoms/textarea";
 export type { TextareaProps } from "./components/atoms/textarea";
+
+// Organisms
+export { AIChatBox } from "./components/organisms/ai-chat-box";
+export type { AIChatBoxProps, AIChatMessage } from "./components/organisms/ai-chat-box";
+
+export { BlogCard, BlogGrid } from "./components/organisms/blog-card";
+export type { BlogCardProps, BlogGridProps, BlogPost } from "./components/organisms/blog-card";
+
+export { EmailTemplate, EmailButton, EmailSection } from "./components/organisms/email-template";
+export type { EmailTemplateProps, EmailButtonProps, EmailSectionProps } from "./components/organisms/email-template";
+
+export { FeatureCard, FeatureCards } from "./components/organisms/feature-cards";
+export type { FeatureCardProps, FeatureCardsProps } from "./components/organisms/feature-cards";
+
+export { HeroBlock } from "./components/organisms/hero-block";
+export type { HeroBlockProps } from "./components/organisms/hero-block";
+
+export { PricingCards } from "./components/organisms/pricing-cards";
+export type { PricingCardsProps, PricingTier } from "./components/organisms/pricing-cards";
+
+export { Stepper } from "./components/organisms/stepper";
+export type { StepperProps, Step } from "./components/organisms/stepper";
+
+export { Terminal } from "./components/organisms/terminal";
+export type { TerminalProps, TerminalStep } from "./components/organisms/terminal";
