@@ -1,9 +1,10 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../../lib/utils"
+import { Textarea as TextareaPrimitive } from "../../../primitives/textarea"
 
 const textareaVariants = cva(
-  "flex w-full rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50 resize-y",
+  "rounded-xl bg-card px-4 py-3 transition-colors duration-200 focus-visible:border-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 resize-y",
   {
     variants: {
       variant: {
@@ -91,7 +92,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
               {icon}
             </div>
           )}
-          <textarea
+          <TextareaPrimitive
             ref={ref}
             id={textareaId}
             disabled={disabled}

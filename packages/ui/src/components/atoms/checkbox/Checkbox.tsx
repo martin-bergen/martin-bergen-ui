@@ -1,6 +1,11 @@
 import * as React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../../lib/utils"
+import {
+  Checkbox as CheckboxBase,
+  CheckboxIndicator,
+} from "../../../primitives/checkbox"
 
 const checkboxVariants = cva(
   "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
@@ -26,15 +31,22 @@ const checkboxVariants = cva(
 )
 
 export interface CheckboxProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size">,
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
+      "className"
+    >,
     VariantProps<typeof checkboxVariants> {
   label?: string
   description?: string
   error?: string
   checkedIcon?: React.ReactNode
+  className?: string
 }
 
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  CheckboxProps
+>(
   (
     {
       className,
@@ -46,82 +58,53 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       checkedIcon,
       id,
       disabled,
-      defaultChecked,
-      checked: controlledChecked,
-      onChange,
       ...props
     },
     ref
   ) => {
     const checkboxId = id || React.useId()
     const errorId = `${checkboxId}-error`
-    const isControlled = controlledChecked !== undefined
-    const [internalChecked, setInternalChecked] = React.useState(
-      defaultChecked || false
-    )
-    const isChecked = isControlled ? controlledChecked : internalChecked
 
     return (
       <div className="flex items-start gap-3">
         <div className="relative flex items-start pt-0.5">
-          <input
+          <CheckboxBase
             ref={ref}
-            type="checkbox"
             id={checkboxId}
             disabled={disabled}
             aria-invalid={!!error}
             aria-describedby={error ? errorId : undefined}
-            className="peer sr-only"
-            checked={isChecked}
-            onChange={(e) => {
-              if (!isControlled) {
-                setInternalChecked(e.target.checked)
-              }
-              onChange?.(e)
-            }}
-            {...props}
-          />
-          <label
-            htmlFor={checkboxId}
             className={cn(
               checkboxVariants({ variant, size }),
-              isChecked && "border-primary",
+              "data-[state=checked]:border-primary",
               error && "border-red-500/50 bg-red-500/10",
               "cursor-pointer",
               disabled && "cursor-not-allowed pointer-events-none",
               className
             )}
+            {...props}
           >
-            {checkedIcon ? (
-              <span
-                className={cn(
-                  "transition-opacity",
-                  isChecked ? "opacity-100" : "opacity-0"
-                )}
-              >
-                {checkedIcon}
-              </span>
-            ) : (
-              <svg
-                className={cn(
-                  "transition-opacity",
-                  isChecked ? "opacity-100" : "opacity-0",
-                  size === "sm" && "w-3 h-3",
-                  size === "default" && "w-3.5 h-3.5",
-                  size === "lg" && "w-4 h-4",
-                  "text-white"
-                )}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            )}
-          </label>
+            <CheckboxIndicator>
+              {checkedIcon || (
+                <svg
+                  className={cn(
+                    size === "sm" && "w-3 h-3",
+                    size === "default" && "w-3.5 h-3.5",
+                    size === "lg" && "w-4 h-4",
+                    "text-white"
+                  )}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              )}
+            </CheckboxIndicator>
+          </CheckboxBase>
         </div>
 
         {(label || description || error) && (

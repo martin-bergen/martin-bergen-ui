@@ -1,6 +1,13 @@
 import * as React from "react"
+import * as TabsPrimitive from "@radix-ui/react-tabs"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../../lib/utils"
+import {
+  Tabs as TabsBase,
+  TabsList as TabsListBase,
+  TabsTrigger as TabsTriggerBase,
+  TabsContent as TabsContentBase,
+} from "../../../primitives/tabs"
 
 const tabListVariants = cva(
   "inline-flex items-center justify-center rounded-xl border bg-cloud/5 p-1 transition-all duration-200",
@@ -60,32 +67,31 @@ const tabContentVariants = cva(
   }
 )
 
-type TabsContextValue = {
-  value: string
-  onValueChange: (value: string) => void
+type TabsStyleContextValue = {
   variant: VariantProps<typeof tabListVariants>["variant"]
   size: VariantProps<typeof tabListVariants>["size"]
 }
 
-const TabsContext = React.createContext<TabsContextValue | undefined>(undefined)
+const TabsStyleContext = React.createContext<TabsStyleContextValue>({
+  variant: "default",
+  size: "default",
+})
 
-export interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
-  defaultValue?: string
-  value?: string
-  onValueChange?: (value: string) => void
+export interface TabsProps
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> {
   variant?: VariantProps<typeof tabListVariants>["variant"]
   size?: VariantProps<typeof tabListVariants>["size"]
   label?: string
   description?: string
 }
 
-const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
+const Tabs = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Root>,
+  TabsProps
+>(
   (
     {
       className,
-      defaultValue,
-      value: controlledValue,
-      onValueChange,
       variant = "default",
       size = "default",
       label,
@@ -95,25 +101,9 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
     },
     ref
   ) => {
-    const [uncontrolledValue, setUncontrolledValue] = React.useState(
-      defaultValue || ""
-    )
-
-    const isControlled = controlledValue !== undefined
-    const value = isControlled ? controlledValue : uncontrolledValue
-
-    const handleValueChange = (newValue: string) => {
-      if (!isControlled) {
-        setUncontrolledValue(newValue)
-      }
-      onValueChange?.(newValue)
-    }
-
     return (
-      <TabsContext.Provider
-        value={{ value, onValueChange: handleValueChange, variant, size }}
-      >
-        <div
+      <TabsStyleContext.Provider value={{ variant, size }}>
+        <TabsBase
           ref={ref}
           className={cn("flex flex-col gap-2", className)}
           {...props}
@@ -129,105 +119,73 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
             </div>
           )}
           {children}
-        </div>
-      </TabsContext.Provider>
+        </TabsBase>
+      </TabsStyleContext.Provider>
     )
   }
 )
 Tabs.displayName = "Tabs"
 
-export interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface TabsListProps
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> {}
 
-const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
-  ({ className, ...props }, ref) => {
-    const context = React.useContext(TabsContext)
-    if (!context) throw new Error("TabsList must be used within Tabs")
+const TabsList = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.List>,
+  TabsListProps
+>(({ className, ...props }, ref) => {
+  const { variant, size } = React.useContext(TabsStyleContext)
 
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          tabListVariants({ variant: context.variant, size: context.size }),
-          className
-        )}
-        role="tablist"
-        {...props}
-      />
-    )
-  }
-)
+  return (
+    <TabsListBase
+      ref={ref}
+      className={cn(tabListVariants({ variant, size }), className)}
+      {...props}
+    />
+  )
+})
 TabsList.displayName = "TabsList"
 
 export interface TabsTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  value: string
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
   icon?: React.ReactNode
 }
 
-const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
-  ({ className, value, icon, children, disabled, ...props }, ref) => {
-    const context = React.useContext(TabsContext)
-    if (!context) throw new Error("TabsTrigger must be used within Tabs")
+const TabsTrigger = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Trigger>,
+  TabsTriggerProps
+>(({ className, icon, children, ...props }, ref) => {
+  const { variant, size } = React.useContext(TabsStyleContext)
 
-    const isActive = context.value === value
-
-    return (
-      <button
-        ref={ref}
-        type="button"
-        role="tab"
-        aria-selected={isActive}
-        aria-controls={`tabpanel-${value}`}
-        id={`tab-${value}`}
-        disabled={disabled}
-        data-state={isActive ? "active" : "inactive"}
-        onClick={() => context.onValueChange(value)}
-        className={cn(
-          tabTriggerVariants({
-            variant: context.variant,
-            size: context.size,
-          }),
-          "flex items-center gap-2",
-          className
-        )}
-        {...props}
-      >
-        {icon && <span className="flex-shrink-0">{icon}</span>}
-        {children}
-      </button>
-    )
-  }
-)
+  return (
+    <TabsTriggerBase
+      ref={ref}
+      className={cn(
+        tabTriggerVariants({ variant, size }),
+        "flex items-center gap-2",
+        className
+      )}
+      {...props}
+    >
+      {icon && <span className="flex-shrink-0">{icon}</span>}
+      {children}
+    </TabsTriggerBase>
+  )
+})
 TabsTrigger.displayName = "TabsTrigger"
 
 export interface TabsContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  value: string
-}
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> {}
 
-const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(
-  ({ className, value, children, ...props }, ref) => {
-    const context = React.useContext(TabsContext)
-    if (!context) throw new Error("TabsContent must be used within Tabs")
-
-    const isActive = context.value === value
-
-    if (!isActive) return null
-
-    return (
-      <div
-        ref={ref}
-        role="tabpanel"
-        id={`tabpanel-${value}`}
-        aria-labelledby={`tab-${value}`}
-        className={cn(tabContentVariants(), className)}
-        {...props}
-      >
-        {children}
-      </div>
-    )
-  }
-)
+const TabsContent = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Content>,
+  TabsContentProps
+>(({ className, ...props }, ref) => (
+  <TabsContentBase
+    ref={ref}
+    className={cn(tabContentVariants(), className)}
+    {...props}
+  />
+))
 TabsContent.displayName = "TabsContent"
 
 export {
