@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { useKcContext } from "@/login/KcContext";
 import { useState } from "react";
 import { assert } from "tsafe/assert";

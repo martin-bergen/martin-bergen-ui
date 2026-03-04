@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import {
     Select,
     SelectContent,

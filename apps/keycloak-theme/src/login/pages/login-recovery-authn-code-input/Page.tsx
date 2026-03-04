@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useI18n } from "@/login/i18n";

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { useI18n } from "@/login/i18n";
 import type { Attribute } from "@keycloakify/login-ui/KcContext";
 import {

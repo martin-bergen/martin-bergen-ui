@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";

@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useI18n } from "@/login/i18n";
 import { IoCheckmark, IoLanguage } from "react-icons/io5";
-import { Button } from "./ui/button";
+import { Button } from "@berget-ai/ui";
 
 export function Languages() {
     const { msgStr, currentLanguage, enabledLanguages } = useI18n();

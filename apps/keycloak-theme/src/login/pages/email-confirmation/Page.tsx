@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { assert } from "tsafe/assert";
 import { Template } from "../../components/Template";
 import { useI18n } from "../../i18n";

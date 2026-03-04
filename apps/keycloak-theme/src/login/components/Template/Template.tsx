@@ -1,7 +1,7 @@
 import { Languages } from "@/components/langauges";
 import { ModeToggle } from "@/components/theme-toggle";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { redirectUrlOrigin } from "@/login/shared/redirectUrlOrigin";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";

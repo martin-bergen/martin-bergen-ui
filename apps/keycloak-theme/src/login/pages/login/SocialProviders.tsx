@@ -1,5 +1,5 @@
 import { cn } from '@/components/lib/utils';
-import { Button } from "@/components/ui/button";
+import { Button } from "@berget-ai/ui";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { clsx } from "@keycloakify/login-ui/tools/clsx";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
