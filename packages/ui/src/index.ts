@@ -144,3 +144,9 @@ export type { StepperProps, Step } from "./components/organisms/stepper";
 
 export { Terminal } from "./components/organisms/terminal";
 export type { TerminalProps, TerminalStep } from "./components/organisms/terminal";
+
+export { TerminalCarousel } from "./components/organisms/terminal-carousel";
+export type { TerminalCarouselProps, TerminalExample } from "./components/organisms/terminal-carousel";
+
+export { CarouselNav } from "./components/molecules/carousel-nav";
+export type { CarouselNavProps } from "./components/molecules/carousel-nav";
