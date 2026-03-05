@@ -185,7 +185,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                             <div className="flex items-center gap-2 flex-wrap text-[hsl(var(--muted-foreground))]">
                                 {!post.authorImage && (
                                     <User
-                                        className="w-7 h-7 text-white"
+                                        className="w-4 h-4 text-white"
                                         strokeWidth={2}
                                     />
                                 )}
@@ -195,7 +195,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                                 <span>•</span>
                                 <div className="flex items-center gap-1.5">
                                     <Calendar
-                                        className="w-7 h-7 text-white"
+                                        className="w-4 h-4 text-white"
                                         strokeWidth={2}
                                     />
                                     <span>{post.date}</span>
@@ -205,7 +205,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                                         <span>•</span>
                                         <div className="flex items-center gap-1.5">
                                             <Clock
-                                                className="w-7 h-7 text-white"
+                                                className="w-4 h-4 text-white"
                                                 strokeWidth={2}
                                             />
                                             <span>{post.readTime} min</span>
@@ -222,7 +222,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                             <div className="flex items-center gap-2 text-sm font-medium text-[hsl(var(--secondary))] group-hover:gap-3 transition-all">
                                 Read More
                                 <ArrowRight
-                                    className="w-7 h-7 text-[hsl(var(--secondary))]"
+                                    className="w-4 h-4 text-[hsl(var(--secondary))]"
                                     strokeWidth={2}
                                 />
                             </div>
