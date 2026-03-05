@@ -59,7 +59,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
         className={cn(
           sectionHeaderVariants({ alignment, size }),
           maxWidthClasses[maxWidth],
-          alignment === "center" && "mx-auto",
+          (alignment === "center" || alignment === undefined) && "mx-auto",
           className
         )}
         {...props}
