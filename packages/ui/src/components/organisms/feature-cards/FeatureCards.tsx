@@ -1,0 +1,237 @@
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { LucideIcon } from "lucide-react";
+import { Card } from "../../atoms/card";
+import { FeatureList } from "../../molecules/list";
+
+const featureCardVariants = cva("", {
+    variants: {
+        variant: {
+            default: "",
+            highlight: ""
+        }
+    },
+    defaultVariants: {
+        variant: "default"
+    }
+});
+
+export interface FeatureCardProps
+    extends React.HTMLAttributes<HTMLDivElement>,
+        VariantProps<typeof featureCardVariants> {
+    /**
+     * Icon to display
+     */
+    icon?: LucideIcon;
+    /**
+     * Custom color for the icon (e.g., "#52B788" or "text-[#52B788]")
+     */
+    iconColor?: string;
+    /**
+     * Title of the feature
+     */
+    title: string;
+    /**
+     * Description of the feature
+     */
+    description: string;
+    /**
+     * Optional badge text
+     */
+    badge?: string;
+    /**
+     * Optional link text
+     */
+    linkText?: string;
+    /**
+     * Optional link href
+     */
+    linkHref?: string;
+    /**
+     * Optional list items to display below description
+     */
+    items?: string[];
+    /**
+     * Number of columns in the grid
+     * @default 3
+     */
+    columns?: 1 | 2 | 3 | 4;
+}
+
+/**
+ * Feature Card Component
+ *
+ * Feature card with icon, badge, title, description, and optional list items.
+ * Based on Card highlight variant.
+ *
+ * **Use Cases:**
+ * - Feature showcases
+ * - Product highlights
+ * - Service descriptions
+ * - Benefits sections
+ *
+ * @example
+ * ```tsx
+ * <FeatureCard
+ *   icon={Cpu}
+ *   title="Dedicated Inference"
+ *   description="Run and scale any model, including your own fine-tuned models on dedicated capacity."
+ *   badge="Coming Soon"
+ *   items={[
+ *     "Customizable instances",
+ *     "High-demand workloads",
+ *     "Dedicated resources"
+ *   ]}
+ * />
+ * ```
+ */
+const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
+    (
+        {
+            className,
+            variant,
+            icon: Icon,
+            iconColor,
+            title,
+            description,
+            badge,
+            linkText,
+            linkHref,
+            items,
+            columns,
+            ...props
+        },
+        ref
+    ) => {
+        return (
+            <Card
+                ref={ref}
+                variant="highlight"
+                className={cn(
+                    "w-full min-w-[280px] max-w-[413px] p-[48px_40px] transition-all duration-300 hover:scale-105",
+                    className
+                )}
+                {...props}
+            >
+                <div className="flex flex-col items-start gap-[32px]">
+                    {/* Icon and badge on same row */}
+                    {(Icon || badge) && (
+                        <div className="flex items-center justify-between w-full">
+                            {Icon && (
+                                <div className="flex h-7 w-7 items-center justify-center">
+                                    <Icon
+                                        className={cn(
+                                            "h-7 w-7",
+                                            iconColor || "text-foreground"
+                                        )}
+                                        strokeWidth={1.5}
+                                    />
+                                </div>
+                            )}
+
+                            {badge && (
+                                <div className="flex h-6 items-center justify-start px-6 bg-spruce rounded-full">
+                                    <span className="text-xs font-normal leading-4 text-warning">
+                                        {badge}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    <h3 className="text-[40px] leading-[56px] tracking-[-0.03em] text-foreground font-normal font-['Ovo']">
+                        {title}
+                    </h3>
+
+                    <p className="text-base leading-6 text-foreground/80 font-normal font-['DM_Sans']">
+                        {description}
+                    </p>
+
+                    {items && items.length > 0 && (
+                        <FeatureList items={items} variant="bullet" />
+                    )}
+
+                    {linkText && linkHref && (
+                        <a
+                            href={linkHref}
+                            className="text-sm text-lichen hover:underline"
+                        >
+                            {linkText} →
+                        </a>
+                    )}
+                </div>
+            </Card>
+        );
+    }
+);
+FeatureCard.displayName = "FeatureCard";
+
+export interface FeatureCardsProps {
+    /**
+     * Array of feature cards to display
+     */
+    features: FeatureCardProps[];
+    /**
+     * Number of columns in the grid
+     * @default 3
+     */
+    columns?: 1 | 2 | 3 | 4;
+    /**
+     * Additional CSS classes
+     */
+    className?: string;
+}
+
+/**
+ * Feature Cards Component
+ *
+ * Displays multiple feature cards in a responsive grid layout.
+ * Perfect for feature showcases, product highlights, and benefits sections.
+ *
+ * @example
+ * ```tsx
+ * const features = [
+ *   {
+ *     icon: Cpu,
+ *     title: "Dedicated Inference",
+ *     description: "Run and scale any model on dedicated capacity.",
+ *     badge: "Coming Soon",
+ *     items: ["Customizable instances", "High-demand workloads", "Dedicated resources"]
+ *   },
+ *   {
+ *     icon: Zap,
+ *     title: "Lightning Fast",
+ *     description: "Optimized for speed and performance.",
+ *     badge: "New"
+ *   },
+ * ]
+ *
+ * <FeatureCards features={features} columns={3} />
+ * ```
+ */
+export const FeatureCards = React.forwardRef<HTMLDivElement, FeatureCardsProps>(
+    ({ features, columns = 3, className }, ref) => {
+        return (
+            <div
+                ref={ref}
+                className={cn(
+                    "grid gap-6 md:gap-8 p-6",
+                    // Explicit classes so Tailwind compiles them
+                    columns === 1 && "grid-cols-1 max-w-md mx-auto",
+                    columns === 2 && "grid-cols-1 md:grid-cols-2",
+                    columns === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+                    columns === 4 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+                    className
+                )}
+            >
+                {features.map((feature, index) => (
+                    <FeatureCard key={index} {...feature} />
+                ))}
+            </div>
+        );
+    }
+);
+FeatureCards.displayName = "FeatureCards";
+
+export { FeatureCard, featureCardVariants };
