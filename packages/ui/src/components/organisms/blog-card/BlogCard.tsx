@@ -119,9 +119,9 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                 className={cn(
                     "group rounded-2xl border backdrop-blur-xl transition-all duration-500 cursor-pointer relative",
                     variant === "featured" &&
-                        "border-[hsl(var(--secondary))]/30 bg-[hsl(var(--secondary))]/5 hover:border-[hsl(var(--secondary))]/50",
+                        "border-secondary/30 bg-secondary/5 hover:border-secondary/50",
                     variant === "default" &&
-                        "border-[hsl(var(--border))] bg-white/5 hover:border-[hsl(var(--border-hover))] hover:-translate-y-1",
+                        "border-border bg-white/5 hover:border-border-hover hover:-translate-y-1",
                     variant === "minimal" &&
                         "border-transparent bg-transparent hover:bg-white/5",
                     className
@@ -130,7 +130,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                 {...props}
             >
                 {/* Gradient hover effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-[hsl(var(--secondary))]/5 via-[hsl(var(--accent))]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-secondary/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 {/* Image */}
                 {post.image && (
                     <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-white/5">
@@ -160,7 +160,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     {/* Title */}
                     <h3
                         className={cn(
-                            "font-medium mb-3 group-hover:text-[hsl(var(--secondary))] transition-colors",
+                            "font-medium mb-3 group-hover:text-secondary transition-colors",
                             variant === "featured" ? "text-2xl md:text-3xl" : "text-xl"
                         )}
                     >
@@ -168,7 +168,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-[hsl(var(--muted-foreground))] mb-4 line-clamp-3">
+                    <p className="text-muted-foreground mb-4 line-clamp-3">
                         {post.excerpt}
                     </p>
 
@@ -182,10 +182,10 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                             />
                         )}
                         <div className="flex-1">
-                            <div className="flex items-center gap-2 flex-wrap text-[hsl(var(--muted-foreground))]">
+                            <div className="flex items-center gap-2 flex-wrap text-muted-foreground">
                                 {!post.authorImage && (
                                     <User
-                                        className="w-7 h-7 text-white"
+                                        className="w-4 h-4 text-white"
                                         strokeWidth={2}
                                     />
                                 )}
@@ -195,7 +195,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                                 <span>•</span>
                                 <div className="flex items-center gap-1.5">
                                     <Calendar
-                                        className="w-7 h-7 text-white"
+                                        className="w-4 h-4 text-white"
                                         strokeWidth={2}
                                     />
                                     <span>{post.date}</span>
@@ -205,7 +205,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                                         <span>•</span>
                                         <div className="flex items-center gap-1.5">
                                             <Clock
-                                                className="w-7 h-7 text-white"
+                                                className="w-4 h-4 text-white"
                                                 strokeWidth={2}
                                             />
                                             <span>{post.readTime} min</span>
@@ -218,11 +218,11 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
 
                     {/* Read More */}
                     {variant !== "minimal" && (
-                        <div className="mt-4 pt-4 border-t border-[hsl(var(--border))]">
-                            <div className="flex items-center gap-2 text-sm font-medium text-[hsl(var(--secondary))] group-hover:gap-3 transition-all">
+                        <div className="mt-4 pt-4 border-t border-border">
+                            <div className="flex items-center gap-2 text-sm font-medium text-secondary group-hover:gap-3 transition-all">
                                 Read More
                                 <ArrowRight
-                                    className="w-7 h-7 text-[hsl(var(--secondary))]"
+                                    className="w-4 h-4 text-secondary"
                                     strokeWidth={2}
                                 />
                             </div>
