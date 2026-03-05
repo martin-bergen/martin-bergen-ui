@@ -3,7 +3,7 @@ import { copyFileSync, mkdirSync } from "fs";
 import path from "path";
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: ["src/index.ts", "src/shiki.ts"],
   format: ["esm", "cjs"],
   dts: true,
   sourcemap: true,

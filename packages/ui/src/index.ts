@@ -150,3 +150,6 @@ export type { TerminalCarouselProps, TerminalExample } from "./components/organi
 
 export { CarouselNav } from "./components/molecules/carousel-nav";
 export type { CarouselNavProps } from "./components/molecules/carousel-nav";
+
+export { CodeBlock } from "./components/organisms/code-block/index";
+export type { CodeBlockProps } from "./components/organisms/code-block/index";
