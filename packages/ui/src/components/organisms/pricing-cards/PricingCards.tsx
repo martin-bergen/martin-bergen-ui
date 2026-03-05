@@ -122,7 +122,7 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
                     <Card
                         key={tier.id}
                         variant="highlight"
-                        className="w-full min-w-[280px] max-w-[400px] p-6 md:p-8 transition-all duration-300"
+                        className="w-full min-w-[280px] max-w-[400px] p-6 md:p-8"
                     >
                         <div className="mb-6">
                             <h3 className="text-xl md:text-2xl font-medium mb-2">

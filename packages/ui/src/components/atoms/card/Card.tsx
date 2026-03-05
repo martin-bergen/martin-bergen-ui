@@ -11,15 +11,15 @@ import {
 } from "../../../primitives/card"
 
 const cardVariants = cva(
-  "rounded-2xl relative overflow-hidden transition-colors duration-200",
+  "rounded-2xl relative overflow-hidden",
   {
     variants: {
       variant: {
         highlight:
-          "bg-slate/20 border-slate/40 hover:border-slate/50 backdrop-blur-[12px]",
+          "bg-slate/20 border-slate/40 backdrop-blur-[12px]",
         glass:
-          "bg-cloud/5 border-cloud/10 hover:border-cloud/15 backdrop-blur-[24px] shadow-xl",
-        solid: "bg-slate border-slate/40 hover:border-slate/50",
+          "bg-cloud/5 border-cloud/10 backdrop-blur-[24px] shadow-xl",
+        solid: "bg-slate border-slate/40",
       },
       padding: {
         none: "",
