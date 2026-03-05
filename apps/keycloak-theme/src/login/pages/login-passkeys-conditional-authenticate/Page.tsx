@@ -219,8 +219,7 @@ export function Page() {
                                 style={{ display: "none" }}
                                 onSubmit={event => {
                                     try {
-                                        // @ts-expect-error: Ok
-                                        event.target.login.disabled = true;
+                                        (event.target as any).login.disabled = true;
                                     } catch {
                                         /* empty */
                                     }
