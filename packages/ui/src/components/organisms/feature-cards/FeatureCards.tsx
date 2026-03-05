@@ -109,7 +109,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                 ref={ref}
                 variant="highlight"
                 className={cn(
-                    "w-full min-w-[280px] max-w-[413px] p-[48px_40px] transition-all duration-300 hover:scale-105",
+                    "w-full min-w-[280px] max-w-[413px] p-[48px_40px]",
                     className
                 )}
                 {...props}
@@ -155,7 +155,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
                     {linkText && linkHref && (
                         <a
                             href={linkHref}
-                            className="text-sm text-lichen hover:underline"
+                            className="text-sm text-lichen"
                         >
                             {linkText} →
                         </a>

@@ -117,27 +117,25 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
             <div
                 ref={ref}
                 className={cn(
-                    "group rounded-2xl border backdrop-blur-xl transition-all duration-500 cursor-pointer relative",
+                    "rounded-2xl border backdrop-blur-xl cursor-pointer relative",
                     variant === "featured" &&
-                        "border-secondary/30 bg-secondary/5 hover:border-secondary/50",
+                        "border-secondary/30 bg-secondary/5",
                     variant === "default" &&
-                        "border-border bg-white/5 hover:border-border-hover hover:-translate-y-1",
+                        "border-border bg-white/5",
                     variant === "minimal" &&
-                        "border-transparent bg-transparent hover:bg-white/5",
+                        "border-transparent bg-transparent",
                     className
                 )}
                 onClick={handleClick}
                 {...props}
             >
-                {/* Gradient hover effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-secondary/5 via-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 {/* Image */}
                 {post.image && (
                     <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-white/5">
                         <img
                             src={post.image}
                             alt={post.imageAlt || post.title}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="w-full h-full object-cover"
                         />
                     </div>
                 )}
@@ -160,7 +158,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     {/* Title */}
                     <h3
                         className={cn(
-                            "font-medium mb-3 group-hover:text-secondary transition-colors",
+                            "font-medium mb-3",
                             variant === "featured" ? "text-2xl md:text-3xl" : "text-xl"
                         )}
                     >
@@ -219,7 +217,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     {/* Read More */}
                     {variant !== "minimal" && (
                         <div className="mt-4 pt-4 border-t border-border">
-                            <div className="flex items-center gap-2 text-sm font-medium text-secondary group-hover:gap-3 transition-all">
+                            <div className="flex items-center gap-2 text-sm font-medium text-secondary">
                                 Read More
                                 <ArrowRight
                                     className="w-4 h-4 text-secondary"
