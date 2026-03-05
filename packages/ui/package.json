@@ -14,7 +14,12 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles": "./dist/styles/index.css"
+    "./styles": "./dist/styles/index.css",
+    "./shiki": {
+      "types": "./dist/shiki.d.ts",
+      "import": "./dist/shiki.js",
+      "require": "./dist/shiki.cjs"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -45,6 +50,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.427.0",
+    "shiki": "^4.0.0",
     "tailwind-merge": "^3.5.0"
   },
   "peerDependencies": {
