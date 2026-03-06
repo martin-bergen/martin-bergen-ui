@@ -1,16 +1,16 @@
-import * as React from 'react'
-import { cn } from '../../../lib/utils'
+import * as React from "react";
+import { cn } from "../../../lib/utils";
 
 export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode
+  children?: React.ReactNode;
   /** Size of the pattern tiles in pixels @default 48 */
-  tileSize?: 32 | 48
+  tileSize?: 32 | 48;
   /** Don't set background color, only show pattern overlay @default false */
-  overlayOnly?: boolean
+  overlayOnly?: boolean;
   /** Opacity of the grid lines (0-1) @default 0.04 */
-  lineOpacity?: number
+  lineOpacity?: number;
   /** Opacity of the dots in the pattern (0-1) @default 0.02 */
-  dotOpacity?: number
+  dotOpacity?: number;
 }
 
 const PatternBackground = React.forwardRef<
@@ -31,7 +31,7 @@ const PatternBackground = React.forwardRef<
   ) => {
     const patterns = {
       32: {
-        size: '32px 32px',
+        size: "32px 32px",
         backgroundImage: `
         linear-gradient(rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
@@ -47,7 +47,7 @@ const PatternBackground = React.forwardRef<
       `,
       },
       48: {
-        size: '48px 48px',
+        size: "48px 48px",
         backgroundImage: `
         linear-gradient(rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
@@ -62,17 +62,17 @@ const PatternBackground = React.forwardRef<
         radial-gradient(circle at 48px 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px)
       `,
       },
-    }
+    };
 
-    const pattern = patterns[tileSize]
+    const pattern = patterns[tileSize];
 
     return (
       <div
         ref={ref}
         className={cn(
-          'relative overflow-hidden',
-          overlayOnly && 'absolute inset-0',
-          !overlayOnly && 'bg-night',
+          "relative overflow-hidden",
+          overlayOnly && "absolute inset-0",
+          !overlayOnly && "bg-night",
           className,
         )}
         {...props}
@@ -82,16 +82,16 @@ const PatternBackground = React.forwardRef<
           style={{
             backgroundImage: pattern.backgroundImage,
             backgroundSize: pattern.size,
-            backgroundPosition: '0 0',
+            backgroundPosition: "0 0",
             opacity: 0.8,
           }}
         />
 
         {children && <div className="relative z-10">{children}</div>}
       </div>
-    )
+    );
   },
-)
-PatternBackground.displayName = 'PatternBackground'
+);
+PatternBackground.displayName = "PatternBackground";
 
-export { PatternBackground }
+export { PatternBackground };

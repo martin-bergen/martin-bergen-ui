@@ -1,44 +1,44 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { BergetLogotype } from '.'
+import type { Meta, StoryObj } from "@storybook/react";
+import { BergetLogotype } from ".";
 
 const meta: Meta<typeof BergetLogotype> = {
-  title: 'Atoms/BergetLogotype',
+  title: "Atoms/BergetLogotype",
   component: BergetLogotype,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     size: {
-      control: { type: 'range', min: 24, max: 200, step: 8 },
-      description: 'Height of the logotype in pixels',
+      control: { type: "range", min: 24, max: 200, step: 8 },
+      description: "Height of the logotype in pixels",
     },
     variant: {
-      control: 'select',
-      options: ['light', 'dark'],
-      description: 'Color variant for different backgrounds',
+      control: "select",
+      options: ["light", "dark"],
+      description: "Color variant for different backgrounds",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof BergetLogotype>
+export default meta;
+type Story = StoryObj<typeof BergetLogotype>;
 
 export const Interactive: Story = {
   args: {
     size: 48,
-    variant: 'light',
+    variant: "light",
   },
   render: (args) => (
     <div
       className={
-        args.variant === 'light' ? 'bg-background p-8' : 'bg-white p-8'
+        args.variant === "light" ? "bg-background p-8" : "bg-white p-8"
       }
     >
       <BergetLogotype {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -83,4 +83,4 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};

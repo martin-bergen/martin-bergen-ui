@@ -2,52 +2,52 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
-const { KcPageStory } = createKcPageStory({ pageId: 'login-verify-email.ftl' })
+const { KcPageStory } = createKcPageStory({ pageId: "login-verify-email.ftl" });
 
 const meta = {
-  title: 'login/login-verify-email.ftl',
+  title: "login/login-verify-email.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     kcContext: {
       message: {
-        summary: 'You need to verify your email to activate your account.',
-        type: 'warning',
+        summary: "You need to verify your email to activate your account.",
+        type: "warning",
       },
       user: {
-        email: 'john.doe@gmail.com',
+        email: "john.doe@gmail.com",
       },
     },
   },
-}
+};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 /**
  * WithSuccessMessage:
@@ -59,18 +59,18 @@ export const WithSuccessMessage: Story = {
   args: {
     kcContext: {
       message: {
-        summary: 'Your email has been successfully verified.',
-        type: 'success',
+        summary: "Your email has been successfully verified.",
+        type: "success",
       },
       user: {
-        email: 'john.doe@gmail.com',
+        email: "john.doe@gmail.com",
       },
       url: {
-        loginAction: '/mock-login-action',
+        loginAction: "/mock-login-action",
       },
     },
   },
-}
+};
 
 /**
  * WithErrorMessage:
@@ -82,18 +82,18 @@ export const WithErrorMessage: Story = {
   args: {
     kcContext: {
       message: {
-        summary: 'There was an error verifying your email. Please try again.',
-        type: 'error',
+        summary: "There was an error verifying your email. Please try again.",
+        type: "error",
       },
       user: {
-        email: 'john.doe@gmail.com',
+        email: "john.doe@gmail.com",
       },
       url: {
-        loginAction: '/mock-login-action',
+        loginAction: "/mock-login-action",
       },
     },
   },
-}
+};
 
 /**
  * WithInfoMessage:
@@ -105,15 +105,15 @@ export const WithInfoMessage: Story = {
   args: {
     kcContext: {
       message: {
-        summary: 'Please verify your email to continue using our services.',
-        type: 'info',
+        summary: "Please verify your email to continue using our services.",
+        type: "info",
       },
       user: {
-        email: 'john.doe@gmail.com',
+        email: "john.doe@gmail.com",
       },
       url: {
-        loginAction: '/mock-login-action',
+        loginAction: "/mock-login-action",
       },
     },
   },
-}
+};

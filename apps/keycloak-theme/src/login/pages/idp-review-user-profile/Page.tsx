@@ -1,24 +1,24 @@
-import { Button } from '@berget-ai/ui'
-import { useKcContext } from '@/login/KcContext'
-import { useState } from 'react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { UserProfileFormFields } from '../../components/UserProfileFormFields'
-import { useI18n } from '../../i18n'
+import { Button } from "@berget-ai/ui";
+import { useKcContext } from "@/login/KcContext";
+import { useState } from "react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { UserProfileFormFields } from "../../components/UserProfileFormFields";
+import { useI18n } from "../../i18n";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'idp-review-user-profile.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "idp-review-user-profile.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const [isFomSubmittable, setIsFomSubmittable] = useState(false)
+  const [isFomSubmittable, setIsFomSubmittable] = useState(false);
 
   return (
     <Template
-      displayMessage={kcContext.messagesPerField.exists('global')}
+      displayMessage={kcContext.messagesPerField.exists("global")}
       displayRequiredFields
-      headerNode={msg('loginIdpReviewProfileTitle')}
+      headerNode={msg("loginIdpReviewProfileTitle")}
     >
       <form
         id="kc-idp-review-profile-form"
@@ -39,11 +39,11 @@ export function Page() {
               disabled={!isFomSubmittable}
               type="submit"
             >
-              {msgStr('doSubmit')}
+              {msgStr("doSubmit")}
             </Button>
           </div>
         </div>
       </form>
     </Template>
-  )
+  );
 }

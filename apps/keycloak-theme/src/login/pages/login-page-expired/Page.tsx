@@ -1,39 +1,39 @@
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-page-expired.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-page-expired.ftl");
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
   return (
-    <Template headerNode={msg('pageExpiredTitle')}>
+    <Template headerNode={msg("pageExpiredTitle")}>
       <Alert variant="warning" className="my-6">
         <AlertDescription>
           <div className="space-y-3 text-sm leading-relaxed">
             <p>
-              {msg('pageExpiredMsg1')}{' '}
+              {msg("pageExpiredMsg1")}{" "}
               <a
                 id="loginRestartLink"
                 href={kcContext.url.loginRestartFlowUrl}
                 className="text-primary dark:text-white hover:text-primary/80 underline underline-offset-2 font-medium"
               >
-                {msg('doClickHere')}
+                {msg("doClickHere")}
               </a>
               .
             </p>
             <p>
-              {msg('pageExpiredMsg2')}{' '}
+              {msg("pageExpiredMsg2")}{" "}
               <a
                 id="loginContinueLink"
                 href={kcContext.url.loginAction}
                 className="text-primary dark:text-white hover:text-primary/80 underline underline-offset-2 font-medium"
               >
-                {msg('doClickHere')}
+                {msg("doClickHere")}
               </a>
               .
             </p>
@@ -41,5 +41,5 @@ export function Page() {
         </AlertDescription>
       </Alert>
     </Template>
-  )
+  );
 }

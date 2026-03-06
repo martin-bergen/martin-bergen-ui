@@ -1,7 +1,7 @@
-export { GrainyGradientBackground } from './GrainyGradientBackground'
+export { GrainyGradientBackground } from "./GrainyGradientBackground";
 export type {
   GrainyGradientBackgroundProps,
   EllipseConfig,
   EllipseColor,
   EllipseAnimation,
-} from './GrainyGradientBackground'
+} from "./GrainyGradientBackground";

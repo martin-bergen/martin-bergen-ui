@@ -1,15 +1,15 @@
-import { clsx } from '@keycloakify/login-ui/tools/clsx'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
-import { Fragment } from 'react'
-import { assert } from 'tsafe/assert'
-import { useKcContext } from '../../KcContext'
-import { Template } from '../../components/Template'
-import { useI18n } from '../../i18n'
-import { useScript } from './useScript'
+import { clsx } from "@keycloakify/login-ui/tools/clsx";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { Fragment } from "react";
+import { assert } from "tsafe/assert";
+import { useKcContext } from "../../KcContext";
+import { Template } from "../../components/Template";
+import { useI18n } from "../../i18n";
+import { useScript } from "./useScript";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-passkeys-conditional-authenticate.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-passkeys-conditional-authenticate.ftl");
 
   const {
     messagesPerField,
@@ -20,27 +20,27 @@ export function Page() {
     authenticators,
     registrationDisabled,
     realm,
-  } = kcContext
+  } = kcContext;
 
-  const { msg, msgStr, advancedMsg } = useI18n()
+  const { msg, msgStr, advancedMsg } = useI18n();
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
-  const webAuthnButtonId = 'authenticateWebAuthnButton'
+  const webAuthnButtonId = "authenticateWebAuthnButton";
 
-  useScript({ webAuthnButtonId })
+  useScript({ webAuthnButtonId });
 
   return (
     <Template
-      headerNode={msg('passkey-login-title')}
+      headerNode={msg("passkey-login-title")}
       infoNode={
         realm.registrationAllowed &&
         !registrationDisabled && (
           <div id="kc-registration">
             <span>
-              ${msg('noAccount')}{' '}
+              ${msg("noAccount")}{" "}
               <a tabIndex={6} href={url.registrationUrl}>
-                {msg('doRegister')}
+                {msg("doRegister")}
               </a>
             </span>
           </div>
@@ -56,11 +56,11 @@ export function Page() {
         <input type="hidden" id="error" name="error" />
       </form>
 
-      <div className={kcClsx('kcFormGroupClass')} style={{ marginBottom: 0 }}>
+      <div className={kcClsx("kcFormGroupClass")} style={{ marginBottom: 0 }}>
         {authenticators !== undefined &&
           Object.keys(authenticators).length !== 0 && (
             <>
-              <form id="authn_select" className={kcClsx('kcFormClass')}>
+              <form id="authn_select" className={kcClsx("kcFormClass")}>
                 {authenticators.authenticators.map((authenticator, i) => (
                   <input
                     key={i}
@@ -74,40 +74,40 @@ export function Page() {
               {shouldDisplayAuthenticators && (
                 <>
                   {authenticators.authenticators.length > 1 && (
-                    <p className={kcClsx('kcSelectAuthListItemTitle')}>
-                      {msg('passkey-available-authenticators')}
+                    <p className={kcClsx("kcSelectAuthListItemTitle")}>
+                      {msg("passkey-available-authenticators")}
                     </p>
                   )}
-                  <div className={kcClsx('kcFormClass')}>
+                  <div className={kcClsx("kcFormClass")}>
                     {authenticators.authenticators.map((authenticator, i) => (
                       <div
                         key={i}
                         id={`kc-webauthn-authenticator-item-${i}`}
-                        className={kcClsx('kcSelectAuthListItemClass')}
+                        className={kcClsx("kcSelectAuthListItemClass")}
                       >
                         <i
                           className={clsx(
                             (() => {
                               const className = kcClsx(
                                 authenticator.transports.iconClass as any,
-                              )
+                              );
                               if (
                                 className === authenticator.transports.iconClass
                               ) {
-                                return kcClsx('kcWebAuthnDefaultIcon')
+                                return kcClsx("kcWebAuthnDefaultIcon");
                               }
-                              return className
+                              return className;
                             })(),
-                            kcClsx('kcSelectAuthListItemIconPropertyClass'),
+                            kcClsx("kcSelectAuthListItemIconPropertyClass"),
                           )}
                         />
                         <div
-                          className={kcClsx('kcSelectAuthListItemBodyClass')}
+                          className={kcClsx("kcSelectAuthListItemBodyClass")}
                         >
                           <div
                             id={`kc-webauthn-authenticator-label-${i}`}
                             className={kcClsx(
-                              'kcSelectAuthListItemHeadingClass',
+                              "kcSelectAuthListItemHeadingClass",
                             )}
                           >
                             {advancedMsg(authenticator.label)}
@@ -120,15 +120,15 @@ export function Page() {
                               <div
                                 id={`kc-webauthn-authenticator-transport-${i}`}
                                 className={kcClsx(
-                                  'kcSelectAuthListItemDescriptionClass',
+                                  "kcSelectAuthListItemDescriptionClass",
                                 )}
                               >
                                 {authenticator.transports.displayNameProperties.map(
                                   (nameProperty, i, arr) => (
                                     <Fragment key={i}>
                                       <span key={i}>
-                                        {' '}
-                                        {advancedMsg(nameProperty)}{' '}
+                                        {" "}
+                                        {advancedMsg(nameProperty)}{" "}
                                       </span>
                                       {i !== arr.length - 1 && <span>, </span>}
                                     </Fragment>
@@ -138,13 +138,13 @@ export function Page() {
                             )}
                           <div
                             className={kcClsx(
-                              'kcSelectAuthListItemDescriptionClass',
+                              "kcSelectAuthListItemDescriptionClass",
                             )}
                           >
                             <span
                               id={`kc-webauthn-authenticator-createdlabel-${i}`}
                             >
-                              {msg('passkey-createdAt-label')}
+                              {msg("passkey-createdAt-label")}
                             </span>
                             <span id={`kc-webauthn-authenticator-created-${i}`}>
                               {authenticator.createdAt}
@@ -152,7 +152,7 @@ export function Page() {
                           </div>
                         </div>
                         <div
-                          className={kcClsx('kcSelectAuthListItemFillClass')}
+                          className={kcClsx("kcSelectAuthListItemFillClass")}
                         />
                       </div>
                     ))}
@@ -168,43 +168,43 @@ export function Page() {
                 id="kc-form-login"
                 action={url.loginAction}
                 method="post"
-                style={{ display: 'none' }}
+                style={{ display: "none" }}
                 onSubmit={(event) => {
                   try {
-                    ;(event.target as any).login.disabled = true
+                    (event.target as any).login.disabled = true;
                   } catch {
                     /* empty */
                   }
 
-                  return true
+                  return true;
                 }}
               >
                 {!usernameHidden && (
-                  <div className={kcClsx('kcFormGroupClass')}>
+                  <div className={kcClsx("kcFormGroupClass")}>
                     <label
                       htmlFor="username"
-                      className={kcClsx('kcLabelClass')}
+                      className={kcClsx("kcLabelClass")}
                     >
-                      {msg('passkey-autofill-select')}
+                      {msg("passkey-autofill-select")}
                     </label>
                     <input
                       tabIndex={1}
                       id="username"
-                      aria-invalid={messagesPerField.existsError('username')}
-                      className={kcClsx('kcInputClass')}
+                      aria-invalid={messagesPerField.existsError("username")}
+                      className={kcClsx("kcInputClass")}
                       name="username"
-                      defaultValue={login.username ?? ''}
+                      defaultValue={login.username ?? ""}
                       autoComplete="username webauthn"
                       type="text"
                       autoFocus
                     />
-                    {messagesPerField.existsError('username') && (
+                    {messagesPerField.existsError("username") && (
                       <span
                         id="input-error-username"
-                        className={kcClsx('kcInputErrorMessageClass')}
+                        className={kcClsx("kcInputErrorMessageClass")}
                         aria-live="polite"
                       >
-                        {messagesPerField.get('username')}
+                        {messagesPerField.get("username")}
                       </span>
                     )}
                   </div>
@@ -213,19 +213,19 @@ export function Page() {
             )}
             <div
               id="kc-form-passkey-button"
-              className={kcClsx('kcFormButtonsClass')}
-              style={{ display: 'none' }}
+              className={kcClsx("kcFormButtonsClass")}
+              style={{ display: "none" }}
             >
               <input
                 id={webAuthnButtonId}
                 type="button"
                 autoFocus
-                value={msgStr('passkey-doAuthenticate')}
+                value={msgStr("passkey-doAuthenticate")}
                 className={kcClsx(
-                  'kcButtonClass',
-                  'kcButtonPrimaryClass',
-                  'kcButtonBlockClass',
-                  'kcButtonLargeClass',
+                  "kcButtonClass",
+                  "kcButtonPrimaryClass",
+                  "kcButtonBlockClass",
+                  "kcButtonLargeClass",
                 )}
               />
             </div>
@@ -233,5 +233,5 @@ export function Page() {
         </div>
       </div>
     </Template>
-  )
+  );
 }

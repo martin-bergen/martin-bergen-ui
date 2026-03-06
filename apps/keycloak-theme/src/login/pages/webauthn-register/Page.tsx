@@ -1,26 +1,26 @@
-import { Button } from '@berget-ai/ui'
-import { LogoutOtherSessions } from '@/login/components/LogoutOtherSessions'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { useScript } from './useScript'
+import { Button } from "@berget-ai/ui";
+import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { useScript } from "./useScript";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'webauthn-register.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "webauthn-register.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const webAuthnButtonId = 'authenticateWebAuthnButton'
+  const webAuthnButtonId = "authenticateWebAuthnButton";
 
-  useScript({ webAuthnButtonId })
+  useScript({ webAuthnButtonId });
 
   return (
     <Template
       headerNode={
         <div className="flex items-center justify-center gap-2">
-          <span>{msg('webauthn-registration-title')}</span>
+          <span>{msg("webauthn-registration-title")}</span>
         </div>
       }
     >
@@ -50,7 +50,7 @@ export function Page() {
 
         <div className="space-y-3">
           <Button type="button" className="w-full" id={webAuthnButtonId}>
-            {msgStr('doRegisterSecurityKey')}
+            {msgStr("doRegisterSecurityKey")}
           </Button>
 
           {!kcContext.isSetRetry && kcContext.isAppInitiatedAction && (
@@ -67,12 +67,12 @@ export function Page() {
                 name="cancel-aia"
                 value="true"
               >
-                {msgStr('doCancel')}
+                {msgStr("doCancel")}
               </Button>
             </form>
           )}
         </div>
       </div>
     </Template>
-  )
+  );
 }

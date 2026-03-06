@@ -1,36 +1,36 @@
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button, Checkbox, Label } from '@berget-ai/ui'
-import { LogoutOtherSessions } from '@/login/components/LogoutOtherSessions'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { Copy, Download, Printer } from 'lucide-react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { useScript } from './useScript'
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button, Checkbox, Label } from "@berget-ai/ui";
+import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { Copy, Download, Printer } from "lucide-react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { useScript } from "./useScript";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-recovery-authn-code-config.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-recovery-authn-code-config.ftl");
 
-  const { recoveryAuthnCodesConfigBean, isAppInitiatedAction } = kcContext
+  const { recoveryAuthnCodesConfigBean, isAppInitiatedAction } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const olRecoveryCodesListId = 'kc-recovery-codes-list'
+  const olRecoveryCodesListId = "kc-recovery-codes-list";
 
-  useScript({ olRecoveryCodesListId })
+  useScript({ olRecoveryCodesListId });
 
   return (
-    <Template headerNode={msg('recovery-code-config-header')}>
+    <Template headerNode={msg("recovery-code-config-header")}>
       <div className="space-y-6">
         <Alert variant="warning">
           <AlertDescription>
             <div className="space-y-2">
               <h4 className="font-medium">
-                {msg('recovery-code-config-warning-title')}
+                {msg("recovery-code-config-warning-title")}
               </h4>
               <p className="text-sm">
-                {msg('recovery-code-config-warning-message')}
+                {msg("recovery-code-config-warning-message")}
               </p>
             </div>
           </AlertDescription>
@@ -65,7 +65,7 @@ export function Page() {
             className="flex items-center gap-2"
           >
             <Printer className="w-4 h-4" />
-            {msg('recovery-codes-print')}
+            {msg("recovery-codes-print")}
           </Button>
           <Button
             id="downloadRecoveryCodes"
@@ -75,7 +75,7 @@ export function Page() {
             className="flex items-center gap-2"
           >
             <Download className="w-4 h-4" />
-            {msg('recovery-codes-download')}
+            {msg("recovery-codes-download")}
           </Button>
           <Button
             id="copyRecoveryCodes"
@@ -85,7 +85,7 @@ export function Page() {
             className="flex items-center gap-2"
           >
             <Copy className="w-4 h-4" />
-            {msg('recovery-codes-copy')}
+            {msg("recovery-codes-copy")}
           </Button>
         </div>
 
@@ -95,10 +95,10 @@ export function Page() {
             name="kcRecoveryCodesConfirmationCheck"
             onCheckedChange={(checked) => {
               const saveButton = document.getElementById(
-                'saveRecoveryAuthnCodesBtn',
-              ) as HTMLButtonElement | null
+                "saveRecoveryAuthnCodesBtn",
+              ) as HTMLButtonElement | null;
               if (saveButton) {
-                saveButton.disabled = !(checked === true)
+                saveButton.disabled = !(checked === true);
               }
             }}
           />
@@ -106,7 +106,7 @@ export function Page() {
             htmlFor="kcRecoveryCodesConfirmationCheck"
             className="text-sm font-medium cursor-pointer"
           >
-            {msg('recovery-codes-confirmation-message')}
+            {msg("recovery-codes-confirmation-message")}
           </Label>
         </div>
 
@@ -132,7 +132,7 @@ export function Page() {
             type="hidden"
             id="userLabel"
             name="userLabel"
-            value={msgStr('recovery-codes-label-default')}
+            value={msgStr("recovery-codes-label-default")}
           />
 
           <LogoutOtherSessions />
@@ -145,7 +145,7 @@ export function Page() {
                 disabled
                 className="sm:flex-1"
               >
-                {msgStr('recovery-codes-action-complete')}
+                {msgStr("recovery-codes-action-complete")}
               </Button>
               <Button
                 type="submit"
@@ -155,7 +155,7 @@ export function Page() {
                 id="cancelRecoveryAuthnCodesBtn"
                 className="sm:flex-1"
               >
-                {msg('recovery-codes-action-cancel')}
+                {msg("recovery-codes-action-cancel")}
               </Button>
             </div>
           ) : (
@@ -165,11 +165,11 @@ export function Page() {
               id="saveRecoveryAuthnCodesBtn"
               disabled
             >
-              {msgStr('recovery-codes-action-complete')}
+              {msgStr("recovery-codes-action-complete")}
             </Button>
           )}
         </form>
       </div>
     </Template>
-  )
+  );
 }

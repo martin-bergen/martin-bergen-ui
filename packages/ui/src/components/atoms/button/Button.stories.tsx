@@ -1,14 +1,14 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '.'
-import { ArrowRight, Download, Loader2, Mail, Plus } from 'lucide-react'
-import { cn } from '../../../lib/utils'
+import * as React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from ".";
+import { ArrowRight, Download, Loader2, Mail, Plus } from "lucide-react";
+import { cn } from "../../../lib/utils";
 
 const meta: Meta<typeof Button> = {
-  title: 'Atoms/Button',
+  title: "Atoms/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
         component: `
@@ -27,59 +27,59 @@ It supports all native button attributes and can be used with the \`asChild\` pr
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
+      control: "select",
       options: [
-        'default',
-        'primary',
-        'secondary',
-        'outline',
-        'ghost',
-        'destructive',
-        'link',
-        'highlight',
-        'stone',
-        'icon',
+        "default",
+        "primary",
+        "secondary",
+        "outline",
+        "ghost",
+        "destructive",
+        "link",
+        "highlight",
+        "stone",
+        "icon",
       ],
-      description: 'Visual style variant',
+      description: "Visual style variant",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'default', 'lg', 'icon'],
-      description: 'Size of the button',
+      control: "select",
+      options: ["sm", "default", "lg", "icon"],
+      description: "Size of the button",
     },
     width: {
-      control: 'select',
-      options: ['default', 'full'],
-      description: 'Width of the button',
+      control: "select",
+      options: ["default", "full"],
+      description: "Width of the button",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
     asChild: {
-      control: 'boolean',
-      description: 'Render as Slot for composition',
+      control: "boolean",
+      description: "Render as Slot for composition",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Button>
+export default meta;
+type Story = StoryObj<typeof Button>;
 
 export const Interactive: Story = {
   args: {
-    children: 'Button',
-    variant: 'default',
-    size: 'default',
-    width: 'default',
+    children: "Button",
+    variant: "default",
+    size: "default",
+    width: "default",
   },
   render: (args: React.ComponentProps<typeof Button>) => (
-    <div className={cn('p-4', args.width === 'full' && 'w-64')}>
+    <div className={cn("p-4", args.width === "full" && "w-64")}>
       <Button {...args}>
-        {args.variant === 'icon' ? (
+        {args.variant === "icon" ? (
           <Plus className="w-6 h-6" strokeWidth={1.5} />
         ) : (
           args.children
@@ -87,7 +87,7 @@ export const Interactive: Story = {
       </Button>
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -125,7 +125,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const Sizes: Story = {
   parameters: { controls: { hide: true } },
@@ -202,7 +202,7 @@ export const Sizes: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const WithIcons: Story = {
   parameters: { controls: { hide: true } },
@@ -238,7 +238,7 @@ export const WithIcons: Story = {
       </Button>
     </div>
   ),
-}
+};
 
 export const FullWidth: Story = {
   parameters: { controls: { hide: true } },
@@ -256,4 +256,4 @@ export const FullWidth: Story = {
       </Button>
     </div>
   ),
-}
+};

@@ -1,45 +1,45 @@
-const SESSION_STORAGE_KEY = 'kc-color-scheme'
+const SESSION_STORAGE_KEY = "kc-color-scheme";
 
 export function getTheme(
   kcContextDarkMode: boolean | undefined,
-): 'dark' | 'light' | 'system' {
+): "dark" | "light" | "system" {
   from_admin_policy: {
     if (kcContextDarkMode === undefined || kcContextDarkMode === true) {
-      break from_admin_policy
+      break from_admin_policy;
     }
-    return 'light'
+    return "light";
   }
 
   from_url: {
-    const url = new URL(window.location.href)
+    const url = new URL(window.location.href);
 
-    const value = url.searchParams.get('dark')
+    const value = url.searchParams.get("dark");
 
     if (value === null) {
-      break from_url
+      break from_url;
     }
 
     {
-      url.searchParams.delete('dark')
-      window.history.replaceState({}, '', url.toString())
+      url.searchParams.delete("dark");
+      window.history.replaceState({}, "", url.toString());
     }
 
-    const isDark = value === 'true'
+    const isDark = value === "true";
 
-    sessionStorage.setItem(SESSION_STORAGE_KEY, `${isDark}`)
+    sessionStorage.setItem(SESSION_STORAGE_KEY, `${isDark}`);
 
-    return isDark ? 'dark' : 'light'
+    return isDark ? "dark" : "light";
   }
 
   from_session_storage: {
-    const value = sessionStorage.getItem(SESSION_STORAGE_KEY)
+    const value = sessionStorage.getItem(SESSION_STORAGE_KEY);
 
     if (value === null) {
-      break from_session_storage
+      break from_session_storage;
     }
 
-    return value === 'true' ? 'dark' : 'light'
+    return value === "true" ? "dark" : "light";
   }
 
-  return 'system'
+  return "system";
 }

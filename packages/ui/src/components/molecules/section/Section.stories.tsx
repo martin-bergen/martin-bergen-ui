@@ -1,34 +1,34 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Section } from '.'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Section } from ".";
 
 const meta: Meta<typeof Section> = {
-  title: 'Molecules/Section',
+  title: "Molecules/Section",
   component: Section,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     padding: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg', 'xl'],
-      description: 'Vertical padding',
+      control: "select",
+      options: ["none", "sm", "md", "lg", "xl"],
+      description: "Vertical padding",
     },
     background: {
-      control: 'select',
-      options: ['transparent', 'muted'],
-      description: 'Background style',
+      control: "select",
+      options: ["transparent", "muted"],
+      description: "Background style",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Section>
+export default meta;
+type Story = StoryObj<typeof Section>;
 
 export const Interactive: Story = {
   args: {
-    padding: 'lg',
-    background: 'transparent',
+    padding: "lg",
+    background: "transparent",
   },
   render: (args) => (
     <Section {...args}>
@@ -38,7 +38,7 @@ export const Interactive: Story = {
       </p>
     </Section>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -70,4 +70,4 @@ export const AllVariants: Story = {
       </Section>
     </div>
   ),
-}
+};

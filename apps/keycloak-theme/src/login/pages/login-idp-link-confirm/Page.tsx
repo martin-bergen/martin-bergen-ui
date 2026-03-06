@@ -1,17 +1,17 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-idp-link-confirm.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-idp-link-confirm.ftl");
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
   return (
-    <Template headerNode={msg('confirmLinkIdpTitle')}>
+    <Template headerNode={msg("confirmLinkIdpTitle")}>
       <form
         id="kc-register-form"
         action={kcContext.url.loginAction}
@@ -26,7 +26,7 @@ export function Page() {
             id="updateProfile"
             value="updateProfile"
           >
-            {msg('confirmLinkIdpReviewProfile')}
+            {msg("confirmLinkIdpReviewProfile")}
           </Button>
           <Button
             type="submit"
@@ -35,10 +35,10 @@ export function Page() {
             id="linkAccount"
             value="linkAccount"
           >
-            {msg('confirmLinkIdpContinue', kcContext.idpAlias)}
+            {msg("confirmLinkIdpContinue", kcContext.idpAlias)}
           </Button>
         </div>
       </form>
     </Template>
-  )
+  );
 }

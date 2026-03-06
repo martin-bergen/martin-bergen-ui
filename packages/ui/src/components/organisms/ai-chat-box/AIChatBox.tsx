@@ -1,121 +1,121 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { ArrowUp, Plus, Mic, X } from 'lucide-react'
-import { Panel } from '../../atoms/panel'
-import { Button } from '../../atoms/button'
-import { Textarea } from '../../atoms/textarea'
+import React, { useState, useRef, useEffect } from "react";
+import { ArrowUp, Plus, Mic, X } from "lucide-react";
+import { Panel } from "../../atoms/panel";
+import { Button } from "../../atoms/button";
+import { Textarea } from "../../atoms/textarea";
 
 export interface AIChatMessage {
-  id: string
-  role: 'user' | 'assistant'
-  content: string
-  timestamp?: Date
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+  timestamp?: Date;
 }
 
 export interface AIChatBoxProps {
   /**
    * Array of chat messages
    */
-  messages?: AIChatMessage[]
+  messages?: AIChatMessage[];
   /**
    * Whether the chat is in a loading state
    */
-  loading?: boolean
+  loading?: boolean;
   /**
    * Whether the chat is disabled
    */
-  disabled?: boolean
+  disabled?: boolean;
   /**
    * Maximum height of the chat container
    */
-  maxHeight?: string
+  maxHeight?: string;
   /**
    * Callback when a message is sent
    */
-  onSendMessage?: (message: string) => void
+  onSendMessage?: (message: string) => void;
   /**
    * Callback when attachment is clicked
    */
-  onAttachmentClick?: () => void
+  onAttachmentClick?: () => void;
   /**
    * Callback when voice is clicked
    */
-  onVoiceClick?: () => void
+  onVoiceClick?: () => void;
   /**
    * Whether to show the header
    */
-  showHeader?: boolean
+  showHeader?: boolean;
   /**
    * Header title
    */
-  headerTitle?: string
+  headerTitle?: string;
   /**
    * Whether to show the voice button
    */
-  showVoice?: boolean
+  showVoice?: boolean;
   /**
    * Whether to show the clear button
    */
-  showClear?: boolean
+  showClear?: boolean;
   /**
    * Callback when clear is clicked
    */
-  onClearClick?: () => void
+  onClearClick?: () => void;
   /**
    * Compact variant with smaller padding
    */
-  compact?: boolean
+  compact?: boolean;
 }
 
 export const AIChatBox: React.FC<AIChatBoxProps> = ({
   messages = [],
   loading = false,
   disabled = false,
-  maxHeight = '500px',
+  maxHeight = "500px",
   onSendMessage,
   onAttachmentClick,
   onVoiceClick,
   showHeader = true,
-  headerTitle = 'AI Assistant',
+  headerTitle = "AI Assistant",
   showVoice = true,
   showClear = false,
   onClearClick,
   compact = false,
 }) => {
-  const [inputValue, setInputValue] = useState('')
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLTextAreaElement>(null)
+  const [inputValue, setInputValue] = useState("");
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages, loading])
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
 
   // Auto-resize textarea
   useEffect(() => {
-    const textarea = inputRef.current
+    const textarea = inputRef.current;
     if (textarea) {
-      textarea.style.height = 'auto'
-      textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`
+      textarea.style.height = "auto";
+      textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
     }
-  }, [inputValue])
+  }, [inputValue]);
 
   const handleSend = () => {
     if (inputValue.trim() && !disabled && !loading) {
-      onSendMessage?.(inputValue.trim())
-      setInputValue('')
+      onSendMessage?.(inputValue.trim());
+      setInputValue("");
     }
-  }
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSend()
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
     }
-  }
+  };
 
   return (
     <Panel
-      className={`flex flex-col ${compact ? 'p-4' : 'p-6'}`}
+      className={`flex flex-col ${compact ? "p-4" : "p-6"}`}
       style={{ maxHeight }}
     >
       {showHeader && (
@@ -146,14 +146,14 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
           <div
             key={message.id}
             className={`flex ${
-              message.role === 'user' ? 'justify-end' : 'justify-start'
+              message.role === "user" ? "justify-end" : "justify-start"
             }`}
           >
             <div
               className={`max-w-[80%] rounded-lg px-4 py-3 ${
-                message.role === 'user'
-                  ? 'bg-white/10 text-white'
-                  : 'bg-black/20 text-gray-200'
+                message.role === "user"
+                  ? "bg-white/10 text-white"
+                  : "bg-black/20 text-gray-200"
               }`}
             >
               <div className="text-sm">{message.content}</div>
@@ -195,7 +195,7 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
             rows={1}
             variant="default"
             className="w-full bg-white/5 border-white/10 text-white placeholder-gray-400 resize-none"
-            style={{ minHeight: '44px', maxHeight: '120px' }}
+            style={{ minHeight: "44px", maxHeight: "120px" }}
             icon={
               <button
                 type="button"
@@ -234,5 +234,5 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
         </div>
       </div>
     </Panel>
-  )
-}
+  );
+};

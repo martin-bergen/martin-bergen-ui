@@ -1,21 +1,21 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../../lib/utils'
-import { LucideIcon } from 'lucide-react'
-import { Card } from '../../atoms/card'
-import { FeatureList } from '../../molecules/list'
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { LucideIcon } from "lucide-react";
+import { Card } from "../../atoms/card";
+import { FeatureList } from "../../molecules/list";
 
-const featureCardVariants = cva('', {
+const featureCardVariants = cva("", {
   variants: {
     variant: {
-      default: '',
-      highlight: '',
+      default: "",
+      highlight: "",
     },
   },
   defaultVariants: {
-    variant: 'default',
+    variant: "default",
   },
-})
+});
 
 export interface FeatureCardProps
   extends
@@ -24,40 +24,40 @@ export interface FeatureCardProps
   /**
    * Icon to display
    */
-  icon?: LucideIcon
+  icon?: LucideIcon;
   /**
    * Custom color for the icon (e.g., "#52B788" or "text-[#52B788]")
    */
-  iconColor?: string
+  iconColor?: string;
   /**
    * Title of the feature
    */
-  title: string
+  title: string;
   /**
    * Description of the feature
    */
-  description: string
+  description: string;
   /**
    * Optional badge text
    */
-  badge?: string
+  badge?: string;
   /**
    * Optional link text
    */
-  linkText?: string
+  linkText?: string;
   /**
    * Optional link href
    */
-  linkHref?: string
+  linkHref?: string;
   /**
    * Optional list items to display below description
    */
-  items?: string[]
+  items?: string[];
   /**
    * Number of columns in the grid
    * @default 3
    */
-  columns?: 1 | 2 | 3 | 4
+  columns?: 1 | 2 | 3 | 4;
 }
 
 /**
@@ -110,7 +110,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
         ref={ref}
         variant="highlight"
         className={cn(
-          'w-full min-w-[280px] max-w-[413px] p-[48px_40px]',
+          "w-full min-w-[280px] max-w-[413px] p-[48px_40px]",
           className,
         )}
         {...props}
@@ -122,7 +122,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
               {Icon && (
                 <div className="flex h-7 w-7 items-center justify-center">
                   <Icon
-                    className={cn('h-7 w-7', iconColor || 'text-foreground')}
+                    className={cn("h-7 w-7", iconColor || "text-foreground")}
                     strokeWidth={1.5}
                   />
                 </div>
@@ -157,25 +157,25 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
           )}
         </div>
       </Card>
-    )
+    );
   },
-)
-FeatureCard.displayName = 'FeatureCard'
+);
+FeatureCard.displayName = "FeatureCard";
 
 export interface FeatureCardsProps {
   /**
    * Array of feature cards to display
    */
-  features: FeatureCardProps[]
+  features: FeatureCardProps[];
   /**
    * Number of columns in the grid
    * @default 3
    */
-  columns?: 1 | 2 | 3 | 4
+  columns?: 1 | 2 | 3 | 4;
   /**
    * Additional CSS classes
    */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -211,12 +211,12 @@ export const FeatureCards = React.forwardRef<HTMLDivElement, FeatureCardsProps>(
       <div
         ref={ref}
         className={cn(
-          'grid gap-6 md:gap-8 p-6',
+          "grid gap-6 md:gap-8 p-6",
           // Explicit classes so Tailwind compiles them
-          columns === 1 && 'grid-cols-1 max-w-md mx-auto',
-          columns === 2 && 'grid-cols-1 md:grid-cols-2',
-          columns === 3 && 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-          columns === 4 && 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+          columns === 1 && "grid-cols-1 max-w-md mx-auto",
+          columns === 2 && "grid-cols-1 md:grid-cols-2",
+          columns === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+          columns === 4 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
           className,
         )}
       >
@@ -224,9 +224,9 @@ export const FeatureCards = React.forwardRef<HTMLDivElement, FeatureCardsProps>(
           <FeatureCard key={index} {...feature} />
         ))}
       </div>
-    )
+    );
   },
-)
-FeatureCards.displayName = 'FeatureCards'
+);
+FeatureCards.displayName = "FeatureCards";
 
-export { FeatureCard, featureCardVariants }
+export { FeatureCard, featureCardVariants };

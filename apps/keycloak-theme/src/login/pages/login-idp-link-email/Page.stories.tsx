@@ -2,34 +2,34 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
 // Mock kcContext to avoid TS2304 error and to simulate the real environment
 const mockKcContext = {
   url: {
-    loginAction: '/login-action',
+    loginAction: "/login-action",
   },
-  idpAlias: 'mockIdpAlias',
+  idpAlias: "mockIdpAlias",
   brokerContext: {
-    username: 'mockUser',
+    username: "mockUser",
   },
   realm: {
-    displayName: 'MockRealm',
+    displayName: "MockRealm",
   },
-}
+};
 
 const { KcPageStory } = createKcPageStory({
-  pageId: 'login-idp-link-email.ftl',
-})
+  pageId: "login-idp-link-email.ftl",
+});
 
 const meta = {
-  title: 'login/login-idp-link-email.ftl',
+  title: "login/login-idp-link-email.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 /**
  * Default:
@@ -41,27 +41,27 @@ export const Default: Story = {
   args: {
     kcContext: mockKcContext,
   },
-}
+};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 /**
  * WithIdpAlias:
@@ -73,16 +73,16 @@ export const WithIdpAlias: Story = {
   args: {
     kcContext: {
       ...mockKcContext,
-      idpAlias: 'Google',
+      idpAlias: "Google",
       brokerContext: {
-        username: 'john.doe',
+        username: "john.doe",
       },
       realm: {
-        displayName: 'MyRealm',
+        displayName: "MyRealm",
       },
     },
   },
-}
+};
 
 /**
  * WithCustomRealmDisplayName:
@@ -94,16 +94,16 @@ export const WithCustomRealmDisplayName: Story = {
   args: {
     kcContext: {
       ...mockKcContext,
-      idpAlias: 'Facebook',
+      idpAlias: "Facebook",
       brokerContext: {
-        username: 'jane.doe',
+        username: "jane.doe",
       },
       realm: {
-        displayName: 'CUSTOM REALM DISPLAY NAME',
+        displayName: "CUSTOM REALM DISPLAY NAME",
       },
     },
   },
-}
+};
 
 /**
  * WithFormSubmissionError:
@@ -116,12 +116,12 @@ export const WithFormSubmissionError: Story = {
     kcContext: {
       ...mockKcContext,
       url: {
-        loginAction: '/error',
+        loginAction: "/error",
       },
       message: {
-        type: 'error',
-        summary: 'An error occurred during form submission.',
+        type: "error",
+        summary: "An error occurred during form submission.",
       },
     },
   },
-}
+};

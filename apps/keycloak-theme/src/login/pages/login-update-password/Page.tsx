@@ -1,32 +1,32 @@
-import { Button } from '@berget-ai/ui'
-import { Field, FieldError, FieldLabel } from '@/components/ui/field'
+import { Button } from "@berget-ai/ui";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from '@/components/ui/input-group'
-import { LogoutOtherSessions } from '@/login/components/LogoutOtherSessions'
-import { PasswordVisibilityButton } from '@/login/components/PasswordVisibilityButton'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { kcSanitize } from 'keycloakify/lib/kcSanitize'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+} from "@/components/ui/input-group";
+import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
+import { PasswordVisibilityButton } from "@/login/components/PasswordVisibilityButton";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { kcSanitize } from "keycloakify/lib/kcSanitize";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-update-password.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-update-password.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const { url, messagesPerField, isAppInitiatedAction } = kcContext
+  const { url, messagesPerField, isAppInitiatedAction } = kcContext;
 
   return (
     <Template
       displayMessage={
-        !messagesPerField.existsError('password', 'password-confirm')
+        !messagesPerField.existsError("password", "password-confirm")
       }
-      headerNode={msg('updatePasswordTitle')}
+      headerNode={msg("updatePasswordTitle")}
     >
       <form
         id="kc-passwd-update-form"
@@ -35,7 +35,7 @@ export function Page() {
         method="post"
       >
         <Field>
-          <FieldLabel htmlFor="password-new">{msg('passwordNew')}</FieldLabel>
+          <FieldLabel htmlFor="password-new">{msg("passwordNew")}</FieldLabel>
           <InputGroup>
             <InputGroupInput
               type="password"
@@ -43,20 +43,20 @@ export function Page() {
               name="password-new"
               autoFocus
               autoComplete="new-password"
-              aria-invalid={messagesPerField.existsError('password')}
+              aria-invalid={messagesPerField.existsError("password")}
             />
             <InputGroupAddon align="inline-end">
               <PasswordVisibilityButton passwordInputId="password-new" />
             </InputGroupAddon>
           </InputGroup>
-          {messagesPerField.existsError('password') && (
+          {messagesPerField.existsError("password") && (
             <FieldError>
               <span
                 id="input-error"
                 aria-live="polite"
                 dangerouslySetInnerHTML={{
                   __html: kcSanitize(
-                    messagesPerField.getFirstError('password'),
+                    messagesPerField.getFirstError("password"),
                   ),
                 }}
               />
@@ -66,7 +66,7 @@ export function Page() {
 
         <Field>
           <FieldLabel htmlFor="password-confirm">
-            {msg('passwordConfirm')}
+            {msg("passwordConfirm")}
           </FieldLabel>
           <InputGroup>
             <InputGroupInput
@@ -74,20 +74,20 @@ export function Page() {
               id="password-confirm"
               name="password-confirm"
               autoComplete="new-password"
-              aria-invalid={messagesPerField.existsError('password-confirm')}
+              aria-invalid={messagesPerField.existsError("password-confirm")}
             />
             <InputGroupAddon align="inline-end">
               <PasswordVisibilityButton passwordInputId="password-confirm" />
             </InputGroupAddon>
           </InputGroup>
-          {messagesPerField.existsError('password-confirm') && (
+          {messagesPerField.existsError("password-confirm") && (
             <FieldError>
               <span
                 id="input-error"
                 aria-live="polite"
                 dangerouslySetInnerHTML={{
                   __html: kcSanitize(
-                    messagesPerField.getFirstError('password-confirm'),
+                    messagesPerField.getFirstError("password-confirm"),
                   ),
                 }}
               />
@@ -99,7 +99,7 @@ export function Page() {
 
         <div className="space-y-3">
           <Button className="w-full" type="submit">
-            {msgStr('doSubmit')}
+            {msgStr("doSubmit")}
           </Button>
           {isAppInitiatedAction && (
             <Button
@@ -109,11 +109,11 @@ export function Page() {
               name="cancel-aia"
               value="true"
             >
-              {msg('doCancel')}
+              {msg("doCancel")}
             </Button>
           )}
         </div>
       </form>
     </Template>
-  )
+  );
 }

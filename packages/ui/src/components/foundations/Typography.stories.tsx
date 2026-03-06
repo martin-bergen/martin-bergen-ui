@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Foundations/Typography',
+  title: "Foundations/Typography",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-} satisfies Meta
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const pangram = 'The quick brown fox jumps over the lazy dog'
+const pangram = "The quick brown fox jumps over the lazy dog";
 
 export const Headings: Story = {
   render: () => (
@@ -59,7 +59,7 @@ export const Headings: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const BodyText: Story = {
   render: () => (
@@ -108,7 +108,7 @@ export const BodyText: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const FontWeights: Story = {
   render: () => (
@@ -150,7 +150,7 @@ export const FontWeights: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const TextColors: Story = {
   render: () => (
@@ -217,4 +217,4 @@ export const TextColors: Story = {
       </div>
     </div>
   ),
-}
+};

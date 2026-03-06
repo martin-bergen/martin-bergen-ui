@@ -2,51 +2,51 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
-const { KcPageStory } = createKcPageStory({ pageId: 'login-username.ftl' })
+const { KcPageStory } = createKcPageStory({ pageId: "login-username.ftl" });
 
 const meta = {
-  title: 'login/login-username.ftl',
+  title: "login/login-username.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 export const WithWebauthn: Story = {
   args: {
     kcContext: {
       url: {
-        loginAction: '/mock-login-action',
+        loginAction: "/mock-login-action",
       },
       enableWebAuthnConditionalUI: true,
     },
   },
-}
+};
 
 export const WithEmailAsUsername: Story = {
   args: {
@@ -57,4 +57,4 @@ export const WithEmailAsUsername: Story = {
       },
     },
   },
-}
+};

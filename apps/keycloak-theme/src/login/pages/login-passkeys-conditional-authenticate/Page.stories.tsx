@@ -2,39 +2,39 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
 const { KcPageStory } = createKcPageStory({
-  pageId: 'login-passkeys-conditional-authenticate.ftl',
-})
+  pageId: "login-passkeys-conditional-authenticate.ftl",
+});
 
 const meta = {
-  title: 'login/login-passkeys-conditional-authenticate.ftl',
+  title: "login/login-passkeys-conditional-authenticate.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};

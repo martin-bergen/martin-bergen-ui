@@ -2,82 +2,82 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
-const { KcPageStory } = createKcPageStory({ pageId: 'terms.ftl' })
+const { KcPageStory } = createKcPageStory({ pageId: "terms.ftl" });
 
 const meta = {
-  title: 'login/terms.ftl',
+  title: "login/terms.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     kcContext: {
-      'x-keycloakify': {
+      "x-keycloakify": {
         messages: {
-          termsText: '<p>My terms in <strong>English</strong></p>',
+          termsText: "<p>My terms in <strong>English</strong></p>",
         },
       },
     },
   },
-}
+};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
-      'x-keycloakify': {
+      "x-keycloakify": {
         messages: {
-          termsText: '<p>شروطي باللغة <strong>العربية</strong></p>',
+          termsText: "<p>شروطي باللغة <strong>العربية</strong></p>",
         },
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
-      'x-keycloakify': {
+      "x-keycloakify": {
         // cSpell: disable
         messages: {
-          termsText: '<p>Mes terme en <strong>Français</strong></p>',
+          termsText: "<p>Mes terme en <strong>Français</strong></p>",
         },
         // cSpell: enable
       },
     },
   },
-}
+};
 
 export const Spanish: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'es',
+        currentLanguageTag: "es",
       },
-      'x-keycloakify': {
+      "x-keycloakify": {
         messages: {
-          termsText: '<p>Mis términos en <strong>Español</strong></p>',
+          termsText: "<p>Mis términos en <strong>Español</strong></p>",
         },
       },
     },
   },
-}
+};
 
 export const LongMessage: Story = {
   args: {
     kcContext: {
-      'x-keycloakify': {
+      "x-keycloakify": {
         messages: {
           termsText: `
                         <p>These are the terms and conditions. Please read them carefully.</p>
@@ -94,4 +94,4 @@ export const LongMessage: Story = {
       },
     },
   },
-}
+};

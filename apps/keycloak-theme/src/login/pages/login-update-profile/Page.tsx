@@ -1,29 +1,29 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
-import { useState } from 'react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { UserProfileFormFields } from '../../components/UserProfileFormFields'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { useState } from "react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { UserProfileFormFields } from "../../components/UserProfileFormFields";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-update-profile.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-update-profile.ftl");
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
-  const { messagesPerField, url, isAppInitiatedAction } = kcContext
+  const { messagesPerField, url, isAppInitiatedAction } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const [isFormSubmittable, setIsFormSubmittable] = useState(false)
+  const [isFormSubmittable, setIsFormSubmittable] = useState(false);
 
   return (
     <Template
       displayRequiredFields
-      headerNode={msg('loginProfileTitle')}
-      displayMessage={messagesPerField.exists('global')}
+      headerNode={msg("loginProfileTitle")}
+      displayMessage={messagesPerField.exists("global")}
     >
       <form
         id="kc-update-profile-form"
@@ -35,18 +35,18 @@ export function Page() {
           onIsFormSubmittableValueChange={setIsFormSubmittable}
         />
 
-        <div className={kcClsx('kcFormGroupClass')}>
-          <div id="kc-form-options" className={kcClsx('kcFormOptionsClass')}>
-            <div className={kcClsx('kcFormOptionsWrapperClass')} />
+        <div className={kcClsx("kcFormGroupClass")}>
+          <div id="kc-form-options" className={kcClsx("kcFormOptionsClass")}>
+            <div className={kcClsx("kcFormOptionsWrapperClass")} />
           </div>
-          <div id="kc-form-buttons" className={kcClsx('kcFormButtonsClass')}>
+          <div id="kc-form-buttons" className={kcClsx("kcFormButtonsClass")}>
             <Button
               disabled={!isFormSubmittable}
               className="w-full"
               type="submit"
-              value={msgStr('doSubmit')}
+              value={msgStr("doSubmit")}
             >
-              {msgStr('doSubmit')}
+              {msgStr("doSubmit")}
             </Button>
             {isAppInitiatedAction && (
               <Button
@@ -56,12 +56,12 @@ export function Page() {
                 name="cancel-aia"
                 value="true"
               >
-                {msg('doCancel')}
+                {msg("doCancel")}
               </Button>
             )}
           </div>
         </div>
       </form>
     </Template>
-  )
+  );
 }

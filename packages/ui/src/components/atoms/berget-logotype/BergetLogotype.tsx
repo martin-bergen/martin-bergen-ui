@@ -1,19 +1,19 @@
-import * as React from 'react'
-import { cn } from '../../../lib/utils'
+import * as React from "react";
+import { cn } from "../../../lib/utils";
 
 export interface BergetLogotypeProps extends React.SVGAttributes<SVGSVGElement> {
   /** Size (height) of the logotype in pixels */
-  size?: number
+  size?: number;
   /** Color variant */
-  variant?: 'light' | 'dark'
+  variant?: "light" | "dark";
 }
 
 const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
-  ({ size = 48, variant = 'light', className, ...props }, ref) => {
-    const aspectRatio = 793.63 / 204.37
-    const width = size * aspectRatio
-    const height = size
-    const fillColor = variant === 'light' ? '#FFFFFF' : '#000000'
+  ({ size = 48, variant = "light", className, ...props }, ref) => {
+    const aspectRatio = 793.63 / 204.37;
+    const width = size * aspectRatio;
+    const height = size;
+    const fillColor = variant === "light" ? "#FFFFFF" : "#000000";
 
     return (
       <svg
@@ -23,7 +23,7 @@ const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
         viewBox="0 0 793.63 204.37"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={cn('inline-block', className)}
+        className={cn("inline-block", className)}
         {...props}
       >
         <defs>
@@ -68,9 +68,9 @@ const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
           d="M99.9,0h24.37l99.9,202.18h-25.14l-44.26-77.52-27.24-41.38-14.84-41.81,2.44,1.3h-6.09l2.44-1.3-61.72,123-25.4,37.71H0L99.9,0Z"
         />
       </svg>
-    )
+    );
   },
-)
-BergetLogotype.displayName = 'BergetLogotype'
+);
+BergetLogotype.displayName = "BergetLogotype";
 
-export { BergetLogotype }
+export { BergetLogotype };

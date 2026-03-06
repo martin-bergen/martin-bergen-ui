@@ -1,34 +1,34 @@
-import { Button, Checkbox, Input, Label } from '@berget-ai/ui'
-import { Field, FieldError, FieldLabel } from '@/components/ui/field'
+import { Button, Checkbox, Input, Label } from "@berget-ai/ui";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from '@/components/ui/input-group'
-import { useKcContext } from '@/login/KcContext'
-import { kcSanitize } from '@keycloakify/login-ui/kcSanitize'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
-import { Fingerprint } from 'lucide-react'
-import { useState } from 'react'
-import { assert } from 'tsafe/assert'
-import { PasswordVisibilityButton } from '../../components/PasswordVisibilityButton'
-import { useI18n } from '../../i18n'
-import { useScript } from './useScript'
+} from "@/components/ui/input-group";
+import { useKcContext } from "@/login/KcContext";
+import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { Fingerprint } from "lucide-react";
+import { useState } from "react";
+import { assert } from "tsafe/assert";
+import { PasswordVisibilityButton } from "../../components/PasswordVisibilityButton";
+import { useI18n } from "../../i18n";
+import { useScript } from "./useScript";
 
 export function Form() {
-  const { kcContext } = useKcContext()
+  const { kcContext } = useKcContext();
 
-  assert(kcContext.pageId === 'login.ftl')
+  assert(kcContext.pageId === "login.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false)
+  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false);
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
-  const webAuthnButtonId = 'authenticateWebAuthnButton'
+  const webAuthnButtonId = "authenticateWebAuthnButton";
 
-  useScript({ webAuthnButtonId })
+  useScript({ webAuthnButtonId });
 
   return (
     <>
@@ -38,8 +38,8 @@ export function Form() {
             <form
               id="kc-form-login"
               onSubmit={() => {
-                setIsLoginButtonDisabled(true)
-                return true
+                setIsLoginButtonDisabled(true);
+                return true;
               }}
               action={kcContext.url.loginAction}
               method="post"
@@ -49,27 +49,27 @@ export function Form() {
                 <Field>
                   <FieldLabel htmlFor="username">
                     {!kcContext.realm.loginWithEmailAllowed
-                      ? msg('email')
+                      ? msg("email")
                       : !kcContext.realm.registrationEmailAsUsername
-                        ? msg('usernameOrEmail')
-                        : msg('username')}
+                        ? msg("usernameOrEmail")
+                        : msg("username")}
                   </FieldLabel>
                   <Input
                     tabIndex={2}
                     type="text"
                     id="username"
-                    defaultValue={kcContext.login.username ?? ''}
+                    defaultValue={kcContext.login.username ?? ""}
                     name="username"
                     autoFocus
                     autoComplete="username"
                     aria-invalid={kcContext.messagesPerField.existsError(
-                      'username',
-                      'password',
+                      "username",
+                      "password",
                     )}
                   />
                   {kcContext.messagesPerField.existsError(
-                    'username',
-                    'password',
+                    "username",
+                    "password",
                   ) && (
                     <FieldError>
                       <span
@@ -78,8 +78,8 @@ export function Form() {
                         dangerouslySetInnerHTML={{
                           __html: kcSanitize(
                             kcContext.messagesPerField.getFirstError(
-                              'username',
-                              'password',
+                              "username",
+                              "password",
                             ),
                           ),
                         }}
@@ -90,7 +90,7 @@ export function Form() {
               )}
 
               <Field>
-                <FieldLabel htmlFor="password">{msg('password')}</FieldLabel>
+                <FieldLabel htmlFor="password">{msg("password")}</FieldLabel>
                 <InputGroup>
                   <InputGroupInput
                     tabIndex={3}
@@ -99,8 +99,8 @@ export function Form() {
                     name="password"
                     autoComplete="current-password"
                     aria-invalid={kcContext.messagesPerField.existsError(
-                      'username',
-                      'password',
+                      "username",
+                      "password",
                     )}
                   />
                   <InputGroupAddon align="inline-end">
@@ -111,8 +111,8 @@ export function Form() {
                   </InputGroupAddon>
                 </InputGroup>
                 {kcContext.messagesPerField.existsError(
-                  'username',
-                  'password',
+                  "username",
+                  "password",
                 ) && (
                   <FieldError>
                     <span
@@ -121,8 +121,8 @@ export function Form() {
                       dangerouslySetInnerHTML={{
                         __html: kcSanitize(
                           kcContext.messagesPerField.getFirstError(
-                            'username',
-                            'password',
+                            "username",
+                            "password",
                           ),
                         ),
                       }}
@@ -145,7 +145,7 @@ export function Form() {
                       htmlFor="rememberMe"
                       className="text-sm font-medium cursor-pointer"
                     >
-                      {msg('rememberMe')}
+                      {msg("rememberMe")}
                     </Label>
                   </div>
                 )}
@@ -157,7 +157,7 @@ export function Form() {
                         href={kcContext.url.loginResetCredentialsUrl}
                       >
                         <Label className="text-sm font-medium cursor-pointer">
-                          {msg('doForgotPassword')}
+                          {msg("doForgotPassword")}
                         </Label>
                       </a>
                     </span>
@@ -165,7 +165,7 @@ export function Form() {
                 </div>
               </div>
 
-              <div className={kcClsx('kcFormGroupClass')}>
+              <div className={kcClsx("kcFormGroupClass")}>
                 <input
                   type="hidden"
                   id="id-hidden-input"
@@ -180,9 +180,9 @@ export function Form() {
                   name="login"
                   id="kc-login"
                   type="submit"
-                  value={msgStr('doLogIn')}
+                  value={msgStr("doLogIn")}
                 >
-                  {msgStr('doLogIn')}
+                  {msgStr("doLogIn")}
                 </Button>
               </div>
             </form>
@@ -208,7 +208,7 @@ export function Form() {
           {kcContext.authenticators !== undefined &&
             kcContext.authenticators.authenticators.length !== 0 && (
               <>
-                <form id="authn_select" className={kcClsx('kcFormClass')}>
+                <form id="authn_select" className={kcClsx("kcFormClass")}>
                   {kcContext.authenticators.authenticators.map(
                     (authenticator, i) => (
                       <input
@@ -232,10 +232,10 @@ export function Form() {
             variant="outline"
           >
             <Fingerprint className="w-4 h-4" />
-            {msgStr('passkey-doAuthenticate')}
+            {msgStr("passkey-doAuthenticate")}
           </Button>
         </>
       )}
     </>
-  )
+  );
 }

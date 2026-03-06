@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ChatInput } from '.'
-import { Button } from '../button'
-import { ArrowUp, Mic, Plus } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { ChatInput } from ".";
+import { Button } from "../button";
+import { ArrowUp, Mic, Plus } from "lucide-react";
 
 const meta: Meta<typeof ChatInput> = {
-  title: 'Atoms/Chat Input',
+  title: "Atoms/Chat Input",
   component: ChatInput,
   parameters: {
     docs: {
@@ -26,29 +26,29 @@ It features auto-resize height (min 44px, max 120px) and supports icons and acti
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     placeholder: {
-      control: 'text',
-      description: 'Placeholder text',
+      control: "text",
+      description: "Placeholder text",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
     rows: {
-      control: 'number',
-      description: 'Number of rows (default: 1)',
+      control: "number",
+      description: "Number of rows (default: 1)",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
-    placeholder: 'Ask anything',
+    placeholder: "Ask anything",
     rows: 1,
   },
   render: (args) => (
@@ -56,28 +56,28 @@ export const Interactive: Story = {
       <ChatInput {...args} />
     </div>
   ),
-}
+};
 
 export const WithIcon: Story = {
   parameters: {
     controls: { hide: true },
   },
   args: {
-    placeholder: 'Ask anything',
+    placeholder: "Ask anything",
   },
   render: (args) => (
     <div className="p-4 w-full max-w-2xl">
       <ChatInput {...args} icon={<Plus className="size-4" />} />
     </div>
   ),
-}
+};
 
 export const WithActionButton: Story = {
   parameters: {
     controls: { hide: true },
   },
   args: {
-    placeholder: 'Ask anything',
+    placeholder: "Ask anything",
   },
   render: (args) => (
     <div className="p-4 w-full max-w-2xl">
@@ -91,14 +91,14 @@ export const WithActionButton: Story = {
       />
     </div>
   ),
-}
+};
 
 export const FullChatInterface: Story = {
   parameters: {
     controls: { hide: true },
   },
   args: {
-    placeholder: 'Ask anything',
+    placeholder: "Ask anything",
   },
   render: (args) => (
     <div className="p-4 w-full max-w-2xl">
@@ -121,7 +121,7 @@ export const FullChatInterface: Story = {
       />
     </div>
   ),
-}
+};
 
 export const States: Story = {
   parameters: {
@@ -153,4 +153,4 @@ export const States: Story = {
       </div>
     </div>
   ),
-}
+};

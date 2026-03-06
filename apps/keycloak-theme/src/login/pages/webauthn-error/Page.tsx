@@ -1,19 +1,19 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'webauthn-error.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "webauthn-error.ftl");
 
-  const { url, isAppInitiatedAction } = kcContext
+  const { url, isAppInitiatedAction } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
   return (
-    <Template displayMessage headerNode={msg('webauthn-error-title')}>
+    <Template displayMessage headerNode={msg("webauthn-error-title")}>
       <div className="space-y-4">
         <form
           id="kc-error-credential-form"
@@ -32,18 +32,18 @@ export function Page() {
           tabIndex={4}
           onClick={() => {
             // @ts-expect-error: Trusted Keycloak's code
-            document.getElementById('isSetRetry').value = 'retry'
+            document.getElementById("isSetRetry").value = "retry";
             // @ts-expect-error: Trusted Keycloak's code
-            document.getElementById('executionValue').value = '${execution}'
+            document.getElementById("executionValue").value = "${execution}";
             // @ts-expect-error: Trusted Keycloak's code
-            document.getElementById('kc-error-credential-form').submit()
+            document.getElementById("kc-error-credential-form").submit();
           }}
           type="button"
           className="w-full"
           name="try-again"
           id="kc-try-again"
         >
-          {msgStr('doTryAgain')}
+          {msgStr("doTryAgain")}
         </Button>
 
         {isAppInitiatedAction && (
@@ -60,11 +60,11 @@ export function Page() {
               name="cancel-aia"
               value="true"
             >
-              {msgStr('doCancel')}
+              {msgStr("doCancel")}
             </Button>
           </form>
         )}
       </div>
     </Template>
-  )
+  );
 }

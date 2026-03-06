@@ -1,17 +1,17 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-idp-link-confirm-override.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-idp-link-confirm-override.ftl");
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
   return (
-    <Template headerNode={msg('confirmOverrideIdpTitle')}>
+    <Template headerNode={msg("confirmOverrideIdpTitle")}>
       <form
         id="kc-register-form"
         action={kcContext.url.loginAction}
@@ -19,13 +19,13 @@ export function Page() {
         method="post"
       >
         <span>
-          {msg('pageExpiredMsg1')}{' '}
+          {msg("pageExpiredMsg1")}{" "}
           <a
             className="text-primary dark:text-white underline underline-offset-2"
             id="loginRestartLink"
             href={kcContext.url.loginRestartFlowUrl}
           >
-            {msg('doClickHere')}
+            {msg("doClickHere")}
           </a>
         </span>
 
@@ -36,9 +36,9 @@ export function Page() {
           id="confirmOverride"
           value="confirmOverride"
         >
-          {msg('confirmOverrideIdpContinue', kcContext.idpDisplayName)}
+          {msg("confirmOverrideIdpContinue", kcContext.idpDisplayName)}
         </Button>
       </form>
     </Template>
-  )
+  );
 }

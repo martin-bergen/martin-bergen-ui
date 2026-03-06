@@ -1,15 +1,15 @@
-import { Input } from '@berget-ai/ui'
-import { InputGroupInput } from '@/components/ui/input-group'
-import { assert } from 'tsafe/assert'
-import { useI18n } from '../../i18n'
-import { AddRemoveButtonsMultiValuedAttribute } from './AddRemoveButtonsMultiValuedAttribute'
-import { FieldErrors } from './FieldErrors'
-import type { InputFieldByTypeProps } from './InputFieldByType'
+import { Input } from "@berget-ai/ui";
+import { InputGroupInput } from "@/components/ui/input-group";
+import { assert } from "tsafe/assert";
+import { useI18n } from "../../i18n";
+import { AddRemoveButtonsMultiValuedAttribute } from "./AddRemoveButtonsMultiValuedAttribute";
+import { FieldErrors } from "./FieldErrors";
+import type { InputFieldByTypeProps } from "./InputFieldByType";
 
 export function InputTag(
   props: InputFieldByTypeProps & {
-    fieldIndex: number | undefined
-    isInGroup?: boolean
+    fieldIndex: number | undefined;
+    isInGroup?: boolean;
   },
 ) {
   const {
@@ -19,34 +19,34 @@ export function InputTag(
     valueOrValues,
     displayableErrors,
     isInGroup = false,
-  } = props
+  } = props;
 
-  const { advancedMsgStr } = useI18n()
+  const { advancedMsgStr } = useI18n();
 
-  const InputComponent = isInGroup ? InputGroupInput : Input
+  const InputComponent = isInGroup ? InputGroupInput : Input;
   return (
     <>
       <InputComponent
         type={(() => {
-          const { inputType } = attribute.annotations
+          const { inputType } = attribute.annotations;
 
-          if (inputType?.startsWith('html5-')) {
-            return inputType.slice(6)
+          if (inputType?.startsWith("html5-")) {
+            return inputType.slice(6);
           }
 
-          return inputType ?? 'text'
+          return inputType ?? "text";
         })()}
         id={attribute.name}
         name={attribute.name}
         value={(() => {
           if (fieldIndex !== undefined) {
-            assert(valueOrValues instanceof Array)
-            return valueOrValues[fieldIndex]
+            assert(valueOrValues instanceof Array);
+            return valueOrValues[fieldIndex];
           }
 
-          assert(typeof valueOrValues === 'string')
+          assert(typeof valueOrValues === "string");
 
-          return valueOrValues
+          return valueOrValues;
         })()}
         aria-invalid={displayableErrors.length !== 0}
         disabled={attribute.readOnly}
@@ -82,28 +82,28 @@ export function InputTag(
         )}
         onChange={(event) =>
           dispatchFormAction({
-            action: 'update',
+            action: "update",
             name: attribute.name,
             valueOrValues: (() => {
               if (fieldIndex !== undefined) {
-                assert(valueOrValues instanceof Array)
+                assert(valueOrValues instanceof Array);
 
                 return valueOrValues.map((value, i) => {
                   if (i === fieldIndex) {
-                    return event.target.value
+                    return event.target.value;
                   }
 
-                  return value
-                })
+                  return value;
+                });
               }
 
-              return event.target.value
+              return event.target.value;
             })(),
           })
         }
         onBlur={() =>
           dispatchFormAction({
-            action: 'focus lost',
+            action: "focus lost",
             name: attribute.name,
             fieldIndex: fieldIndex,
           })
@@ -111,12 +111,12 @@ export function InputTag(
       />
       {(() => {
         if (fieldIndex === undefined) {
-          return null
+          return null;
         }
 
-        assert(valueOrValues instanceof Array)
+        assert(valueOrValues instanceof Array);
 
-        const values = valueOrValues
+        const values = valueOrValues;
 
         return (
           <>
@@ -132,8 +132,8 @@ export function InputTag(
               dispatchFormAction={dispatchFormAction}
             />
           </>
-        )
+        );
       })()}
     </>
-  )
+  );
 }

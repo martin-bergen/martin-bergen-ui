@@ -1,19 +1,19 @@
-import { Button } from '@berget-ai/ui'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { useI18n } from '../../i18n'
-import { useKcContext } from '../../KcContext'
+import { Button } from "@berget-ai/ui";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { useI18n } from "../../i18n";
+import { useKcContext } from "../../KcContext";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'email-confirmation.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "email-confirmation.ftl");
 
-  const { msgStr } = useI18n()
+  const { msgStr } = useI18n();
 
-  const { magicLinkContinuation } = kcContext
+  const { magicLinkContinuation } = kcContext;
 
   return (
-    <Template headerNode={msgStr('magicLinkSuccessfulLogin')}>
+    <Template headerNode={msgStr("magicLinkSuccessfulLogin")}>
       <div className="space-y-6 text-center">
         {/* Success checkmark icon */}
         <div className="w-20 h-20 mx-auto rounded-full bg-secondary/20 flex items-center justify-center">
@@ -35,11 +35,11 @@ export function Page() {
         {magicLinkContinuation.sameBrowser && (
           <div className="pt-4">
             <Button asChild className="w-full">
-              <a href={magicLinkContinuation.url}>{msgStr('continueToApp')}</a>
+              <a href={magicLinkContinuation.url}>{msgStr("continueToApp")}</a>
             </Button>
           </div>
         )}
       </div>
     </Template>
-  )
+  );
 }

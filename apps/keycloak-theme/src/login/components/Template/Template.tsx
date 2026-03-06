@@ -1,28 +1,28 @@
-import { Languages } from '@/components/langauges'
-import { ModeToggle } from '@/components/theme-toggle'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@berget-ai/ui'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { redirectUrlOrigin } from '@/login/shared/redirectUrlOrigin'
-import { kcSanitize } from '@keycloakify/login-ui/kcSanitize'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
+import { Languages } from "@/components/langauges";
+import { ModeToggle } from "@/components/theme-toggle";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@berget-ai/ui";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { redirectUrlOrigin } from "@/login/shared/redirectUrlOrigin";
+import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@radix-ui/react-tooltip'
-import { useSetClassName } from 'keycloakify/tools/useSetClassName'
-import { RotateCcw } from 'lucide-react'
-import type { ReactNode } from 'react'
-import { useEffect } from 'react'
-import { FiHome } from 'react-icons/fi'
-import { useI18n } from '../../i18n'
-import { useKcContext } from '../../KcContext'
-import { useInitializeTemplate } from './useInitializeTemplate'
+} from "@radix-ui/react-tooltip";
+import { useSetClassName } from "keycloakify/tools/useSetClassName";
+import { RotateCcw } from "lucide-react";
+import type { ReactNode } from "react";
+import { useEffect } from "react";
+import { FiHome } from "react-icons/fi";
+import { useI18n } from "../../i18n";
+import { useKcContext } from "../../KcContext";
+import { useInitializeTemplate } from "./useInitializeTemplate";
 
 function BergetSymbol({ className }: { className?: string }) {
-  const aspectRatio = 463 / 419
+  const aspectRatio = 463 / 419;
   return (
     <svg
       width={64 * aspectRatio}
@@ -37,53 +37,53 @@ function BergetSymbol({ className }: { className?: string }) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 function getPageSubtitle(pageId: string): string {
   switch (pageId) {
-    case 'login.ftl':
-    case 'login-username.ftl':
-      return 'Sign in to continue'
-    case 'login-password.ftl':
-      return 'Enter your password'
-    case 'register.ftl':
-      return 'Create your account'
-    case 'login-reset-password.ftl':
-      return 'Enter your email to reset password'
-    case 'login-update-password.ftl':
-      return 'Please update your password'
-    case 'login-verify-email.ftl':
-      return 'Check your email'
-    case 'logout-confirm.ftl':
-      return 'Are you sure you want to sign out?'
-    case 'login-otp.ftl':
-      return 'Enter your one-time code'
-    case 'login-config-totp.ftl':
-      return 'Set up two-factor authentication'
-    case 'terms.ftl':
-      return 'Please review and accept'
-    case 'webauthn-authenticate.ftl':
-      return 'Use your security key to sign in'
-    case 'login-idp-link-confirm.ftl':
-      return 'Link your account'
-    case 'login-page-expired.ftl':
-      return 'Please try again'
+    case "login.ftl":
+    case "login-username.ftl":
+      return "Sign in to continue";
+    case "login-password.ftl":
+      return "Enter your password";
+    case "register.ftl":
+      return "Create your account";
+    case "login-reset-password.ftl":
+      return "Enter your email to reset password";
+    case "login-update-password.ftl":
+      return "Please update your password";
+    case "login-verify-email.ftl":
+      return "Check your email";
+    case "logout-confirm.ftl":
+      return "Are you sure you want to sign out?";
+    case "login-otp.ftl":
+      return "Enter your one-time code";
+    case "login-config-totp.ftl":
+      return "Set up two-factor authentication";
+    case "terms.ftl":
+      return "Please review and accept";
+    case "webauthn-authenticate.ftl":
+      return "Use your security key to sign in";
+    case "login-idp-link-confirm.ftl":
+      return "Link your account";
+    case "login-page-expired.ftl":
+      return "Please try again";
     default:
-      return ''
+      return "";
   }
 }
 
 export function Template(props: {
-  displayInfo?: boolean
-  displayMessage?: boolean
-  displayRequiredFields?: boolean
-  headerNode: ReactNode
-  socialProvidersNode?: ReactNode
-  infoNode?: ReactNode
-  documentTitle?: string
-  bodyClassName?: string
-  children: ReactNode
+  displayInfo?: boolean;
+  displayMessage?: boolean;
+  displayRequiredFields?: boolean;
+  headerNode: ReactNode;
+  socialProvidersNode?: ReactNode;
+  infoNode?: ReactNode;
+  documentTitle?: string;
+  bodyClassName?: string;
+  children: ReactNode;
 }) {
   const {
     displayInfo = false,
@@ -95,35 +95,35 @@ export function Template(props: {
     documentTitle,
     bodyClassName,
     children,
-  } = props
+  } = props;
 
-  const { kcContext } = useKcContext()
+  const { kcContext } = useKcContext();
 
-  const { auth, url, message, isAppInitiatedAction } = kcContext
+  const { auth, url, message, isAppInitiatedAction } = kcContext;
 
-  const { msg, msgStr, enabledLanguages } = useI18n()
+  const { msg, msgStr, enabledLanguages } = useI18n();
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
-  const pageSubtitle = getPageSubtitle(kcContext.pageId)
+  const pageSubtitle = getPageSubtitle(kcContext.pageId);
 
   useEffect(() => {
     document.title =
       documentTitle ??
-      msgStr('loginTitle', kcContext.realm.displayName || kcContext.realm.name)
-  }, [])
+      msgStr("loginTitle", kcContext.realm.displayName || kcContext.realm.name);
+  }, []);
 
   useSetClassName({
-    qualifiedName: 'html',
-    className: kcClsx('kcHtmlClass'),
-  })
+    qualifiedName: "html",
+    className: kcClsx("kcHtmlClass"),
+  });
 
   useSetClassName({
-    qualifiedName: 'body',
-    className: bodyClassName ?? kcClsx('kcBodyClass'),
-  })
+    qualifiedName: "body",
+    className: bodyClassName ?? kcClsx("kcBodyClass"),
+  });
 
-  useInitializeTemplate()
+  useInitializeTemplate();
 
   return (
     <div className="berget-auth-container px-4">
@@ -174,19 +174,19 @@ export function Template(props: {
                           <a
                             id="reset-login"
                             href={url.loginRestartFlowUrl}
-                            aria-label={msgStr('restartLoginTooltip')}
+                            aria-label={msgStr("restartLoginTooltip")}
                           >
                             <RotateCcw className="h-4 w-4" />
                           </a>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{msg('restartLoginTooltip')}</p>
+                        <p>{msg("restartLoginTooltip")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
-              )
+              );
 
               if (displayRequiredFields) {
                 return (
@@ -195,14 +195,14 @@ export function Template(props: {
                     <div>
                       <span className="subtitle">
                         <span className="text-red-500">*</span>
-                        {msg('requiredFields')}
+                        {msg("requiredFields")}
                       </span>
                     </div>
                   </div>
-                )
+                );
               }
 
-              return node
+              return node;
             })()}
           </CardTitle>
           {pageSubtitle && (
@@ -213,7 +213,7 @@ export function Template(props: {
         <CardContent className="space-y-6">
           {displayMessage &&
             message !== undefined &&
-            (message.type !== 'warning' || !isAppInitiatedAction) && (
+            (message.type !== "warning" || !isAppInitiatedAction) && (
               <Alert variant={message.type} className="my-3">
                 <AlertDescription>
                   <div>
@@ -238,20 +238,20 @@ export function Template(props: {
               action={url.loginAction}
               method="post"
             >
-              <div className={kcClsx('kcFormGroupClass')}>
+              <div className={kcClsx("kcFormGroupClass")}>
                 <input type="hidden" name="tryAnotherWay" value="on" />
                 <a
                   href="#"
                   id="try-another-way"
                   onClick={(event) => {
                     document.forms[
-                      'kc-select-try-another-way-form' as never
-                    ].submit()
-                    event.preventDefault()
-                    return false
+                      "kc-select-try-another-way-form" as never
+                    ].submit();
+                    event.preventDefault();
+                    return false;
                   }}
                 >
-                  {msg('doTryAnotherWay')}
+                  {msg("doTryAnotherWay")}
                 </a>
               </div>
             </form>
@@ -265,5 +265,5 @@ export function Template(props: {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

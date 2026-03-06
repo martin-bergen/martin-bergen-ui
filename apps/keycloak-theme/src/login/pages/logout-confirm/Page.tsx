@@ -1,20 +1,20 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'logout-confirm.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "logout-confirm.ftl");
 
-  const { url, client, logoutConfirm } = kcContext
+  const { url, client, logoutConfirm } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
   return (
-    <Template headerNode={msg('logoutConfirmTitle')}>
+    <Template headerNode={msg("logoutConfirmTitle")}>
       <div className="space-y-4">
-        <p className="text-foreground ">{msg('logoutConfirmHeader')}</p>
+        <p className="text-foreground ">{msg("logoutConfirmHeader")}</p>
 
         <form
           className="space-y-6"
@@ -30,7 +30,7 @@ export function Page() {
             id="kc-logout"
             type="submit"
           >
-            {msgStr('doLogout')}
+            {msgStr("doLogout")}
           </Button>
         </form>
 
@@ -40,11 +40,11 @@ export function Page() {
               href={client.baseUrl}
               className="text-sm text-primary dark:text-white hover:text-primary/80 underline underline-offset-4"
             >
-              {msg('backToApplication')}
+              {msg("backToApplication")}
             </a>
           </div>
         )}
       </div>
     </Template>
-  )
+  );
 }

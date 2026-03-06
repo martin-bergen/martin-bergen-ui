@@ -1,19 +1,19 @@
-import { Button, Input } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
-import { clsx } from 'keycloakify/tools/clsx'
-import { Fingerprint, Shield } from 'lucide-react'
-import { Fragment } from 'react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { useScript } from './useScript'
+import { Button, Input } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { clsx } from "keycloakify/tools/clsx";
+import { Fingerprint, Shield } from "lucide-react";
+import { Fragment } from "react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { useScript } from "./useScript";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'webauthn-authenticate.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "webauthn-authenticate.ftl");
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
   const {
     url,
@@ -21,13 +21,13 @@ export function Page() {
     registrationDisabled,
     authenticators,
     shouldDisplayAuthenticators,
-  } = kcContext
+  } = kcContext;
 
-  const { msg, msgStr, advancedMsg } = useI18n()
+  const { msg, msgStr, advancedMsg } = useI18n();
 
-  const webAuthnButtonId = 'authenticateWebAuthnButton'
+  const webAuthnButtonId = "authenticateWebAuthnButton";
 
-  useScript({ webAuthnButtonId })
+  useScript({ webAuthnButtonId });
 
   return (
     <Template
@@ -35,18 +35,18 @@ export function Page() {
       infoNode={
         <div id="kc-registration" className="text-center text-sm">
           <span>
-            {msg('noAccount')}{' '}
+            {msg("noAccount")}{" "}
             <a
               tabIndex={6}
               href={url.registrationUrl}
               className="text-primary dark:text-white hover:text-primary/80 underline underline-offset-4"
             >
-              {msg('doRegister')}
+              {msg("doRegister")}
             </a>
           </span>
         </div>
       }
-      headerNode={msg('webauthn-login-title')}
+      headerNode={msg("webauthn-login-title")}
     >
       <div className="space-y-6">
         <form id="webauth" action={url.loginAction} method="post">
@@ -79,7 +79,7 @@ export function Page() {
               <div className="space-y-4">
                 {authenticators.authenticators.length > 1 && (
                   <h3 className="text-sm font-medium text-center">
-                    {msg('webauthn-available-authenticators')}
+                    {msg("webauthn-available-authenticators")}
                   </h3>
                 )}
 
@@ -94,24 +94,24 @@ export function Page() {
                         {(() => {
                           const className = kcClsx(
                             authenticator.transports.iconClass as any,
-                          )
+                          );
                           const isDefaultIcon =
-                            className === authenticator.transports.iconClass
+                            className === authenticator.transports.iconClass;
 
                           if (isDefaultIcon) {
                             return (
                               <Shield className="w-5 h-5 text-muted-foreground" />
-                            )
+                            );
                           }
 
                           return (
                             <i
                               className={clsx(
                                 className,
-                                'text-muted-foreground',
+                                "text-muted-foreground",
                               )}
                             />
-                          )
+                          );
                         })()}
                       </div>
 
@@ -147,8 +147,8 @@ export function Page() {
                           <span
                             id={`kc-webauthn-authenticator-createdlabel-${i}`}
                           >
-                            {msg('webauthn-createdAt-label')}
-                          </span>{' '}
+                            {msg("webauthn-createdAt-label")}
+                          </span>{" "}
                           <span id={`kc-webauthn-authenticator-created-${i}`}>
                             {authenticator.createdAt}
                           </span>
@@ -169,9 +169,9 @@ export function Page() {
           className="w-full"
         >
           <Fingerprint className="w-4 h-4" />
-          {msgStr('webauthn-doAuthenticate')}
+          {msgStr("webauthn-doAuthenticate")}
         </Button>
       </div>
     </Template>
-  )
+  );
 }

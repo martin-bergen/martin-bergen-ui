@@ -1,22 +1,22 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'link-idp-action.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "link-idp-action.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
   return (
     <Template
-      headerNode={msg('linkIdpActionTitle', kcContext.idpDisplayName)}
+      headerNode={msg("linkIdpActionTitle", kcContext.idpDisplayName)}
       displayMessage={false}
     >
       <div id="kc-link-text">
-        {msg('linkIdpActionMessage', kcContext.idpDisplayName)}
+        {msg("linkIdpActionMessage", kcContext.idpDisplayName)}
       </div>
       <form action={kcContext.url.loginAction} method="post">
         <div className="flex flex-col sm:flex-row gap-3 sm:justify-between mt-6">
@@ -27,7 +27,7 @@ export function Page() {
             id="kc-cancel"
             type="submit"
           >
-            {msgStr('doCancel')}
+            {msgStr("doCancel")}
           </Button>
           <Button
             name="continue"
@@ -35,11 +35,11 @@ export function Page() {
             type="submit"
             className="flex-1"
           >
-            {msgStr('doContinue')}
+            {msgStr("doContinue")}
           </Button>
         </div>
       </form>
       <div className="clearfix" />
     </Template>
-  )
+  );
 }

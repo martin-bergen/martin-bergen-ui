@@ -1,62 +1,62 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Select } from '.'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Select } from ".";
 
 const defaultOptions = [
-  { value: 'option1', label: 'Option 1' },
-  { value: 'option2', label: 'Option 2' },
-  { value: 'option3', label: 'Option 3' },
-]
+  { value: "option1", label: "Option 1" },
+  { value: "option2", label: "Option 2" },
+  { value: "option3", label: "Option 3" },
+];
 
 const meta: Meta<typeof Select> = {
-  title: 'Atoms/Select',
+  title: "Atoms/Select",
   component: Select,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'primary', 'subtle', 'muted'],
-      description: 'Visual variant',
+      control: "select",
+      options: ["default", "primary", "subtle", "muted"],
+      description: "Visual variant",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'default', 'lg'],
-      description: 'Select size',
+      control: "select",
+      options: ["sm", "default", "lg"],
+      description: "Select size",
     },
     label: {
-      control: 'text',
-      description: 'Label text',
+      control: "text",
+      description: "Label text",
     },
     description: {
-      control: 'text',
-      description: 'Description text',
+      control: "text",
+      description: "Description text",
     },
     error: {
-      control: 'text',
-      description: 'Error message',
+      control: "text",
+      description: "Error message",
     },
     placeholder: {
-      control: 'text',
-      description: 'Placeholder text',
+      control: "text",
+      description: "Placeholder text",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
-    variant: 'default',
-    size: 'default',
-    label: 'Choose an option',
-    placeholder: 'Select...',
+    variant: "default",
+    size: "default",
+    label: "Choose an option",
+    placeholder: "Select...",
     options: defaultOptions,
   },
   render: (args) => (
@@ -64,7 +64,7 @@ export const Interactive: Story = {
       <Select {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -97,7 +97,7 @@ export const AllVariants: Story = {
     </div>
   ),
   args: { options: defaultOptions },
-}
+};
 
 export const AllSizes: Story = {
   parameters: { controls: { hide: true } },
@@ -124,7 +124,7 @@ export const AllSizes: Story = {
     </div>
   ),
   args: { options: defaultOptions },
-}
+};
 
 export const WithError: Story = {
   parameters: { controls: { hide: true } },
@@ -146,4 +146,4 @@ export const WithError: Story = {
     </div>
   ),
   args: { options: defaultOptions },
-}
+};

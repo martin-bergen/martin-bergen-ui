@@ -1,39 +1,39 @@
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useEffect, useState } from 'react'
-import { FiCheck, FiExternalLink } from 'react-icons/fi'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useEffect, useState } from "react";
+import { FiCheck, FiExternalLink } from "react-icons/fi";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'frontchannel-logout.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "frontchannel-logout.ftl");
 
-  const { msg, msgStr } = useI18n()
-  const [iframeLoadCount, setIframeLoadCount] = useState(0)
+  const { msg, msgStr } = useI18n();
+  const [iframeLoadCount, setIframeLoadCount] = useState(0);
 
   useEffect(() => {
     if (!kcContext.logout.logoutRedirectUri) {
-      return
+      return;
     }
 
     if (iframeLoadCount !== kcContext.logout.clients.length) {
-      return
+      return;
     }
 
-    window.location.replace(kcContext.logout.logoutRedirectUri)
-  }, [iframeLoadCount])
+    window.location.replace(kcContext.logout.logoutRedirectUri);
+  }, [iframeLoadCount]);
 
   return (
     <Template
-      documentTitle={msgStr('frontchannel-logout.title')}
-      headerNode={msg('frontchannel-logout.title')}
+      documentTitle={msgStr("frontchannel-logout.title")}
+      headerNode={msg("frontchannel-logout.title")}
     >
       <Alert variant="info" className="my-6">
         <AlertDescription>
-          <p>{msg('frontchannel-logout.message')}</p>
+          <p>{msg("frontchannel-logout.message")}</p>
         </AlertDescription>
       </Alert>
 
@@ -51,10 +51,10 @@ export function Page() {
                 </span>
                 <iframe
                   src={client.frontChannelLogoutUrl}
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                   title={`Logout frame for ${client.name}`}
                   onLoad={() => {
-                    setIframeLoadCount((count) => count + 1)
+                    setIframeLoadCount((count) => count + 1);
                   }}
                 />
               </div>
@@ -71,12 +71,12 @@ export function Page() {
               href={kcContext.logout.logoutRedirectUri}
               className="flex items-center gap-2"
             >
-              {msg('doContinue')}
+              {msg("doContinue")}
               <FiExternalLink className="h-4 w-4" />
             </a>
           </Button>
         </div>
       )}
     </Template>
-  )
+  );
 }

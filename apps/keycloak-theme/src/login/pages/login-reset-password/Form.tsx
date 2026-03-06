@@ -1,15 +1,15 @@
-import { Button, Input } from '@berget-ai/ui'
-import { Field, FieldError, FieldLabel } from '@/components/ui/field'
-import { kcSanitize } from '@keycloakify/login-ui/kcSanitize'
-import { assert } from 'tsafe/assert'
-import { useKcContext } from '../../KcContext'
-import { useI18n } from '../../i18n'
+import { Button, Input } from "@berget-ai/ui";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
+import { assert } from "tsafe/assert";
+import { useKcContext } from "../../KcContext";
+import { useI18n } from "../../i18n";
 
 export function Form() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-reset-password.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-reset-password.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
   return (
     <form
@@ -20,29 +20,29 @@ export function Form() {
     >
       <Field>
         <FieldLabel htmlFor="username">
-          {' '}
+          {" "}
           {!kcContext.realm.loginWithEmailAllowed
-            ? msg('username')
+            ? msg("username")
             : !kcContext.realm.registrationEmailAsUsername
-              ? msg('usernameOrEmail')
-              : msg('email')}
+              ? msg("usernameOrEmail")
+              : msg("email")}
         </FieldLabel>
         <Input
           type="text"
           id="username"
           name="username"
           autoFocus
-          defaultValue={kcContext.auth.attemptedUsername ?? ''}
-          aria-invalid={kcContext.messagesPerField.existsError('username')}
+          defaultValue={kcContext.auth.attemptedUsername ?? ""}
+          aria-invalid={kcContext.messagesPerField.existsError("username")}
         />
-        {kcContext.messagesPerField.existsError('username') && (
+        {kcContext.messagesPerField.existsError("username") && (
           <FieldError>
             <span
               id="input-error"
               aria-live="polite"
               dangerouslySetInnerHTML={{
                 __html: kcSanitize(
-                  kcContext.messagesPerField.getFirstError('username'),
+                  kcContext.messagesPerField.getFirstError("username"),
                 ),
               }}
             />
@@ -51,16 +51,16 @@ export function Form() {
       </Field>
 
       <Button className="w-full" type="submit">
-        {msgStr('doSubmit')}
+        {msgStr("doSubmit")}
       </Button>
 
       <div className="flex justify-end">
         <Button variant="link" type="button">
           <a id="backToApplication" href={kcContext.url.loginUrl}>
-            {msg('backToApplication')}
+            {msg("backToApplication")}
           </a>
         </Button>
       </div>
     </form>
-  )
+  );
 }

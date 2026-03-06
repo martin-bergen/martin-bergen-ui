@@ -1,44 +1,44 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../../lib/utils'
-import { Badge } from '../../atoms/badge'
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Badge } from "../../atoms/badge";
 
-const sectionHeaderVariants = cva('text-center', {
+const sectionHeaderVariants = cva("text-center", {
   variants: {
     alignment: {
-      left: 'text-left',
-      center: 'text-center',
-      right: 'text-right',
+      left: "text-left",
+      center: "text-center",
+      right: "text-right",
     },
     size: {
-      sm: '[&_h2]:text-2xl [&_h2]:md:text-3xl',
-      md: '[&_h2]:text-3xl [&_h2]:md:text-4xl',
-      lg: '[&_h2]:text-4xl [&_h2]:md:text-5xl',
+      sm: "[&_h2]:text-2xl [&_h2]:md:text-3xl",
+      md: "[&_h2]:text-3xl [&_h2]:md:text-4xl",
+      lg: "[&_h2]:text-4xl [&_h2]:md:text-5xl",
     },
   },
   defaultVariants: {
-    alignment: 'center',
-    size: 'md',
+    alignment: "center",
+    size: "md",
   },
-})
+});
 
 export interface SectionHeaderProps
   extends
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof sectionHeaderVariants> {
-  title: string
-  description?: string
-  tagline?: string
-  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  title: string;
+  description?: string;
+  tagline?: string;
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
 const maxWidthClasses = {
-  sm: 'max-w-2xl',
-  md: 'max-w-3xl',
-  lg: 'max-w-4xl',
-  xl: 'max-w-5xl',
-  full: 'max-w-full',
-}
+  sm: "max-w-2xl",
+  md: "max-w-3xl",
+  lg: "max-w-4xl",
+  xl: "max-w-5xl",
+  full: "max-w-full",
+};
 
 const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
   (
@@ -49,7 +49,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
       title,
       description,
       tagline,
-      maxWidth = 'md',
+      maxWidth = "md",
       ...props
     },
     ref,
@@ -60,7 +60,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
         className={cn(
           sectionHeaderVariants({ alignment, size }),
           maxWidthClasses[maxWidth],
-          (alignment === 'center' || alignment === undefined) && 'mx-auto',
+          (alignment === "center" || alignment === undefined) && "mx-auto",
           className,
         )}
         {...props}
@@ -79,9 +79,9 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           </p>
         )}
       </div>
-    )
+    );
   },
-)
-SectionHeader.displayName = 'SectionHeader'
+);
+SectionHeader.displayName = "SectionHeader";
 
-export { SectionHeader, sectionHeaderVariants }
+export { SectionHeader, sectionHeaderVariants };

@@ -1,19 +1,19 @@
-import { Button, Label } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button, Label } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-x509-info.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-x509-info.ftl");
 
-  const { url, x509 } = kcContext
+  const { url, x509 } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
   return (
-    <Template headerNode={msg('doLogIn')}>
+    <Template headerNode={msg("doLogIn")}>
       <form
         id="kc-x509-login-info"
         className="space-y-6"
@@ -22,18 +22,18 @@ export function Page() {
       >
         <div className="space-y-2">
           <Label className="text-sm font-medium">
-            {msg('clientCertificate')}
+            {msg("clientCertificate")}
           </Label>
           <div className="p-3 bg-muted/50 rounded-lg">
             <p className="text-sm font-mono break-all">
-              {x509.formData.subjectDN || msg('noCertificate')}
+              {x509.formData.subjectDN || msg("noCertificate")}
             </p>
           </div>
         </div>
 
         {x509.formData.isUserEnabled && (
           <div className="space-y-2">
-            <Label className="text-sm font-medium">{msg('doX509Login')}</Label>
+            <Label className="text-sm font-medium">{msg("doX509Login")}</Label>
             <div className="p-3 bg-muted/50 rounded-lg">
               <p className="text-sm font-medium">{x509.formData.username}</p>
             </div>
@@ -49,7 +49,7 @@ export function Page() {
               type="submit"
               className="sm:flex-1"
             >
-              {msgStr('doIgnore')}
+              {msgStr("doIgnore")}
             </Button>
           )}
           <Button
@@ -58,10 +58,10 @@ export function Page() {
             type="submit"
             className="sm:flex-1"
           >
-            {msgStr('doContinue')}
+            {msgStr("doContinue")}
           </Button>
         </div>
       </form>
     </Template>
-  )
+  );
 }

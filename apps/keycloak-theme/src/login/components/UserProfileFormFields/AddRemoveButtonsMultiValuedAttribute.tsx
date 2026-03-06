@@ -1,28 +1,28 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import type { Attribute } from '@keycloakify/login-ui/KcContext'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import type { Attribute } from "@keycloakify/login-ui/KcContext";
 import {
   getButtonToDisplayForMultivaluedAttributeField,
   type FormAction,
-} from '@keycloakify/login-ui/useUserProfileForm'
+} from "@keycloakify/login-ui/useUserProfileForm";
 
 export function AddRemoveButtonsMultiValuedAttribute(props: {
-  attribute: Attribute
-  values: string[]
-  fieldIndex: number
-  dispatchFormAction: React.Dispatch<Extract<FormAction, { action: 'update' }>>
+  attribute: Attribute;
+  values: string[];
+  fieldIndex: number;
+  dispatchFormAction: React.Dispatch<Extract<FormAction, { action: "update" }>>;
 }) {
-  const { attribute, values, fieldIndex, dispatchFormAction } = props
+  const { attribute, values, fieldIndex, dispatchFormAction } = props;
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
   const { hasAdd, hasRemove } = getButtonToDisplayForMultivaluedAttributeField({
     attribute,
     values,
     fieldIndex,
-  })
+  });
 
-  const idPostfix = `-${attribute.name}-${fieldIndex + 1}`
+  const idPostfix = `-${attribute.name}-${fieldIndex + 1}`;
 
   return (
     <div className="flex items-center gap-2 mt-2">
@@ -34,13 +34,13 @@ export function AddRemoveButtonsMultiValuedAttribute(props: {
           size="sm"
           onClick={() =>
             dispatchFormAction({
-              action: 'update',
+              action: "update",
               name: attribute.name,
               valueOrValues: values.filter((_, i) => i !== fieldIndex),
             })
           }
         >
-          {msg('remove')}
+          {msg("remove")}
         </Button>
       )}
       {hasAdd && (
@@ -51,15 +51,15 @@ export function AddRemoveButtonsMultiValuedAttribute(props: {
           size="sm"
           onClick={() =>
             dispatchFormAction({
-              action: 'update',
+              action: "update",
               name: attribute.name,
-              valueOrValues: [...values, ''],
+              valueOrValues: [...values, ""],
             })
           }
         >
-          {msg('addValue')}
+          {msg("addValue")}
         </Button>
       )}
     </div>
-  )
+  );
 }

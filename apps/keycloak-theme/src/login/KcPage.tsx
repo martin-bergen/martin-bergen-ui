@@ -1,14 +1,14 @@
-import { useExclusiveAppInstanceEffect } from '@keycloakify/login-ui/tools/useExclusiveAppInstanceEffect'
-import { KcClsxProvider } from '@keycloakify/login-ui/useKcClsx'
-import type { ReactNode } from 'react'
-import { assert } from 'tsafe/assert'
-import { type KcContext, KcContextProvider } from './KcContext'
-import { I18nProvider } from './i18n'
-import { PageIndex } from './pages/PageIndex'
-import { useStyleLevelCustomization } from './styleLevelCustomization'
+import { useExclusiveAppInstanceEffect } from "@keycloakify/login-ui/tools/useExclusiveAppInstanceEffect";
+import { KcClsxProvider } from "@keycloakify/login-ui/useKcClsx";
+import type { ReactNode } from "react";
+import { assert } from "tsafe/assert";
+import { type KcContext, KcContextProvider } from "./KcContext";
+import { I18nProvider } from "./i18n";
+import { PageIndex } from "./pages/PageIndex";
+import { useStyleLevelCustomization } from "./styleLevelCustomization";
 
 export default function KcPage(props: { kcContext: KcContext }) {
-  const { kcContext } = props
+  const { kcContext } = props;
 
   return (
     <KcContextProvider kcContext={kcContext}>
@@ -18,27 +18,27 @@ export default function KcPage(props: { kcContext: KcContext }) {
         </StyleLevelCustomization>
       </I18nProvider>
     </KcContextProvider>
-  )
+  );
 }
 
 function StyleLevelCustomization(props: { children: ReactNode }) {
-  const { children } = props
+  const { children } = props;
 
   const { doUseDefaultCss, classes, loadCustomStylesheet, Provider } =
-    useStyleLevelCustomization()
+    useStyleLevelCustomization();
 
   useExclusiveAppInstanceEffect({
-    effectId: 'loadCustomStylesheet',
+    effectId: "loadCustomStylesheet",
     isEnabled: loadCustomStylesheet !== undefined,
     effect: () => {
-      assert(loadCustomStylesheet !== undefined)
-      loadCustomStylesheet()
+      assert(loadCustomStylesheet !== undefined);
+      loadCustomStylesheet();
     },
-  })
+  });
 
   return (
     <KcClsxProvider doUseDefaultCss={doUseDefaultCss} classes={classes}>
       {Provider === undefined ? children : <Provider>{children}</Provider>}
     </KcClsxProvider>
-  )
+  );
 }

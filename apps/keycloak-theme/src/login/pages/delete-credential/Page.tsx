@@ -1,25 +1,25 @@
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'delete-credential.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "delete-credential.ftl");
 
-  const { msgStr, msg } = useI18n()
+  const { msgStr, msg } = useI18n();
 
   return (
     <Template
       displayMessage={false}
-      headerNode={msg('deleteCredentialTitle', kcContext.credentialLabel)}
+      headerNode={msg("deleteCredentialTitle", kcContext.credentialLabel)}
     >
       <Alert variant="warning" className=" my-3">
         <AlertDescription>
           <span>
-            {msg('deleteCredentialMessage', kcContext.credentialLabel)}
+            {msg("deleteCredentialMessage", kcContext.credentialLabel)}
           </span>
         </AlertDescription>
       </Alert>
@@ -37,7 +37,7 @@ export function Page() {
             type="submit"
             className="sm:flex-1"
           >
-            {msgStr('doCancel')}
+            {msgStr("doCancel")}
           </Button>
 
           <Button
@@ -47,10 +47,10 @@ export function Page() {
             variant="destructive"
             className="sm:flex-1 text-white"
           >
-            {msgStr('doConfirmDelete')}
+            {msgStr("doConfirmDelete")}
           </Button>
         </div>
       </form>
     </Template>
-  )
+  );
 }

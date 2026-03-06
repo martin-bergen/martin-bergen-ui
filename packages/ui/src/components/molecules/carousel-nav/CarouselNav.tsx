@@ -1,32 +1,32 @@
-import * as React from 'react'
-import { cn } from '../../../lib/utils'
-import { Button } from '../../atoms/button'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import * as React from "react";
+import { cn } from "../../../lib/utils";
+import { Button } from "../../atoms/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface CarouselNavProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Total number of items
    */
-  total: number
+  total: number;
   /**
    * Currently active index
    */
-  activeIndex: number
+  activeIndex: number;
   /**
    * Callback when navigating to a specific index
    */
-  onNavigate: (index: number) => void
+  onNavigate: (index: number) => void;
 }
 
 export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
   ({ className, total, activeIndex, onNavigate, ...props }, ref) => {
-    const prev = () => onNavigate((activeIndex - 1 + total) % total)
-    const next = () => onNavigate((activeIndex + 1) % total)
+    const prev = () => onNavigate((activeIndex - 1 + total) % total);
+    const next = () => onNavigate((activeIndex + 1) % total);
 
     return (
       <div
         ref={ref}
-        className={cn('flex items-center justify-center gap-4', className)}
+        className={cn("flex items-center justify-center gap-4", className)}
         {...props}
       >
         <Button
@@ -42,8 +42,8 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
             <button
               key={idx}
               className={cn(
-                'w-2 h-2 rounded-full transition-colors',
-                idx === activeIndex ? 'bg-[#52B788]' : 'bg-white/20',
+                "w-2 h-2 rounded-full transition-colors",
+                idx === activeIndex ? "bg-[#52B788]" : "bg-white/20",
               )}
               onClick={() => onNavigate(idx)}
             />
@@ -58,7 +58,7 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
           <ChevronRight className="h-5 w-5" />
         </Button>
       </div>
-    )
+    );
   },
-)
-CarouselNav.displayName = 'CarouselNav'
+);
+CarouselNav.displayName = "CarouselNav";

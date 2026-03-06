@@ -1,25 +1,25 @@
-import { Button } from '@berget-ai/ui'
-import { assert } from 'tsafe/assert'
-import { useKcContext } from '../../KcContext'
-import { Template } from '../../components/Template'
-import { useI18n } from '../../i18n'
+import { Button } from "@berget-ai/ui";
+import { assert } from "tsafe/assert";
+import { useKcContext } from "../../KcContext";
+import { Template } from "../../components/Template";
+import { useI18n } from "../../i18n";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'terms.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "terms.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const { url } = kcContext
+  const { url } = kcContext;
 
   return (
-    <Template displayMessage={false} headerNode={msg('termsTitle')}>
+    <Template displayMessage={false} headerNode={msg("termsTitle")}>
       <div className="space-y-6">
         <div
           id="kc-terms-text"
           className="p-4 bg-muted/50 rounded-lg max-h-64 overflow-y-auto text-sm leading-relaxed"
         >
-          {msg('termsText')}
+          {msg("termsText")}
         </div>
 
         <form className="space-y-4" action={url.loginAction} method="POST">
@@ -31,7 +31,7 @@ export function Page() {
               type="submit"
               className="sm:flex-1"
             >
-              {msgStr('doDecline')}
+              {msgStr("doDecline")}
             </Button>
             <Button
               name="accept"
@@ -39,11 +39,11 @@ export function Page() {
               type="submit"
               className="sm:flex-1"
             >
-              {msgStr('doAccept')}
+              {msgStr("doAccept")}
             </Button>
           </div>
         </form>
       </div>
     </Template>
-  )
+  );
 }

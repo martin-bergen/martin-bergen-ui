@@ -19,7 +19,7 @@ The package is published to the GitHub Package Registry. Configure your `.npmrc`
 Import the stylesheet in your app entry point:
 
 ```tsx
-import '@berget-ai/ui/styles'
+import "@berget-ai/ui/styles";
 ```
 
 The stylesheet provides CSS custom properties for theming (colors, radii, etc.). You need Tailwind CSS v4 configured in your project for the utility classes to work.
@@ -27,7 +27,13 @@ The stylesheet provides CSS custom properties for theming (colors, radii, etc.).
 ## Usage
 
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from '@berget-ai/ui'
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@berget-ai/ui";
 
 function Example() {
   return (
@@ -39,7 +45,7 @@ function Example() {
         <Button variant="default">Click me</Button>
       </CardContent>
     </Card>
-  )
+  );
 }
 ```
 

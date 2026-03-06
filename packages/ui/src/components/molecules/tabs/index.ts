@@ -6,10 +6,10 @@ export {
   tabListVariants,
   tabTriggerVariants,
   tabContentVariants,
-} from './Tabs'
+} from "./Tabs";
 export type {
   TabsProps,
   TabsListProps,
   TabsTriggerProps,
   TabsContentProps,
-} from './Tabs'
+} from "./Tabs";

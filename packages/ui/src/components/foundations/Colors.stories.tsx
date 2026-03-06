@@ -1,15 +1,15 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import * as React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Foundations/Colors',
+  title: "Foundations/Colors",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-} satisfies Meta
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const Swatch = ({
   name,
@@ -17,10 +17,10 @@ const Swatch = ({
   hex,
   className,
 }: {
-  name: string
-  cssVar: string
-  hex: string
-  className: string
+  name: string;
+  cssVar: string;
+  hex: string;
+  className: string;
 }) => (
   <div className="flex items-center gap-3">
     <div
@@ -32,16 +32,16 @@ const Swatch = ({
       <div className="text-xs text-muted-foreground font-mono">{cssVar}</div>
     </div>
   </div>
-)
+);
 
 const Section = ({
   title,
   description,
   children,
 }: {
-  title: string
-  description?: string
-  children: React.ReactNode
+  title: string;
+  description?: string;
+  children: React.ReactNode;
 }) => (
   <div className="space-y-4">
     <div>
@@ -54,7 +54,7 @@ const Section = ({
       {children}
     </div>
   </div>
-)
+);
 
 export const BrandColors: Story = {
   render: () => (
@@ -133,7 +133,7 @@ export const BrandColors: Story = {
       </Section>
     </div>
   ),
-}
+};
 
 export const SemanticColors: Story = {
   render: () => (
@@ -240,7 +240,7 @@ export const SemanticColors: Story = {
       </Section>
     </div>
   ),
-}
+};
 
 export const BorderColors: Story = {
   render: () => (
@@ -363,4 +363,4 @@ export const BorderColors: Story = {
       </Section>
     </div>
   ),
-}
+};

@@ -1,22 +1,22 @@
-import { Button, Checkbox, Input, Label } from '@berget-ai/ui'
-import { clsx } from 'keycloakify/tools/clsx'
-import { useState } from 'react'
+import { Button, Checkbox, Input, Label } from "@berget-ai/ui";
+import { clsx } from "keycloakify/tools/clsx";
+import { useState } from "react";
 
-import { Field, FieldError, FieldLabel } from '@/components/ui/field'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
-import { kcSanitize } from 'keycloakify/lib/kcSanitize'
-import { Fingerprint } from 'lucide-react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { useScript } from './useScript'
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { kcSanitize } from "keycloakify/lib/kcSanitize";
+import { Fingerprint } from "lucide-react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { useScript } from "./useScript";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-username.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-username.ftl");
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
   const {
     social,
@@ -28,37 +28,37 @@ export function Page() {
     messagesPerField,
     enableWebAuthnConditionalUI,
     authenticators,
-  } = kcContext
+  } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false)
+  const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false);
 
-  const webAuthnButtonId = 'authenticateWebAuthnButton'
+  const webAuthnButtonId = "authenticateWebAuthnButton";
 
-  useScript({ webAuthnButtonId })
+  useScript({ webAuthnButtonId });
 
   return (
     <Template
-      displayMessage={!messagesPerField.existsError('username')}
+      displayMessage={!messagesPerField.existsError("username")}
       displayInfo={
         realm.password && realm.registrationAllowed && !registrationDisabled
       }
       infoNode={
         <div id="kc-registration" className="text-center text-sm">
           <span>
-            {msg('noAccount')}{' '}
+            {msg("noAccount")}{" "}
             <a
               className="text-primary dark:text-primary-foreground underline underline-offset-4 "
               tabIndex={8}
               href={url.registrationUrl}
             >
-              {msg('doRegister')}
+              {msg("doRegister")}
             </a>
           </span>
         </div>
       }
-      headerNode={msg('doLogIn')}
+      headerNode={msg("doLogIn")}
       socialProvidersNode={
         <>
           {realm.password &&
@@ -67,13 +67,13 @@ export function Page() {
               <div id="kc-social-providers" className="space-y-4">
                 <div className="text-center">
                   <h2 className="text-sm font-medium text-muted-foreground">
-                    {msg('identity-provider-login-label')}
+                    {msg("identity-provider-login-label")}
                   </h2>
                 </div>
                 <div
                   className={clsx(
-                    'grid gap-2',
-                    social.providers.length > 3 ? 'grid-cols-2' : 'grid-cols-1',
+                    "grid gap-2",
+                    social.providers.length > 3 ? "grid-cols-2" : "grid-cols-1",
                   )}
                 >
                   {social.providers.map((p) => (
@@ -106,8 +106,8 @@ export function Page() {
             id="kc-form-login"
             className="space-y-4"
             onSubmit={() => {
-              setIsLoginButtonDisabled(true)
-              return true
+              setIsLoginButtonDisabled(true);
+              return true;
             }}
             action={url.loginAction}
             method="post"
@@ -116,30 +116,30 @@ export function Page() {
               <Field>
                 <FieldLabel htmlFor="username">
                   {!realm.loginWithEmailAllowed
-                    ? msg('email')
+                    ? msg("email")
                     : !realm.registrationEmailAsUsername
-                      ? msg('usernameOrEmail')
-                      : msg('username')}
+                      ? msg("usernameOrEmail")
+                      : msg("username")}
                 </FieldLabel>
                 <Input
                   tabIndex={2}
                   type="text"
                   id="username"
-                  defaultValue={login.username ?? ''}
+                  defaultValue={login.username ?? ""}
                   name="username"
                   autoFocus
                   className="autofill:bg-background"
                   autoComplete="username"
-                  aria-invalid={messagesPerField.existsError('username')}
+                  aria-invalid={messagesPerField.existsError("username")}
                 />
-                {messagesPerField.existsError('username') && (
+                {messagesPerField.existsError("username") && (
                   <FieldError>
                     <span
                       id="input-error"
                       aria-live="polite"
                       dangerouslySetInnerHTML={{
                         __html: kcSanitize(
-                          messagesPerField.getFirstError('username'),
+                          messagesPerField.getFirstError("username"),
                         ),
                       }}
                     />
@@ -161,7 +161,7 @@ export function Page() {
                   htmlFor="rememberMe"
                   className="text-sm font-medium cursor-pointer"
                 >
-                  {msg('rememberMe')}
+                  {msg("rememberMe")}
                 </Label>
               </div>
             )}
@@ -173,7 +173,7 @@ export function Page() {
               type="submit"
               tabIndex={4}
             >
-              {msgStr('doLogIn')}
+              {msgStr("doLogIn")}
             </Button>
           </form>
         )}
@@ -196,7 +196,7 @@ export function Page() {
             {authenticators !== undefined &&
               authenticators.authenticators.length !== 0 && (
                 <>
-                  <form id="authn_select" className={kcClsx('kcFormClass')}>
+                  <form id="authn_select" className={kcClsx("kcFormClass")}>
                     {authenticators.authenticators.map((authenticator, i) => (
                       <input
                         key={i}
@@ -218,11 +218,11 @@ export function Page() {
               variant="outline"
             >
               <Fingerprint className="w-4 h-4" />
-              {msgStr('passkey-doAuthenticate')}
+              {msgStr("passkey-doAuthenticate")}
             </Button>
           </>
         )}
       </div>
     </Template>
-  )
+  );
 }

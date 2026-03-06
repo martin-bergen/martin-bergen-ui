@@ -1,5 +1,5 @@
 export {
   GradientBackground,
   gradientBackgroundVariants,
-} from './GradientBackground'
-export type { GradientBackgroundProps } from './GradientBackground'
+} from "./GradientBackground";
+export type { GradientBackgroundProps } from "./GradientBackground";

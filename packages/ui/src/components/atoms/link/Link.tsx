@@ -1,41 +1,41 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../../lib/utils'
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 
 const linkVariants = cva(
-  'inline-flex items-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50',
+  "inline-flex items-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: 'text-foreground hover:text-foreground/80',
-        primary: 'text-moss hover:text-moss/80',
-        secondary: 'text-lichen hover:text-lichen/80',
-        ghost: 'text-muted-foreground hover:text-foreground',
-        muted: 'text-muted-foreground hover:text-muted-foreground/80',
-        code: 'text-moss hover:text-moss/80 font-mono text-sm bg-moss/10 px-2 py-1 rounded hover:bg-moss/20',
+        default: "text-foreground hover:text-foreground/80",
+        primary: "text-moss hover:text-moss/80",
+        secondary: "text-lichen hover:text-lichen/80",
+        ghost: "text-muted-foreground hover:text-foreground",
+        muted: "text-muted-foreground hover:text-muted-foreground/80",
+        code: "text-moss hover:text-moss/80 font-mono text-sm bg-moss/10 px-2 py-1 rounded hover:bg-moss/20",
       },
       size: {
-        sm: 'text-sm',
-        default: 'text-base',
-        lg: 'text-lg',
+        sm: "text-sm",
+        default: "text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {
-      variant: 'default',
-      size: 'default',
+      variant: "default",
+      size: "default",
     },
   },
-)
+);
 
 export interface LinkProps
   extends
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
-  children: React.ReactNode
-  external?: boolean
-  icon?: React.ReactNode
-  showExternalIcon?: boolean
-  disabled?: boolean
+  children: React.ReactNode;
+  external?: boolean;
+  icon?: React.ReactNode;
+  showExternalIcon?: boolean;
+  disabled?: boolean;
 }
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
@@ -55,25 +55,25 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ) => {
     const isExternal =
       external ||
-      (typeof props.href === 'string' &&
-        (props.href.startsWith('http://') ||
-          props.href.startsWith('https://') ||
-          props.href.startsWith('mailto:') ||
-          props.href.startsWith('tel:')))
+      (typeof props.href === "string" &&
+        (props.href.startsWith("http://") ||
+          props.href.startsWith("https://") ||
+          props.href.startsWith("mailto:") ||
+          props.href.startsWith("tel:")));
 
     return (
       <a
         ref={ref}
         className={cn(linkVariants({ variant, size }), className)}
         {...(disabled && {
-          'aria-disabled': true,
+          "aria-disabled": true,
           onClick: (e: React.MouseEvent) => e.preventDefault(),
         })}
         {...props}
         {...(isExternal &&
           !disabled && {
-            rel: 'noopener noreferrer',
-            target: '_blank',
+            rel: "noopener noreferrer",
+            target: "_blank",
           })}
       >
         {children}
@@ -99,9 +99,9 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           </span>
         )}
       </a>
-    )
+    );
   },
-)
-Link.displayName = 'Link'
+);
+Link.displayName = "Link";
 
-export { Link, linkVariants }
+export { Link, linkVariants };

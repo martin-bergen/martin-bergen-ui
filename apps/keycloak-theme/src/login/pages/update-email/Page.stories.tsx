@@ -2,40 +2,40 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
-const { KcPageStory } = createKcPageStory({ pageId: 'update-email.ftl' })
+const { KcPageStory } = createKcPageStory({ pageId: "update-email.ftl" });
 
 const meta = {
-  title: 'login/update-email.ftl',
+  title: "login/update-email.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 /**
  * WithAppInitiatedAction:
@@ -47,7 +47,7 @@ export const WithAppInitiatedAction: Story = {
   args: {
     kcContext: {
       url: {
-        loginAction: '/mock-login-action',
+        loginAction: "/mock-login-action",
       },
       messagesPerField: {
         exists: () => false,
@@ -55,4 +55,4 @@ export const WithAppInitiatedAction: Story = {
       isAppInitiatedAction: true,
     },
   },
-}
+};

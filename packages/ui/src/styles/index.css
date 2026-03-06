@@ -98,7 +98,7 @@
   }
 
   .light,
-  [data-theme='light'] {
+  [data-theme="light"] {
     --background: 0 0% 96%;
     --foreground: 0 0% 10%;
     --primary: 151 44% 52%;

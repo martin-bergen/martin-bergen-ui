@@ -3,13 +3,13 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { useI18n } from '@/login/i18n'
-import { IoCheckmark, IoLanguage } from 'react-icons/io5'
-import { Button } from '@berget-ai/ui'
+} from "@/components/ui/dropdown-menu";
+import { useI18n } from "@/login/i18n";
+import { IoCheckmark, IoLanguage } from "react-icons/io5";
+import { Button } from "@berget-ai/ui";
 
 export function Languages() {
-  const { msgStr, currentLanguage, enabledLanguages } = useI18n()
+  const { msgStr, currentLanguage, enabledLanguages } = useI18n();
 
   return (
     <div>
@@ -18,7 +18,7 @@ export function Languages() {
           <Button
             variant="outline"
             size="icon"
-            aria-label={msgStr('languages')}
+            aria-label={msgStr("languages")}
             aria-haspopup="true"
             aria-expanded="false"
             aria-controls="language-switch1"
@@ -32,7 +32,7 @@ export function Languages() {
           className="max-h-72 overflow-y-auto"
         >
           {enabledLanguages.map(({ languageTag, label, href }, i) => {
-            const isActive = languageTag === currentLanguage.languageTag
+            const isActive = languageTag === currentLanguage.languageTag;
 
             return (
               <DropdownMenuItem key={languageTag} asChild>
@@ -46,10 +46,10 @@ export function Languages() {
                   {isActive && <IoCheckmark className="h-4 w-4 opacity-50" />}
                 </a>
               </DropdownMenuItem>
-            )
+            );
           })}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  )
+  );
 }

@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { List, ListItem, ListHeader, FeatureList } from '.'
-import { Panel } from '../../atoms/panel'
-import { Key, Database, Server, Users } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { List, ListItem, ListHeader, FeatureList } from ".";
+import { Panel } from "../../atoms/panel";
+import { Key, Database, Server, Users } from "lucide-react";
 
 const meta: Meta<typeof List> = {
-  title: 'Molecules/List',
+  title: "Molecules/List",
   component: List,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof List>
+export default meta;
+type Story = StoryObj<typeof List>;
 
 export const Interactive: Story = {
   render: () => (
@@ -50,7 +50,7 @@ export const Interactive: Story = {
       </div>
     </Panel>
   ),
-}
+};
 
 export const WithHeader: Story = {
   parameters: { controls: { hide: true } },
@@ -99,7 +99,7 @@ export const WithHeader: Story = {
       </div>
     </Panel>
   ),
-}
+};
 
 export const CompactList: Story = {
   parameters: { controls: { hide: true } },
@@ -131,7 +131,7 @@ export const CompactList: Story = {
       </div>
     </Panel>
   ),
-}
+};
 
 export const FeatureListBullet: Story = {
   parameters: { controls: { hide: true } },
@@ -141,16 +141,16 @@ export const FeatureListBullet: Story = {
         <h3 className="text-xl font-medium mb-4">Features</h3>
         <FeatureList
           items={[
-            'Optimized for speed and performance',
-            'Enterprise-grade security built in',
-            'Handle millions of requests effortlessly',
+            "Optimized for speed and performance",
+            "Enterprise-grade security built in",
+            "Handle millions of requests effortlessly",
           ]}
           variant="bullet"
         />
       </div>
     </Panel>
   ),
-}
+};
 
 export const FeatureListCheckmark: Story = {
   parameters: { controls: { hide: true } },
@@ -160,16 +160,16 @@ export const FeatureListCheckmark: Story = {
         <h3 className="text-xl font-medium mb-4">Benefits</h3>
         <FeatureList
           items={[
-            'Customizable instances',
-            'High-demand workloads',
-            'Dedicated resources',
+            "Customizable instances",
+            "High-demand workloads",
+            "Dedicated resources",
           ]}
           variant="checkmark"
         />
       </div>
     </Panel>
   ),
-}
+};
 
 export const APIKeysList: Story = {
   parameters: { controls: { hide: true } },
@@ -218,4 +218,4 @@ export const APIKeysList: Story = {
       </Panel>
     </div>
   ),
-}
+};

@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { cn } from '../../../lib/utils'
-import { Input as InputPrimitive } from '../../../primitives/input'
+import * as React from "react";
+import { cn } from "../../../lib/utils";
+import { Input as InputPrimitive } from "../../../primitives/input";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ReactNode
-  actionButton?: React.ReactNode
+  icon?: React.ReactNode;
+  actionButton?: React.ReactNode;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -13,17 +13,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <InputPrimitive
         ref={ref}
         className={cn(
-          'bg-card focus-visible:border-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-cloud/[0.02] transition-colors duration-200',
-          icon && 'pl-10',
-          actionButton && 'pr-12',
+          "bg-card focus-visible:border-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-cloud/[0.02] transition-colors duration-200",
+          icon && "pl-10",
+          actionButton && "pr-12",
           className,
         )}
         {...props}
       />
-    )
+    );
 
     if (!icon && !actionButton) {
-      return inputElement
+      return inputElement;
     }
 
     return (
@@ -38,9 +38,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </div>
         )}
       </div>
-    )
+    );
   },
-)
-Input.displayName = 'Input'
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };

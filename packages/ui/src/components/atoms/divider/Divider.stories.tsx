@@ -1,56 +1,56 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Divider } from '.'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Divider } from ".";
 
 const meta: Meta<typeof Divider> = {
-  title: 'Atoms/Divider',
+  title: "Atoms/Divider",
   component: Divider,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
-      description: 'Divider orientation',
+      control: "select",
+      options: ["horizontal", "vertical"],
+      description: "Divider orientation",
     },
     variant: {
-      control: 'select',
-      options: ['default', 'subtle', 'strong', 'primary', 'muted'],
-      description: 'Visual variant',
+      control: "select",
+      options: ["default", "subtle", "strong", "primary", "muted"],
+      description: "Visual variant",
     },
     size: {
-      control: 'select',
-      options: ['thin', 'medium', 'thick'],
-      description: 'Divider thickness',
+      control: "select",
+      options: ["thin", "medium", "thick"],
+      description: "Divider thickness",
     },
     label: {
-      control: 'text',
-      description: 'Label text in the middle',
+      control: "text",
+      description: "Label text in the middle",
     },
     labelPosition: {
-      control: 'select',
-      options: ['center', 'left', 'right'],
-      description: 'Label position',
+      control: "select",
+      options: ["center", "left", "right"],
+      description: "Label position",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
-    orientation: 'horizontal',
-    variant: 'default',
-    size: 'thin',
+    orientation: "horizontal",
+    variant: "default",
+    size: "thin",
   },
   render: (args) => (
     <div className="p-4">
       <Divider {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -78,7 +78,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const WithLabels: Story = {
   parameters: { controls: { hide: true } },
@@ -90,7 +90,7 @@ export const WithLabels: Story = {
       <Divider label="Primary" variant="primary" />
     </div>
   ),
-}
+};
 
 export const Orientations: Story = {
   parameters: { controls: { hide: true } },
@@ -110,4 +110,4 @@ export const Orientations: Story = {
       </div>
     </div>
   ),
-}
+};

@@ -1,23 +1,23 @@
-import React from 'react'
+import React from "react";
 
 interface EmailTemplateProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function EmailTemplate({ children }: EmailTemplateProps) {
   return (
     <div
       style={{
-        backgroundColor: '#0a0a0a',
-        minHeight: '100vh',
-        padding: '40px 20px',
+        backgroundColor: "#0a0a0a",
+        minHeight: "100vh",
+        padding: "40px 20px",
         fontFamily:
           "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
       }}
     >
-      <div style={{ maxWidth: 600, margin: '0 auto' }}>
+      <div style={{ maxWidth: 600, margin: "0 auto" }}>
         {/* Logo */}
-        <div style={{ textAlign: 'center', paddingBottom: 32 }}>
+        <div style={{ textAlign: "center", paddingBottom: 32 }}>
           <svg
             width="48"
             height="48"
@@ -36,23 +36,23 @@ export function EmailTemplate({ children }: EmailTemplateProps) {
         <div
           style={{
             background:
-              'linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(32, 32, 32, 0.9) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+              "linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(32, 32, 32, 0.9) 100%)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
             borderRadius: 16,
             padding: 40,
           }}
         >
-          <div style={{ color: '#ffffff', fontSize: 15, lineHeight: 1.6 }}>
+          <div style={{ color: "#ffffff", fontSize: 15, lineHeight: 1.6 }}>
             {children}
           </div>
         </div>
 
         {/* Footer */}
-        <div style={{ textAlign: 'center', paddingTop: 32 }}>
+        <div style={{ textAlign: "center", paddingTop: 32 }}>
           <p
             style={{
               margin: 0,
-              color: 'rgba(255, 255, 255, 0.4)',
+              color: "rgba(255, 255, 255, 0.4)",
               fontSize: 13,
             }}
           >
@@ -60,8 +60,8 @@ export function EmailTemplate({ children }: EmailTemplateProps) {
           </p>
           <p
             style={{
-              margin: '8px 0 0 0',
-              color: 'rgba(255, 255, 255, 0.3)',
+              margin: "8px 0 0 0",
+              color: "rgba(255, 255, 255, 0.3)",
               fontSize: 12,
             }}
           >
@@ -70,65 +70,65 @@ export function EmailTemplate({ children }: EmailTemplateProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 interface EmailButtonProps {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }
 
 export function EmailButton({ href, children }: EmailButtonProps) {
   return (
-    <div style={{ margin: '32px 0' }}>
+    <div style={{ margin: "32px 0" }}>
       <a
         href={href}
         style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          padding: '0.5rem 2rem',
-          backgroundColor: '#E5DDD5',
-          color: '#1a1a1a',
-          textDecoration: 'none',
-          borderRadius: '9999px',
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          padding: "0.5rem 2rem",
+          backgroundColor: "#E5DDD5",
+          color: "#1a1a1a",
+          textDecoration: "none",
+          borderRadius: "9999px",
           fontWeight: 500,
-          fontSize: '0.875rem',
-          fontFamily: 'DM Sans, sans-serif',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-          border: 'none',
-          cursor: 'pointer',
+          fontSize: "0.875rem",
+          fontFamily: "DM Sans, sans-serif",
+          boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          border: "none",
+          cursor: "pointer",
         }}
       >
         {children}
       </a>
     </div>
-  )
+  );
 }
 
 export function EmailDivider() {
   return (
     <hr
       style={{
-        border: 'none',
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-        margin: '32px 0',
+        border: "none",
+        borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+        margin: "32px 0",
       }}
     />
-  )
+  );
 }
 
 export function EmailLink({
   href,
   children,
 }: {
-  href: string
-  children: React.ReactNode
+  href: string;
+  children: React.ReactNode;
 }) {
   return (
-    <a href={href} style={{ color: '#60a580', textDecoration: 'none' }}>
+    <a href={href} style={{ color: "#60a580", textDecoration: "none" }}>
       {children}
     </a>
-  )
+  );
 }

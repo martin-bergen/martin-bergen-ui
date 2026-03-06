@@ -1,40 +1,40 @@
-import { Button, Label } from '@berget-ai/ui'
-import { FieldError } from '@/components/ui/field'
+import { Button, Label } from "@berget-ai/ui";
+import { FieldError } from "@/components/ui/field";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from '@/components/ui/input-otp'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp'
-import { kcSanitize } from 'keycloakify/lib/kcSanitize'
-import { useState } from 'react'
-import { MdOutlineDevices } from 'react-icons/md'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+} from "@/components/ui/input-otp";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
+import { kcSanitize } from "keycloakify/lib/kcSanitize";
+import { useState } from "react";
+import { MdOutlineDevices } from "react-icons/md";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
+  const { kcContext } = useKcContext();
 
-  assert(kcContext.pageId === 'login-otp.ftl')
+  assert(kcContext.pageId === "login-otp.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   return (
     <Template
-      displayMessage={!kcContext.messagesPerField.existsError('totp')}
-      headerNode={msg('doLogIn')}
+      displayMessage={!kcContext.messagesPerField.existsError("totp")}
+      headerNode={msg("doLogIn")}
     >
       <form
         id="kc-otp-login-form"
         className="space-y-6"
         action={kcContext.url.loginAction}
         onSubmit={() => {
-          setIsSubmitting(true)
-          return true
+          setIsSubmitting(true);
+          return true;
         }}
         method="post"
       >
@@ -73,7 +73,7 @@ export function Page() {
 
         <div className="space-y-2">
           <Label htmlFor="otp" className="text-sm font-medium  block">
-            {msg('loginOtpOneTime')}
+            {msg("loginOtpOneTime")}
           </Label>
           <div className="flex w-72 ">
             <InputOTP
@@ -92,11 +92,11 @@ export function Page() {
               </InputOTPGroup>
             </InputOTP>
           </div>
-          {kcContext.messagesPerField.existsError('totp') && (
+          {kcContext.messagesPerField.existsError("totp") && (
             <FieldError id="input-error-otp-code">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: kcSanitize(kcContext.messagesPerField.get('totp')),
+                  __html: kcSanitize(kcContext.messagesPerField.get("totp")),
                 }}
               />
             </FieldError>
@@ -110,9 +110,9 @@ export function Page() {
           type="submit"
           disabled={isSubmitting}
         >
-          {msgStr('doLogIn')}
+          {msgStr("doLogIn")}
         </Button>
       </form>
     </Template>
-  )
+  );
 }

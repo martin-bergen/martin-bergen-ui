@@ -1,2 +1,2 @@
-export { AIChatBox } from './AIChatBox'
-export type { AIChatBoxProps, AIChatMessage } from './AIChatBox'
+export { AIChatBox } from "./AIChatBox";
+export type { AIChatBoxProps, AIChatMessage } from "./AIChatBox";

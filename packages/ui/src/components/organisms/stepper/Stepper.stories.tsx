@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { useState } from 'react'
-import { Stepper, type Step } from './Stepper'
-import { Button } from '../../atoms/button'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
+import { Stepper, type Step } from "./Stepper";
+import { Button } from "../../atoms/button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 // Wrapper components for interactive stories
 const InteractiveStepper = () => {
-  const [currentStep, setCurrentStep] = useState(0)
+  const [currentStep, setCurrentStep] = useState(0);
 
   return (
     <div className="min-h-screen p-8 flex items-center justify-center">
@@ -33,20 +33,20 @@ const InteractiveStepper = () => {
               setCurrentStep(Math.min(sampleSteps.length - 1, currentStep + 1))
             }
           >
-            {currentStep === sampleSteps.length - 1 ? 'Submit' : 'Continue'}
+            {currentStep === sampleSteps.length - 1 ? "Submit" : "Continue"}
             <ArrowRight className="ml-2 w-6 h-6 text-white" strokeWidth={1.5} />
           </Button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const meta = {
-  title: 'Organisms/Stepper',
+  title: "Organisms/Stepper",
   component: Stepper,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
         component: `
@@ -62,11 +62,11 @@ Multi-step wizard/stepper component for guided user flows.
       },
     },
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof Stepper>
+  tags: ["autodocs"],
+} satisfies Meta<typeof Stepper>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 // Sample step content components
 const AccountStep = () => (
@@ -91,7 +91,7 @@ const AccountStep = () => (
       </div>
     </div>
   </div>
-)
+);
 
 const CompanyStep = () => (
   <div className="p-6 space-y-4">
@@ -116,13 +116,13 @@ const CompanyStep = () => (
       </div>
     </div>
   </div>
-)
+);
 
 const PlanStep = () => (
   <div className="p-6 space-y-4">
     <h3 className="text-2xl font-medium mb-4">Choose Your Plan</h3>
     <div className="grid grid-cols-3 gap-4">
-      {['Starter', 'Professional', 'Enterprise'].map((plan) => (
+      {["Starter", "Professional", "Enterprise"].map((plan) => (
         <div
           key={plan}
           className="p-4 border border-white/10 rounded-lg hover:border-white/30 cursor-pointer transition-colors"
@@ -133,7 +133,7 @@ const PlanStep = () => (
       ))}
     </div>
   </div>
-)
+);
 
 const ConfirmStep = () => (
   <div className="p-6 space-y-4">
@@ -153,34 +153,34 @@ const ConfirmStep = () => (
       </div>
     </div>
   </div>
-)
+);
 
 const sampleSteps: Step[] = [
   {
-    id: '1',
-    label: 'Account',
-    description: 'Your details',
+    id: "1",
+    label: "Account",
+    description: "Your details",
     content: <AccountStep />,
   },
   {
-    id: '2',
-    label: 'Company',
-    description: 'Organization info',
+    id: "2",
+    label: "Company",
+    description: "Organization info",
     content: <CompanyStep />,
   },
   {
-    id: '3',
-    label: 'Plan',
-    description: 'Choose plan',
+    id: "3",
+    label: "Plan",
+    description: "Choose plan",
     content: <PlanStep />,
   },
   {
-    id: '4',
-    label: 'Confirm',
-    description: 'Review & submit',
+    id: "4",
+    label: "Confirm",
+    description: "Review & submit",
     content: <ConfirmStep />,
   },
-]
+];
 
 /**
  * Interactive Stepper with Navigation
@@ -194,7 +194,7 @@ export const Interactive: Story = {
     currentStep: 0,
   },
   render: () => <InteractiveStepper />,
-}
+};
 
 /**
  * Minimal variant without descriptions
@@ -203,9 +203,9 @@ export const Minimal: Story = {
   args: {
     steps: sampleSteps,
     currentStep: 1,
-    variant: 'minimal',
+    variant: "minimal",
   },
-}
+};
 
 /**
  * Without step numbers
@@ -216,4 +216,4 @@ export const WithoutNumbers: Story = {
     currentStep: 2,
     showNumbers: false,
   },
-}
+};

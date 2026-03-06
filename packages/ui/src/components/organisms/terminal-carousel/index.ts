@@ -1,2 +1,5 @@
-export { TerminalCarousel } from './TerminalCarousel'
-export type { TerminalCarouselProps, TerminalExample } from './TerminalCarousel'
+export { TerminalCarousel } from "./TerminalCarousel";
+export type {
+  TerminalCarouselProps,
+  TerminalExample,
+} from "./TerminalCarousel";

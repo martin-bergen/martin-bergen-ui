@@ -1,6 +1,6 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Badge } from '.'
+import * as React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Badge } from ".";
 import {
   Shield,
   Lock,
@@ -11,13 +11,13 @@ import {
   XCircle,
   Wifi,
   WifiOff,
-} from 'lucide-react'
+} from "lucide-react";
 
 const meta: Meta<typeof Badge> = {
-  title: 'Atoms/Badge',
+  title: "Atoms/Badge",
   component: Badge,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
         component: `
@@ -37,46 +37,46 @@ Badge component for displaying small status indicators and labels.
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'tag', 'semantic'],
-      description: 'Variant type',
+      control: "select",
+      options: ["default", "tag", "semantic"],
+      description: "Variant type",
     },
     status: {
-      control: 'select',
+      control: "select",
       options: [
-        'default',
-        'active',
-        'tagDefault',
-        'tagActive',
-        'tagGhost',
-        'info',
-        'success',
-        'warning',
-        'error',
+        "default",
+        "active",
+        "tagDefault",
+        "tagActive",
+        "tagGhost",
+        "info",
+        "success",
+        "warning",
+        "error",
       ],
-      description: 'Status (color scheme)',
+      description: "Status (color scheme)",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md'],
-      description: 'Size variant',
+      control: "select",
+      options: ["sm", "md"],
+      description: "Size variant",
     },
     icon: {
-      control: 'select',
+      control: "select",
       options: [
-        'none',
-        'Shield',
-        'Lock',
-        'Check',
-        'AlertCircle',
-        'Info',
-        'AlertTriangle',
-        'XCircle',
-        'Wifi',
-        'WifiOff',
+        "none",
+        "Shield",
+        "Lock",
+        "Check",
+        "AlertCircle",
+        "Info",
+        "AlertTriangle",
+        "XCircle",
+        "Wifi",
+        "WifiOff",
       ],
       mapping: {
         none: undefined,
@@ -90,27 +90,27 @@ Badge component for displaying small status indicators and labels.
         Wifi,
         WifiOff,
       },
-      description: 'Optional icon',
+      description: "Optional icon",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
-    children: 'Badge',
-    variant: 'default',
-    status: 'default',
-    size: 'md',
+    children: "Badge",
+    variant: "default",
+    status: "default",
+    size: "md",
   },
   render: (args: React.ComponentProps<typeof Badge>) => (
     <div className="p-4">
       <Badge {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -175,7 +175,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const Sizes: Story = {
   parameters: { controls: { hide: true } },
@@ -234,7 +234,7 @@ export const Sizes: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const WithIcons: Story = {
   parameters: { controls: { hide: true } },
@@ -279,7 +279,7 @@ export const WithIcons: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const Examples: Story = {
   parameters: { controls: { hide: true } },
@@ -339,4 +339,4 @@ export const Examples: Story = {
       </div>
     </div>
   ),
-}
+};

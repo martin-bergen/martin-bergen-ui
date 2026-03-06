@@ -1,27 +1,27 @@
-import { Button } from '@berget-ai/ui'
-import { LogoutOtherSessions } from '@/login/components/LogoutOtherSessions'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useState } from 'react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { UserProfileFormFields } from '../../components/UserProfileFormFields'
+import { Button } from "@berget-ai/ui";
+import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useState } from "react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { UserProfileFormFields } from "../../components/UserProfileFormFields";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'update-email.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "update-email.ftl");
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
 
-  const [isFormSubmittable, setIsFormSubmittable] = useState(false)
+  const [isFormSubmittable, setIsFormSubmittable] = useState(false);
 
-  const { url, messagesPerField, isAppInitiatedAction } = kcContext
+  const { url, messagesPerField, isAppInitiatedAction } = kcContext;
 
   return (
     <Template
-      displayMessage={messagesPerField.exists('global')}
+      displayMessage={messagesPerField.exists("global")}
       displayRequiredFields
-      headerNode={msg('updateEmailTitle')}
+      headerNode={msg("updateEmailTitle")}
     >
       <form
         id="kc-update-email-form"
@@ -41,7 +41,7 @@ export function Page() {
             className="w-full"
             type="submit"
           >
-            {msgStr('doSubmit')}
+            {msgStr("doSubmit")}
           </Button>
           {isAppInitiatedAction && (
             <Button
@@ -51,11 +51,11 @@ export function Page() {
               name="cancel-aia"
               value="true"
             >
-              {msg('doCancel')}
+              {msg("doCancel")}
             </Button>
           )}
         </div>
       </form>
     </Template>
-  )
+  );
 }

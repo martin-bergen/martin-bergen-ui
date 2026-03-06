@@ -1,24 +1,24 @@
-import { Checkbox, Label } from '@berget-ai/ui'
-import { FieldError } from '@/components/ui/field'
-import { useI18n } from '@/login/i18n'
-import type { KcContext } from '@/login/KcContext'
-import { kcSanitize } from '@keycloakify/login-ui/kcSanitize'
+import { Checkbox, Label } from "@berget-ai/ui";
+import { FieldError } from "@/components/ui/field";
+import { useI18n } from "@/login/i18n";
+import type { KcContext } from "@/login/KcContext";
+import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 
 export function TermsAcceptance(props: {
-  messagesPerField: Pick<KcContext['messagesPerField'], 'existsError' | 'get'>
-  areTermsAccepted: boolean
-  onAreTermsAcceptedValueChange: (areTermsAccepted: boolean) => void
+  messagesPerField: Pick<KcContext["messagesPerField"], "existsError" | "get">;
+  areTermsAccepted: boolean;
+  onAreTermsAcceptedValueChange: (areTermsAccepted: boolean) => void;
 }) {
   const { messagesPerField, areTermsAccepted, onAreTermsAcceptedValueChange } =
-    props
+    props;
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
   return (
     <div className="space-y-4">
       <div className="p-4 bg-muted/50 rounded-lg space-y-2">
-        <h3 className="font-medium text-sm">{msg('termsTitle')}</h3>
-        <div className="text-sm text-muted-foreground">{msg('termsText')}</div>
+        <h3 className="font-medium text-sm">{msg("termsTitle")}</h3>
+        <div className="text-sm text-muted-foreground">{msg("termsText")}</div>
       </div>
 
       <div className="space-y-2">
@@ -30,26 +30,26 @@ export function TermsAcceptance(props: {
             onCheckedChange={(checked) =>
               onAreTermsAcceptedValueChange(checked === true)
             }
-            aria-invalid={messagesPerField.existsError('termsAccepted')}
+            aria-invalid={messagesPerField.existsError("termsAccepted")}
           />
           <Label
             htmlFor="termsAccepted"
             className="text-sm font-medium cursor-pointer"
           >
-            {msg('acceptTerms')}
+            {msg("acceptTerms")}
           </Label>
         </div>
 
-        {messagesPerField.existsError('termsAccepted') && (
+        {messagesPerField.existsError("termsAccepted") && (
           <FieldError id="input-error-terms-accepted">
             <span
               dangerouslySetInnerHTML={{
-                __html: kcSanitize(messagesPerField.get('termsAccepted')),
+                __html: kcSanitize(messagesPerField.get("termsAccepted")),
               }}
             />
           </FieldError>
         )}
       </div>
     </div>
-  )
+  );
 }

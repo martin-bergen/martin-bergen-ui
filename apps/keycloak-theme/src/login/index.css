@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source "../**/*.{ts,tsx}";
 @source "../../../packages/ui/src";
@@ -51,14 +51,14 @@
 @layer utilities {
   body.kcBodyClass {
     @apply bg-none bg-no-repeat bg-center bg-fixed;
-    font-family: 'DM Sans', 'Inter', sans-serif;
+    font-family: "DM Sans", "Inter", sans-serif;
   }
 
   body.oauth {
     @apply bg-none bg-no-repeat bg-center bg-fixed;
   }
 
-  html[dir='rtl'] .children {
+  html[dir="rtl"] .children {
     @apply text-right;
   }
 
@@ -155,7 +155,7 @@
 
 /* Font feature settings for DM Sans */
 body {
-  font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -163,7 +163,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: 'Ovo', 'Georgia', serif;
+  font-family: "Ovo", "Georgia", serif;
   font-weight: 400;
   letter-spacing: -0.04em;
 }
@@ -260,7 +260,7 @@ hr:last-child {
   font-size: 0.875rem;
   font-weight: 400;
   margin-bottom: 0.75rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 /* Social login section */
@@ -285,7 +285,7 @@ hr:last-child {
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 1rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 #kc-social-providers ul,
@@ -318,7 +318,7 @@ hr:last-child {
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 0.75rem !important;
   color: white !important;
-  font-family: 'DM Sans', sans-serif !important;
+  font-family: "DM Sans", sans-serif !important;
   font-size: 0.9375rem !important;
   font-weight: 500 !important;
   transition: all 0.2s ease !important;

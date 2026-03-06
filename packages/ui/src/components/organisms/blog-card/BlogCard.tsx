@@ -1,83 +1,83 @@
-import * as React from 'react'
-import { Calendar, Clock, User, ArrowRight } from 'lucide-react'
-import { cn } from '../../../lib/utils'
-import { Badge } from '../../atoms/badge'
+import * as React from "react";
+import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { cn } from "../../../lib/utils";
+import { Badge } from "../../atoms/badge";
 
 export interface BlogPost {
   /**
    * Unique identifier
    */
-  id: string
+  id: string;
   /**
    * Blog post title
    */
-  title: string
+  title: string;
   /**
    * Short excerpt or description
    */
-  excerpt: string
+  excerpt: string;
   /**
    * Author name
    */
-  author: string
+  author: string;
   /**
    * Author email
    */
-  email?: string
+  email?: string;
   /**
    * Author profile image URL
    */
-  authorImage?: string
+  authorImage?: string;
   /**
    * Publication date (formatted string)
    */
-  date: string
+  date: string;
   /**
    * Reading time in minutes
    */
-  readTime?: number
+  readTime?: number;
   /**
    * Featured image URL
    */
-  image?: string
+  image?: string;
   /**
    * Image alt text
    */
-  imageAlt?: string
+  imageAlt?: string;
   /**
    * Category or tag
    */
-  category?: string
+  category?: string;
   /**
    * Language
    */
-  language?: 'en' | 'sv'
+  language?: "en" | "sv";
   /**
    * Tags array
    */
-  tags?: string[]
+  tags?: string[];
   /**
    * Link to full article
    */
-  href?: string
+  href?: string;
   /**
    * Click handler
    */
-  onClick?: () => void
+  onClick?: () => void;
 }
 
 export interface BlogCardProps extends Omit<
   React.HTMLAttributes<HTMLDivElement>,
-  'onClick'
+  "onClick"
 > {
   /**
    * Blog post data
    */
-  post: BlogPost
+  post: BlogPost;
   /**
    * Card variant
    */
-  variant?: 'default' | 'featured' | 'minimal'
+  variant?: "default" | "featured" | "minimal";
 }
 
 /**
@@ -106,23 +106,23 @@ export interface BlogCardProps extends Omit<
  * ```
  */
 export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
-  ({ post, variant = 'default', className, ...props }, ref) => {
+  ({ post, variant = "default", className, ...props }, ref) => {
     const handleClick = () => {
       if (post.onClick) {
-        post.onClick()
+        post.onClick();
       } else if (post.href) {
-        window.location.href = post.href
+        window.location.href = post.href;
       }
-    }
+    };
 
     return (
       <div
         ref={ref}
         className={cn(
-          'rounded-2xl border backdrop-blur-xl cursor-pointer relative',
-          variant === 'featured' && 'border-secondary/30 bg-secondary/5',
-          variant === 'default' && 'border-border bg-white/5',
-          variant === 'minimal' && 'border-transparent bg-transparent',
+          "rounded-2xl border backdrop-blur-xl cursor-pointer relative",
+          variant === "featured" && "border-secondary/30 bg-secondary/5",
+          variant === "default" && "border-border bg-white/5",
+          variant === "minimal" && "border-transparent bg-transparent",
           className,
         )}
         onClick={handleClick}
@@ -140,7 +140,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         )}
 
         <div
-          className={cn('p-6 relative z-10', variant === 'featured' && 'p-8')}
+          className={cn("p-6 relative z-10", variant === "featured" && "p-8")}
         >
           {/* Category & Language */}
           <div className="flex items-center gap-2 mb-3">
@@ -151,7 +151,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
             )}
             {post.language && (
               <Badge variant="tag" className="text-xs bg-white/5">
-                {post.language === 'en' ? '🇬🇧 English' : '🇸🇪 Svenska'}
+                {post.language === "en" ? "🇬🇧 English" : "🇸🇪 Svenska"}
               </Badge>
             )}
           </div>
@@ -159,8 +159,8 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           {/* Title */}
           <h3
             className={cn(
-              'font-medium mb-3',
-              variant === 'featured' ? 'text-2xl md:text-3xl' : 'text-xl',
+              "font-medium mb-3",
+              variant === "featured" ? "text-2xl md:text-3xl" : "text-xl",
             )}
           >
             {post.title}
@@ -205,7 +205,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           </div>
 
           {/* Read More */}
-          {variant !== 'minimal' && (
+          {variant !== "minimal" && (
             <div className="mt-4 pt-4 border-t border-border">
               <div className="flex items-center gap-2 text-sm font-medium text-secondary">
                 Read More
@@ -218,28 +218,28 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           )}
         </div>
       </div>
-    )
+    );
   },
-)
-BlogCard.displayName = 'BlogCard'
+);
+BlogCard.displayName = "BlogCard";
 
 export interface BlogGridProps {
   /**
    * Array of blog posts
    */
-  posts: BlogPost[]
+  posts: BlogPost[];
   /**
    * Number of columns
    */
-  columns?: 2 | 3
+  columns?: 2 | 3;
   /**
    * Featured post (shown larger)
    */
-  featuredId?: string
+  featuredId?: string;
   /**
    * Additional CSS classes
    */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -251,22 +251,22 @@ export const BlogGrid = React.forwardRef<HTMLDivElement, BlogGridProps>(
   ({ posts, columns = 3, featuredId, className }, ref) => {
     const featuredPost = featuredId
       ? posts.find((p) => p.id === featuredId)
-      : null
+      : null;
     const regularPosts = featuredId
       ? posts.filter((p) => p.id !== featuredId)
-      : posts
+      : posts;
 
     return (
-      <div ref={ref} className={cn('space-y-8', className)}>
+      <div ref={ref} className={cn("space-y-8", className)}>
         {/* Featured Post */}
         {featuredPost && <BlogCard post={featuredPost} variant="featured" />}
 
         {/* Regular Grid */}
         <div
           className={cn(
-            'grid gap-6',
-            columns === 2 && 'grid-cols-1 md:grid-cols-2',
-            columns === 3 && 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+            "grid gap-6",
+            columns === 2 && "grid-cols-1 md:grid-cols-2",
+            columns === 3 && "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
           )}
         >
           {regularPosts.map((post) => (
@@ -274,7 +274,7 @@ export const BlogGrid = React.forwardRef<HTMLDivElement, BlogGridProps>(
           ))}
         </div>
       </div>
-    )
+    );
   },
-)
-BlogGrid.displayName = 'BlogGrid'
+);
+BlogGrid.displayName = "BlogGrid";

@@ -1,32 +1,32 @@
-import { cn } from '@/components/lib/utils'
-import { useI18n } from '@/login/i18n'
-import type { Attribute } from '@keycloakify/login-ui/KcContext'
-import { useKcClsx } from '@keycloakify/login-ui/useKcClsx'
-import { assert } from 'tsafe/assert'
+import { cn } from "@/components/lib/utils";
+import { useI18n } from "@/login/i18n";
+import type { Attribute } from "@keycloakify/login-ui/KcContext";
+import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { assert } from "tsafe/assert";
 
 export function GroupLabel(props: {
-  attribute: Attribute
+  attribute: Attribute;
   groupNameRef: {
-    current: string
-  }
+    current: string;
+  };
 }) {
-  const { attribute, groupNameRef } = props
+  const { attribute, groupNameRef } = props;
 
-  const { advancedMsg } = useI18n()
+  const { advancedMsg } = useI18n();
 
-  const { kcClsx } = useKcClsx()
+  const { kcClsx } = useKcClsx();
 
   if (attribute.group?.name !== groupNameRef.current) {
-    groupNameRef.current = attribute.group?.name ?? ''
+    groupNameRef.current = attribute.group?.name ?? "";
 
-    if (groupNameRef.current !== '') {
-      assert(attribute.group !== undefined)
+    if (groupNameRef.current !== "") {
+      assert(attribute.group !== undefined);
 
       return (
         <div
           className={cn(
-            'space-y-4 p-4 border rounded-lg bg-card',
-            kcClsx('kcFormGroupClass'),
+            "space-y-4 p-4 border rounded-lg bg-card",
+            kcClsx("kcFormGroupClass"),
           )}
           {...Object.fromEntries(
             Object.entries(attribute.group.html5DataAnnotations).map(
@@ -35,54 +35,54 @@ export function GroupLabel(props: {
           )}
         >
           {(() => {
-            const groupDisplayHeader = attribute.group.displayHeader ?? ''
+            const groupDisplayHeader = attribute.group.displayHeader ?? "";
             const groupHeaderText =
-              groupDisplayHeader !== ''
+              groupDisplayHeader !== ""
                 ? advancedMsg(groupDisplayHeader)
-                : attribute.group.name
+                : attribute.group.name;
 
             return (
-              <div className={cn('', kcClsx('kcContentWrapperClass'))}>
+              <div className={cn("", kcClsx("kcContentWrapperClass"))}>
                 <h3
                   id={`header-${attribute.group.name}`}
                   className={cn(
-                    'text-lg font-semibold',
-                    kcClsx('kcFormGroupHeader'),
+                    "text-lg font-semibold",
+                    kcClsx("kcFormGroupHeader"),
                   )}
                 >
                   {groupHeaderText}
                 </h3>
               </div>
-            )
+            );
           })()}
           {(() => {
             const groupDisplayDescription =
-              attribute.group.displayDescription ?? ''
+              attribute.group.displayDescription ?? "";
 
-            if (groupDisplayDescription !== '') {
-              const groupDescriptionText = advancedMsg(groupDisplayDescription)
+            if (groupDisplayDescription !== "") {
+              const groupDescriptionText = advancedMsg(groupDisplayDescription);
 
               return (
-                <div className={cn('', kcClsx('kcLabelWrapperClass'))}>
+                <div className={cn("", kcClsx("kcLabelWrapperClass"))}>
                   <p
                     id={`description-${attribute.group.name}`}
                     className={cn(
-                      'text-sm text-muted-foreground',
-                      kcClsx('kcLabelClass'),
+                      "text-sm text-muted-foreground",
+                      kcClsx("kcLabelClass"),
                     )}
                   >
                     {groupDescriptionText}
                   </p>
                 </div>
-              )
+              );
             }
 
-            return null
+            return null;
           })()}
         </div>
-      )
+      );
     }
   }
 
-  return null
+  return null;
 }

@@ -1,16 +1,16 @@
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Button } from '@berget-ai/ui'
-import { kcSanitize } from '@keycloakify/login-ui/kcSanitize'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
-import { useI18n } from '../../i18n'
-import { useKcContext } from '../../KcContext'
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@berget-ai/ui";
+import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
+import { useI18n } from "../../i18n";
+import { useKcContext } from "../../KcContext";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'info.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "info.ftl");
 
-  const { advancedMsgStr, msg } = useI18n()
+  const { advancedMsgStr, msg } = useI18n();
 
   return (
     <Template
@@ -33,21 +33,21 @@ export function Page() {
             dangerouslySetInnerHTML={{
               __html: kcSanitize(
                 (() => {
-                  let html = kcContext.message.summary
+                  let html = kcContext.message.summary;
 
                   if (kcContext.requiredActions) {
-                    html += '<b>'
+                    html += "<b>";
 
                     html += kcContext.requiredActions
                       .map((requiredAction) =>
                         advancedMsgStr(`requiredAction.${requiredAction}`),
                       )
-                      .join(', ')
+                      .join(", ");
 
-                    html += '</b>'
+                    html += "</b>";
                   }
 
-                  return html
+                  return html;
                 })(),
               ),
             }}
@@ -57,32 +57,32 @@ export function Page() {
 
       {(() => {
         if (kcContext.skipLink) {
-          return null
+          return null;
         }
 
         if (kcContext.pageRedirectUri) {
           return (
             <Button type="button" className="mt-2 flex ms-auto">
-              <a href={kcContext.pageRedirectUri}>{msg('backToApplication')}</a>
+              <a href={kcContext.pageRedirectUri}>{msg("backToApplication")}</a>
             </Button>
-          )
+          );
         }
         if (kcContext.actionUri) {
           return (
             <Button type="button" className="mt-2 flex ms-auto ">
-              <a href={kcContext.actionUri}>{msg('proceedWithAction')}</a>
+              <a href={kcContext.actionUri}>{msg("proceedWithAction")}</a>
             </Button>
-          )
+          );
         }
 
         if (kcContext.client.baseUrl) {
           return (
             <Button type="button" className="mt-2 flex  ms-auto-end">
-              <a href={kcContext.client.baseUrl}>{msg('backToApplication')}</a>
+              <a href={kcContext.client.baseUrl}>{msg("backToApplication")}</a>
             </Button>
-          )
+          );
         }
       })()}
     </Template>
-  )
+  );
 }

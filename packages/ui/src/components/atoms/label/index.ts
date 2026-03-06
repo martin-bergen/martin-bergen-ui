@@ -1,1 +1,1 @@
-export { Label } from '../../../primitives/label'
+export { Label } from "../../../primitives/label";

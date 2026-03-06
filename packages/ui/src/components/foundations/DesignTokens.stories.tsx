@@ -1,5 +1,5 @@
-import * as React from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import * as React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 import {
   Home,
   Settings,
@@ -23,27 +23,27 @@ import {
   BrainCircuit,
   Layers,
   Leaf,
-} from 'lucide-react'
+} from "lucide-react";
 
 const meta = {
-  title: 'Foundations/DesignTokens',
+  title: "Foundations/DesignTokens",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
-} satisfies Meta
+  tags: ["autodocs"],
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const ColorSwatch = ({
   name,
   value,
   hex,
 }: {
-  name: string
-  value: string
-  hex?: string
+  name: string;
+  value: string;
+  hex?: string;
 }) => (
   <div className="flex items-center gap-3">
     <div
@@ -55,14 +55,14 @@ const ColorSwatch = ({
       <div className="text-white/60 text-sm">{hex || value}</div>
     </div>
   </div>
-)
+);
 
 const TokenSection = ({
   title,
   children,
 }: {
-  title: string
-  children: React.ReactNode
+  title: string;
+  children: React.ReactNode;
 }) => (
   <div className="mb-8">
     <h3 className="text-2xl font-serif text-white mb-4">{title}</h3>
@@ -70,7 +70,7 @@ const TokenSection = ({
       {children}
     </div>
   </div>
-)
+);
 
 export const DesignTokens: Story = {
   render: () => (
@@ -346,4 +346,4 @@ export const DesignTokens: Story = {
       </div>
     </div>
   ),
-}
+};

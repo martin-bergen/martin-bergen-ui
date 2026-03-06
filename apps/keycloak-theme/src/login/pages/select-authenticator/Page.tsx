@@ -1,70 +1,70 @@
-import { Button } from '@berget-ai/ui'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
+import { Button } from "@berget-ai/ui";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
 import {
   ChevronRight,
   Fingerprint,
   Globe,
   KeyRound,
   Shield,
-} from 'lucide-react'
-import { FaKey } from 'react-icons/fa'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+} from "lucide-react";
+import { FaKey } from "react-icons/fa";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 const getAuthenticatorIcon = (authSelection: {
-  displayName: string
-  iconCssClass?: string
+  displayName: string;
+  iconCssClass?: string;
 }) => {
-  const displayName = authSelection.displayName.toLowerCase()
-  const iconClass = authSelection.iconCssClass?.toLowerCase() || ''
+  const displayName = authSelection.displayName.toLowerCase();
+  const iconClass = authSelection.iconCssClass?.toLowerCase() || "";
 
   if (
-    displayName.includes('webauthn') ||
-    displayName.includes('passwordless') ||
-    iconClass.includes('webauthn') ||
-    displayName.includes('passkey')
+    displayName.includes("webauthn") ||
+    displayName.includes("passwordless") ||
+    iconClass.includes("webauthn") ||
+    displayName.includes("passkey")
   ) {
-    return <Fingerprint className="w-5 h-5" />
+    return <Fingerprint className="w-5 h-5" />;
   }
 
   if (
-    displayName.includes('otp') ||
-    displayName.includes('totp') ||
-    displayName.includes('authenticator')
+    displayName.includes("otp") ||
+    displayName.includes("totp") ||
+    displayName.includes("authenticator")
   ) {
-    return <Shield className="w-5 h-5" />
+    return <Shield className="w-5 h-5" />;
   }
 
   if (
-    displayName.includes('identity-provider') ||
-    displayName.includes('idp') ||
-    displayName.includes('sso') ||
-    iconClass.includes('identityprovider')
+    displayName.includes("identity-provider") ||
+    displayName.includes("idp") ||
+    displayName.includes("sso") ||
+    iconClass.includes("identityprovider")
   ) {
-    return <Globe className="w-5 h-5" />
+    return <Globe className="w-5 h-5" />;
   }
 
   if (
-    displayName.includes('password') ||
-    displayName.includes('username') ||
-    iconClass.includes('password')
+    displayName.includes("password") ||
+    displayName.includes("username") ||
+    iconClass.includes("password")
   ) {
-    return <KeyRound className="w-5 h-5" />
+    return <KeyRound className="w-5 h-5" />;
   }
 
-  return <FaKey className="w-5 h-5" />
-}
+  return <FaKey className="w-5 h-5" />;
+};
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'select-authenticator.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "select-authenticator.ftl");
 
-  const { url, auth } = kcContext
+  const { url, auth } = kcContext;
 
-  const { msg, advancedMsg } = useI18n()
+  const { msg, advancedMsg } = useI18n();
   return (
-    <Template displayInfo={false} headerNode={msg('loginChooseAuthenticator')}>
+    <Template displayInfo={false} headerNode={msg("loginChooseAuthenticator")}>
       <form
         id="kc-select-credential-form"
         className="space-y-3"
@@ -99,5 +99,5 @@ export function Page() {
         </div>
       </form>
     </Template>
-  )
+  );
 }

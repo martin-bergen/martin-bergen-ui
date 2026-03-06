@@ -1,37 +1,37 @@
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useEffect, useState } from 'react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useEffect, useState } from "react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'saml-post-form.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "saml-post-form.ftl");
 
-  const { msgStr, msg } = useI18n()
+  const { msgStr, msg } = useI18n();
 
-  const { samlPost } = kcContext
+  const { samlPost } = kcContext;
 
   const [htmlFormElement, setHtmlFormElement] =
-    useState<HTMLFormElement | null>(null)
+    useState<HTMLFormElement | null>(null);
 
   useEffect(() => {
     if (htmlFormElement === null) {
-      return
+      return;
     }
 
     // Storybook
-    if (samlPost.url === '#') {
-      alert('In a real Keycloak the user would be redirected immediately')
-      return
+    if (samlPost.url === "#") {
+      alert("In a real Keycloak the user would be redirected immediately");
+      return;
     }
 
-    htmlFormElement.requestSubmit()
-  }, [htmlFormElement])
+    htmlFormElement.requestSubmit();
+  }, [htmlFormElement]);
 
   return (
-    <Template headerNode={msg('saml.post-form.title')}>
-      <p>{msg('saml.post-form.message')}</p>
+    <Template headerNode={msg("saml.post-form.title")}>
+      <p>{msg("saml.post-form.message")}</p>
       <form
         name="saml-post-binding"
         method="post"
@@ -56,10 +56,10 @@ export function Page() {
           <input type="hidden" name="RelayState" value={samlPost.relayState} />
         )}
         <noscript>
-          <p>{msg('saml.post-form.js-disabled')}</p>
-          <input type="submit" value={msgStr('doContinue')} />
+          <p>{msg("saml.post-form.js-disabled")}</p>
+          <input type="submit" value={msgStr("doContinue")} />
         </noscript>
       </form>
     </Template>
-  )
+  );
 }

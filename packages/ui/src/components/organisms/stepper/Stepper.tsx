@@ -1,53 +1,53 @@
-import * as React from 'react'
-import { Check } from 'lucide-react'
-import { cn } from '../../../lib/utils'
+import * as React from "react";
+import { Check } from "lucide-react";
+import { cn } from "../../../lib/utils";
 
 export interface Step {
   /**
    * Unique identifier for the step
    */
-  id: string
+  id: string;
   /**
    * Display label for the step
    */
-  label: string
+  label: string;
   /**
    * Optional description
    */
-  description?: string
+  description?: string;
   /**
    * Content to render for this step
    */
-  content: React.ReactNode
+  content: React.ReactNode;
 }
 
 export interface StepperProps {
   /**
    * Array of steps to display
    */
-  steps: Step[]
+  steps: Step[];
   /**
    * Current active step index
    */
-  currentStep: number
+  currentStep: number;
   /**
    * Callback when step changes
    */
-  onStepChange?: (index: number) => void
+  onStepChange?: (index: number) => void;
   /**
    * Additional CSS classes
    */
-  className?: string
+  className?: string;
   /**
    * Show step numbers
    * @default true
    */
-  showNumbers?: boolean
+  showNumbers?: boolean;
   /**
    * Variant style
    * @default "default"
    */
-  variant?: 'default' | 'minimal'
+  variant?: "default" | "minimal";
 }
 
 /**
@@ -106,35 +106,35 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
       onStepChange,
       className,
       showNumbers = true,
-      variant = 'default',
+      variant = "default",
     },
     ref,
   ) => {
     const handleStepClick = (index: number) => {
       // Only allow clicking on completed or current steps
       if (index <= currentStep && onStepChange) {
-        onStepChange(index)
+        onStepChange(index);
       }
-    }
+    };
 
     return (
-      <div ref={ref} className={cn('w-full', className)}>
+      <div ref={ref} className={cn("w-full", className)}>
         {/* Step Indicator */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
             {steps.map((step, index) => {
-              const isCompleted = index < currentStep
-              const isCurrent = index === currentStep
-              const isUpcoming = index > currentStep
-              const isClickable = index <= currentStep
+              const isCompleted = index < currentStep;
+              const isCurrent = index === currentStep;
+              const isUpcoming = index > currentStep;
+              const isClickable = index <= currentStep;
 
               return (
                 <React.Fragment key={step.id}>
                   <div
                     className={cn(
-                      'flex flex-col items-center gap-2 flex-1',
-                      isClickable && 'cursor-pointer',
-                      !isClickable && 'cursor-not-allowed',
+                      "flex flex-col items-center gap-2 flex-1",
+                      isClickable && "cursor-pointer",
+                      !isClickable && "cursor-not-allowed",
                     )}
                     onClick={() => handleStepClick(index)}
                     role="button"
@@ -143,13 +143,13 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                     {/* Step Circle */}
                     <div
                       className={cn(
-                        'w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300',
+                        "w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300",
                         isCompleted &&
-                          'border-[hsl(var(--secondary))] bg-[hsl(var(--secondary))] text-white',
+                          "border-[hsl(var(--secondary))] bg-[hsl(var(--secondary))] text-white",
                         isCurrent &&
-                          'border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] ring-4 ring-[hsl(var(--primary))]/20',
+                          "border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] ring-4 ring-[hsl(var(--primary))]/20",
                         isUpcoming &&
-                          'border-[hsl(var(--border))] bg-transparent text-white/40',
+                          "border-[hsl(var(--border))] bg-transparent text-white/40",
                       )}
                     >
                       {isCompleted ? (
@@ -160,14 +160,14 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                     </div>
 
                     {/* Step Label */}
-                    {variant === 'default' && (
+                    {variant === "default" && (
                       <div className="text-center">
                         <div
                           className={cn(
-                            'text-sm font-medium transition-colors',
-                            isCurrent && 'text-white',
-                            isCompleted && 'text-white/80',
-                            isUpcoming && 'text-white/40',
+                            "text-sm font-medium transition-colors",
+                            isCurrent && "text-white",
+                            isCompleted && "text-white/80",
+                            isUpcoming && "text-white/40",
                           )}
                         >
                           {step.label}
@@ -187,14 +187,14 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                       <div className="absolute inset-0 bg-white/10" />
                       <div
                         className={cn(
-                          'absolute inset-0 bg-[hsl(var(--secondary))] transition-all duration-500',
-                          index < currentStep ? 'w-full' : 'w-0',
+                          "absolute inset-0 bg-[hsl(var(--secondary))] transition-all duration-500",
+                          index < currentStep ? "w-full" : "w-0",
                         )}
                       />
                     </div>
                   )}
                 </React.Fragment>
-              )
+              );
             })}
           </div>
         </div>
@@ -215,7 +215,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           </div>
         </div>
       </div>
-    )
+    );
   },
-)
-Stepper.displayName = 'Stepper'
+);
+Stepper.displayName = "Stepper";

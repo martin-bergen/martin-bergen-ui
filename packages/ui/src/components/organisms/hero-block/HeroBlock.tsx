@@ -1,31 +1,31 @@
-import * as React from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '../../../lib/utils'
-import { LucideIcon } from 'lucide-react'
-import { Badge } from '../../atoms/badge'
-import { PatternBackground } from '../../foundations/pattern-background'
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { LucideIcon } from "lucide-react";
+import { Badge } from "../../atoms/badge";
+import { PatternBackground } from "../../foundations/pattern-background";
 
 const heroBlockVariants = cva(
-  'relative overflow-hidden min-h-[70vh] flex items-center py-16',
+  "relative overflow-hidden min-h-[70vh] flex items-center py-16",
   {
     variants: {
       variant: {
-        default: 'bg-gradient-to-b from-background to-background/50',
-        moss: 'bg-gradient-to-b from-[#2D6A4F]/30 via-background to-background',
+        default: "bg-gradient-to-b from-background to-background/50",
+        moss: "bg-gradient-to-b from-[#2D6A4F]/30 via-background to-background",
         gradient:
-          'bg-gradient-to-br from-[#2D6A4F]/20 via-background to-[#40916C]/10',
+          "bg-gradient-to-br from-[#2D6A4F]/20 via-background to-[#40916C]/10",
       },
       withPattern: {
-        true: '',
-        false: '',
+        true: "",
+        false: "",
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: "default",
       withPattern: true,
     },
   },
-)
+);
 
 export interface HeroBlockProps
   extends
@@ -34,28 +34,28 @@ export interface HeroBlockProps
   /**
    * Optional icon for the tagline badge
    */
-  taglineIcon?: LucideIcon
+  taglineIcon?: LucideIcon;
   /**
    * Tagline text (appears in badge)
    */
-  tagline?: string
+  tagline?: string;
   /**
    * Main hero title
    */
-  title: string
+  title: string;
   /**
    * Hero description
    */
-  description: string
+  description: string;
   /**
    * Call-to-action buttons
    */
-  actions?: React.ReactNode
+  actions?: React.ReactNode;
   /**
    * Show pattern background
    * @default true
    */
-  withPattern?: boolean
+  withPattern?: boolean;
 }
 
 /**
@@ -122,7 +122,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
           {withPattern && <PatternBackground tileSize={32} overlayOnly />}
-          {variant === 'moss' && (
+          {variant === "moss" && (
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(45,106,79,0.15)_0%,transparent_70%)]" />
           )}
         </div>
@@ -155,9 +155,9 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
           </div>
         </div>
       </div>
-    )
+    );
   },
-)
-HeroBlock.displayName = 'HeroBlock'
+);
+HeroBlock.displayName = "HeroBlock";
 
-export { HeroBlock, heroBlockVariants }
+export { HeroBlock, heroBlockVariants };

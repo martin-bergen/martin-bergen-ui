@@ -1,74 +1,74 @@
-import { Button } from '@berget-ai/ui'
+import { Button } from "@berget-ai/ui";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { Building2 } from 'lucide-react'
-import { type MouseEvent, useRef, useState } from 'react'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+} from "@/components/ui/select";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { Building2 } from "lucide-react";
+import { type MouseEvent, useRef, useState } from "react";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'select-organization.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "select-organization.ftl");
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [selectedOrg, setSelectedOrg] = useState<string>('')
-  const formRef = useRef<HTMLFormElement>(null)
-  const organizationInputRef = useRef<HTMLInputElement>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedOrg, setSelectedOrg] = useState<string>("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const organizationInputRef = useRef<HTMLInputElement>(null);
 
   const onOrganizationClick =
     (organizationAlias: string) => (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault()
+      event.preventDefault();
 
       if (!organizationInputRef.current || !formRef.current) {
-        return
+        return;
       }
 
-      organizationInputRef.current.value = organizationAlias
-      setIsSubmitting(true)
+      organizationInputRef.current.value = organizationAlias;
+      setIsSubmitting(true);
 
-      if (typeof formRef.current.requestSubmit === 'function') {
-        formRef.current.requestSubmit()
-        return
+      if (typeof formRef.current.requestSubmit === "function") {
+        formRef.current.requestSubmit();
+        return;
       }
 
-      formRef.current.submit()
-    }
+      formRef.current.submit();
+    };
 
   const onSelectChange = (value: string) => {
-    setSelectedOrg(value)
+    setSelectedOrg(value);
     if (!organizationInputRef.current || !formRef.current) {
-      return
+      return;
     }
 
-    organizationInputRef.current.value = value
-    setIsSubmitting(true)
+    organizationInputRef.current.value = value;
+    setIsSubmitting(true);
 
-    if (typeof formRef.current.requestSubmit === 'function') {
-      formRef.current.requestSubmit()
-      return
+    if (typeof formRef.current.requestSubmit === "function") {
+      formRef.current.requestSubmit();
+      return;
     }
 
-    formRef.current.submit()
-  }
+    formRef.current.submit();
+  };
 
-  const organizations = kcContext.user.organizations ?? []
-  const useSelect = organizations.length > 3
+  const organizations = kcContext.user.organizations ?? [];
+  const useSelect = organizations.length > 3;
 
   return (
-    <Template headerNode={msg('organization.selectTitle')}>
+    <Template headerNode={msg("organization.selectTitle")}>
       <form ref={formRef} action={kcContext.url.loginAction} method="post">
         <div id="kc-user-organizations" className="space-y-2">
           <h2 className="text-md font-semibold">
-            {msg('organization.select')}
+            {msg("organization.select")}
           </h2>
           {useSelect ? (
             <div className="space-y-2">
@@ -79,7 +79,7 @@ export function Page() {
               >
                 <SelectTrigger className="w-full">
                   <SelectValue
-                    placeholder={msg('organization.pickPlaceholder')}
+                    placeholder={msg("organization.pickPlaceholder")}
                   />
                 </SelectTrigger>
                 <SelectContent>
@@ -117,5 +117,5 @@ export function Page() {
         <input ref={organizationInputRef} type="hidden" name="kc.org" />
       </form>
     </Template>
-  )
+  );
 }

@@ -2,20 +2,20 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
-const { KcPageStory } = createKcPageStory({ pageId: 'login-password.ftl' })
+const { KcPageStory } = createKcPageStory({ pageId: "login-password.ftl" });
 
 const meta = {
-  title: 'login/login-password.ftl',
+  title: "login/login-password.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const WithPasswordError: Story = {
   args: {
@@ -24,47 +24,47 @@ export const WithPasswordError: Story = {
         resetPasswordAllowed: true,
       },
       url: {
-        loginAction: '/mock-login',
-        loginResetCredentialsUrl: '/mock-reset-password',
+        loginAction: "/mock-login",
+        loginResetCredentialsUrl: "/mock-reset-password",
       },
       messagesPerField: {
-        existsError: (field: string) => field === 'password',
-        get: () => 'Invalid password',
+        existsError: (field: string) => field === "password",
+        get: () => "Invalid password",
       },
     },
   },
-}
+};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 export const WithWebauthn: Story = {
   args: {
     kcContext: {
       url: {
-        loginAction: '/mock-login-action',
+        loginAction: "/mock-login-action",
       },
       enableWebAuthnConditionalUI: true,
     },
   },
-}
+};
 
 export const WithoutResetPasswordOption: Story = {
   args: {
@@ -73,12 +73,12 @@ export const WithoutResetPasswordOption: Story = {
         resetPasswordAllowed: false,
       },
       url: {
-        loginAction: '/mock-login',
-        loginResetCredentialsUrl: '/mock-reset-password',
+        loginAction: "/mock-login",
+        loginResetCredentialsUrl: "/mock-reset-password",
       },
       messagesPerField: {
         existsError: () => false,
       },
     },
   },
-}
+};

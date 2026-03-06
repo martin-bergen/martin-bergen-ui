@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { FeatureCard, FeatureCards } from './FeatureCards'
-import { Zap, Shield, Database, Globe, Lock, Server } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/react";
+import { FeatureCard, FeatureCards } from "./FeatureCards";
+import { Zap, Shield, Database, Globe, Lock, Server } from "lucide-react";
 
 const meta = {
-  title: 'Organisms/Feature Card',
+  title: "Organisms/Feature Card",
   component: FeatureCard,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
         component: `
@@ -23,11 +23,11 @@ Individual feature card with icon, title, description, and optional badge/link.
       },
     },
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof FeatureCard>
+  tags: ["autodocs"],
+} satisfies Meta<typeof FeatureCard>;
 
-export default meta
-type Story = StoryObj<typeof FeatureCard>
+export default meta;
+type Story = StoryObj<typeof FeatureCard>;
 
 /**
  * Default feature card
@@ -35,12 +35,12 @@ type Story = StoryObj<typeof FeatureCard>
 export const Default: Story = {
   args: {
     icon: Zap,
-    title: 'Lightning Fast',
+    title: "Lightning Fast",
     description:
-      'Optimized for speed and performance with sub-millisecond latency.',
-    badge: 'New',
+      "Optimized for speed and performance with sub-millisecond latency.",
+    badge: "New",
   },
-}
+};
 
 /**
  * With list items (Figma design)
@@ -48,17 +48,17 @@ export const Default: Story = {
 export const WithListItems: Story = {
   args: {
     icon: Server,
-    title: 'Dedicated Inference',
+    title: "Dedicated Inference",
     description:
-      'Run and scale any model, including your own fine-tuned models on dedicated capacity.',
-    badge: 'Coming Soon',
+      "Run and scale any model, including your own fine-tuned models on dedicated capacity.",
+    badge: "Coming Soon",
     items: [
-      'Customizable instances',
-      'High-demand workloads',
-      'Dedicated resources',
+      "Customizable instances",
+      "High-demand workloads",
+      "Dedicated resources",
     ],
   },
-}
+};
 
 /**
  * With link
@@ -66,13 +66,13 @@ export const WithListItems: Story = {
 export const WithLink: Story = {
   args: {
     icon: Shield,
-    title: 'Secure by Default',
+    title: "Secure by Default",
     description:
-      'Enterprise-grade security built in with end-to-end encryption.',
-    linkText: 'Learn more',
-    linkHref: '#',
+      "Enterprise-grade security built in with end-to-end encryption.",
+    linkText: "Learn more",
+    linkHref: "#",
   },
-}
+};
 
 /**
  * With badge and link
@@ -80,23 +80,23 @@ export const WithLink: Story = {
 export const WithBadgeAndLink: Story = {
   args: {
     icon: Database,
-    title: 'Scalable Database',
-    description: 'Handle millions of requests effortlessly with auto-sharding.',
-    badge: 'Popular',
-    linkText: 'View docs',
-    linkHref: '#',
+    title: "Scalable Database",
+    description: "Handle millions of requests effortlessly with auto-sharding.",
+    badge: "Popular",
+    linkText: "View docs",
+    linkHref: "#",
   },
-}
+};
 
 /**
  * Without icon
  */
 export const WithoutIcon: Story = {
   args: {
-    title: 'Simple Feature',
-    description: 'A simple feature card without an icon.',
+    title: "Simple Feature",
+    description: "A simple feature card without an icon.",
   },
-}
+};
 
 /**
  * Three column grid
@@ -107,36 +107,36 @@ export const ThreeColumns: Story = {
       features={[
         {
           icon: Zap,
-          title: 'Lightning Fast',
+          title: "Lightning Fast",
           description:
-            'Optimized for speed and performance with sub-millisecond latency.',
-          badge: 'New',
+            "Optimized for speed and performance with sub-millisecond latency.",
+          badge: "New",
         },
         {
           icon: Shield,
-          title: 'Secure by Default',
+          title: "Secure by Default",
           description:
-            'Enterprise-grade security built in with end-to-end encryption.',
-          linkText: 'Learn more',
-          linkHref: '#',
+            "Enterprise-grade security built in with end-to-end encryption.",
+          linkText: "Learn more",
+          linkHref: "#",
         },
         {
           icon: Database,
-          title: 'Scalable Database',
+          title: "Scalable Database",
           description:
-            'Handle millions of requests effortlessly with auto-sharding.',
-          badge: 'Popular',
-          linkText: 'View docs',
-          linkHref: '#',
+            "Handle millions of requests effortlessly with auto-sharding.",
+          badge: "Popular",
+          linkText: "View docs",
+          linkHref: "#",
         },
       ]}
       columns={3}
     />
   ),
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-}
+};
 
 /**
  * Two column grid
@@ -147,28 +147,28 @@ export const TwoColumns: Story = {
       features={[
         {
           icon: Zap,
-          title: 'Lightning Fast',
+          title: "Lightning Fast",
           description:
-            'Optimized for speed and performance with sub-millisecond latency.',
-          linkText: 'Learn more',
-          linkHref: '#',
+            "Optimized for speed and performance with sub-millisecond latency.",
+          linkText: "Learn more",
+          linkHref: "#",
         },
         {
           icon: Shield,
-          title: 'Secure by Default',
+          title: "Secure by Default",
           description:
-            'Enterprise-grade security built in with end-to-end encryption.',
-          linkText: 'Learn more',
-          linkHref: '#',
+            "Enterprise-grade security built in with end-to-end encryption.",
+          linkText: "Learn more",
+          linkHref: "#",
         },
       ]}
       columns={2}
     />
   ),
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-}
+};
 
 /**
  * Full grid with six features
@@ -179,51 +179,51 @@ export const FullGrid: Story = {
       features={[
         {
           icon: Server,
-          title: 'Dedicated Inference',
-          description: 'Run and scale any model on dedicated capacity.',
-          badge: 'Coming Soon',
+          title: "Dedicated Inference",
+          description: "Run and scale any model on dedicated capacity.",
+          badge: "Coming Soon",
           items: [
-            'Customizable instances',
-            'High-demand workloads',
-            'Dedicated resources',
+            "Customizable instances",
+            "High-demand workloads",
+            "Dedicated resources",
           ],
         },
         {
           icon: Zap,
-          title: 'Lightning Fast',
-          description: 'Optimized for speed and performance.',
-          badge: 'New',
+          title: "Lightning Fast",
+          description: "Optimized for speed and performance.",
+          badge: "New",
         },
         {
           icon: Shield,
-          title: 'Secure by Default',
-          description: 'Enterprise-grade security built in.',
-          linkText: 'Learn more',
-          linkHref: '#',
+          title: "Secure by Default",
+          description: "Enterprise-grade security built in.",
+          linkText: "Learn more",
+          linkHref: "#",
         },
         {
           icon: Database,
-          title: 'Scalable Database',
-          description: 'Handle millions of requests effortlessly.',
+          title: "Scalable Database",
+          description: "Handle millions of requests effortlessly.",
         },
         {
           icon: Globe,
-          title: 'Global CDN',
-          description: 'Deploy close to your users worldwide.',
-          badge: 'Popular',
+          title: "Global CDN",
+          description: "Deploy close to your users worldwide.",
+          badge: "Popular",
         },
         {
           icon: Lock,
-          title: 'Data Privacy',
-          description: 'Your data never leaves the EU.',
-          linkText: 'Read more',
-          linkHref: '#',
+          title: "Data Privacy",
+          description: "Your data never leaves the EU.",
+          linkText: "Read more",
+          linkHref: "#",
         },
       ]}
       columns={3}
     />
   ),
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-}
+};

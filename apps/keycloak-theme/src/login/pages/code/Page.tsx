@@ -1,40 +1,40 @@
-import { Button, Input } from '@berget-ai/ui'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-import { kcSanitize } from 'keycloakify/lib/kcSanitize'
+import { Button, Input } from "@berget-ai/ui";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { kcSanitize } from "keycloakify/lib/kcSanitize";
 
-import { MdContentCopy } from 'react-icons/md'
+import { MdContentCopy } from "react-icons/md";
 
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { useState } from 'react'
-import { MdCheck } from 'react-icons/md'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { useState } from "react";
+import { MdCheck } from "react-icons/md";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'code.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "code.ftl");
 
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
-  const { msg } = useI18n()
+  const { msg } = useI18n();
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(kcContext.code.code ?? '')
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await navigator.clipboard.writeText(kcContext.code.code ?? "");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy text: ', err)
+      console.error("Failed to copy text: ", err);
     }
-  }
+  };
 
   return (
     <Template
       headerNode={
         kcContext.code.success
-          ? msg('codeSuccessTitle')
-          : msg('codeErrorTitle', kcContext.code.error)
+          ? msg("codeSuccessTitle")
+          : msg("codeErrorTitle", kcContext.code.error)
       }
     >
       <div id="kc-code">
@@ -42,7 +42,7 @@ export function Page() {
           <>
             <Alert variant="success" className=" my-3">
               <AlertDescription>
-                <span>{msg('copyCodeInstruction')}</span>
+                <span>{msg("copyCodeInstruction")}</span>
               </AlertDescription>
             </Alert>
             <div className="relative">
@@ -83,5 +83,5 @@ export function Page() {
         )}
       </div>
     </Template>
-  )
+  );
 }

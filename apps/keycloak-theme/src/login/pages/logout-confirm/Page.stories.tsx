@@ -2,40 +2,40 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
-const { KcPageStory } = createKcPageStory({ pageId: 'logout-confirm.ftl' })
+const { KcPageStory } = createKcPageStory({ pageId: "logout-confirm.ftl" });
 
 const meta = {
-  title: 'login/logout-confirm.ftl',
+  title: "login/logout-confirm.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 /**
  * WithCustomLogoutMessage:
@@ -47,19 +47,19 @@ export const WithCustomLogoutMessage: Story = {
   args: {
     kcContext: {
       url: {
-        logoutConfirmAction: '/mock-logout-action',
+        logoutConfirmAction: "/mock-logout-action",
       },
       client: {
-        baseUrl: '/mock-client-url',
+        baseUrl: "/mock-client-url",
       },
       logoutConfirm: {
-        code: 'mock-session-code',
+        code: "mock-session-code",
         skipLink: false,
       },
       message: {
-        summary: 'Are you sure you want to log out from all sessions?',
-        type: 'warning',
+        summary: "Are you sure you want to log out from all sessions?",
+        type: "warning",
       },
     },
   },
-}
+};

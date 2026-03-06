@@ -1,140 +1,140 @@
-import * as React from 'react'
-import { useState, useEffect } from 'react'
-import { cn } from '../../../lib/utils'
+import * as React from "react";
+import { useState, useEffect } from "react";
+import { cn } from "../../../lib/utils";
 import {
   Terminal as TerminalIcon,
   CheckCircle2,
   XCircle,
   AlertCircle,
-} from 'lucide-react'
+} from "lucide-react";
 
 export interface TerminalStep {
   /**
    * Command to execute
    */
-  command: string
+  command: string;
   /**
    * Output lines (can include ✓, ✗, ⚠ prefixes for icons)
    */
-  output: string[]
+  output: string[];
   /**
    * Delay before moving to next step (ms)
    */
-  delay?: number
+  delay?: number;
   /**
    * Language for syntax highlighting (e.g., "bash", "javascript", "typescript")
    */
-  language?: string
+  language?: string;
 }
 
 export interface TerminalProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Steps to execute in sequence
    */
-  steps: TerminalStep[]
+  steps: TerminalStep[];
   /**
    * Auto-start animation
    * @default true
    */
-  autoStart?: boolean
+  autoStart?: boolean;
   /**
    * Loop animation
    * @default false
    */
-  loop?: boolean
+  loop?: boolean;
   /**
    * Typing speed (ms per character)
    * @default 50
    */
-  typingSpeed?: number
+  typingSpeed?: number;
   /**
    * Output line speed (ms per line)
    * @default 150
    */
-  outputSpeed?: number
+  outputSpeed?: number;
   /**
    * Enable syntax highlighting for commands
    * @default false
    */
-  enableSyntaxHighlight?: boolean
+  enableSyntaxHighlight?: boolean;
 }
 
 const syntaxHighlight = (command: string): React.ReactNode => {
   const keywords = [
-    'npm',
-    'yarn',
-    'pnpm',
-    'pip',
-    'cargo',
-    'go',
-    'git',
-    'berget',
-    'docker',
-    'kubectl',
-    'terraform',
-    'ansible',
-    'helm',
-  ]
+    "npm",
+    "yarn",
+    "pnpm",
+    "pip",
+    "cargo",
+    "go",
+    "git",
+    "berget",
+    "docker",
+    "kubectl",
+    "terraform",
+    "ansible",
+    "helm",
+  ];
   const flags = [
-    '--save',
-    '--dev',
-    '-D',
-    '-g',
-    '--global',
-    '--force',
-    '-f',
-    '--help',
-    '-h',
-    '--version',
-    '-v',
-    'install',
-    'update',
-    'remove',
-    'uninstall',
-    'run',
-    'start',
-    'build',
-    'test',
-    'lint',
-    'init',
-    'clone',
-    'push',
-    'pull',
-    'commit',
-    'add',
-    'status',
-    'log',
-    'branch',
-    'checkout',
-    'merge',
-    'auth',
-    'login',
-    'logout',
-    'code',
-  ]
+    "--save",
+    "--dev",
+    "-D",
+    "-g",
+    "--global",
+    "--force",
+    "-f",
+    "--help",
+    "-h",
+    "--version",
+    "-v",
+    "install",
+    "update",
+    "remove",
+    "uninstall",
+    "run",
+    "start",
+    "build",
+    "test",
+    "lint",
+    "init",
+    "clone",
+    "push",
+    "pull",
+    "commit",
+    "add",
+    "status",
+    "log",
+    "branch",
+    "checkout",
+    "merge",
+    "auth",
+    "login",
+    "logout",
+    "code",
+  ];
 
-  const parts = command.split(/(\s+)/)
+  const parts = command.split(/(\s+)/);
   const highlighted = parts.map((part, index) => {
-    if (part.match(/^\s+$/)) return part
+    if (part.match(/^\s+$/)) return part;
     if (keywords.includes(part)) {
       return (
         <span key={index} className="text-[#FF79C6]">
           {part}
         </span>
-      )
+      );
     }
-    if (part.startsWith('-') || flags.includes(part)) {
+    if (part.startsWith("-") || flags.includes(part)) {
       return (
         <span key={index} className="text-[#8BE9FD]">
           {part}
         </span>
-      )
+      );
     }
-    return part
-  })
+    return part;
+  });
 
-  return <>{highlighted}</>
-}
+  return <>{highlighted}</>;
+};
 
 /**
  * Terminal Component
@@ -179,119 +179,119 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
     },
     ref,
   ) => {
-    const [currentStep, setCurrentStep] = useState(0)
-    const [typedCommand, setTypedCommand] = useState('')
-    const [showOutput, setShowOutput] = useState(false)
-    const [outputLines, setOutputLines] = useState<string[]>([])
-    const [completedSteps, setCompletedSteps] = useState<TerminalStep[]>([])
-    const contentRef = React.useRef<HTMLDivElement>(null)
-    const { enableSyntaxHighlight = false } = props
+    const [currentStep, setCurrentStep] = useState(0);
+    const [typedCommand, setTypedCommand] = useState("");
+    const [showOutput, setShowOutput] = useState(false);
+    const [outputLines, setOutputLines] = useState<string[]>([]);
+    const [completedSteps, setCompletedSteps] = useState<TerminalStep[]>([]);
+    const contentRef = React.useRef<HTMLDivElement>(null);
+    const { enableSyntaxHighlight = false } = props;
 
     // Reset animation
     const resetAnimation = React.useCallback(() => {
-      setCurrentStep(0)
-      setTypedCommand('')
-      setShowOutput(false)
-      setOutputLines([])
-      setCompletedSteps([])
-    }, [])
+      setCurrentStep(0);
+      setTypedCommand("");
+      setShowOutput(false);
+      setOutputLines([]);
+      setCompletedSteps([]);
+    }, []);
 
     // Type command effect
     useEffect(() => {
-      if (!autoStart) return
+      if (!autoStart) return;
       if (currentStep >= steps.length) {
         if (loop) {
-          setTimeout(resetAnimation, 2000)
+          setTimeout(resetAnimation, 2000);
         }
-        return
+        return;
       }
 
-      const step = steps[currentStep]
-      if (!step) return
-      let commandIndex = 0
+      const step = steps[currentStep];
+      if (!step) return;
+      let commandIndex = 0;
 
       const commandInterval = setInterval(() => {
         if (commandIndex <= step.command.length) {
-          setTypedCommand(step.command.slice(0, commandIndex))
-          commandIndex++
+          setTypedCommand(step.command.slice(0, commandIndex));
+          commandIndex++;
         } else {
-          clearInterval(commandInterval)
+          clearInterval(commandInterval);
           setTimeout(() => {
-            setShowOutput(true)
-          }, 300)
+            setShowOutput(true);
+          }, 300);
         }
-      }, typingSpeed)
+      }, typingSpeed);
 
-      return () => clearInterval(commandInterval)
-    }, [currentStep, steps, autoStart, loop, resetAnimation, typingSpeed])
+      return () => clearInterval(commandInterval);
+    }, [currentStep, steps, autoStart, loop, resetAnimation, typingSpeed]);
 
     // Show output effect
     useEffect(() => {
-      if (!showOutput) return
+      if (!showOutput) return;
 
-      const step = steps[currentStep]
-      if (!step) return
-      let lineIndex = 0
+      const step = steps[currentStep];
+      if (!step) return;
+      let lineIndex = 0;
 
       const outputInterval = setInterval(() => {
         if (lineIndex < step.output.length) {
-          const line = step.output[lineIndex]
+          const line = step.output[lineIndex];
           if (line !== undefined) {
-            setOutputLines((prev) => [...prev, line])
+            setOutputLines((prev) => [...prev, line]);
           }
-          lineIndex++
+          lineIndex++;
           // Auto-scroll to bottom
           if (contentRef.current) {
-            contentRef.current.scrollTop = contentRef.current.scrollHeight
+            contentRef.current.scrollTop = contentRef.current.scrollHeight;
           }
         } else {
-          clearInterval(outputInterval)
+          clearInterval(outputInterval);
           // Move to next step
           setTimeout(() => {
             if (currentStep < steps.length - 1) {
-              setCompletedSteps((prev) => [...prev, step])
-              setCurrentStep((prev) => prev + 1)
-              setTypedCommand('')
-              setShowOutput(false)
-              setOutputLines([])
+              setCompletedSteps((prev) => [...prev, step]);
+              setCurrentStep((prev) => prev + 1);
+              setTypedCommand("");
+              setShowOutput(false);
+              setOutputLines([]);
             }
-          }, step.delay || 1000)
+          }, step.delay || 1000);
         }
-      }, outputSpeed)
+      }, outputSpeed);
 
-      return () => clearInterval(outputInterval)
-    }, [showOutput, currentStep, steps, outputSpeed])
+      return () => clearInterval(outputInterval);
+    }, [showOutput, currentStep, steps, outputSpeed]);
 
     const renderOutputLine = (line: string, lineIndex: number) => {
-      if (!line && line !== '') return null // Guard against undefined
+      if (!line && line !== "") return null; // Guard against undefined
 
-      let icon = null
-      let displayLine = line
+      let icon = null;
+      let displayLine = line;
 
-      if (line && line.startsWith('✓')) {
+      if (line && line.startsWith("✓")) {
         icon = (
           <CheckCircle2
             className="w-7 h-7 text-[#22C55E] mt-0.5 flex-shrink-0"
             strokeWidth={2}
           />
-        )
-        displayLine = line.replace('✓ ', '')
-      } else if (line && line.startsWith('✗')) {
+        );
+        displayLine = line.replace("✓ ", "");
+      } else if (line && line.startsWith("✗")) {
         icon = (
           <XCircle
             className="w-7 h-7 text-red-400 mt-0.5 flex-shrink-0"
             strokeWidth={2}
           />
-        )
-        displayLine = line.replace('✗ ', '')
-      } else if (line && line.startsWith('⚠')) {
+        );
+        displayLine = line.replace("✗ ", "");
+      } else if (line && line.startsWith("⚠")) {
         icon = (
           <AlertCircle
             className="w-7 h-7 text-[#FBB034] mt-0.5 flex-shrink-0"
             strokeWidth={2}
           />
-        )
-        displayLine = line.replace('⚠ ', '')
+        );
+        displayLine = line.replace("⚠ ", "");
       }
 
       return (
@@ -300,18 +300,18 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
           className="text-white/90 ml-4 mt-1 flex items-start gap-2 animate-fade-in"
         >
           {icon}
-          <span className={cn(!line && 'opacity-0')}>
-            {displayLine || '\u00A0'}
+          <span className={cn(!line && "opacity-0")}>
+            {displayLine || "\u00A0"}
           </span>
         </div>
-      )
-    }
+      );
+    };
 
     return (
       <div
         ref={ref}
         className={cn(
-          'bg-black/40 backdrop-blur-xl border border-[hsl(var(--border))] rounded-2xl overflow-hidden',
+          "bg-black/40 backdrop-blur-xl border border-[hsl(var(--border))] rounded-2xl overflow-hidden",
           className,
         )}
         {...props}
@@ -377,7 +377,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
           )}
         </div>
       </div>
-    )
+    );
   },
-)
-Terminal.displayName = 'Terminal'
+);
+Terminal.displayName = "Terminal";

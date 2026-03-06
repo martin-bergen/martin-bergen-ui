@@ -1,55 +1,55 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Link } from '.'
+import type { Meta, StoryObj } from "@storybook/react";
+import { Link } from ".";
 
 const meta: Meta<typeof Link> = {
-  title: 'Atoms/Link',
+  title: "Atoms/Link",
   component: Link,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'primary', 'secondary', 'ghost', 'muted', 'code'],
-      description: 'Visual variant',
+      control: "select",
+      options: ["default", "primary", "secondary", "ghost", "muted", "code"],
+      description: "Visual variant",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'default', 'lg'],
-      description: 'Size',
+      control: "select",
+      options: ["sm", "default", "lg"],
+      description: "Size",
     },
     external: {
-      control: 'boolean',
-      description: 'External link',
+      control: "boolean",
+      description: "External link",
     },
     showExternalIcon: {
-      control: 'boolean',
-      description: 'Show external icon',
+      control: "boolean",
+      description: "Show external icon",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
-    href: '#',
-    children: 'Click me',
-    variant: 'default',
-    size: 'default',
+    href: "#",
+    children: "Click me",
+    variant: "default",
+    size: "default",
   },
   render: (args) => (
     <div className="p-4">
       <Link {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -99,7 +99,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const ExternalLinks: Story = {
   parameters: { controls: { hide: true } },
@@ -119,4 +119,4 @@ export const ExternalLinks: Story = {
       </Link>
     </div>
   ),
-}
+};

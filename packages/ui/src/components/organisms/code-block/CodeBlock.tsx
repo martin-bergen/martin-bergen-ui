@@ -1,38 +1,38 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Copy, Check } from 'lucide-react'
-import { cn } from '../../../lib/utils'
-import { Panel } from '../../atoms/panel'
-import { getHighlighter } from '../../../lib/shiki'
+import { useState, useEffect, useCallback } from "react";
+import { Copy, Check } from "lucide-react";
+import { cn } from "../../../lib/utils";
+import { Panel } from "../../atoms/panel";
+import { getHighlighter } from "../../../lib/shiki";
 
 export interface CodeBlockProps {
-  code: string
-  language?: string
-  title?: string
-  className?: string
+  code: string;
+  language?: string;
+  title?: string;
+  className?: string;
 }
 
 export function CodeBlock({
   code,
-  language = 'text',
+  language = "text",
   title,
   className,
 }: CodeBlockProps) {
-  const [html, setHtml] = useState<string | null>(null)
-  const [copied, setCopied] = useState(false)
+  const [html, setHtml] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     getHighlighter().then((highlighter) => {
-      const loadedLangs = highlighter.getLoadedLanguages()
-      const lang = loadedLangs.includes(language) ? language : 'text'
-      setHtml(highlighter.codeToHtml(code, { lang, theme: 'berget' }))
-    })
-  }, [code, language])
+      const loadedLangs = highlighter.getLoadedLanguages();
+      const lang = loadedLangs.includes(language) ? language : "text";
+      setHtml(highlighter.codeToHtml(code, { lang, theme: "berget" }));
+    });
+  }, [code, language]);
 
   const handleCopy = useCallback(async () => {
-    await navigator.clipboard.writeText(code)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }, [code])
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }, [code]);
 
   const copyButton = (
     <button
@@ -46,13 +46,13 @@ export function CodeBlock({
         <Copy className="w-3.5 h-3.5" />
       )}
     </button>
-  )
+  );
 
   return (
     <Panel
       padding="none"
       radius="default"
-      className={cn('rounded-lg', className)}
+      className={cn("rounded-lg", className)}
     >
       {title && (
         <div className="!h-10 flex items-center !px-4 !text-xs !leading-normal border-b border-white/10 bg-white/5">
@@ -71,5 +71,5 @@ export function CodeBlock({
         </pre>
       )}
     </Panel>
-  )
+  );
 }

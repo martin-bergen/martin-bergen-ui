@@ -1,33 +1,33 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { EmailButton, EmailDivider, EmailLink } from './EmailTemplate'
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { EmailButton, EmailDivider, EmailLink } from "./EmailTemplate";
 
 function PasswordResetEmail() {
-  const link = 'https://auth.berget.ai/reset-password?token=abc123'
-  const realmName = 'Berget AI'
-  const expiration = '5 minutes'
+  const link = "https://auth.berget.ai/reset-password?token=abc123";
+  const realmName = "Berget AI";
+  const expiration = "5 minutes";
 
   return (
     <div
       style={{
-        backgroundColor: '#0a0a0a',
-        minHeight: '100vh',
-        padding: '40px 20px',
+        backgroundColor: "#0a0a0a",
+        minHeight: "100vh",
+        padding: "40px 20px",
         fontFamily:
           "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
       }}
     >
-      <div style={{ maxWidth: 600, margin: '0 auto' }}>
+      <div style={{ maxWidth: 600, margin: "0 auto" }}>
         <div
           style={{
             background:
-              'linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(32, 32, 32, 0.9) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+              "linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(32, 32, 32, 0.9) 100%)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
             borderRadius: 16,
             padding: 40,
           }}
         >
           {/* Logo */}
-          <div style={{ textAlign: 'center', marginBottom: 32 }}>
+          <div style={{ textAlign: "center", marginBottom: 32 }}>
             <svg
               width="48"
               height="48"
@@ -44,11 +44,11 @@ function PasswordResetEmail() {
 
           <h1
             style={{
-              margin: '0 0 24px 0',
+              margin: "0 0 24px 0",
               fontSize: 24,
               fontWeight: 500,
-              color: '#ffffff',
-              textAlign: 'center',
+              color: "#ffffff",
+              textAlign: "center",
             }}
           >
             Reset Your Password
@@ -56,13 +56,13 @@ function PasswordResetEmail() {
 
           <p
             style={{
-              margin: '0 0 24px 0',
-              color: 'rgba(255, 255, 255, 0.7)',
-              textAlign: 'center',
+              margin: "0 0 24px 0",
+              color: "rgba(255, 255, 255, 0.7)",
+              textAlign: "center",
             }}
           >
-            Someone requested to reset the password for your{' '}
-            <strong style={{ color: '#ffffff' }}>{realmName}</strong> account.
+            Someone requested to reset the password for your{" "}
+            <strong style={{ color: "#ffffff" }}>{realmName}</strong> account.
             If this was you, click the button below to set a new password.
           </p>
 
@@ -70,14 +70,14 @@ function PasswordResetEmail() {
 
           <p
             style={{
-              margin: '0 0 16px 0',
-              color: 'rgba(255, 255, 255, 0.5)',
+              margin: "0 0 16px 0",
+              color: "rgba(255, 255, 255, 0.5)",
               fontSize: 14,
-              textAlign: 'center',
+              textAlign: "center",
             }}
           >
-            This link will expire in{' '}
-            <strong style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+            This link will expire in{" "}
+            <strong style={{ color: "rgba(255, 255, 255, 0.7)" }}>
               {expiration}
             </strong>
             .
@@ -86,9 +86,9 @@ function PasswordResetEmail() {
           <p
             style={{
               margin: 0,
-              color: 'rgba(255, 255, 255, 0.5)',
+              color: "rgba(255, 255, 255, 0.5)",
               fontSize: 14,
-              textAlign: 'center',
+              textAlign: "center",
             }}
           >
             If you didn&apos;t request this, you can safely ignore this email.
@@ -100,9 +100,9 @@ function PasswordResetEmail() {
           <p
             style={{
               margin: 0,
-              color: 'rgba(255, 255, 255, 0.4)',
+              color: "rgba(255, 255, 255, 0.4)",
               fontSize: 13,
-              textAlign: 'center',
+              textAlign: "center",
             }}
           >
             If the button doesn&apos;t work, copy and paste this link into your
@@ -110,9 +110,9 @@ function PasswordResetEmail() {
           </p>
           <p
             style={{
-              margin: '8px 0 0 0',
-              wordBreak: 'break-all',
-              textAlign: 'center',
+              margin: "8px 0 0 0",
+              wordBreak: "break-all",
+              textAlign: "center",
             }}
           >
             <EmailLink href={link}>{link}</EmailLink>
@@ -120,11 +120,11 @@ function PasswordResetEmail() {
         </div>
 
         {/* Footer */}
-        <div style={{ textAlign: 'center', paddingTop: 32 }}>
+        <div style={{ textAlign: "center", paddingTop: 32 }}>
           <p
             style={{
               margin: 0,
-              color: 'rgba(255, 255, 255, 0.4)',
+              color: "rgba(255, 255, 255, 0.4)",
               fontSize: 13,
             }}
           >
@@ -132,8 +132,8 @@ function PasswordResetEmail() {
           </p>
           <p
             style={{
-              margin: '8px 0 0 0',
-              color: 'rgba(255, 255, 255, 0.3)',
+              margin: "8px 0 0 0",
+              color: "rgba(255, 255, 255, 0.3)",
               fontSize: 12,
             }}
           >
@@ -142,19 +142,19 @@ function PasswordResetEmail() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const meta = {
-  title: 'email/Password Reset',
+  title: "email/Password Reset",
   component: PasswordResetEmail,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-} satisfies Meta<typeof PasswordResetEmail>
+} satisfies Meta<typeof PasswordResetEmail>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};

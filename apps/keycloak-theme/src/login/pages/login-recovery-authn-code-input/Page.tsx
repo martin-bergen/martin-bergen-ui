@@ -1,22 +1,22 @@
-import { Button, Input } from '@berget-ai/ui'
-import { Field, FieldError, FieldLabel } from '@/components/ui/field'
-import { useI18n } from '@/login/i18n'
-import { useKcContext } from '@/login/KcContext'
-import { kcSanitize } from 'keycloakify/lib/kcSanitize'
-import { assert } from 'tsafe/assert'
-import { Template } from '../../components/Template'
+import { Button, Input } from "@berget-ai/ui";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { useI18n } from "@/login/i18n";
+import { useKcContext } from "@/login/KcContext";
+import { kcSanitize } from "keycloakify/lib/kcSanitize";
+import { assert } from "tsafe/assert";
+import { Template } from "../../components/Template";
 
 export function Page() {
-  const { kcContext } = useKcContext()
-  assert(kcContext.pageId === 'login-recovery-authn-code-input.ftl')
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-recovery-authn-code-input.ftl");
 
-  const { url, messagesPerField, recoveryAuthnCodesInputBean } = kcContext
+  const { url, messagesPerField, recoveryAuthnCodesInputBean } = kcContext;
 
-  const { msg, msgStr } = useI18n()
+  const { msg, msgStr } = useI18n();
   return (
     <Template
-      headerNode={msg('auth-recovery-code-header')}
-      displayMessage={!messagesPerField.existsError('recoveryCodeInput')}
+      headerNode={msg("auth-recovery-code-header")}
+      displayMessage={!messagesPerField.existsError("recoveryCodeInput")}
     >
       <form
         id="kc-recovery-code-login-form"
@@ -26,9 +26,9 @@ export function Page() {
       >
         <Field>
           <FieldLabel htmlFor="recoveryCodeInput">
-            {' '}
+            {" "}
             {msg(
-              'auth-recovery-code-prompt',
+              "auth-recovery-code-prompt",
               `${recoveryAuthnCodesInputBean.codeNumber}`,
             )}
           </FieldLabel>
@@ -40,16 +40,16 @@ export function Page() {
             type="text"
             autoFocus
             placeholder="Enter recovery code"
-            aria-invalid={messagesPerField.existsError('recoveryCodeInput')}
+            aria-invalid={messagesPerField.existsError("recoveryCodeInput")}
           />
-          {messagesPerField.existsError('recoveryCodeInput') && (
+          {messagesPerField.existsError("recoveryCodeInput") && (
             <FieldError>
               <span
                 id="input-error"
                 aria-live="polite"
                 dangerouslySetInnerHTML={{
                   __html: kcSanitize(
-                    messagesPerField.getFirstError('recoveryCodeInput'),
+                    messagesPerField.getFirstError("recoveryCodeInput"),
                   ),
                 }}
               />
@@ -58,9 +58,9 @@ export function Page() {
         </Field>
 
         <Button className="w-full" name="login" id="kc-login" type="submit">
-          {msgStr('doLogIn')}
+          {msgStr("doLogIn")}
         </Button>
       </form>
     </Template>
-  )
+  );
 }

@@ -2,42 +2,42 @@ import {
   createKcPageStory,
   type Meta,
   type StoryObj,
-} from '../../mocks/KcPageStory'
+} from "../../mocks/KcPageStory";
 
 const { KcPageStory } = createKcPageStory({
-  pageId: 'login-reset-password.ftl',
-})
+  pageId: "login-reset-password.ftl",
+});
 
 const meta = {
-  title: 'login/login-reset-password.ftl',
+  title: "login/login-reset-password.ftl",
   component: KcPageStory,
-} satisfies Meta<typeof KcPageStory>
+} satisfies Meta<typeof KcPageStory>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const Arabic: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'ar',
+        currentLanguageTag: "ar",
         rtl: true,
       },
     },
   },
-}
+};
 export const French: Story = {
   args: {
     kcContext: {
       locale: {
-        currentLanguageTag: 'fr',
+        currentLanguageTag: "fr",
       },
     },
   },
-}
+};
 
 export const WithEmailAsUsername: Story = {
   args: {
@@ -48,7 +48,7 @@ export const WithEmailAsUsername: Story = {
       },
     },
   },
-}
+};
 /**
  * WithUsernameError:
  * - Purpose: Tests behavior when an error occurs with the username input (e.g., invalid username).
@@ -64,16 +64,16 @@ export const WithUsernameError: Story = {
         duplicateEmailsAllowed: false,
       },
       url: {
-        loginAction: '/mock-login-action',
-        loginUrl: '/mock-login-url',
+        loginAction: "/mock-login-action",
+        loginUrl: "/mock-login-url",
       },
       messagesPerField: {
-        existsError: (field: string) => field === 'username',
-        get: () => 'Invalid username',
+        existsError: (field: string) => field === "username",
+        get: () => "Invalid username",
       },
       auth: {
-        attemptedUsername: 'invalid_user',
+        attemptedUsername: "invalid_user",
       },
     },
   },
-}
+};

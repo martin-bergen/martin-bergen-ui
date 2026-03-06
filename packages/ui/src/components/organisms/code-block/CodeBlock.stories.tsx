@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { CodeBlock } from '.'
+import type { Meta, StoryObj } from "@storybook/react";
+import { CodeBlock } from ".";
 
 const meta: Meta<typeof CodeBlock> = {
-  title: 'Organisms/CodeBlock',
+  title: "Organisms/CodeBlock",
   component: CodeBlock,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
     docs: {
       description: {
         component: `
@@ -21,38 +21,38 @@ Syntax-highlighted code block powered by Shiki with the Berget theme.
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     language: {
-      control: 'select',
+      control: "select",
       options: [
-        'typescript',
-        'javascript',
-        'bash',
-        'yaml',
-        'json',
-        'python',
-        'dockerfile',
-        'markdown',
-        'html',
-        'css',
-        'shell',
-        'text',
+        "typescript",
+        "javascript",
+        "bash",
+        "yaml",
+        "json",
+        "python",
+        "dockerfile",
+        "markdown",
+        "html",
+        "css",
+        "shell",
+        "text",
       ],
     },
-    code: { control: 'text' },
-    title: { control: 'text' },
-    className: { control: 'text' },
+    code: { control: "text" },
+    title: { control: "text" },
+    className: { control: "text" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof CodeBlock>
+export default meta;
+type Story = StoryObj<typeof CodeBlock>;
 
 export const Interactive: Story = {
   args: {
-    title: 'App.tsx',
-    language: 'typescript',
+    title: "App.tsx",
+    language: "typescript",
     code: `import { CodeBlock } from '@berget-ai/ui'
 
 export function App() {
@@ -65,7 +65,7 @@ export function App() {
   )
 }`,
   },
-}
+};
 
 export const WithTitle: Story = {
   parameters: { controls: { hide: true } },
@@ -96,11 +96,11 @@ echo "Deployment complete"`}
       />
     </div>
   ),
-}
+};
 
 export const WithoutTitle: Story = {
   args: {
-    language: 'json',
+    language: "json",
     code: `{
   "name": "@berget-ai/ui",
   "version": "1.0.0",
@@ -109,7 +109,7 @@ export const WithoutTitle: Story = {
   }
 }`,
   },
-}
+};
 
 export const Languages: Story = {
   parameters: { controls: { hide: true } },
@@ -162,4 +162,4 @@ CMD ["node", "dist/server/index.js"]`}
       />
     </div>
   ),
-}
+};
