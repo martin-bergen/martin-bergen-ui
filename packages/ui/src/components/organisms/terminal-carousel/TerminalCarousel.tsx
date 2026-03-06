@@ -1,34 +1,33 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { cn } from "../../../lib/utils";
-import { CarouselNav } from "../../molecules/carousel-nav";
+import * as React from 'react'
+import { useState, useEffect } from 'react'
+import { cn } from '../../../lib/utils'
+import { CarouselNav } from '../../molecules/carousel-nav'
 
 export interface TerminalExample {
-  title: string;
-  description: string;
+  title: string
+  description: string
   commands: {
-    command: string;
-    output?: string[];
-    delay?: number;
-  }[];
+    command: string
+    output?: string[]
+    delay?: number
+  }[]
 }
 
-export interface TerminalCarouselProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface TerminalCarouselProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Terminal examples to cycle through
    */
-  examples: TerminalExample[];
+  examples: TerminalExample[]
   /**
    * Typing speed in ms per character
    * @default 30
    */
-  typingSpeed?: number;
+  typingSpeed?: number
   /**
    * Height of the terminal content area
    * @default "320px"
    */
-  contentHeight?: string;
+  contentHeight?: string
 }
 
 export const TerminalCarousel = React.forwardRef<
@@ -40,70 +39,73 @@ export const TerminalCarousel = React.forwardRef<
       className,
       examples,
       typingSpeed = 30,
-      contentHeight = "320px",
+      contentHeight = '320px',
       ...props
     },
-    ref
+    ref,
   ) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [typingIdx, setTypingIdx] = useState(0);
-    const [commandIndex, setCommandIndex] = useState(0);
-    const [typedText, setTypedText] = useState("");
-    const [showOutput, setShowOutput] = useState(false);
-    const [isTyping, setIsTyping] = useState(true);
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [typingIdx, setTypingIdx] = useState(0)
+    const [commandIndex, setCommandIndex] = useState(0)
+    const [typedText, setTypedText] = useState('')
+    const [showOutput, setShowOutput] = useState(false)
+    const [isTyping, setIsTyping] = useState(true)
 
-    const currentExample = examples[currentIndex];
+    const currentExample = examples[currentIndex]
+    const firstExample = examples[0]
     const currentCommand =
-      currentExample.commands[commandIndex] || examples[0].commands[0];
+      currentExample?.commands[commandIndex] ?? firstExample?.commands[0]
 
     useEffect(() => {
-      setTypingIdx(0);
-      setCommandIndex(0);
-      setTypedText("");
-      setShowOutput(false);
-      setIsTyping(true);
-    }, [currentIndex]);
+      setTypingIdx(0)
+      setCommandIndex(0)
+      setTypedText('')
+      setShowOutput(false)
+      setIsTyping(true)
+    }, [currentIndex])
 
     useEffect(() => {
+      if (!currentExample || !currentCommand) return
+
       if (isTyping && typingIdx < currentCommand.command.length) {
         const timeout = setTimeout(() => {
-          setTypedText((prev) => prev + currentCommand.command[typingIdx]);
-          setTypingIdx((prev) => prev + 1);
-        }, typingSpeed);
-        return () => clearTimeout(timeout);
+          setTypedText((prev) => prev + currentCommand.command[typingIdx])
+          setTypingIdx((prev) => prev + 1)
+        }, typingSpeed)
+        return () => clearTimeout(timeout)
       }
 
       if (typingIdx >= currentCommand.command.length && isTyping) {
         const timeout = setTimeout(() => {
-          setIsTyping(false);
-          setShowOutput(true);
-        }, 300);
-        return () => clearTimeout(timeout);
+          setIsTyping(false)
+          setShowOutput(true)
+        }, 300)
+        return () => clearTimeout(timeout)
       }
 
       if (showOutput && !isTyping) {
         const timeout = setTimeout(
           () => {
             if (commandIndex < currentExample.commands.length - 1) {
-              setCommandIndex((prev) => prev + 1);
-              setTypingIdx(0);
-              setTypedText("");
-              setShowOutput(false);
-              setIsTyping(true);
+              setCommandIndex((prev) => prev + 1)
+              setTypingIdx(0)
+              setTypedText('')
+              setShowOutput(false)
+              setIsTyping(true)
             } else {
               const resetTimeout = setTimeout(() => {
-                setCommandIndex(0);
-                setTypingIdx(0);
-                setTypedText("");
-                setShowOutput(false);
-                setIsTyping(true);
-              }, 6000);
-              return () => clearTimeout(resetTimeout);
+                setCommandIndex(0)
+                setTypingIdx(0)
+                setTypedText('')
+                setShowOutput(false)
+                setIsTyping(true)
+              }, 6000)
+              return () => clearTimeout(resetTimeout)
             }
           },
-          currentCommand.output ? 2000 : 1000
-        );
-        return () => clearTimeout(timeout);
+          currentCommand.output ? 2000 : 1000,
+        )
+        return () => clearTimeout(timeout)
       }
     }, [
       typingIdx,
@@ -111,12 +113,14 @@ export const TerminalCarousel = React.forwardRef<
       showOutput,
       commandIndex,
       currentCommand,
-      currentExample.commands.length,
+      currentExample?.commands.length,
       typingSpeed,
-    ]);
+    ])
+
+    if (!currentExample || !currentCommand) return null
 
     return (
-      <div ref={ref} className={cn("relative", className)} {...props}>
+      <div ref={ref} className={cn('relative', className)} {...props}>
         <div className="max-w-3xl mx-auto bg-[#1A1A1A] rounded-xl border border-[#40916C]/20 overflow-hidden shadow-xl">
           {/* Terminal header */}
           <div className="bg-[#2D2D2D] px-4 py-3 flex items-center justify-between">
@@ -169,7 +173,7 @@ export const TerminalCarousel = React.forwardRef<
           onNavigate={setCurrentIndex}
         />
       </div>
-    );
-  }
-);
-TerminalCarousel.displayName = "TerminalCarousel";
+    )
+  },
+)
+TerminalCarousel.displayName = 'TerminalCarousel'

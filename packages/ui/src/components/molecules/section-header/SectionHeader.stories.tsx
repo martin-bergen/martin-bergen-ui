@@ -1,45 +1,45 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { SectionHeader } from ".";
+import type { Meta, StoryObj } from '@storybook/react'
+import { SectionHeader } from '.'
 
 const meta: Meta<typeof SectionHeader> = {
-  title: "Molecules/SectionHeader",
+  title: 'Molecules/SectionHeader',
   component: SectionHeader,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     alignment: {
-      control: "select",
-      options: ["left", "center", "right"],
-      description: "Text alignment",
+      control: 'select',
+      options: ['left', 'center', 'right'],
+      description: 'Text alignment',
     },
     size: {
-      control: "select",
-      options: ["sm", "md", "lg"],
-      description: "Heading size",
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Heading size',
     },
     maxWidth: {
-      control: "select",
-      options: ["sm", "md", "lg", "xl", "full"],
-      description: "Maximum content width",
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl', 'full'],
+      description: 'Maximum content width',
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof SectionHeader>;
+export default meta
+type Story = StoryObj<typeof SectionHeader>
 
 export const Interactive: Story = {
   args: {
-    title: "European AI Infrastructure",
+    title: 'European AI Infrastructure',
     description:
-      "Deploy and scale AI models with data residency in Europe. GDPR compliant, sovereign, and powerful.",
-    alignment: "center",
-    size: "md",
-    maxWidth: "md",
+      'Deploy and scale AI models with data residency in Europe. GDPR compliant, sovereign, and powerful.',
+    alignment: 'center',
+    size: 'md',
+    maxWidth: 'md',
   },
-};
+}
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -77,4 +77,4 @@ export const AllVariants: Story = {
       <SectionHeader title="Title Only" />
     </div>
   ),
-};
+}

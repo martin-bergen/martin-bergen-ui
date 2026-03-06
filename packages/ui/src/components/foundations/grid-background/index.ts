@@ -1,2 +1,2 @@
-export { GridBackground } from "./GridBackground"
-export type { GridBackgroundProps } from "./GridBackground"
+export { GridBackground } from './GridBackground'
+export type { GridBackgroundProps } from './GridBackground'

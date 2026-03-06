@@ -1,55 +1,55 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Textarea } from "."
+import type { Meta, StoryObj } from '@storybook/react'
+import { Textarea } from '.'
 
 const meta: Meta<typeof Textarea> = {
-  title: "Atoms/Textarea",
+  title: 'Atoms/Textarea',
   component: Textarea,
   parameters: {
-    layout: "padded",
+    layout: 'padded',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["default", "primary", "subtle", "muted"],
-      description: "Visual variant",
+      control: 'select',
+      options: ['default', 'primary', 'subtle', 'muted'],
+      description: 'Visual variant',
     },
     size: {
-      control: "select",
-      options: ["sm", "default", "lg"],
-      description: "Textarea size",
+      control: 'select',
+      options: ['sm', 'default', 'lg'],
+      description: 'Textarea size',
     },
     label: {
-      control: "text",
-      description: "Label text",
+      control: 'text',
+      description: 'Label text',
     },
     description: {
-      control: "text",
-      description: "Description text",
+      control: 'text',
+      description: 'Description text',
     },
     error: {
-      control: "text",
-      description: "Error message",
+      control: 'text',
+      description: 'Error message',
     },
     placeholder: {
-      control: "text",
-      description: "Placeholder text",
+      control: 'text',
+      description: 'Placeholder text',
     },
     disabled: {
-      control: "boolean",
-      description: "Disabled state",
+      control: 'boolean',
+      description: 'Disabled state',
     },
     maxLength: {
-      control: "number",
-      description: "Max character count",
+      control: 'number',
+      description: 'Max character count',
     },
     showCount: {
-      control: "boolean",
-      description: "Show character count",
+      control: 'boolean',
+      description: 'Show character count',
     },
     rows: {
-      control: "number",
-      description: "Number of rows",
+      control: 'number',
+      description: 'Number of rows',
     },
   },
 }
@@ -59,10 +59,10 @@ type Story = StoryObj<typeof meta>
 
 export const Interactive: Story = {
   args: {
-    variant: "default",
-    size: "default",
-    label: "Message",
-    placeholder: "Write your message here...",
+    variant: 'default',
+    size: 'default',
+    label: 'Message',
+    placeholder: 'Write your message here...',
     rows: 4,
   },
   render: (args) => (
@@ -76,9 +76,24 @@ export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="p-4 space-y-6">
-      <Textarea variant="default" label="Default" placeholder="Write..." rows={3} />
-      <Textarea variant="primary" label="Primary" placeholder="Write..." rows={3} />
-      <Textarea variant="subtle" label="Subtle" placeholder="Write..." rows={3} />
+      <Textarea
+        variant="default"
+        label="Default"
+        placeholder="Write..."
+        rows={3}
+      />
+      <Textarea
+        variant="primary"
+        label="Primary"
+        placeholder="Write..."
+        rows={3}
+      />
+      <Textarea
+        variant="subtle"
+        label="Subtle"
+        placeholder="Write..."
+        rows={3}
+      />
       <Textarea variant="muted" label="Muted" placeholder="Write..." rows={3} />
     </div>
   ),
@@ -89,7 +104,12 @@ export const AllSizes: Story = {
   render: () => (
     <div className="p-4 space-y-6">
       <Textarea size="sm" label="Small" placeholder="Write..." rows={2} />
-      <Textarea size="default" label="Default" placeholder="Write..." rows={3} />
+      <Textarea
+        size="default"
+        label="Default"
+        placeholder="Write..."
+        rows={3}
+      />
       <Textarea size="lg" label="Large" placeholder="Write..." rows={4} />
     </div>
   ),

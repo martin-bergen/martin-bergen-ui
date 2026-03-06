@@ -1,37 +1,41 @@
-import { createKcPageStory, type Meta, type StoryObj } from "../../mocks/KcPageStory";
+import {
+  createKcPageStory,
+  type Meta,
+  type StoryObj,
+} from '../../mocks/KcPageStory'
 
-const { KcPageStory } = createKcPageStory({ pageId: "login-otp.ftl" });
+const { KcPageStory } = createKcPageStory({ pageId: 'login-otp.ftl' })
 
 const meta = {
-    title: "login/login-otp.ftl",
-    component: KcPageStory
-} satisfies Meta<typeof KcPageStory>;
+  title: 'login/login-otp.ftl',
+  component: KcPageStory,
+} satisfies Meta<typeof KcPageStory>
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Default: Story = {};
+export const Default: Story = {}
 
 export const Arabic: Story = {
-    args: {
-        kcContext: {
-            locale: {
-                currentLanguageTag: "ar",
-                rtl: true
-            }
-        }
-    }
-};
+  args: {
+    kcContext: {
+      locale: {
+        currentLanguageTag: 'ar',
+        rtl: true,
+      },
+    },
+  },
+}
 export const French: Story = {
-    args: {
-        kcContext: {
-            locale: {
-                currentLanguageTag: "fr"
-            }
-        }
-    }
-};
+  args: {
+    kcContext: {
+      locale: {
+        currentLanguageTag: 'fr',
+      },
+    },
+  },
+}
 
 /**
  * MultipleOtpCredentials:
@@ -40,28 +44,28 @@ export const French: Story = {
  * - Key Aspect: Ensures that multiple OTP credentials are listed and selectable, and the correct credential is selected by default.
  */
 export const MultipleOtpCredentials: Story = {
-    args: {
-        kcContext: {
-            otpLogin: {
-                userOtpCredentials: [
-                    { id: "credential1", userLabel: "Device 1" },
-                    { id: "credential2", userLabel: "Device 2" },
-                    { id: "credential3", userLabel: "Device 3" },
-                    { id: "credential4", userLabel: "Device 4" },
-                    { id: "credential5", userLabel: "Device 5" },
-                    { id: "credential6", userLabel: "Device 6" }
-                ],
-                selectedCredentialId: "credential1"
-            },
-            url: {
-                loginAction: "/login-action"
-            },
-            messagesPerField: {
-                existsError: () => false
-            }
-        }
-    }
-};
+  args: {
+    kcContext: {
+      otpLogin: {
+        userOtpCredentials: [
+          { id: 'credential1', userLabel: 'Device 1' },
+          { id: 'credential2', userLabel: 'Device 2' },
+          { id: 'credential3', userLabel: 'Device 3' },
+          { id: 'credential4', userLabel: 'Device 4' },
+          { id: 'credential5', userLabel: 'Device 5' },
+          { id: 'credential6', userLabel: 'Device 6' },
+        ],
+        selectedCredentialId: 'credential1',
+      },
+      url: {
+        loginAction: '/login-action',
+      },
+      messagesPerField: {
+        existsError: () => false,
+      },
+    },
+  },
+}
 
 /**
  * WithOtpError:
@@ -70,21 +74,21 @@ export const MultipleOtpCredentials: Story = {
  * - Key Aspect: Ensures that the OTP input displays error messages correctly and the error is visible.
  */
 export const WithOtpError: Story = {
-    args: {
-        kcContext: {
-            otpLogin: {
-                userOtpCredentials: []
-            },
-            url: {
-                loginAction: "/login-action"
-            },
-            messagesPerField: {
-                existsError: (field: string) => field === "totp",
-                get: () => "Invalid OTP code"
-            }
-        }
-    }
-};
+  args: {
+    kcContext: {
+      otpLogin: {
+        userOtpCredentials: [],
+      },
+      url: {
+        loginAction: '/login-action',
+      },
+      messagesPerField: {
+        existsError: (field: string) => field === 'totp',
+        get: () => 'Invalid OTP code',
+      },
+    },
+  },
+}
 
 /**
  * NoOtpCredentials:
@@ -93,20 +97,20 @@ export const WithOtpError: Story = {
  * - Key Aspect: Ensures that the component handles cases where there are no user OTP credentials, and the user is only prompted for the OTP code.
  */
 export const NoOtpCredentials: Story = {
-    args: {
-        kcContext: {
-            otpLogin: {
-                userOtpCredentials: []
-            },
-            url: {
-                loginAction: "/login-action"
-            },
-            messagesPerField: {
-                existsError: () => false
-            }
-        }
-    }
-};
+  args: {
+    kcContext: {
+      otpLogin: {
+        userOtpCredentials: [],
+      },
+      url: {
+        loginAction: '/login-action',
+      },
+      messagesPerField: {
+        existsError: () => false,
+      },
+    },
+  },
+}
 
 /**
  * WithErrorAndMultipleOtpCredentials:
@@ -115,22 +119,22 @@ export const NoOtpCredentials: Story = {
  * - Key Aspect: Ensures that the component can handle both multiple OTP credentials and display an error message simultaneously.
  */
 export const WithErrorAndMultipleOtpCredentials: Story = {
-    args: {
-        kcContext: {
-            otpLogin: {
-                userOtpCredentials: [
-                    { id: "credential1", userLabel: "Device 1" },
-                    { id: "credential2", userLabel: "Device 2" }
-                ],
-                selectedCredentialId: "credential1"
-            },
-            url: {
-                loginAction: "/login-action"
-            },
-            messagesPerField: {
-                existsError: (field: string) => field === "totp",
-                get: () => "Invalid OTP code"
-            }
-        }
-    }
-};
+  args: {
+    kcContext: {
+      otpLogin: {
+        userOtpCredentials: [
+          { id: 'credential1', userLabel: 'Device 1' },
+          { id: 'credential2', userLabel: 'Device 2' },
+        ],
+        selectedCredentialId: 'credential1',
+      },
+      url: {
+        loginAction: '/login-action',
+      },
+      messagesPerField: {
+        existsError: (field: string) => field === 'totp',
+        get: () => 'Invalid OTP code',
+      },
+    },
+  },
+}

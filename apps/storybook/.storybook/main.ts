@@ -1,10 +1,10 @@
-import type { StorybookConfig } from "@storybook/react-vite";
-import type { Plugin } from "vite";
-import tailwindcss from "@tailwindcss/vite";
-import { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
+import type { StorybookConfig } from '@storybook/react-vite'
+import type { Plugin } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /**
  * Resolves `@/` imports based on which package the importing file belongs to.
@@ -14,44 +14,44 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 function monorepoAliasPlugin(): Plugin {
   const packageRoots: Array<{ match: string; src: string }> = [
     {
-      match: "packages/ui/",
-      src: resolve(__dirname, "../../../packages/ui/src"),
+      match: 'packages/ui/',
+      src: resolve(__dirname, '../../../packages/ui/src'),
     },
     {
-      match: "apps/keycloak-theme/",
-      src: resolve(__dirname, "../../../apps/keycloak-theme/src"),
+      match: 'apps/keycloak-theme/',
+      src: resolve(__dirname, '../../../apps/keycloak-theme/src'),
     },
-  ];
+  ]
 
   return {
-    name: "monorepo-alias",
+    name: 'monorepo-alias',
     async resolveId(source, importer, options) {
-      if (!source.startsWith("@/") || !importer) return null;
+      if (!source.startsWith('@/') || !importer) return null
 
-      const root = packageRoots.find((r) => importer!.includes(r.match));
-      if (!root) return null;
+      const root = packageRoots.find((r) => importer!.includes(r.match))
+      if (!root) return null
 
-      const resolved = resolve(root.src, source.slice(2));
-      return this.resolve(resolved, importer, { ...options, skipSelf: true });
+      const resolved = resolve(root.src, source.slice(2))
+      return this.resolve(resolved, importer, { ...options, skipSelf: true })
     },
-  };
+  }
 }
 
 const config: StorybookConfig = {
   stories: [
-    "../../../packages/ui/src/**/*.stories.@(js|jsx|ts|tsx)",
-    "../../../apps/keycloak-theme/src/**/*.stories.@(js|jsx|ts|tsx)",
+    '../../../packages/ui/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../../../apps/keycloak-theme/src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: '@storybook/react-vite',
     options: {},
   },
   async viteFinal(config) {
-    const { mergeConfig } = await import("vite");
+    const { mergeConfig } = await import('vite')
     return mergeConfig(config, {
       plugins: [tailwindcss(), monorepoAliasPlugin()],
-    });
+    })
   },
-};
+}
 
-export default config;
+export default config

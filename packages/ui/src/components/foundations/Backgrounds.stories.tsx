@@ -1,18 +1,17 @@
-import * as React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
-import { GridBackground } from "./grid-background"
-import { GradientBackground } from "./gradient-background"
-import { NetworkBackground } from "./network-background"
-import { GrainyGradientBackground } from "./grainy-gradient-background"
-import { PatternBackground } from "./pattern-background"
-import { Card, CardContent } from "../atoms/card"
-import { Button } from "../atoms/button"
-import { Badge } from "../atoms/badge"
+import type { Meta, StoryObj } from '@storybook/react'
+import { GridBackground } from './grid-background'
+import { GradientBackground } from './gradient-background'
+import { NetworkBackground } from './network-background'
+import { GrainyGradientBackground } from './grainy-gradient-background'
+import { PatternBackground } from './pattern-background'
+import { Card, CardContent } from '../atoms/card'
+import { Button } from '../atoms/button'
+import { Badge } from '../atoms/badge'
 
 const meta = {
-  title: "Foundations/Backgrounds",
+  title: 'Foundations/Backgrounds',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
     docs: {
       description: {
         component: `
@@ -27,13 +26,13 @@ Background components for the Berget Design System:
       },
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta
 
 export default meta
 
 export const GridDefault: StoryObj = {
-  name: "Grid — Default",
+  name: 'Grid — Default',
   parameters: { controls: { hide: true } },
   render: () => (
     <GridBackground className="flex items-center justify-center">
@@ -66,7 +65,7 @@ export const GridDefault: StoryObj = {
 }
 
 export const GridVisible: StoryObj = {
-  name: "Grid — Visible",
+  name: 'Grid — Visible',
   parameters: { controls: { hide: true } },
   render: () => (
     <GridBackground opacity={0.05} className="flex items-center justify-center">
@@ -81,10 +80,13 @@ export const GridVisible: StoryObj = {
 }
 
 export const GradientBerget: StoryObj = {
-  name: "Gradient — Berget",
+  name: 'Gradient — Berget',
   parameters: { controls: { hide: true } },
   render: () => (
-    <GradientBackground variant="berget" className="flex items-center justify-center">
+    <GradientBackground
+      variant="berget"
+      className="flex items-center justify-center"
+    >
       <div className="text-center max-w-2xl px-6">
         <h1 className="text-5xl mb-4 text-white">Berget Gradient</h1>
         <p className="text-white/90 text-lg mb-8">
@@ -98,10 +100,13 @@ export const GradientBerget: StoryObj = {
 }
 
 export const GradientSubtle: StoryObj = {
-  name: "Gradient — Subtle",
+  name: 'Gradient — Subtle',
   parameters: { controls: { hide: true } },
   render: () => (
-    <GradientBackground variant="subtle" className="flex items-center justify-center">
+    <GradientBackground
+      variant="subtle"
+      className="flex items-center justify-center"
+    >
       <div className="text-center max-w-2xl px-6">
         <h1 className="text-4xl mb-4">Subtle Gradient</h1>
         <p className="text-muted-foreground mb-8">
@@ -114,10 +119,13 @@ export const GradientSubtle: StoryObj = {
 }
 
 export const GradientNight: StoryObj = {
-  name: "Gradient — Night",
+  name: 'Gradient — Night',
   parameters: { controls: { hide: true } },
   render: () => (
-    <GradientBackground variant="night" className="flex items-center justify-center">
+    <GradientBackground
+      variant="night"
+      className="flex items-center justify-center"
+    >
       <div className="text-center max-w-2xl px-6">
         <h1 className="text-4xl mb-4">Night Gradient</h1>
         <p className="text-muted-foreground mb-8">
@@ -130,7 +138,7 @@ export const GradientNight: StoryObj = {
 }
 
 export const NetworkAnimated: StoryObj = {
-  name: "Network — Animated",
+  name: 'Network — Animated',
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="relative min-h-screen bg-background flex items-center justify-center">
@@ -147,7 +155,7 @@ export const NetworkAnimated: StoryObj = {
 }
 
 export const GrainyGradient: StoryObj = {
-  name: "Grainy Gradient",
+  name: 'Grainy Gradient',
   parameters: { controls: { hide: true } },
   render: () => (
     <GrainyGradientBackground className="min-h-screen flex items-center justify-center">
@@ -164,7 +172,7 @@ export const GrainyGradient: StoryObj = {
 }
 
 export const Pattern: StoryObj = {
-  name: "Pattern — Default (48px)",
+  name: 'Pattern — Default (48px)',
   parameters: { controls: { hide: true } },
   render: () => (
     <PatternBackground className="min-h-screen flex items-center justify-center">
@@ -181,7 +189,7 @@ export const Pattern: StoryObj = {
 }
 
 export const PatternCompact: StoryObj = {
-  name: "Pattern — Compact (32px)",
+  name: 'Pattern — Compact (32px)',
   parameters: { controls: { hide: true } },
   render: () => (
     <PatternBackground
@@ -203,10 +211,13 @@ export const PatternCompact: StoryObj = {
 }
 
 export const CombinedHero: StoryObj = {
-  name: "Combined — Gradient + Network",
+  name: 'Combined — Gradient + Network',
   parameters: { controls: { hide: true } },
   render: () => (
-    <GradientBackground variant="berget" className="flex items-center justify-center">
+    <GradientBackground
+      variant="berget"
+      className="flex items-center justify-center"
+    >
       <NetworkBackground opacity={0.3} nodeCount={40} />
       <div className="relative z-10 text-center max-w-3xl px-6">
         <Badge className="mb-6">Maximum Visual Impact</Badge>
@@ -227,7 +238,7 @@ export const CombinedHero: StoryObj = {
 }
 
 export const AllBackgrounds: StoryObj = {
-  name: "All Backgrounds",
+  name: 'All Backgrounds',
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="grid grid-cols-2 gap-px bg-white/10">

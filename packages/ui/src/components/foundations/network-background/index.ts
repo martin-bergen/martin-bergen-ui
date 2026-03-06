@@ -1,2 +1,2 @@
-export { NetworkBackground } from "./NetworkBackground"
-export type { NetworkBackgroundProps } from "./NetworkBackground"
+export { NetworkBackground } from './NetworkBackground'
+export type { NetworkBackgroundProps } from './NetworkBackground'

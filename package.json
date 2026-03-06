@@ -3,18 +3,53 @@
   "version": "1.0.0",
   "description": "Berget Design System monorepo",
   "private": true,
+  "type": "module",
   "license": "ISC",
   "scripts": {
     "build": "pnpm --filter @berget-ai/ui build",
     "storybook": "pnpm --filter storybook dev",
     "build-keycloak-theme": "pnpm --filter keycloak-theme run build-keycloak-theme",
-    "start-keycloak": "pnpm --filter keycloak-theme run start-keycloak"
+    "start-keycloak": "pnpm --filter keycloak-theme run start-keycloak",
+    "prepare": "husky",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm --filter @berget-ai/ui typecheck",
+    "spellcheck": "cspell \"**/*.{ts,tsx,md}\""
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "cspell --no-must-find-files"
+    ],
+    "*.{json,css,md,yaml,yml}": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "cspell --no-must-find-files"
+    ]
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"],
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ],
     "overrides": {
       "react": "^19.0.0",
       "react-dom": "^19.0.0"
     }
+  },
+  "devDependencies": {
+    "@cspell/dict-en-gb": "^5.0.24",
+    "@cspell/dict-sv": "^2.3.2",
+    "@eslint/js": "^10.0.1",
+    "cspell": "^9.7.0",
+    "eslint": "^10.0.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "6.0.0-rc.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.2",
+    "prettier": "^3.8.1",
+    "typescript-eslint": "^8.56.1"
   }
 }

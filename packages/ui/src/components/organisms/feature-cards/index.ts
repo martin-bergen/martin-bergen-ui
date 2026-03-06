@@ -1,2 +1,2 @@
-export { FeatureCard, FeatureCards } from "./FeatureCards";
-export type { FeatureCardProps, FeatureCardsProps } from "./FeatureCards";
+export { FeatureCard, FeatureCards } from './FeatureCards'
+export type { FeatureCardProps, FeatureCardsProps } from './FeatureCards'

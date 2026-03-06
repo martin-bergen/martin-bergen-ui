@@ -1,20 +1,20 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Input } from "."
+import type { Meta, StoryObj } from '@storybook/react'
+import { Input } from '.'
 
 const meta: Meta<typeof Input> = {
-  title: "Atoms/Input",
+  title: 'Atoms/Input',
   component: Input,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      control: "select",
-      options: ["text", "email", "password", "number", "search", "tel", "url"],
+      control: 'select',
+      options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url'],
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean',
     },
   },
 }
@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>
 
 export const Interactive: Story = {
   args: {
-    placeholder: "Enter text...",
+    placeholder: 'Enter text...',
   },
 }
 

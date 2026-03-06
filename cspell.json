@@ -1,0 +1,34 @@
+{
+  "version": "0.2",
+  "language": "en-GB,sv",
+  "import": [
+    "@cspell/dict-en-gb/cspell-ext.json",
+    "@cspell/dict-sv/cspell-ext.json"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "pnpm-lock.yaml",
+    "apps/keycloak-theme"
+  ],
+  "words": [
+    "autodocs",
+    "berget",
+    "centered",
+    "circlehollow",
+    "clsx",
+    "colored",
+    "colorful",
+    "crect",
+    "csvg",
+    "keycloakify",
+    "lucide",
+    "preheader",
+    "radix",
+    "shiki",
+    "tailwindcss",
+    "tsup",
+    "typecheck",
+    "waitlist"
+  ]
+}

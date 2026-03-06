@@ -1,22 +1,22 @@
-import { defineConfig } from "tsup";
-import { copyFileSync, mkdirSync } from "fs";
-import path from "path";
+import { defineConfig } from 'tsup'
+import { copyFileSync, mkdirSync } from 'fs'
+import path from 'path'
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/shiki.ts"],
-  format: ["esm", "cjs"],
+  entry: ['src/index.ts', 'src/shiki.ts'],
+  format: ['esm', 'cjs'],
   dts: true,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-dom", "lucide-react"],
+  external: ['react', 'react-dom', 'lucide-react'],
   esbuildOptions(options) {
-    options.jsx = "automatic";
+    options.jsx = 'automatic'
     options.alias = {
-      "@": path.resolve(import.meta.dirname, "src"),
-    };
+      '@': path.resolve(import.meta.dirname, 'src'),
+    }
   },
   async onSuccess() {
-    mkdirSync("dist/styles", { recursive: true });
-    copyFileSync("src/styles/index.css", "dist/styles/index.css");
+    mkdirSync('dist/styles', { recursive: true })
+    copyFileSync('src/styles/index.css', 'dist/styles/index.css')
   },
-});
+})

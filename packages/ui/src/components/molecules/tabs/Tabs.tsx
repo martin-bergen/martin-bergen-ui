@@ -1,86 +1,87 @@
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from 'react'
+import * as TabsPrimitive from '@radix-ui/react-tabs'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '../../../lib/utils'
 import {
   Tabs as TabsBase,
   TabsList as TabsListBase,
   TabsTrigger as TabsTriggerBase,
   TabsContent as TabsContentBase,
-} from "../../../primitives/tabs"
+} from '../../../primitives/tabs'
 
 const tabListVariants = cva(
-  "inline-flex items-center justify-center rounded-xl border bg-cloud/5 p-1 transition-all duration-200",
+  'inline-flex items-center justify-center rounded-xl border bg-cloud/5 p-1 transition-all duration-200',
   {
     variants: {
       variant: {
-        default: "border-cloud/20",
-        primary: "border-moss/50 bg-moss/10",
-        subtle: "border-cloud/10",
-        muted: "border-cloud/5",
+        default: 'border-cloud/20',
+        primary: 'border-moss/50 bg-moss/10',
+        subtle: 'border-cloud/10',
+        muted: 'border-cloud/5',
       },
       size: {
-        sm: "gap-1",
-        default: "gap-1",
-        lg: "gap-1",
+        sm: 'gap-1',
+        default: 'gap-1',
+        lg: 'gap-1',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
-  }
+  },
 )
 
 const tabTriggerVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+  'inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          "text-muted-foreground hover:text-foreground hover:bg-cloud/10 data-[state=active]:text-foreground data-[state=active]:bg-cloud/10",
+          'text-muted-foreground hover:text-foreground hover:bg-cloud/10 data-[state=active]:text-foreground data-[state=active]:bg-cloud/10',
         primary:
-          "text-moss/60 hover:text-moss hover:bg-moss/20 data-[state=active]:text-moss data-[state=active]:bg-moss/20",
+          'text-moss/60 hover:text-moss hover:bg-moss/20 data-[state=active]:text-moss data-[state=active]:bg-moss/20',
         subtle:
-          "text-muted-foreground hover:text-foreground hover:bg-cloud/5 data-[state=active]:text-foreground data-[state=active]:bg-cloud/5",
+          'text-muted-foreground hover:text-foreground hover:bg-cloud/5 data-[state=active]:text-foreground data-[state=active]:bg-cloud/5',
         muted:
-          "text-muted-foreground hover:text-foreground/80 hover:bg-cloud/5 data-[state=active]:text-foreground/80 data-[state=active]:bg-cloud/5",
+          'text-muted-foreground hover:text-foreground/80 hover:bg-cloud/5 data-[state=active]:text-foreground/80 data-[state=active]:bg-cloud/5',
       },
       size: {
-        sm: "px-2 py-1 text-xs",
-        default: "px-3 py-2 text-sm",
-        lg: "px-4 py-3 text-base",
+        sm: 'px-2 py-1 text-xs',
+        default: 'px-3 py-2 text-sm',
+        lg: 'px-4 py-3 text-base',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
-  }
+  },
 )
 
 const tabContentVariants = cva(
-  "mt-4 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+  'mt-4 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
   {
     variants: {},
     defaultVariants: {},
-  }
+  },
 )
 
 type TabsStyleContextValue = {
-  variant: VariantProps<typeof tabListVariants>["variant"]
-  size: VariantProps<typeof tabListVariants>["size"]
+  variant: VariantProps<typeof tabListVariants>['variant']
+  size: VariantProps<typeof tabListVariants>['size']
 }
 
 const TabsStyleContext = React.createContext<TabsStyleContextValue>({
-  variant: "default",
-  size: "default",
+  variant: 'default',
+  size: 'default',
 })
 
-export interface TabsProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> {
-  variant?: VariantProps<typeof tabListVariants>["variant"]
-  size?: VariantProps<typeof tabListVariants>["size"]
+export interface TabsProps extends React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.Root
+> {
+  variant?: VariantProps<typeof tabListVariants>['variant']
+  size?: VariantProps<typeof tabListVariants>['size']
   label?: string
   description?: string
 }
@@ -92,20 +93,20 @@ const Tabs = React.forwardRef<
   (
     {
       className,
-      variant = "default",
-      size = "default",
+      variant = 'default',
+      size = 'default',
       label,
       description,
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <TabsStyleContext.Provider value={{ variant, size }}>
         <TabsBase
           ref={ref}
-          className={cn("flex flex-col gap-2", className)}
+          className={cn('flex flex-col gap-2', className)}
           {...props}
         >
           {label && (
@@ -122,12 +123,13 @@ const Tabs = React.forwardRef<
         </TabsBase>
       </TabsStyleContext.Provider>
     )
-  }
+  },
 )
-Tabs.displayName = "Tabs"
+Tabs.displayName = 'Tabs'
 
-export interface TabsListProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> {}
+export type TabsListProps = React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.List
+>
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -143,10 +145,11 @@ const TabsList = React.forwardRef<
     />
   )
 })
-TabsList.displayName = "TabsList"
+TabsList.displayName = 'TabsList'
 
-export interface TabsTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
+export interface TabsTriggerProps extends React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.Trigger
+> {
   icon?: React.ReactNode
 }
 
@@ -161,8 +164,8 @@ const TabsTrigger = React.forwardRef<
       ref={ref}
       className={cn(
         tabTriggerVariants({ variant, size }),
-        "flex items-center gap-2",
-        className
+        'flex items-center gap-2',
+        className,
       )}
       {...props}
     >
@@ -171,10 +174,11 @@ const TabsTrigger = React.forwardRef<
     </TabsTriggerBase>
   )
 })
-TabsTrigger.displayName = "TabsTrigger"
+TabsTrigger.displayName = 'TabsTrigger'
 
-export interface TabsContentProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> {}
+export type TabsContentProps = React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.Content
+>
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -186,7 +190,7 @@ const TabsContent = React.forwardRef<
     {...props}
   />
 ))
-TabsContent.displayName = "TabsContent"
+TabsContent.displayName = 'TabsContent'
 
 export {
   Tabs,

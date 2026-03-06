@@ -1,35 +1,35 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '../../../lib/utils'
 import {
   Select as SelectRoot,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
-} from "../../../primitives/select"
+} from '../../../primitives/select'
 
 const selectVariants = cva(
-  "flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50",
+  'flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: "border-cloud/20 hover:bg-cloud/[0.02]",
-        primary: "border-moss/50 bg-moss/10 hover:bg-cloud/[0.02]",
-        subtle: "border-cloud/10 hover:bg-cloud/[0.02]",
-        muted: "border-cloud/5 hover:bg-cloud/[0.02]",
+        default: 'border-cloud/20 hover:bg-cloud/[0.02]',
+        primary: 'border-moss/50 bg-moss/10 hover:bg-cloud/[0.02]',
+        subtle: 'border-cloud/10 hover:bg-cloud/[0.02]',
+        muted: 'border-cloud/5 hover:bg-cloud/[0.02]',
       },
       size: {
-        sm: "px-3 py-2 text-xs",
-        default: "px-4 py-3 text-sm",
-        lg: "px-5 py-4 text-base",
+        sm: 'px-3 py-2 text-xs',
+        default: 'px-4 py-3 text-sm',
+        lg: 'px-5 py-4 text-base',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
-  }
+  },
 )
 
 export interface SelectOption {
@@ -76,9 +76,10 @@ const Select = React.forwardRef<
       name,
       required,
     },
-    ref
+    ref,
   ) => {
-    const selectId = id || React.useId()
+    const generatedId = React.useId()
+    const selectId = id || generatedId
     const errorId = `${selectId}-error`
     const descriptionId = `${selectId}-description`
 
@@ -88,11 +89,11 @@ const Select = React.forwardRef<
           <label
             htmlFor={selectId}
             className={cn(
-              "text-sm font-medium leading-none",
+              'text-sm font-medium leading-none',
               disabled
-                ? "text-muted-foreground cursor-not-allowed"
-                : "text-foreground",
-              error && "text-error"
+                ? 'text-muted-foreground cursor-not-allowed'
+                : 'text-foreground',
+              error && 'text-error',
             )}
           >
             {label}
@@ -113,12 +114,12 @@ const Select = React.forwardRef<
             aria-invalid={!!error}
             aria-describedby={cn(
               error && errorId,
-              description && descriptionId
+              description && descriptionId,
             )}
             className={cn(
               selectVariants({ variant, size }),
-              error && "border-error/50 bg-error/10",
-              className
+              error && 'border-error/50 bg-error/10',
+              className,
             )}
           >
             <SelectValue placeholder={placeholder} />
@@ -149,8 +150,8 @@ const Select = React.forwardRef<
         )}
       </div>
     )
-  }
+  },
 )
-Select.displayName = "Select"
+Select.displayName = 'Select'
 
 export { Select, selectVariants }

@@ -1,8 +1,7 @@
-import * as React from "react"
-import { cn } from "../../../lib/utils"
+import * as React from 'react'
+import { cn } from '../../../lib/utils'
 
-export interface PatternBackgroundProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   /** Size of the pattern tiles in pixels @default 48 */
   tileSize?: 32 | 48
@@ -28,11 +27,11 @@ const PatternBackground = React.forwardRef<
       dotOpacity = 0.02,
       ...props
     },
-    ref
+    ref,
   ) => {
     const patterns = {
       32: {
-        size: "32px 32px",
+        size: '32px 32px',
         backgroundImage: `
         linear-gradient(rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
@@ -48,7 +47,7 @@ const PatternBackground = React.forwardRef<
       `,
       },
       48: {
-        size: "48px 48px",
+        size: '48px 48px',
         backgroundImage: `
         linear-gradient(rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
@@ -71,10 +70,10 @@ const PatternBackground = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "relative overflow-hidden",
-          overlayOnly && "absolute inset-0",
-          !overlayOnly && "bg-night",
-          className
+          'relative overflow-hidden',
+          overlayOnly && 'absolute inset-0',
+          !overlayOnly && 'bg-night',
+          className,
         )}
         {...props}
       >
@@ -83,7 +82,7 @@ const PatternBackground = React.forwardRef<
           style={{
             backgroundImage: pattern.backgroundImage,
             backgroundSize: pattern.size,
-            backgroundPosition: "0 0",
+            backgroundPosition: '0 0',
             opacity: 0.8,
           }}
         />
@@ -91,8 +90,8 @@ const PatternBackground = React.forwardRef<
         {children && <div className="relative z-10">{children}</div>}
       </div>
     )
-  }
+  },
 )
-PatternBackground.displayName = "PatternBackground"
+PatternBackground.displayName = 'PatternBackground'
 
 export { PatternBackground }

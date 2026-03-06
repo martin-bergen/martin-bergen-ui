@@ -1,43 +1,37 @@
-import * as React from "react";
-import { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from ".";
-import { Home, Search, User } from "lucide-react";
+import { useState } from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '.'
+import { Home, Search, User } from 'lucide-react'
 
 const meta: Meta<typeof Tabs> = {
-  title: "Molecules/Tabs",
+  title: 'Molecules/Tabs',
   component: Tabs,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["default", "primary", "subtle", "muted"],
-      description: "Visual style variant",
+      control: 'select',
+      options: ['default', 'primary', 'subtle', 'muted'],
+      description: 'Visual style variant',
     },
     size: {
-      control: "select",
-      options: ["sm", "default", "lg"],
-      description: "Size of the tabs",
+      control: 'select',
+      options: ['sm', 'default', 'lg'],
+      description: 'Size of the tabs',
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof Tabs>;
+export default meta
+type Story = StoryObj<typeof Tabs>
 
 export const Interactive: Story = {
   args: {
-    defaultValue: "tab1",
-    variant: "default",
-    size: "default",
+    defaultValue: 'tab1',
+    variant: 'default',
+    size: 'default',
   },
   render: (args) => (
     <Tabs {...args}>
@@ -63,7 +57,7 @@ export const Interactive: Story = {
       </TabsContent>
     </Tabs>
   ),
-};
+}
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -118,7 +112,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-};
+}
 
 export const WithIcons: Story = {
   parameters: { controls: { hide: true } },
@@ -155,7 +149,7 @@ export const WithIcons: Story = {
       </TabsContent>
     </Tabs>
   ),
-};
+}
 
 export const WithLabel: Story = {
   parameters: { controls: { hide: true } },
@@ -183,7 +177,7 @@ export const WithLabel: Story = {
       </TabsContent>
     </Tabs>
   ),
-};
+}
 
 export const Sizes: Story = {
   parameters: { controls: { hide: true } },
@@ -223,12 +217,12 @@ export const Sizes: Story = {
       </div>
     </div>
   ),
-};
+}
 
 export const Controlled: Story = {
   parameters: { controls: { hide: true } },
   render: () => {
-    const [value, setValue] = useState("tab1");
+    const [value, setValue] = useState('tab1')
 
     return (
       <div className="flex flex-col gap-4">
@@ -252,6 +246,6 @@ export const Controlled: Story = {
           </TabsContent>
         </Tabs>
       </div>
-    );
+    )
   },
-};
+}

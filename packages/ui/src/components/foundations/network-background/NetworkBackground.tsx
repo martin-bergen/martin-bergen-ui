@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react"
-import { cn } from "../../../lib/utils"
+import { useEffect, useRef } from 'react'
+import { cn } from '../../../lib/utils'
 
 export interface NetworkBackgroundProps {
   /** Number of nodes in the network @default 50 */
@@ -25,7 +25,7 @@ function NetworkBackground({
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     const container = canvas.parentElement
@@ -174,7 +174,7 @@ function NetworkBackground({
       ctx.lineWidth = 0.5
       nodes.forEach((node) => {
         node.connections.forEach((targetIndex) => {
-          const target = nodes[targetIndex]
+          const target = nodes[targetIndex]!
           ctx.beginPath()
           ctx.moveTo(node.x, node.y)
           ctx.lineTo(target.x, target.y)
@@ -191,8 +191,8 @@ function NetworkBackground({
 
       ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.6)`
       particles.forEach((particle) => {
-        const sourceNode = nodes[particle.nodeIndex]
-        const targetNode = nodes[particle.targetIndex]
+        const sourceNode = nodes[particle.nodeIndex]!
+        const targetNode = nodes[particle.targetIndex]!
 
         const prevProgress = particle.progress
         particle.progress += 0.002
@@ -217,7 +217,7 @@ function NetworkBackground({
 
       ctx.lineWidth = 2
       for (let i = sparks.length - 1; i >= 0; i--) {
-        const spark = sparks[i]
+        const spark = sparks[i]!
         if (!spark.update()) {
           sparks.splice(i, 1)
         } else {
@@ -250,13 +250,13 @@ function NetworkBackground({
     <canvas
       ref={canvasRef}
       className={cn(
-        "absolute inset-0 w-full h-full pointer-events-none",
-        className
+        'absolute inset-0 w-full h-full pointer-events-none',
+        className,
       )}
       style={{ opacity }}
     />
   )
 }
-NetworkBackground.displayName = "NetworkBackground"
+NetworkBackground.displayName = 'NetworkBackground'
 
 export { NetworkBackground }

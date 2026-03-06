@@ -11,7 +11,12 @@ export interface CodeBlockProps {
   className?: string
 }
 
-export function CodeBlock({ code, language = 'text', title, className }: CodeBlockProps) {
+export function CodeBlock({
+  code,
+  language = 'text',
+  title,
+  className,
+}: CodeBlockProps) {
   const [html, setHtml] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
 
@@ -35,20 +40,26 @@ export function CodeBlock({ code, language = 'text', title, className }: CodeBlo
       className="flex items-center justify-center w-6 h-6 text-white/40 hover:text-white/80 transition-colors"
       aria-label="Copy code"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+      {copied ? (
+        <Check className="w-3.5 h-3.5" />
+      ) : (
+        <Copy className="w-3.5 h-3.5" />
+      )}
     </button>
   )
 
   return (
-    <Panel padding="none" radius="default" className={cn('rounded-lg', className)}>
+    <Panel
+      padding="none"
+      radius="default"
+      className={cn('rounded-lg', className)}
+    >
       {title && (
         <div className="!h-10 flex items-center !px-4 !text-xs !leading-normal border-b border-white/10 bg-white/5">
           <span className="font-medium text-white/60">{title}</span>
         </div>
       )}
-      <div className="absolute right-2 top-2 z-10">
-        {copyButton}
-      </div>
+      <div className="absolute right-2 top-2 z-10">{copyButton}</div>
       {html ? (
         <div
           className="[&_.shiki]:!p-4 [&_.shiki]:!m-0 [&_.shiki]:overflow-x-auto [&_.shiki]:!text-sm [&_.shiki]:!leading-relaxed [&_.shiki]:bg-transparent"

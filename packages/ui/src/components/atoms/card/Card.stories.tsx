@@ -1,5 +1,5 @@
-import * as React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import * as React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   Card,
   CardHeader,
@@ -7,22 +7,22 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "."
+} from '.'
 
 const meta: Meta<typeof Card> = {
-  title: "Atoms/Card",
+  title: 'Atoms/Card',
   component: Card,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["highlight", "glass", "solid"],
-      description: "Visual style variant",
+      control: 'select',
+      options: ['highlight', 'glass', 'solid'],
+      description: 'Visual style variant',
     },
     padding: {
-      control: "select",
-      options: ["none", "sm", "md", "lg"],
-      description: "Internal padding",
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg'],
+      description: 'Internal padding',
     },
   },
 }
@@ -32,8 +32,8 @@ type Story = StoryObj<typeof meta>
 
 export const Interactive: Story = {
   args: {
-    variant: "highlight",
-    padding: "md",
+    variant: 'highlight',
+    padding: 'md',
   },
   render: (args) => (
     <div className="max-w-md">

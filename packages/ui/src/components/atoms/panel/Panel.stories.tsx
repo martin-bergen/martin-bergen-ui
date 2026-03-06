@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Panel } from "."
+import type { Meta, StoryObj } from '@storybook/react'
+import { Panel } from '.'
 
 const meta: Meta<typeof Panel> = {
-  title: "Atoms/Panel",
+  title: 'Atoms/Panel',
   component: Panel,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     padding: {
-      control: "select",
-      options: ["sm", "md", "lg"],
-      description: "Internal padding",
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Internal padding',
     },
     radius: {
-      control: "select",
-      options: ["default", "lg", "xl"],
-      description: "Border radius",
+      control: 'select',
+      options: ['default', 'lg', 'xl'],
+      description: 'Border radius',
     },
   },
 }
@@ -27,8 +27,8 @@ type Story = StoryObj<typeof meta>
 
 export const Interactive: Story = {
   args: {
-    padding: "md",
-    radius: "default",
+    padding: 'md',
+    radius: 'default',
     children: (
       <div className="relative z-10">
         <h3 className="font-medium mb-2">Panel Component</h3>

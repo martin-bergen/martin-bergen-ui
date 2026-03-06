@@ -1,9 +1,9 @@
-import type { Preview } from "@storybook/react";
-import React from "react";
-import "../src/styles.css";
+import type { Preview } from '@storybook/react'
+import React from 'react'
+import '../src/styles.css'
 
 // Force dark background on Storybook wrapper elements
-const style = document.createElement("style");
+const style = document.createElement('style')
 style.innerHTML = `
   .sb-main-padded {
     max-width: none !important;
@@ -58,12 +58,12 @@ style.innerHTML = `
   html.light #storybook-root {
     color: hsl(0 0% 10%) !important;
   }
-`;
-document.head.appendChild(style);
+`
+document.head.appendChild(style)
 
 const preview: Preview = {
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -71,25 +71,25 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: "berget-dark",
+      default: 'berget-dark',
       values: [
-        { name: "berget-dark", value: "transparent" },
-        { name: "light", value: "#f5f5f5" },
+        { name: 'berget-dark', value: 'transparent' },
+        { name: 'light', value: '#f5f5f5' },
       ],
     },
     options: {
       storySort: {
-        method: "alphabetical",
+        method: 'alphabetical',
         order: [
-          "Foundations",
-          "Atoms",
-          "Molecules",
-          "Organisms",
-          "Templates",
-          "Utilities",
-          "login",
-          "email",
-          "*",
+          'Foundations',
+          'Atoms',
+          'Molecules',
+          'Organisms',
+          'Templates',
+          'Utilities',
+          'login',
+          'email',
+          '*',
         ],
       },
     },
@@ -97,14 +97,14 @@ const preview: Preview = {
 
   globalTypes: {
     darkMode: {
-      name: "Dark Mode",
-      description: "Toggle dark mode",
+      name: 'Dark Mode',
+      description: 'Toggle dark mode',
       defaultValue: true,
       toolbar: {
-        icon: "circlehollow",
+        icon: 'circlehollow',
         items: [
-          { value: true, icon: "circlehollow", title: "Dark" },
-          { value: false, icon: "circle", title: "Light" },
+          { value: true, icon: 'circlehollow', title: 'Dark' },
+          { value: false, icon: 'circle', title: 'Light' },
         ],
       },
     },
@@ -116,11 +116,11 @@ const preview: Preview = {
 
   decorators: [
     (Story, context) => {
-      const isDark = context.globals["darkMode"] !== false;
-      document.documentElement.classList.toggle("light", !isDark);
-      return <Story />;
+      const isDark = context.globals['darkMode'] !== false
+      document.documentElement.classList.toggle('light', !isDark)
+      return <Story />
     },
   ],
-};
+}
 
-export default preview;
+export default preview

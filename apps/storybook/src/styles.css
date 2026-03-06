@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "@berget-ai/ui/styles";
-@import "../../../apps/keycloak-theme/src/login/index.css";
+@import 'tailwindcss';
+@import '@berget-ai/ui/styles';
+@import '../../../apps/keycloak-theme/src/login/index.css';
 @source "../../../packages/ui/src";
 @source "../../../apps/keycloak-theme/src";

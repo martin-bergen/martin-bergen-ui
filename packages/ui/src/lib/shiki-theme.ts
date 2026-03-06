@@ -39,11 +39,7 @@ export const bergetShikiTheme: ThemeRegistration = {
       },
     },
     {
-      scope: [
-        'entity.name.function',
-        'support.function',
-        'meta.function-call',
-      ],
+      scope: ['entity.name.function', 'support.function', 'meta.function-call'],
       settings: {
         foreground: '#4A90D9', // --info
       },
@@ -78,11 +74,7 @@ export const bergetShikiTheme: ThemeRegistration = {
       },
     },
     {
-      scope: [
-        'punctuation',
-        'keyword.operator',
-        'keyword.operator.assignment',
-      ],
+      scope: ['punctuation', 'keyword.operator', 'keyword.operator.assignment'],
       settings: {
         foreground: '#d6cdc5b3',
       },

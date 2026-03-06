@@ -1,6 +1,6 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from 'react'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '../../../lib/utils'
 import {
   Card as CardPrimitive,
   CardHeader,
@@ -8,35 +8,31 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from "../../../primitives/card"
+} from '../../../primitives/card'
 
-const cardVariants = cva(
-  "rounded-2xl relative overflow-hidden",
-  {
-    variants: {
-      variant: {
-        highlight:
-          "bg-slate/20 border-slate/40 backdrop-blur-[12px]",
-        glass:
-          "bg-cloud/5 border-cloud/10 backdrop-blur-[24px] shadow-xl",
-        solid: "bg-slate border-slate/40",
-      },
-      padding: {
-        none: "",
-        sm: "p-4",
-        md: "p-6",
-        lg: "p-8",
-      },
+const cardVariants = cva('rounded-2xl relative overflow-hidden', {
+  variants: {
+    variant: {
+      highlight: 'bg-slate/20 border-slate/40 backdrop-blur-[12px]',
+      glass: 'bg-cloud/5 border-cloud/10 backdrop-blur-[24px] shadow-xl',
+      solid: 'bg-slate border-slate/40',
     },
-    defaultVariants: {
-      variant: "highlight",
-      padding: "md",
+    padding: {
+      none: '',
+      sm: 'p-4',
+      md: 'p-6',
+      lg: 'p-8',
     },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'highlight',
+    padding: 'md',
+  },
+})
 
 export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {}
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
@@ -52,9 +48,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         <div className="relative z-10 h-full">{children}</div>
       </CardPrimitive>
     )
-  }
+  },
 )
-Card.displayName = "Card"
+Card.displayName = 'Card'
 
 export {
   Card,

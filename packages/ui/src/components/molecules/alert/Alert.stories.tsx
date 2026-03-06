@@ -1,32 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Alert,
-  AlertTitle,
-  AlertDescription,
-} from ".";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Alert, AlertTitle, AlertDescription } from '.'
 
 const meta: Meta<typeof Alert> = {
-  title: "Molecules/Alert",
+  title: 'Molecules/Alert',
   component: Alert,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: "select",
-      options: ["default", "info", "success", "warning", "destructive"],
-      description: "Visual style variant",
+      control: 'select',
+      options: ['default', 'info', 'success', 'warning', 'destructive'],
+      description: 'Visual style variant',
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof Alert>;
+export default meta
+type Story = StoryObj<typeof Alert>
 
 export const Interactive: Story = {
   args: {
-    variant: "default",
+    variant: 'default',
   },
   render: (args) => (
     <Alert {...args} className="w-[400px]">
@@ -36,7 +32,7 @@ export const Interactive: Story = {
       </AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -68,7 +64,7 @@ export const AllVariants: Story = {
       </Alert>
     </div>
   ),
-};
+}
 
 export const TitleOnly: Story = {
   parameters: { controls: { hide: true } },
@@ -77,7 +73,7 @@ export const TitleOnly: Story = {
       <AlertTitle>Maintenance scheduled for January 25, 2026</AlertTitle>
     </Alert>
   ),
-};
+}
 
 export const DescriptionOnly: Story = {
   parameters: { controls: { hide: true } },
@@ -89,4 +85,4 @@ export const DescriptionOnly: Story = {
       </AlertDescription>
     </Alert>
   ),
-};
+}

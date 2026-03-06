@@ -1,39 +1,40 @@
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from 'react'
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '../../../lib/utils'
 import {
   Checkbox as CheckboxBase,
   CheckboxIndicator,
-} from "../../../primitives/checkbox"
+} from '../../../primitives/checkbox'
 
 const checkboxVariants = cva(
-  "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  'inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: "border-cloud/20 bg-cloud/5 hover:bg-cloud/10",
-        primary: "border-primary/50 bg-primary/10 hover:bg-primary/20",
-        subtle: "border-cloud/10 bg-cloud/5 hover:bg-cloud/10",
-        muted: "border-cloud/5 bg-cloud/5 hover:bg-cloud/10",
+        default: 'border-cloud/20 bg-cloud/5 hover:bg-cloud/10',
+        primary: 'border-primary/50 bg-primary/10 hover:bg-primary/20',
+        subtle: 'border-cloud/10 bg-cloud/5 hover:bg-cloud/10',
+        muted: 'border-cloud/5 bg-cloud/5 hover:bg-cloud/10',
       },
       size: {
-        sm: "w-4 h-4",
-        default: "w-5 h-5",
-        lg: "w-6 h-6",
+        sm: 'w-4 h-4',
+        default: 'w-5 h-5',
+        lg: 'w-6 h-6',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
-  }
+  },
 )
 
 export interface CheckboxProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
-      "className"
+      'className'
     >,
     VariantProps<typeof checkboxVariants> {
   label?: string
@@ -60,9 +61,10 @@ const Checkbox = React.forwardRef<
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const checkboxId = id || React.useId()
+    const generatedId = React.useId()
+    const checkboxId = id || generatedId
     const errorId = `${checkboxId}-error`
 
     return (
@@ -76,11 +78,11 @@ const Checkbox = React.forwardRef<
             aria-describedby={error ? errorId : undefined}
             className={cn(
               checkboxVariants({ variant, size }),
-              "data-[state=checked]:border-primary",
-              error && "border-red-500/50 bg-red-500/10",
-              "cursor-pointer",
-              disabled && "cursor-not-allowed pointer-events-none",
-              className
+              'data-[state=checked]:border-primary',
+              error && 'border-red-500/50 bg-red-500/10',
+              'cursor-pointer',
+              disabled && 'cursor-not-allowed pointer-events-none',
+              className,
             )}
             {...props}
           >
@@ -88,10 +90,10 @@ const Checkbox = React.forwardRef<
               {checkedIcon || (
                 <svg
                   className={cn(
-                    size === "sm" && "w-3 h-3",
-                    size === "default" && "w-3.5 h-3.5",
-                    size === "lg" && "w-4 h-4",
-                    "text-white"
+                    size === 'sm' && 'w-3 h-3',
+                    size === 'default' && 'w-3.5 h-3.5',
+                    size === 'lg' && 'w-4 h-4',
+                    'text-white',
                   )}
                   viewBox="0 0 24 24"
                   fill="none"
@@ -113,11 +115,11 @@ const Checkbox = React.forwardRef<
               <label
                 htmlFor={checkboxId}
                 className={cn(
-                  "text-sm font-medium leading-none",
+                  'text-sm font-medium leading-none',
                   disabled
-                    ? "text-white/40 cursor-not-allowed"
-                    : "text-white cursor-pointer",
-                  error && "text-red-400"
+                    ? 'text-white/40 cursor-not-allowed'
+                    : 'text-white cursor-pointer',
+                  error && 'text-red-400',
                 )}
               >
                 {label}
@@ -135,8 +137,8 @@ const Checkbox = React.forwardRef<
         )}
       </div>
     )
-  }
+  },
 )
-Checkbox.displayName = "Checkbox"
+Checkbox.displayName = 'Checkbox'
 
 export { Checkbox, checkboxVariants }
