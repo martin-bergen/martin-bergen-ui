@@ -95,7 +95,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Variants</p>
+        <p className="text-sm font-normal text-muted-foreground mb-3">Variants</p>
         <div className="flex flex-wrap gap-3">
           <Button variant="default">Default</Button>
           <Button variant="primary">Primary</Button>
@@ -112,7 +112,7 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">States</p>
+        <p className="text-sm font-normal text-muted-foreground mb-3">States</p>
         <div className="flex flex-wrap gap-3">
           <Button disabled>Disabled</Button>
           <Button>
@@ -131,7 +131,7 @@ export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes</p>
+        <p className="text-sm font-normal text-muted-foreground mb-3">Sizes</p>
         <div className="flex flex-wrap items-center gap-3">
           <Button size="sm">Small</Button>
           <Button size="default">Default</Button>
@@ -142,7 +142,7 @@ export const Sizes: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes with variant &quot;primary&quot;</p>
+        <p className="text-sm font-normal text-muted-foreground mb-3">Sizes with variant &quot;primary&quot;</p>
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="primary" size="sm">Small</Button>
           <Button variant="primary" size="default">Default</Button>
@@ -153,7 +153,7 @@ export const Sizes: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes with variant &quot;outline&quot;</p>
+        <p className="text-sm font-normal text-muted-foreground mb-3">Sizes with variant &quot;outline&quot;</p>
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="outline" size="sm">Small</Button>
           <Button variant="outline" size="default">Default</Button>
@@ -164,7 +164,7 @@ export const Sizes: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes with variant &quot;ghost&quot;</p>
+        <p className="text-sm font-normal text-muted-foreground mb-3">Sizes with variant &quot;ghost&quot;</p>
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="ghost" size="sm">Small</Button>
           <Button variant="ghost" size="default">Default</Button>

@@ -21,7 +21,7 @@ export function Page() {
                 method="post"
             >
                 <div className="space-y-2">
-                    <Label className="text-sm font-medium">
+                    <Label className="text-sm font-normal">
                         {msg("clientCertificate")}
                     </Label>
                     <div className="p-3 bg-muted/50 rounded-lg">
@@ -33,11 +33,11 @@ export function Page() {
 
                 {x509.formData.isUserEnabled && (
                     <div className="space-y-2">
-                        <Label className="text-sm font-medium">
+                        <Label className="text-sm font-normal">
                             {msg("doX509Login")}
                         </Label>
                         <div className="p-3 bg-muted/50 rounded-lg">
-                            <p className="text-sm font-medium">
+                            <p className="text-sm font-normal">
                                 {x509.formData.username}
                             </p>
                         </div>

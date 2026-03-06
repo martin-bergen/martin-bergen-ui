@@ -79,7 +79,7 @@ export function Page() {
                                 {getAuthenticatorIcon(authenticationSelection)}
 
                                 <div className="flex-1 min-w-0">
-                                    <div className="font-medium text-sm">
+                                    <div className="font-normal text-sm">
                                         {advancedMsg(authenticationSelection.displayName)}
                                     </div>
                                     <div className="text-xs text-muted-foreground mt-1 whitespace-normal">

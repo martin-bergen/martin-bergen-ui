@@ -78,7 +78,7 @@ export function Page() {
                         {shouldDisplayAuthenticators && (
                             <div className="space-y-4">
                                 {authenticators.authenticators.length > 1 && (
-                                    <h3 className="text-sm font-medium text-center">
+                                    <h3 className="text-sm font-normal text-center">
                                         {msg("webauthn-available-authenticators")}
                                     </h3>
                                 )}
@@ -122,7 +122,7 @@ export function Page() {
                                                 <div className="flex-1 min-w-0">
                                                     <div
                                                         id={`kc-webauthn-authenticator-label-${i}`}
-                                                        className="font-medium text-sm"
+                                                        className="font-normal text-sm"
                                                     >
                                                         {advancedMsg(authenticator.label)}
                                                     </div>

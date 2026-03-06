@@ -6,11 +6,11 @@ import { Separator } from "../../../primitives/separator"
 const dividerVariants = cva("", {
   variants: {
     variant: {
-      default: "bg-cloud/10",
-      subtle: "bg-cloud/5",
-      strong: "bg-cloud/20",
+      default: "bg-cloud/20",
+      subtle: "bg-cloud/10",
+      strong: "bg-cloud/30",
       primary: "bg-moss/50",
-      muted: "bg-cloud/5",
+      muted: "bg-cloud/10",
     },
     size: {
       thin: "",

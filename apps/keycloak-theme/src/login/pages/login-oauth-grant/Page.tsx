@@ -23,7 +23,7 @@ export function Page() {
                             className="h-12 w-auto object-contain"
                         />
                     )}
-                    <p className="text-lg font-medium text-center">
+                    <p className="text-lg font-normal text-center">
                         {kcContext.client.name
                             ? msg(
                                   "oauthGrantTitle",
@@ -50,7 +50,7 @@ export function Page() {
                                     {clientScope.dynamicScopeParameter && (
                                         <>
                                             :{" "}
-                                            <span className="font-medium text-foreground">
+                                            <span className="font-normal text-foreground">
                                                 {clientScope.dynamicScopeParameter}
                                             </span>
                                         </>

@@ -66,7 +66,7 @@ export function Page() {
                         social.providers.length !== 0 && (
                             <div id="kc-social-providers" className="space-y-4">
                                 <div className="text-center">
-                                    <h2 className="text-sm font-medium text-muted-foreground">
+                                    <h2 className="text-sm font-normal text-muted-foreground">
                                         {msg("identity-provider-login-label")}
                                     </h2>
                                 </div>
@@ -91,7 +91,7 @@ export function Page() {
                                                     aria-hidden="true"
                                                 ></i>
                                             )}
-                                            <span className="text-sm font-medium">
+                                            <span className="text-sm font-normal">
                                                 {p.displayName}
                                             </span>
                                         </a>
@@ -165,7 +165,7 @@ export function Page() {
                                 />
                                 <Label
                                     htmlFor="rememberMe"
-                                    className="text-sm font-medium cursor-pointer"
+                                    className="text-sm font-normal cursor-pointer"
                                 >
                                     {msg("rememberMe")}
                                 </Label>

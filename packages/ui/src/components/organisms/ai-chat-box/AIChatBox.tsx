@@ -120,7 +120,7 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
         >
             {showHeader && (
                 <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-white">{headerTitle}</h3>
+                    <h3 className="text-lg font-normal text-white">{headerTitle}</h3>
                     {showClear && onClearClick && (
                         <button
                             type="button"

@@ -6,7 +6,7 @@ import { cn } from "../../../lib/utils"
 type IconComponent = React.ComponentType<any>
 
 const badgeVariants = cva(
-  "inline-flex items-center whitespace-nowrap rounded-full font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-2 focus:ring-opacity-20",
+  "inline-flex items-center whitespace-nowrap rounded-full font-normal transition-colors focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-2 focus:ring-opacity-20",
   {
     variants: {
       variant: {

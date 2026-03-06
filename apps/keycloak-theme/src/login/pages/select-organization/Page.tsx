@@ -67,7 +67,7 @@ export function Page() {
         <Template headerNode={msg("organization.selectTitle")}>
             <form ref={formRef} action={kcContext.url.loginAction} method="post">
                 <div id="kc-user-organizations" className="space-y-2">
-                    <h2 className="text-md font-semibold">
+                    <h2 className="text-md font-normal">
                         {msg("organization.select")}
                     </h2>
                     {useSelect ? (
@@ -107,7 +107,7 @@ export function Page() {
                                         className="w-full h-auto p-4 flex items-center gap-3 justify-start hover:bg-accent hover:border-primary transition-colors"
                                     >
                                         <Building2 className="w-5 h-5 text-muted-foreground shrink-0" />
-                                        <span className="font-medium text-sm">
+                                        <span className="font-normal text-sm">
                                             {name ?? alias}
                                         </span>
                                     </Button>

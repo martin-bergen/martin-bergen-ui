@@ -46,7 +46,7 @@ export function Page() {
                                 className="flex items-center gap-3 p-3 rounded-lg border bg-muted/30"
                             >
                                 <FiCheck className="h-4 w-4 text-green-600" />
-                                <span className="text-sm font-medium">
+                                <span className="text-sm font-normal">
                                     {client.name || `Application ${index + 1}`}
                                 </span>
                                 <iframe

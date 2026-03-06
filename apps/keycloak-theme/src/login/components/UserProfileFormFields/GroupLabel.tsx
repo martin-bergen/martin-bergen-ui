@@ -46,7 +46,7 @@ export function GroupLabel(props: {
                                 <h3
                                     id={`header-${attribute.group.name}`}
                                     className={cn(
-                                        "text-lg font-semibold",
+                                        "text-lg font-normal",
                                         kcClsx("kcFormGroupHeader")
                                     )}
                                 >

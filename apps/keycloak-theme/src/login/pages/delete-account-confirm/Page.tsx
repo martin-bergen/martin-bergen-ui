@@ -28,7 +28,7 @@ export function Page() {
                         <li>{msg("errasingData")}</li>
                     </ul>
 
-                    <p className="text-foreground font-medium mt-6">
+                    <p className="text-foreground font-normal mt-6">
                         {msg("finalDeletionConfirmation")}
                     </p>
                 </div>

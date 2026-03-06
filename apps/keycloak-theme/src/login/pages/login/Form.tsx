@@ -142,7 +142,7 @@ export function Form() {
 
                                             <Label
                                                 htmlFor="rememberMe"
-                                                className="text-sm font-medium cursor-pointer"
+                                                className="text-sm font-normal cursor-pointer"
                                             >
                                                 {msg("rememberMe")}
                                             </Label>
@@ -157,7 +157,7 @@ export function Form() {
                                                     kcContext.url.loginResetCredentialsUrl
                                                 }
                                             >
-                                                <Label className="text-sm font-medium cursor-pointer">
+                                                <Label className="text-sm font-normal cursor-pointer">
                                                     {msg("doForgotPassword")}
                                                 </Label>
                                             </a>

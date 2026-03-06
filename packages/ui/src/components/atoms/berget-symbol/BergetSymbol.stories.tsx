@@ -43,7 +43,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Light (for dark backgrounds)
         </p>
         <div className="bg-background p-6 rounded-md">
@@ -51,7 +51,7 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Dark (for light backgrounds)
         </p>
         <div className="bg-white p-6 rounded-md">
@@ -59,7 +59,7 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Sizes
         </p>
         <div className="flex items-end gap-8 bg-background p-6 rounded-md">

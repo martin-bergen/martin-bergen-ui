@@ -299,7 +299,7 @@ export const OnDarkBackground: Story = {
         Story => (
             <div className="bg-[hsl(var(--background))] p-8 rounded-2xl">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-medium mb-4">Choose Your Plan</h2>
+                    <h2 className="text-4xl font-normal mb-4">Choose Your Plan</h2>
                     <p className="text-white/60">
                         Select the perfect plan for your needs
                     </p>

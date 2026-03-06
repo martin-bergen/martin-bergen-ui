@@ -79,7 +79,7 @@ export function Page() {
                     {kcContext.realm.resetPasswordAllowed && (
                         <span className=" underline-offset-4 hover:underline">
                             <a tabIndex={5} href={kcContext.url.loginResetCredentialsUrl}>
-                                <Label className="text-sm font-medium cursor-pointer">
+                                <Label className="text-sm font-normal cursor-pointer">
                                     {msg("doForgotPassword")}
                                 </Label>
                             </a>

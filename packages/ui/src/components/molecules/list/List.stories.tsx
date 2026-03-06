@@ -29,7 +29,7 @@ export const Interactive: Story = {
             icon={<Database className="w-6 h-6 text-white" strokeWidth={1.5} />}
           >
             <div>
-              <h3 className="text-base font-medium mb-1">
+              <h3 className="text-base font-normal mb-1">
                 PostgreSQL Database
               </h3>
               <p className="text-sm text-white/40">Production · 15.2 GB</p>
@@ -39,7 +39,7 @@ export const Interactive: Story = {
             icon={<Server className="w-6 h-6 text-white" strokeWidth={1.5} />}
           >
             <div>
-              <h3 className="text-base font-medium mb-1">API Server</h3>
+              <h3 className="text-base font-normal mb-1">API Server</h3>
               <p className="text-sm text-white/40">Running · 4 instances</p>
             </div>
           </ListItem>
@@ -47,7 +47,7 @@ export const Interactive: Story = {
             icon={<Users className="w-6 h-6 text-white" strokeWidth={1.5} />}
           >
             <div>
-              <h3 className="text-base font-medium mb-1">Team Members</h3>
+              <h3 className="text-base font-normal mb-1">Team Members</h3>
               <p className="text-sm text-white/40">12 active users</p>
             </div>
           </ListItem>
@@ -75,7 +75,7 @@ export const WithHeader: Story = {
           >
             <div className="flex items-center gap-4">
               <div className="flex-1">
-                <h3 className="text-base font-medium">Production Cluster</h3>
+                <h3 className="text-base font-normal">Production Cluster</h3>
               </div>
               <div className="w-40">
                 <span className="text-sm px-3 py-1 rounded-full bg-success/10 text-success">
@@ -90,7 +90,7 @@ export const WithHeader: Story = {
           >
             <div className="flex items-center gap-4">
               <div className="flex-1">
-                <h3 className="text-base font-medium">Main Database</h3>
+                <h3 className="text-base font-normal">Main Database</h3>
               </div>
               <div className="w-40">
                 <span className="text-sm px-3 py-1 rounded-full bg-success/10 text-success">
@@ -115,13 +115,13 @@ export const CompactList: Story = {
           <ListItem icon={null} interactive={false}>
             <div className="flex justify-between items-center">
               <span className="text-base">Total API Calls</span>
-              <span className="text-base font-medium">1,247,832</span>
+              <span className="text-base font-normal">1,247,832</span>
             </div>
           </ListItem>
           <ListItem icon={null} interactive={false}>
             <div className="flex justify-between items-center">
               <span className="text-base">Successful Requests</span>
-              <span className="text-base font-medium text-success">
+              <span className="text-base font-normal text-success">
                 1,245,991
               </span>
             </div>
@@ -129,7 +129,7 @@ export const CompactList: Story = {
           <ListItem icon={null} interactive={false}>
             <div className="flex justify-between items-center">
               <span className="text-base">Failed Requests</span>
-              <span className="text-base font-medium text-error">1,841</span>
+              <span className="text-base font-normal text-error">1,841</span>
             </div>
           </ListItem>
         </List>
@@ -143,7 +143,7 @@ export const FeatureListBullet: Story = {
   render: () => (
     <Panel padding="lg" radius="lg">
       <div className="relative z-10">
-        <h3 className="text-xl font-medium mb-4">Features</h3>
+        <h3 className="text-xl font-normal mb-4">Features</h3>
         <FeatureList
           items={[
             "Optimized for speed and performance",
@@ -162,7 +162,7 @@ export const FeatureListCheckmark: Story = {
   render: () => (
     <Panel padding="lg" radius="lg">
       <div className="relative z-10">
-        <h3 className="text-xl font-medium mb-4">Benefits</h3>
+        <h3 className="text-xl font-normal mb-4">Benefits</h3>
         <FeatureList
           items={[
             "Customizable instances",
@@ -195,7 +195,7 @@ export const APIKeysList: Story = {
             >
               <div className="flex items-center gap-4">
                 <div className="flex-1">
-                  <h3 className="text-base font-medium mb-1">
+                  <h3 className="text-base font-normal mb-1">
                     API Key: Production
                   </h3>
                   <p className="text-sm text-white/40">Plan: api-usage-eur</p>
@@ -209,7 +209,7 @@ export const APIKeysList: Story = {
             >
               <div className="flex items-center gap-4">
                 <div className="flex-1">
-                  <h3 className="text-base font-medium mb-1">
+                  <h3 className="text-base font-normal mb-1">
                     API Key: Staging
                   </h3>
                   <p className="text-sm text-white/40">Plan: api-usage-eur</p>

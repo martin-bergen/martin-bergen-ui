@@ -62,7 +62,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
         <div
             data-slot="alert-title"
             className={cn(
-                "font-medium leading-none tracking-tight",
+                "font-normal leading-none tracking-tight",
                 className
             )}
             {...props}

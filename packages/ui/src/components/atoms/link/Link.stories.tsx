@@ -56,7 +56,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6 w-[600px]">
       <div>
-        <h3 className="text-sm font-medium text-muted-foreground mb-3">Variants</h3>
+        <h3 className="text-sm font-normal text-muted-foreground mb-3">Variants</h3>
         <div className="flex flex-col gap-3">
           <Link href="#" variant="default">Default link</Link>
           <Link href="#" variant="primary">Primary link</Link>
@@ -68,7 +68,7 @@ export const AllVariants: Story = {
       </div>
 
       <div className="border-t border-border pt-4">
-        <h3 className="text-sm font-medium text-muted-foreground mb-3">Sizes</h3>
+        <h3 className="text-sm font-normal text-muted-foreground mb-3">Sizes</h3>
         <div className="flex flex-col gap-3">
           <Link href="#" size="sm">Small link</Link>
           <Link href="#" size="default">Default size link</Link>

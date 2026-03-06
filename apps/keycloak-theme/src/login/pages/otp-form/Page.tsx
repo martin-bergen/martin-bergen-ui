@@ -18,7 +18,7 @@ export function Page() {
             <div className="space-y-2 text-center mb-6">
                 <p className="text-muted-foreground">
                     {msgStr("otpFormSubtitle")}{" "}
-                    <span className="text-foreground font-medium">
+                    <span className="text-foreground font-normal">
                         {auth.attemptedUsername}
                     </span>
                 </p>
@@ -33,7 +33,7 @@ export function Page() {
                 <div>
                     <label
                         htmlFor="otp"
-                        className="block text-sm font-medium text-muted-foreground mb-2"
+                        className="block text-sm font-normal text-muted-foreground mb-2"
                     >
                         {msg("loginOtpOneTime")}
                     </label>

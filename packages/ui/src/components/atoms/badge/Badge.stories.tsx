@@ -118,7 +118,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Default Variant
         </p>
         <div className="flex flex-wrap gap-2">
@@ -138,7 +138,7 @@ export const AllVariants: Story = {
       </div>
 
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Tag Variant
         </p>
         <div className="flex flex-wrap gap-2">
@@ -155,7 +155,7 @@ export const AllVariants: Story = {
       </div>
 
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Semantic Variant
         </p>
         <div className="flex flex-wrap gap-2">
@@ -183,7 +183,7 @@ export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Size: sm
         </p>
         <div className="flex flex-wrap gap-2">
@@ -208,7 +208,7 @@ export const Sizes: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Size: md
         </p>
         <div className="flex flex-wrap gap-2">
@@ -242,7 +242,7 @@ export const WithIcons: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           With text and icons
         </p>
         <div className="flex flex-wrap gap-2">
@@ -267,7 +267,7 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Icon-only
         </p>
         <div className="flex flex-wrap gap-2">
@@ -287,7 +287,7 @@ export const Examples: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Status Indicators
         </p>
         <div className="flex flex-wrap gap-2">
@@ -306,7 +306,7 @@ export const Examples: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Feature Flags
         </p>
         <div className="flex flex-wrap gap-2">
@@ -322,7 +322,7 @@ export const Examples: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm font-medium text-muted-foreground mb-3">
+        <p className="text-sm font-normal text-muted-foreground mb-3">
           Privacy & Security
         </p>
         <div className="flex flex-wrap gap-3">

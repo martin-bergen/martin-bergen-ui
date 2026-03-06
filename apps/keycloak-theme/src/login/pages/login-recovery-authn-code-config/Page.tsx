@@ -26,7 +26,7 @@ export function Page() {
                 <Alert variant="warning">
                     <AlertDescription>
                         <div className="space-y-2">
-                            <h4 className="font-medium">
+                            <h4 className="font-normal">
                                 {msg("recovery-code-config-warning-title")}
                             </h4>
                             <p className="text-sm">
@@ -47,7 +47,7 @@ export function Page() {
                                     <span className="text-muted-foreground min-w-8">
                                         {index + 1}:
                                     </span>
-                                    <span className="font-medium">
+                                    <span className="font-normal">
                                         {code.slice(0, 4)}-{code.slice(4, 8)}-
                                         {code.slice(8)}
                                     </span>
@@ -105,7 +105,7 @@ export function Page() {
                     />
                     <Label
                         htmlFor="kcRecoveryCodesConfirmationCheck"
-                        className="text-sm font-medium cursor-pointer"
+                        className="text-sm font-normal cursor-pointer"
                     >
                         {msg("recovery-codes-confirmation-message")}
                     </Label>

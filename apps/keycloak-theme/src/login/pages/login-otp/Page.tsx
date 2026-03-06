@@ -56,7 +56,7 @@ export function Page() {
                                             className="flex items-center space-x-2 cursor-pointer flex-1"
                                         >
                                             <MdOutlineDevices />
-                                            <span className="text-sm font-medium">
+                                            <span className="text-sm font-normal">
                                                 {otpCredential.userLabel}
                                             </span>
                                         </Label>
@@ -68,7 +68,7 @@ export function Page() {
                 )}
 
                 <div className="space-y-2">
-                    <Label htmlFor="otp" className="text-sm font-medium  block">
+                    <Label htmlFor="otp" className="text-sm font-normal  block">
                         {msg("loginOtpOneTime")}
                     </Label>
                     <div className="flex w-72 ">

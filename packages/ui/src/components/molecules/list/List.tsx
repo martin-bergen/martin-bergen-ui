@@ -1,14 +1,31 @@
 import * as React from "react"
 import { cn } from "../../../lib/utils"
+import { Divider } from "../../atoms/divider"
 
 export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
+  showDividers?: boolean
 }
 
 const List = React.forwardRef<HTMLDivElement, ListProps>(
-  ({ className, children, ...props }, ref) => (
+  ({ className, children, showDividers = true, ...props }, ref) => (
     <div ref={ref} className={cn("flex flex-col", className)} {...props}>
-      {children}
+      {showDividers ? (
+        <>
+          {React.Children.map(children, (child, index) => {
+            if (!React.isValidElement(child)) return child
+            const isLast = index === React.Children.count(children) - 1
+            return (
+              <>
+                {child}
+                {!isLast && <Divider />}
+              </>
+            )
+          })}
+        </>
+      ) : (
+        children
+      )}
     </div>
   )
 )
@@ -25,8 +42,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center gap-4 px-6 py-5 border-t border-[hsl(var(--border))]",
-        "first:border-t-0",
+        "flex items-center gap-4 px-6 py-5",
         interactive &&
           "transition-all duration-200 hover:bg-cloud/[0.02] cursor-pointer",
         className
@@ -46,20 +62,24 @@ ListItem.displayName = "ListItem"
 
 export interface ListHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
+  showDivider?: boolean
 }
 
 const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
-  ({ className, children, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn(
-        "px-6 py-4 text-sm text-muted-foreground border-b border-[hsl(var(--border))]",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
+  ({ className, children, showDivider = true, ...props }, ref) => (
+    <>
+      <div
+        ref={ref}
+        className={cn(
+          "px-6 py-4 text-sm text-muted-foreground",
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+      {showDivider && <Divider />}
+    </>
   )
 )
 ListHeader.displayName = "ListHeader"

@@ -2,6 +2,12 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 import "../src/styles.css";
 
+// Import Google Fonts
+const fontLink = document.createElement("link");
+fontLink.href = "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Ovo:wght@400&display=swap";
+fontLink.rel = "stylesheet";
+document.head.appendChild(fontLink);
+
 // Force dark background on Storybook wrapper elements
 const style = document.createElement("style");
 style.innerHTML = `

@@ -160,7 +160,7 @@ export function Template(props: {
                                     className="flex items-center justify-center gap-2"
                                 >
                                     <label
-                                        className="font-semibold text-lg"
+                                        className="font-normal text-lg"
                                         id="kc-attempted-username"
                                     >
                                         {auth.attemptedUsername}

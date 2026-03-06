@@ -14,7 +14,7 @@ export function LogoutOtherSessions() {
             />
             <Label
                 htmlFor="logout-sessions"
-                className="text-sm font-medium cursor-pointer"
+                className="text-sm font-normal cursor-pointer"
             >
                 {msg("logoutOtherSessions")}
             </Label>

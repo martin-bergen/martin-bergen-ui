@@ -70,7 +70,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           </Badge>
         )}
 
-        <h2 className="font-medium mb-6 leading-tight">{title}</h2>
+        <h2 className="font-normal mb-6 leading-tight">{title}</h2>
 
         {description && (
           <p className="text-lg text-muted-foreground leading-relaxed">

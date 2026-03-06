@@ -33,19 +33,19 @@ export const AllVariants: Story = {
   render: () => (
     <div className="space-y-4 w-[350px]">
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">Text</label>
+        <label className="text-sm font-normal text-foreground">Text</label>
         <Input placeholder="Enter text..." />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">Email</label>
+        <label className="text-sm font-normal text-foreground">Email</label>
         <Input type="email" placeholder="you@example.com" />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">Password</label>
+        <label className="text-sm font-normal text-foreground">Password</label>
         <Input type="password" placeholder="Enter your password" />
       </div>
       <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">Disabled</label>
+        <label className="text-sm font-normal text-foreground">Disabled</label>
         <Input placeholder="Disabled input" disabled value="Cannot edit" />
       </div>
     </div>

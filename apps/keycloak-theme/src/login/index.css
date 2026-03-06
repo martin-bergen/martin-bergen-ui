@@ -320,7 +320,7 @@ hr:last-child {
     color: white !important;
     font-family: "DM Sans", sans-serif !important;
     font-size: 0.9375rem !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     transition: all 0.2s ease !important;
     text-decoration: none !important;
     cursor: pointer !important;
@@ -361,11 +361,11 @@ hr:last-child {
 }
 
 #kc-registration a,
-.kc-registration-link a {
+    .kc-registration-link a {
     color: hsl(151 44% 52%) !important;
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
-}
+    }
 
 #kc-registration a:hover,
 .kc-registration-link a:hover {

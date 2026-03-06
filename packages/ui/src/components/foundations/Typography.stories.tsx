@@ -28,7 +28,7 @@ export const Headings: Story = {
           <div className="text-xs text-muted-foreground font-mono">
             h1 - Ovo / 5rem / -0.03em
           </div>
-          <h1 className="text-foreground">{pangram}</h1>
+          <h1 className="text-5xl text-foreground">{pangram}</h1>
         </div>
 
         <div className="border-t border-cloud/10" />
@@ -37,7 +37,7 @@ export const Headings: Story = {
           <div className="text-xs text-muted-foreground font-mono">
             h2 - Ovo / 2.5rem / -0.03em
           </div>
-          <h2 className="text-foreground">{pangram}</h2>
+          <h2 className="text-4xl text-foreground">{pangram}</h2>
         </div>
 
         <div className="border-t border-cloud/10" />
@@ -46,7 +46,7 @@ export const Headings: Story = {
           <div className="text-xs text-muted-foreground font-mono">
             h3 - DM Sans / 1.5rem
           </div>
-          <h3 className="text-foreground">{pangram}</h3>
+          <h3 className="text-2xl text-foreground">{pangram}</h3>
         </div>
 
         <div className="border-t border-cloud/10" />

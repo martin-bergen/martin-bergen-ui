@@ -27,7 +27,7 @@ const Swatch = ({
       className={`w-12 h-12 rounded-lg border border-white/10 ${className}`}
     />
     <div>
-      <div className="text-sm font-medium text-foreground">{name}</div>
+      <div className="text-sm font-normal text-foreground">{name}</div>
       <div className="text-xs text-muted-foreground">{hex}</div>
       <div className="text-xs text-muted-foreground font-mono">{cssVar}</div>
     </div>
@@ -45,7 +45,7 @@ const Section = ({
 }) => (
   <div className="space-y-4">
     <div>
-      <h3 className="text-lg font-medium text-foreground">{title}</h3>
+      <h3 className="text-lg font-normal text-foreground">{title}</h3>
       {description && (
         <p className="text-sm text-muted-foreground">{description}</p>
       )}
@@ -144,21 +144,21 @@ export const BorderColors: Story = {
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-cloud/5 bg-cloud/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Base</div>
+              <div className="text-sm font-normal text-foreground">Base</div>
               <div className="text-xs text-muted-foreground">Cloud at 5%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-cloud/10 bg-cloud/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Hover</div>
+              <div className="text-sm font-normal text-foreground">Hover</div>
               <div className="text-xs text-muted-foreground">Cloud at 10%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-cloud/20 bg-cloud/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Strong</div>
+              <div className="text-sm font-normal text-foreground">Strong</div>
               <div className="text-xs text-muted-foreground">Cloud at 20%</div>
             </div>
           </div>
@@ -170,35 +170,35 @@ export const BorderColors: Story = {
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-moss/20 bg-moss/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Moss</div>
+              <div className="text-sm font-normal text-foreground">Moss</div>
               <div className="text-xs text-muted-foreground">20%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-lichen/20 bg-lichen/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Lichen</div>
+              <div className="text-sm font-normal text-foreground">Lichen</div>
               <div className="text-xs text-muted-foreground">20%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-spruce/20 bg-spruce/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Spruce</div>
+              <div className="text-sm font-normal text-foreground">Spruce</div>
               <div className="text-xs text-muted-foreground">20%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-fjord/20 bg-fjord/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Fjord</div>
+              <div className="text-sm font-normal text-foreground">Fjord</div>
               <div className="text-xs text-muted-foreground">20%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-cloud/20 bg-cloud/5" />
             <div>
-              <div className="text-sm font-medium text-foreground">Cloud</div>
+              <div className="text-sm font-normal text-foreground">Cloud</div>
               <div className="text-xs text-muted-foreground">20%</div>
             </div>
           </div>
@@ -210,28 +210,28 @@ export const BorderColors: Story = {
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-success/50 bg-success/10" />
             <div>
-              <div className="text-sm font-medium text-foreground">Success</div>
+              <div className="text-sm font-normal text-foreground">Success</div>
               <div className="text-xs text-muted-foreground">50%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-warning/50 bg-warning/10" />
             <div>
-              <div className="text-sm font-medium text-foreground">Warning</div>
+              <div className="text-sm font-normal text-foreground">Warning</div>
               <div className="text-xs text-muted-foreground">50%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-error/50 bg-error/10" />
             <div>
-              <div className="text-sm font-medium text-foreground">Error</div>
+              <div className="text-sm font-normal text-foreground">Error</div>
               <div className="text-xs text-muted-foreground">50%</div>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-lg border-2 border-info/50 bg-info/10" />
             <div>
-              <div className="text-sm font-medium text-foreground">Info</div>
+              <div className="text-sm font-normal text-foreground">Info</div>
               <div className="text-xs text-muted-foreground">50%</div>
             </div>
           </div>

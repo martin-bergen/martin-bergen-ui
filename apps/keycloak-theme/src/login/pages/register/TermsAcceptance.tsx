@@ -16,7 +16,7 @@ export function TermsAcceptance(props: {
     return (
         <div className="space-y-4">
             <div className="p-4 bg-muted/50 rounded-lg space-y-2">
-                <h3 className="font-medium text-sm">{msg("termsTitle")}</h3>
+                <h3 className="font-normal text-sm">{msg("termsTitle")}</h3>
                 <div className="text-sm text-muted-foreground">{msg("termsText")}</div>
             </div>
 
@@ -33,7 +33,7 @@ export function TermsAcceptance(props: {
                     />
                     <Label
                         htmlFor="termsAccepted"
-                        className="text-sm font-medium cursor-pointer"
+                        className="text-sm font-normal cursor-pointer"
                     >
                         {msg("acceptTerms")}
                     </Label>

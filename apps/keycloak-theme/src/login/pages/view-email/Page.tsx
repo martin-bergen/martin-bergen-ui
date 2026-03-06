@@ -15,7 +15,7 @@ export function Page() {
         <Template headerNode={msgStr("checkYourEmail")}>
             <div className="space-y-6 text-center">
                 <div className="space-y-3 py-4">
-                    <p className="text-foreground font-medium text-lg">
+                    <p className="text-foreground font-normal text-lg">
                         {auth.attemptedUsername}
                     </p>
                     <p className="text-muted-foreground">

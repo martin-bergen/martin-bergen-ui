@@ -160,7 +160,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     {/* Title */}
                     <h3
                         className={cn(
-                            "font-medium mb-3 group-hover:text-secondary transition-colors",
+                            "font-normal mb-3 group-hover:text-secondary transition-colors",
                             variant === "featured" ? "text-2xl md:text-3xl" : "text-xl"
                         )}
                     >
@@ -189,7 +189,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                                         strokeWidth={2}
                                     />
                                 )}
-                                <span className="font-medium text-white">
+                                <span className="font-normal text-white">
                                     {post.author}
                                 </span>
                                 <span>•</span>
@@ -219,7 +219,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                     {/* Read More */}
                     {variant !== "minimal" && (
                         <div className="mt-4 pt-4 border-t border-border">
-                            <div className="flex items-center gap-2 text-sm font-medium text-secondary group-hover:gap-3 transition-all">
+                            <div className="flex items-center gap-2 text-sm font-normal text-secondary group-hover:gap-3 transition-all">
                                 Read More
                                 <ArrowRight
                                     className="w-4 h-4 text-secondary"

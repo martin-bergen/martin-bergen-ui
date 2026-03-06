@@ -50,7 +50,7 @@ export function Page() {
                                         className="flex items-center space-x-2 cursor-pointer flex-1"
                                     >
                                         <Smartphone className="w-5 h-5 text-muted-foreground shrink-0" />
-                                        <span className="text-sm font-medium">
+                                        <span className="text-sm font-normal">
                                             {otpCredential.userLabel}
                                         </span>
                                     </Label>

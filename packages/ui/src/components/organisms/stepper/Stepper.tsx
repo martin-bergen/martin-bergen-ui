@@ -158,7 +158,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                                                     strokeWidth={2}
                                                 />
                                             ) : showNumbers ? (
-                                                <span className="text-sm font-medium">
+                                                <span className="text-sm font-normal">
                                                     {index + 1}
                                                 </span>
                                             ) : null}
@@ -169,7 +169,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                                             <div className="text-center">
                                                 <div
                                                     className={cn(
-                                                        "text-sm font-medium transition-colors",
+                                                        "text-sm font-normal transition-colors",
                                                         isCurrent && "text-white",
                                                         isCompleted && "text-white/80",
                                                         isUpcoming && "text-white/40"

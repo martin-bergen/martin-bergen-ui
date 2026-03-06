@@ -79,7 +79,7 @@ type Story = StoryObj<typeof meta>;
 // Sample step content components
 const AccountStep = () => (
     <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-medium mb-4">Create Account</h3>
+        <h3 className="text-2xl font-normal mb-4">Create Account</h3>
         <div className="space-y-3">
             <div>
                 <label className="block text-sm text-white/60 mb-1">Email</label>
@@ -103,7 +103,7 @@ const AccountStep = () => (
 
 const CompanyStep = () => (
     <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-medium mb-4">Company Information</h3>
+        <h3 className="text-2xl font-normal mb-4">Company Information</h3>
         <div className="space-y-3">
             <div>
                 <label className="block text-sm text-white/60 mb-1">Company Name</label>
@@ -128,14 +128,14 @@ const CompanyStep = () => (
 
 const PlanStep = () => (
     <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-medium mb-4">Choose Your Plan</h3>
+        <h3 className="text-2xl font-normal mb-4">Choose Your Plan</h3>
         <div className="grid grid-cols-3 gap-4">
             {["Starter", "Professional", "Enterprise"].map(plan => (
                 <div
                     key={plan}
                     className="p-4 border border-white/10 rounded-lg hover:border-white/30 cursor-pointer transition-colors"
                 >
-                    <div className="font-medium mb-2">{plan}</div>
+                    <div className="font-normal mb-2">{plan}</div>
                     <div className="text-sm text-white/60">Perfect for small teams</div>
                 </div>
             ))}
@@ -145,7 +145,7 @@ const PlanStep = () => (
 
 const ConfirmStep = () => (
     <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-medium mb-4">Confirm Details</h3>
+        <h3 className="text-2xl font-normal mb-4">Confirm Details</h3>
         <div className="space-y-3">
             <div className="p-4 bg-white/5 rounded-lg">
                 <div className="text-sm text-white/60 mb-1">Email</div>
