@@ -131,17 +131,19 @@ function greet(user: User): string {
       <CodeBlock
         title="client.py"
         language="python"
-        code={`from anthropic import Anthropic
+        code={`from openai import OpenAI
 
-client = Anthropic()
+client = OpenAI(
+    base_url="https://api.berget.ai/v1",
+    api_key="your-api-key",
+)
 
 def ask(prompt: str) -> str:
-    message = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=1024,
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-instruct",
         messages=[{"role": "user", "content": prompt}],
     )
-    return message.content[0].text`}
+    return response.choices[0].message.content`}
       />
       <CodeBlock
         title="Dockerfile"
