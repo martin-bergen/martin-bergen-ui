@@ -1,8 +1,7 @@
-import * as React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
-import { ChatInput } from "."
-import { Button } from "../button"
-import { ArrowUp, Mic, Plus } from "lucide-react"
+import type { Meta, StoryObj } from "@storybook/react";
+import { ChatInput } from ".";
+import { Button } from "../button";
+import { ArrowUp, Mic, Plus } from "lucide-react";
 
 const meta: Meta<typeof ChatInput> = {
   title: "Atoms/Chat Input",
@@ -42,10 +41,10 @@ It features auto-resize height (min 44px, max 120px) and supports icons and acti
       description: "Number of rows (default: 1)",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -57,7 +56,7 @@ export const Interactive: Story = {
       <ChatInput {...args} />
     </div>
   ),
-}
+};
 
 export const WithIcon: Story = {
   parameters: {
@@ -71,7 +70,7 @@ export const WithIcon: Story = {
       <ChatInput {...args} icon={<Plus className="size-4" />} />
     </div>
   ),
-}
+};
 
 export const WithActionButton: Story = {
   parameters: {
@@ -92,7 +91,7 @@ export const WithActionButton: Story = {
       />
     </div>
   ),
-}
+};
 
 export const FullChatInterface: Story = {
   parameters: {
@@ -122,7 +121,7 @@ export const FullChatInterface: Story = {
       />
     </div>
   ),
-}
+};
 
 export const States: Story = {
   parameters: {
@@ -154,4 +153,4 @@ export const States: Story = {
       </div>
     </div>
   ),
-}
+};

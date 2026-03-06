@@ -1,5 +1,5 @@
-import * as React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import * as React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 import {
   Home,
   Settings,
@@ -23,7 +23,7 @@ import {
   BrainCircuit,
   Layers,
   Leaf,
-} from "lucide-react"
+} from "lucide-react";
 
 const meta = {
   title: "Foundations/DesignTokens",
@@ -31,19 +31,19 @@ const meta = {
     layout: "fullscreen",
   },
   tags: ["autodocs"],
-} satisfies Meta
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const ColorSwatch = ({
   name,
   value,
   hex,
 }: {
-  name: string
-  value: string
-  hex?: string
+  name: string;
+  value: string;
+  hex?: string;
 }) => (
   <div className="flex items-center gap-3">
     <div
@@ -55,14 +55,14 @@ const ColorSwatch = ({
       <div className="text-white/60 text-sm">{hex || value}</div>
     </div>
   </div>
-)
+);
 
 const TokenSection = ({
   title,
   children,
 }: {
-  title: string
-  children: React.ReactNode
+  title: string;
+  children: React.ReactNode;
 }) => (
   <div className="mb-8">
     <h3 className="text-2xl font-serif text-white mb-4">{title}</h3>
@@ -70,16 +70,14 @@ const TokenSection = ({
       {children}
     </div>
   </div>
-)
+);
 
 export const DesignTokens: Story = {
   render: () => (
     <div className="min-h-screen bg-night p-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-serif text-white mb-4">
-            Design Tokens
-          </h1>
+          <h1 className="text-5xl font-serif text-white mb-4">Design Tokens</h1>
           <p className="text-white/70 max-w-2xl mx-auto">
             Berget Design System V2 - All foundational design tokens in one
             place
@@ -204,10 +202,7 @@ export const DesignTokens: Story = {
                   <span className="text-white/60 text-xs">Home</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <Settings
-                    strokeWidth={1.5}
-                    className="w-8 h-8 text-white"
-                  />
+                  <Settings strokeWidth={1.5} className="w-8 h-8 text-white" />
                   <span className="text-white/60 text-xs">Settings</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
@@ -328,9 +323,7 @@ export const DesignTokens: Story = {
               </div>
             </div>
             <div>
-              <div className="text-white/60 text-sm mb-6">
-                Container Widths
-              </div>
+              <div className="text-white/60 text-sm mb-6">Container Widths</div>
               <div className="space-y-3 text-sm">
                 <div className="text-white">sm: max-w-3xl (768px)</div>
                 <div className="text-white">md: max-w-5xl (1024px)</div>
@@ -353,4 +346,4 @@ export const DesignTokens: Story = {
       </div>
     </div>
   ),
-}
+};

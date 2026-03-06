@@ -1,6 +1,6 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 
 const panelVariants = cva(
   "rounded-2xl border bg-slate border-slate/40 backdrop-blur-[12px] relative overflow-hidden",
@@ -22,13 +22,14 @@ const panelVariants = cva(
       padding: "md",
       radius: "default",
     },
-  }
-)
+  },
+);
 
 export interface PanelProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof panelVariants> {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
@@ -40,8 +41,8 @@ const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
     >
       {children}
     </div>
-  )
-)
-Panel.displayName = "Panel"
+  ),
+);
+Panel.displayName = "Panel";
 
-export { Panel, panelVariants }
+export { Panel, panelVariants };

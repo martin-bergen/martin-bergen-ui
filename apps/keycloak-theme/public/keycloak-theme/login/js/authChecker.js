@@ -1,11 +1,9 @@
 /**
  * This file has been claimed for ownership from @keycloakify/login-ui version 250004.6.5.
  * To relinquish ownership and restore this file to its original content, run the following command:
- * 
+ *
  * $ npx keycloakify own --path "login/js/authChecker.js" --public --revert
  */
-
-
 
 const SESSION_POLLING_INTERVAL = 2000;
 const AUTH_SESSION_TIMEOUT_MILLISECS = 1000;
@@ -89,7 +87,3 @@ function getCookieByName(name) {
   }
   return null;
 }
-
-
-    
-    

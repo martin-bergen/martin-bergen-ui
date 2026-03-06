@@ -1,8 +1,8 @@
-import * as React from "react"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cn } from "../../../lib/utils";
 
 export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const List = React.forwardRef<HTMLDivElement, ListProps>(
@@ -10,14 +10,14 @@ const List = React.forwardRef<HTMLDivElement, ListProps>(
     <div ref={ref} className={cn("flex flex-col", className)} {...props}>
       {children}
     </div>
-  )
-)
-List.displayName = "List"
+  ),
+);
+List.displayName = "List";
 
 export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  icon?: React.ReactNode
-  children: React.ReactNode
-  interactive?: boolean
+  icon?: React.ReactNode;
+  children: React.ReactNode;
+  interactive?: boolean;
 }
 
 const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
@@ -29,7 +29,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         "first:border-t-0",
         interactive &&
           "transition-all duration-200 hover:bg-cloud/[0.02] cursor-pointer",
-        className
+        className,
       )}
       {...props}
     >
@@ -40,12 +40,12 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       )}
       <div className="flex-1 min-w-0">{children}</div>
     </div>
-  )
-)
-ListItem.displayName = "ListItem"
+  ),
+);
+ListItem.displayName = "ListItem";
 
 export interface ListHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
@@ -54,15 +54,15 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
       ref={ref}
       className={cn(
         "px-6 py-4 text-sm text-muted-foreground border-b border-[hsl(var(--border))]",
-        className
+        className,
       )}
       {...props}
     >
       {children}
     </div>
-  )
-)
-ListHeader.displayName = "ListHeader"
+  ),
+);
+ListHeader.displayName = "ListHeader";
 
 function CheckIcon({ className }: { className?: string }) {
   return (
@@ -77,13 +77,12 @@ function CheckIcon({ className }: { className?: string }) {
     >
       <polyline points="20 6 9 17 4 12" />
     </svg>
-  )
+  );
 }
 
-export interface FeatureListProps
-  extends React.HTMLAttributes<HTMLUListElement> {
-  items: string[]
-  variant?: "bullet" | "checkmark"
+export interface FeatureListProps extends React.HTMLAttributes<HTMLUListElement> {
+  items: string[];
+  variant?: "bullet" | "checkmark";
 }
 
 const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
@@ -101,9 +100,9 @@ const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
           </li>
         ))}
       </ul>
-    )
-  }
-)
-FeatureList.displayName = "FeatureList"
+    );
+  },
+);
+FeatureList.displayName = "FeatureList";
 
-export { List, ListItem, ListHeader, FeatureList }
+export { List, ListItem, ListHeader, FeatureList };

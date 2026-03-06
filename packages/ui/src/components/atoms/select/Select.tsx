@@ -1,13 +1,13 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 import {
   Select as SelectRoot,
   SelectTrigger,
   SelectValue,
   SelectContent,
   SelectItem,
-} from "../../../primitives/select"
+} from "../../../primitives/select";
 
 const selectVariants = cva(
   "flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50",
@@ -29,29 +29,29 @@ const selectVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 export interface SelectOption {
-  value: string
-  label: string
-  disabled?: boolean
+  value: string;
+  label: string;
+  disabled?: boolean;
 }
 
 export interface SelectProps extends VariantProps<typeof selectVariants> {
-  label?: string
-  description?: string
-  error?: string
-  placeholder?: string
-  options: SelectOption[]
-  id?: string
-  disabled?: boolean
-  value?: string
-  defaultValue?: string
-  onValueChange?: (value: string) => void
-  name?: string
-  required?: boolean
-  className?: string
+  label?: string;
+  description?: string;
+  error?: string;
+  placeholder?: string;
+  options: SelectOption[];
+  id?: string;
+  disabled?: boolean;
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+  name?: string;
+  required?: boolean;
+  className?: string;
 }
 
 const Select = React.forwardRef<
@@ -76,11 +76,12 @@ const Select = React.forwardRef<
       name,
       required,
     },
-    ref
+    ref,
   ) => {
-    const selectId = id || React.useId()
-    const errorId = `${selectId}-error`
-    const descriptionId = `${selectId}-description`
+    const generatedId = React.useId();
+    const selectId = id || generatedId;
+    const errorId = `${selectId}-error`;
+    const descriptionId = `${selectId}-description`;
 
     return (
       <div className="flex flex-col gap-2">
@@ -92,7 +93,7 @@ const Select = React.forwardRef<
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
-              error && "text-error"
+              error && "text-error",
             )}
           >
             {label}
@@ -113,12 +114,12 @@ const Select = React.forwardRef<
             aria-invalid={!!error}
             aria-describedby={cn(
               error && errorId,
-              description && descriptionId
+              description && descriptionId,
             )}
             className={cn(
               selectVariants({ variant, size }),
               error && "border-error/50 bg-error/10",
-              className
+              className,
             )}
           >
             <SelectValue placeholder={placeholder} />
@@ -148,9 +149,9 @@ const Select = React.forwardRef<
           </p>
         )}
       </div>
-    )
-  }
-)
-Select.displayName = "Select"
+    );
+  },
+);
+Select.displayName = "Select";
 
-export { Select, selectVariants }
+export { Select, selectVariants };

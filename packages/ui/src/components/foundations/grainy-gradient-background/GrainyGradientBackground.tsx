@@ -1,5 +1,5 @@
-import * as React from "react"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cn } from "../../../lib/utils";
 
 export type EllipseColor =
   | "moss"
@@ -7,28 +7,27 @@ export type EllipseColor =
   | "spruce"
   | "fjord"
   | "slate"
-  | "cloud"
+  | "cloud";
 
-export type EllipseAnimation = "slow" | "medium" | "fast"
+export type EllipseAnimation = "slow" | "medium" | "fast";
 
 export interface EllipseConfig {
-  color: EllipseColor
-  position: { left: string; right: string; top: string; bottom: string }
-  transform: string
-  animation: EllipseAnimation
-  opacity?: number
-  size?: number
+  color: EllipseColor;
+  position: { left: string; right: string; top: string; bottom: string };
+  transform: string;
+  animation: EllipseAnimation;
+  opacity?: number;
+  size?: number;
 }
 
-export interface GrainyGradientBackgroundProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode
+export interface GrainyGradientBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
   /** Blur amount in pixels @default 130 */
-  blur?: number
+  blur?: number;
   /** Grain overlay opacity (0-1) @default 0.1 */
-  grain?: number
+  grain?: number;
   /** Custom ellipse configuration */
-  ellipses?: EllipseConfig[]
+  ellipses?: EllipseConfig[];
 }
 
 const defaultEllipses: EllipseConfig[] = [
@@ -123,13 +122,13 @@ const defaultEllipses: EllipseConfig[] = [
     opacity: 0.8,
     size: 120,
   },
-]
+];
 
 const animationClassMap: Record<EllipseAnimation, string> = {
   slow: "animate-float-slow",
   medium: "animate-float-medium",
   fast: "animate-float-fast",
-}
+};
 
 const colorClassMap: Record<EllipseColor, string> = {
   moss: "bg-moss",
@@ -138,7 +137,7 @@ const colorClassMap: Record<EllipseColor, string> = {
   fjord: "bg-fjord",
   slate: "bg-slate",
   cloud: "bg-cloud",
-}
+};
 
 const GrainyGradientBackground = React.forwardRef<
   HTMLDivElement,
@@ -153,7 +152,7 @@ const GrainyGradientBackground = React.forwardRef<
       ellipses = defaultEllipses,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <div
@@ -171,25 +170,29 @@ const GrainyGradientBackground = React.forwardRef<
             <div
               key={index}
               className="absolute"
-              style={{
-                left: ellipse.position.left,
-                right: ellipse.position.right,
-                top: ellipse.position.top,
-                bottom: ellipse.position.bottom,
-                transform: ellipse.transform,
-              } as React.CSSProperties}
+              style={
+                {
+                  left: ellipse.position.left,
+                  right: ellipse.position.right,
+                  top: ellipse.position.top,
+                  bottom: ellipse.position.bottom,
+                  transform: ellipse.transform,
+                } as React.CSSProperties
+              }
             >
               <div
                 className={cn(
                   "absolute inset-0",
                   animationClassMap[ellipse.animation],
-                  colorClassMap[ellipse.color]
+                  colorClassMap[ellipse.color],
                 )}
-                style={{
-                  opacity: ellipse.opacity ?? 1,
-                  borderRadius: "50%",
-                  transform: `scale(${(ellipse.size ?? 100) / 100})`,
-                } as React.CSSProperties}
+                style={
+                  {
+                    opacity: ellipse.opacity ?? 1,
+                    borderRadius: "50%",
+                    transform: `scale(${(ellipse.size ?? 100) / 100})`,
+                  } as React.CSSProperties
+                }
               />
             </div>
           ))}
@@ -207,9 +210,9 @@ const GrainyGradientBackground = React.forwardRef<
 
         <div className="relative z-10">{children}</div>
       </div>
-    )
-  }
-)
-GrainyGradientBackground.displayName = "GrainyGradientBackground"
+    );
+  },
+);
+GrainyGradientBackground.displayName = "GrainyGradientBackground";
 
-export { GrainyGradientBackground }
+export { GrainyGradientBackground };

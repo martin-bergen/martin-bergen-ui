@@ -1,9 +1,9 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type IconComponent = React.ComponentType<any>
+type IconComponent = React.ComponentType<any>;
 
 const badgeVariants = cva(
   "inline-flex items-center whitespace-nowrap rounded-full font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-2 focus:ring-opacity-20",
@@ -35,19 +35,32 @@ const badgeVariants = cva(
       status: "default",
       size: "md",
     },
-  }
-)
+  },
+);
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
-  icon?: IconComponent
-  iconGap?: number
+  icon?: IconComponent;
+  iconGap?: number;
 }
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-  ({ className, variant, status, size, icon: Icon, iconGap = 2, children, ...props }, ref) => {
-    const iconSize = size === "sm" ? "size-3" : "size-4"
+  (
+    {
+      className,
+      variant,
+      status,
+      size,
+      icon: Icon,
+      iconGap = 2,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const iconSize = size === "sm" ? "size-3" : "size-4";
 
     return (
       <div
@@ -64,9 +77,9 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         )}
         {children}
       </div>
-    )
-  }
-)
-Badge.displayName = "Badge"
+    );
+  },
+);
+Badge.displayName = "Badge";
 
-export { Badge, badgeVariants }
+export { Badge, badgeVariants };

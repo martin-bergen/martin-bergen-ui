@@ -1,6 +1,6 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 
 const sectionVariants = cva("relative", {
   variants: {
@@ -20,12 +20,13 @@ const sectionVariants = cva("relative", {
     padding: "lg",
     background: "transparent",
   },
-})
+});
 
 export interface SectionProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof sectionVariants> {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Section = React.forwardRef<HTMLElement, SectionProps>(
@@ -38,9 +39,9 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
       >
         <div className="container mx-auto px-4">{children}</div>
       </section>
-    )
-  }
-)
-Section.displayName = "Section"
+    );
+  },
+);
+Section.displayName = "Section";
 
-export { Section, sectionVariants }
+export { Section, sectionVariants };

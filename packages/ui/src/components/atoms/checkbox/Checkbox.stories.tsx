@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Checkbox } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { Checkbox } from ".";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Atoms/Checkbox",
@@ -40,10 +40,10 @@ const meta: Meta<typeof Checkbox> = {
       description: "Initially checked",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -57,19 +57,27 @@ export const Interactive: Story = {
       <Checkbox {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="p-4 space-y-4">
-      <Checkbox variant="default" label="Default" description="Default variant" />
-      <Checkbox variant="primary" label="Primary" description="Primary variant" />
+      <Checkbox
+        variant="default"
+        label="Default"
+        description="Default variant"
+      />
+      <Checkbox
+        variant="primary"
+        label="Primary"
+        description="Primary variant"
+      />
       <Checkbox variant="subtle" label="Subtle" description="Subtle variant" />
       <Checkbox variant="muted" label="Muted" description="Muted variant" />
     </div>
   ),
-}
+};
 
 export const AllSizes: Story = {
   parameters: { controls: { hide: true } },
@@ -80,7 +88,7 @@ export const AllSizes: Story = {
       <Checkbox size="lg" label="Large" description="Large size" />
     </div>
   ),
-}
+};
 
 export const States: Story = {
   parameters: { controls: { hide: true } },
@@ -92,7 +100,7 @@ export const States: Story = {
       <Checkbox label="Checked and disabled" defaultChecked disabled />
     </div>
   ),
-}
+};
 
 export const WithError: Story = {
   parameters: { controls: { hide: true } },
@@ -110,4 +118,4 @@ export const WithError: Story = {
       />
     </div>
   ),
-}
+};

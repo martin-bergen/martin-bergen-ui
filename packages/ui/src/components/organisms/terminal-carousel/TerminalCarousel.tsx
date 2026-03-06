@@ -13,8 +13,7 @@ export interface TerminalExample {
   }[];
 }
 
-export interface TerminalCarouselProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface TerminalCarouselProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Terminal examples to cycle through
    */
@@ -43,7 +42,7 @@ export const TerminalCarousel = React.forwardRef<
       contentHeight = "320px",
       ...props
     },
-    ref
+    ref,
   ) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [typingIdx, setTypingIdx] = useState(0);
@@ -53,8 +52,9 @@ export const TerminalCarousel = React.forwardRef<
     const [isTyping, setIsTyping] = useState(true);
 
     const currentExample = examples[currentIndex];
+    const firstExample = examples[0];
     const currentCommand =
-      currentExample.commands[commandIndex] || examples[0].commands[0];
+      currentExample?.commands[commandIndex] ?? firstExample?.commands[0];
 
     useEffect(() => {
       setTypingIdx(0);
@@ -65,6 +65,8 @@ export const TerminalCarousel = React.forwardRef<
     }, [currentIndex]);
 
     useEffect(() => {
+      if (!currentExample || !currentCommand) return;
+
       if (isTyping && typingIdx < currentCommand.command.length) {
         const timeout = setTimeout(() => {
           setTypedText((prev) => prev + currentCommand.command[typingIdx]);
@@ -101,7 +103,7 @@ export const TerminalCarousel = React.forwardRef<
               return () => clearTimeout(resetTimeout);
             }
           },
-          currentCommand.output ? 2000 : 1000
+          currentCommand.output ? 2000 : 1000,
         );
         return () => clearTimeout(timeout);
       }
@@ -111,9 +113,11 @@ export const TerminalCarousel = React.forwardRef<
       showOutput,
       commandIndex,
       currentCommand,
-      currentExample.commands.length,
+      currentExample?.commands.length,
       typingSpeed,
     ]);
+
+    if (!currentExample || !currentCommand) return null;
 
     return (
       <div ref={ref} className={cn("relative", className)} {...props}>
@@ -170,6 +174,6 @@ export const TerminalCarousel = React.forwardRef<
         />
       </div>
     );
-  }
+  },
 );
 TerminalCarousel.displayName = "TerminalCarousel";

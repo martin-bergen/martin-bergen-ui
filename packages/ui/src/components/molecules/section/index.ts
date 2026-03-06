@@ -1,2 +1,2 @@
-export { Section, sectionVariants } from "./Section"
-export type { SectionProps } from "./Section"
+export { Section, sectionVariants } from "./Section";
+export type { SectionProps } from "./Section";

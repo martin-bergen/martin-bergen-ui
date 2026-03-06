@@ -1,11 +1,11 @@
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 import {
   Checkbox as CheckboxBase,
   CheckboxIndicator,
-} from "../../../primitives/checkbox"
+} from "../../../primitives/checkbox";
 
 const checkboxVariants = cva(
   "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
@@ -27,20 +27,21 @@ const checkboxVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 export interface CheckboxProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
       "className"
     >,
     VariantProps<typeof checkboxVariants> {
-  label?: string
-  description?: string
-  error?: string
-  checkedIcon?: React.ReactNode
-  className?: string
+  label?: string;
+  description?: string;
+  error?: string;
+  checkedIcon?: React.ReactNode;
+  className?: string;
 }
 
 const Checkbox = React.forwardRef<
@@ -60,10 +61,11 @@ const Checkbox = React.forwardRef<
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const checkboxId = id || React.useId()
-    const errorId = `${checkboxId}-error`
+    const generatedId = React.useId();
+    const checkboxId = id || generatedId;
+    const errorId = `${checkboxId}-error`;
 
     return (
       <div className="flex items-start gap-3">
@@ -80,7 +82,7 @@ const Checkbox = React.forwardRef<
               error && "border-red-500/50 bg-red-500/10",
               "cursor-pointer",
               disabled && "cursor-not-allowed pointer-events-none",
-              className
+              className,
             )}
             {...props}
           >
@@ -91,7 +93,7 @@ const Checkbox = React.forwardRef<
                     size === "sm" && "w-3 h-3",
                     size === "default" && "w-3.5 h-3.5",
                     size === "lg" && "w-4 h-4",
-                    "text-white"
+                    "text-white",
                   )}
                   viewBox="0 0 24 24"
                   fill="none"
@@ -117,7 +119,7 @@ const Checkbox = React.forwardRef<
                   disabled
                     ? "text-white/40 cursor-not-allowed"
                     : "text-white cursor-pointer",
-                  error && "text-red-400"
+                  error && "text-red-400",
                 )}
               >
                 {label}
@@ -134,9 +136,9 @@ const Checkbox = React.forwardRef<
           </div>
         )}
       </div>
-    )
-  }
-)
-Checkbox.displayName = "Checkbox"
+    );
+  },
+);
+Checkbox.displayName = "Checkbox";
 
-export { Checkbox, checkboxVariants }
+export { Checkbox, checkboxVariants };

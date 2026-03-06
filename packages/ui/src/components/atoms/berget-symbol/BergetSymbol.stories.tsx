@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { BergetSymbol } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { BergetSymbol } from ".";
 
 const meta: Meta<typeof BergetSymbol> = {
   title: "Atoms/BergetSymbol",
@@ -19,10 +19,10 @@ const meta: Meta<typeof BergetSymbol> = {
       description: "Color variant for different backgrounds",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof BergetSymbol>
+export default meta;
+type Story = StoryObj<typeof BergetSymbol>;
 
 export const Interactive: Story = {
   args: {
@@ -31,12 +31,14 @@ export const Interactive: Story = {
   },
   render: (args) => (
     <div
-      className={args.variant === "light" ? "bg-background p-8" : "bg-white p-8"}
+      className={
+        args.variant === "light" ? "bg-background p-8" : "bg-white p-8"
+      }
     >
       <BergetSymbol {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -59,9 +61,7 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
-          Sizes
-        </p>
+        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes</p>
         <div className="flex items-end gap-8 bg-background p-6 rounded-md">
           <div className="text-center">
             <BergetSymbol size={24} variant="light" />
@@ -83,4 +83,4 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};

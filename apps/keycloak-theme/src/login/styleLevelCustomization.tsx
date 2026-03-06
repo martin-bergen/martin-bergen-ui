@@ -8,28 +8,28 @@ import { getTheme } from "./shared/getColorScheme";
 type Classes = { [key in ClassKey]?: string };
 
 type StyleLevelCustomization = {
-    doUseDefaultCss: boolean;
-    classes?: Classes;
-    loadCustomStylesheet?: () => void;
-    Provider?: (props: { children: ReactNode }) => ReactNode;
+  doUseDefaultCss: boolean;
+  classes?: Classes;
+  loadCustomStylesheet?: () => void;
+  Provider?: (props: { children: ReactNode }) => ReactNode;
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
 function Provider(props: { children: ReactNode }) {
-    const { children } = props;
+  const { children } = props;
 
-    const { kcContext } = useKcContext();
+  const { kcContext } = useKcContext();
 
-    return (
-        <ThemeProvider defaultTheme={getTheme(kcContext.darkMode)}>
-            {children}
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider defaultTheme={getTheme(kcContext.darkMode)}>
+      {children}
+    </ThemeProvider>
+  );
 }
 
 export function useStyleLevelCustomization(): StyleLevelCustomization {
-    return {
-        doUseDefaultCss: false,
-        Provider
-    };
+  return {
+    doUseDefaultCss: false,
+    Provider,
+  };
 }

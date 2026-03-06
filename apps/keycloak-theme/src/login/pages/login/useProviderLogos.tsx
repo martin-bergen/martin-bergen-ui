@@ -16,23 +16,23 @@ import stackoverflowLogo from "./providers/stackoverflow.svg";
 import xLogo from "./providers/x.svg";
 
 const useProviderLogos: () => Record<string, string> = () => ({
-    apple: appleLogo,
-    bitbucket: bitbucketLogo,
-    discord: discordLogo,
-    facebook: facebookLogo,
-    github: githubLogo,
-    gitlab: gitlabLogo,
-    google: googleLogo,
-    instagram: instagramLogo,
-    linkedin: linkedinLogo,
-    microsoft: microsoftLogo,
-    oidc: oidcLogo,
-    openshift: openshiftLogo,
-    paypal: paypalLogo,
-    slack: slackLogo,
-    stackoverflow: stackoverflowLogo,
-    twitter: xLogo,
-    x: xLogo
+  apple: appleLogo,
+  bitbucket: bitbucketLogo,
+  discord: discordLogo,
+  facebook: facebookLogo,
+  github: githubLogo,
+  gitlab: gitlabLogo,
+  google: googleLogo,
+  instagram: instagramLogo,
+  linkedin: linkedinLogo,
+  microsoft: microsoftLogo,
+  oidc: oidcLogo,
+  openshift: openshiftLogo,
+  paypal: paypalLogo,
+  slack: slackLogo,
+  stackoverflow: stackoverflowLogo,
+  twitter: xLogo,
+  x: xLogo,
 });
 
 export default useProviderLogos;

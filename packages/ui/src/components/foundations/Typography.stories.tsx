@@ -1,17 +1,16 @@
-import * as React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
   title: "Foundations/Typography",
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-const pangram = "The quick brown fox jumps over the lazy dog"
+const pangram = "The quick brown fox jumps over the lazy dog";
 
 export const Headings: Story = {
   render: () => (
@@ -60,7 +59,7 @@ export const Headings: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const BodyText: Story = {
   render: () => (
@@ -109,7 +108,7 @@ export const BodyText: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const FontWeights: Story = {
   render: () => (
@@ -151,7 +150,7 @@ export const FontWeights: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const TextColors: Story = {
   render: () => (
@@ -160,9 +159,7 @@ export const TextColors: Story = {
         <h2 className="font-serif text-3xl text-foreground mb-1">
           Text Colors
         </h2>
-        <p className="text-muted-foreground">
-          Semantic text color tokens
-        </p>
+        <p className="text-muted-foreground">Semantic text color tokens</p>
       </div>
 
       <div className="bg-cloud/5 border border-cloud/10 rounded-xl p-8 space-y-6">
@@ -220,4 +217,4 @@ export const TextColors: Story = {
       </div>
     </div>
   ),
-}
+};

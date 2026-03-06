@@ -7,37 +7,37 @@ import { Template } from "../../components/Template";
 import { useI18n } from "../../i18n";
 
 export function Page() {
-    const { kcContext } = useKcContext();
-    assert(kcContext.pageId === "error.ftl");
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "error.ftl");
 
-    const { msg } = useI18n();
+  const { msg } = useI18n();
 
-    return (
-        <Template displayMessage={false} headerNode={msg("errorTitle")}>
-            <div id="kc-error-message">
-                <Alert variant="error" className="my-3">
-                    <AlertDescription>
-                        <span
-                            className="instruction"
-                            dangerouslySetInnerHTML={{
-                                __html: kcSanitize(kcContext.message.summary)
-                            }}
-                        />
-                    </AlertDescription>
-                </Alert>
+  return (
+    <Template displayMessage={false} headerNode={msg("errorTitle")}>
+      <div id="kc-error-message">
+        <Alert variant="error" className="my-3">
+          <AlertDescription>
+            <span
+              className="instruction"
+              dangerouslySetInnerHTML={{
+                __html: kcSanitize(kcContext.message.summary),
+              }}
+            />
+          </AlertDescription>
+        </Alert>
 
-                {!kcContext.skipLink &&
-                    kcContext.client !== undefined &&
-                    kcContext.client.baseUrl !== undefined && (
-                        <div className="mt-2 flex justify-end">
-                            <Button type="button">
-                                <a id="backToApplication" href={kcContext.client.baseUrl}>
-                                    {msg("backToApplication")}
-                                </a>
-                            </Button>
-                        </div>
-                    )}
+        {!kcContext.skipLink &&
+          kcContext.client !== undefined &&
+          kcContext.client.baseUrl !== undefined && (
+            <div className="mt-2 flex justify-end">
+              <Button type="button">
+                <a id="backToApplication" href={kcContext.client.baseUrl}>
+                  {msg("backToApplication")}
+                </a>
+              </Button>
             </div>
-        </Template>
-    );
+          )}
+      </div>
+    </Template>
+  );
 }

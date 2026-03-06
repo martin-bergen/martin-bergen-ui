@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { CodeBlock } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { CodeBlock } from ".";
 
 const meta: Meta<typeof CodeBlock> = {
   title: "Organisms/CodeBlock",
@@ -44,10 +44,10 @@ Syntax-highlighted code block powered by Shiki with the Berget theme.
     title: { control: "text" },
     className: { control: "text" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof CodeBlock>
+export default meta;
+type Story = StoryObj<typeof CodeBlock>;
 
 export const Interactive: Story = {
   args: {
@@ -65,7 +65,7 @@ export function App() {
   )
 }`,
   },
-}
+};
 
 export const WithTitle: Story = {
   parameters: { controls: { hide: true } },
@@ -96,7 +96,7 @@ echo "Deployment complete"`}
       />
     </div>
   ),
-}
+};
 
 export const WithoutTitle: Story = {
   args: {
@@ -109,7 +109,7 @@ export const WithoutTitle: Story = {
   }
 }`,
   },
-}
+};
 
 export const Languages: Story = {
   parameters: { controls: { hide: true } },
@@ -162,4 +162,4 @@ CMD ["node", "dist/server/index.js"]`}
       />
     </div>
   ),
-}
+};

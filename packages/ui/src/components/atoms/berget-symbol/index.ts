@@ -1,2 +1,2 @@
-export { BergetSymbol } from "./BergetSymbol"
-export type { BergetSymbolProps } from "./BergetSymbol"
+export { BergetSymbol } from "./BergetSymbol";
+export type { BergetSymbolProps } from "./BergetSymbol";

@@ -8,37 +8,37 @@ import { PageIndex } from "./pages/PageIndex";
 import { useStyleLevelCustomization } from "./styleLevelCustomization";
 
 export default function KcPage(props: { kcContext: KcContext }) {
-    const { kcContext } = props;
+  const { kcContext } = props;
 
-    return (
-        <KcContextProvider kcContext={kcContext}>
-            <I18nProvider kcContext={kcContext}>
-                <StyleLevelCustomization>
-                    <PageIndex />
-                </StyleLevelCustomization>
-            </I18nProvider>
-        </KcContextProvider>
-    );
+  return (
+    <KcContextProvider kcContext={kcContext}>
+      <I18nProvider kcContext={kcContext}>
+        <StyleLevelCustomization>
+          <PageIndex />
+        </StyleLevelCustomization>
+      </I18nProvider>
+    </KcContextProvider>
+  );
 }
 
 function StyleLevelCustomization(props: { children: ReactNode }) {
-    const { children } = props;
+  const { children } = props;
 
-    const { doUseDefaultCss, classes, loadCustomStylesheet, Provider } =
-        useStyleLevelCustomization();
+  const { doUseDefaultCss, classes, loadCustomStylesheet, Provider } =
+    useStyleLevelCustomization();
 
-    useExclusiveAppInstanceEffect({
-        effectId: "loadCustomStylesheet",
-        isEnabled: loadCustomStylesheet !== undefined,
-        effect: () => {
-            assert(loadCustomStylesheet !== undefined);
-            loadCustomStylesheet();
-        }
-    });
+  useExclusiveAppInstanceEffect({
+    effectId: "loadCustomStylesheet",
+    isEnabled: loadCustomStylesheet !== undefined,
+    effect: () => {
+      assert(loadCustomStylesheet !== undefined);
+      loadCustomStylesheet();
+    },
+  });
 
-    return (
-        <KcClsxProvider doUseDefaultCss={doUseDefaultCss} classes={classes}>
-            {Provider === undefined ? children : <Provider>{children}</Provider>}
-        </KcClsxProvider>
-    );
+  return (
+    <KcClsxProvider doUseDefaultCss={doUseDefaultCss} classes={classes}>
+      {Provider === undefined ? children : <Provider>{children}</Provider>}
+    </KcClsxProvider>
+  );
 }

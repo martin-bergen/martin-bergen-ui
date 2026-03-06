@@ -1,6 +1,6 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 
 const gradientBackgroundVariants = cva(
   "relative min-h-screen overflow-hidden bg-gradient-to-br",
@@ -15,13 +15,14 @@ const gradientBackgroundVariants = cva(
     defaultVariants: {
       variant: "berget",
     },
-  }
-)
+  },
+);
 
 export interface GradientBackgroundProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof gradientBackgroundVariants> {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 const GradientBackground = React.forwardRef<
@@ -36,8 +37,8 @@ const GradientBackground = React.forwardRef<
     >
       {children}
     </div>
-  )
-})
-GradientBackground.displayName = "GradientBackground"
+  );
+});
+GradientBackground.displayName = "GradientBackground";
 
-export { GradientBackground, gradientBackgroundVariants }
+export { GradientBackground, gradientBackgroundVariants };

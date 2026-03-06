@@ -1,11 +1,11 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 import {
   Alert as AlertPrimitive,
   AlertTitle,
   AlertDescription,
-} from "../../../primitives/alert"
+} from "../../../primitives/alert";
 
 const alertVariants = cva("", {
   variants: {
@@ -23,10 +23,11 @@ const alertVariants = cva("", {
   defaultVariants: {
     variant: "default",
   },
-})
+});
 
 export interface AlertProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof alertVariants> {}
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
@@ -36,14 +37,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       className={cn(alertVariants({ variant }), className)}
       {...props}
     />
-  )
-)
-Alert.displayName = "Alert"
+  ),
+);
+Alert.displayName = "Alert";
 
-export interface AlertTitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {}
+export type AlertTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export interface AlertDescriptionProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {}
+export type AlertDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
-export { Alert, AlertTitle, AlertDescription, alertVariants }
+export { Alert, AlertTitle, AlertDescription, alertVariants };

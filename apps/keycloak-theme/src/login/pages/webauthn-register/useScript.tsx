@@ -6,19 +6,19 @@ import { useKcContext } from "../../KcContext";
 import { useI18n } from "../../i18n";
 
 export function useScript(params: { webAuthnButtonId: string }) {
-    const { webAuthnButtonId } = params;
+  const { webAuthnButtonId } = params;
 
-    const { kcContext } = useKcContext();
-    assert(kcContext.pageId === "webauthn-register.ftl");
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "webauthn-register.ftl");
 
-    const { msgStr, isFetchingTranslations } = useI18n();
+  const { msgStr, isFetchingTranslations } = useI18n();
 
-    const { insertScriptTags } = useInsertScriptTags({
-        effectId: "LoginRecoveryAuthnCodeConfig",
-        scriptTags: [
-            {
-                type: "module",
-                textContent: () => `
+  const { insertScriptTags } = useInsertScriptTags({
+    effectId: "LoginRecoveryAuthnCodeConfig",
+    scriptTags: [
+      {
+        type: "module",
+        textContent: () => `
                     import { registerByWebAuthn } from "${import.meta.env.BASE_URL}keycloak-theme/login/js/webauthnRegister.js";
                     const registerButton = document.getElementById('${webAuthnButtonId}');
                     registerButton.addEventListener("click", function() {
@@ -41,22 +41,22 @@ export function useScript(params: { webAuthnButtonId: string }) {
                         };
                         registerByWebAuthn(input);
                     });
-                `
-            }
-        ]
-    });
+                `,
+      },
+    ],
+  });
 
-    useEffect(() => {
-        if (isFetchingTranslations) {
-            return;
-        }
+  useEffect(() => {
+    if (isFetchingTranslations) {
+      return;
+    }
 
-        (async () => {
-            await waitForElementMountedOnDom({
-                elementId: webAuthnButtonId
-            });
+    (async () => {
+      await waitForElementMountedOnDom({
+        elementId: webAuthnButtonId,
+      });
 
-            insertScriptTags();
-        })();
-    }, [isFetchingTranslations]);
+      insertScriptTags();
+    })();
+  }, [isFetchingTranslations]);
 }

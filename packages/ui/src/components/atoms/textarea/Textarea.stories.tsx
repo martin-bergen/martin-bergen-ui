@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Textarea } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { Textarea } from ".";
 
 const meta: Meta<typeof Textarea> = {
   title: "Atoms/Textarea",
@@ -52,10 +52,10 @@ const meta: Meta<typeof Textarea> = {
       description: "Number of rows",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -70,30 +70,50 @@ export const Interactive: Story = {
       <Textarea {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="p-4 space-y-6">
-      <Textarea variant="default" label="Default" placeholder="Write..." rows={3} />
-      <Textarea variant="primary" label="Primary" placeholder="Write..." rows={3} />
-      <Textarea variant="subtle" label="Subtle" placeholder="Write..." rows={3} />
+      <Textarea
+        variant="default"
+        label="Default"
+        placeholder="Write..."
+        rows={3}
+      />
+      <Textarea
+        variant="primary"
+        label="Primary"
+        placeholder="Write..."
+        rows={3}
+      />
+      <Textarea
+        variant="subtle"
+        label="Subtle"
+        placeholder="Write..."
+        rows={3}
+      />
       <Textarea variant="muted" label="Muted" placeholder="Write..." rows={3} />
     </div>
   ),
-}
+};
 
 export const AllSizes: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="p-4 space-y-6">
       <Textarea size="sm" label="Small" placeholder="Write..." rows={2} />
-      <Textarea size="default" label="Default" placeholder="Write..." rows={3} />
+      <Textarea
+        size="default"
+        label="Default"
+        placeholder="Write..."
+        rows={3}
+      />
       <Textarea size="lg" label="Large" placeholder="Write..." rows={4} />
     </div>
   ),
-}
+};
 
 export const WithError: Story = {
   parameters: { controls: { hide: true } },
@@ -114,4 +134,4 @@ export const WithError: Story = {
       />
     </div>
   ),
-}
+};

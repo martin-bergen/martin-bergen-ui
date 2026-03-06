@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Input } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { Input } from ".";
 
 const meta: Meta<typeof Input> = {
   title: "Atoms/Input",
@@ -17,16 +17,16 @@ const meta: Meta<typeof Input> = {
       control: "boolean",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
     placeholder: "Enter text...",
   },
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -50,4 +50,4 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};

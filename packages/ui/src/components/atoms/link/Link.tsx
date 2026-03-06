@@ -1,6 +1,6 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 
 const linkVariants = cva(
   "inline-flex items-center gap-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50",
@@ -24,17 +24,18 @@ const linkVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 export interface LinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
-  children: React.ReactNode
-  external?: boolean
-  icon?: React.ReactNode
-  showExternalIcon?: boolean
-  disabled?: boolean
+  children: React.ReactNode;
+  external?: boolean;
+  icon?: React.ReactNode;
+  showExternalIcon?: boolean;
+  disabled?: boolean;
 }
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
@@ -50,7 +51,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const isExternal =
       external ||
@@ -58,7 +59,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         (props.href.startsWith("http://") ||
           props.href.startsWith("https://") ||
           props.href.startsWith("mailto:") ||
-          props.href.startsWith("tel:")))
+          props.href.startsWith("tel:")));
 
     return (
       <a
@@ -98,9 +99,9 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           </span>
         )}
       </a>
-    )
-  }
-)
-Link.displayName = "Link"
+    );
+  },
+);
+Link.displayName = "Link";
 
-export { Link, linkVariants }
+export { Link, linkVariants };

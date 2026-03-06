@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Panel } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { Panel } from ".";
 
 const meta: Meta<typeof Panel> = {
   title: "Atoms/Panel",
@@ -20,10 +20,10 @@ const meta: Meta<typeof Panel> = {
       description: "Border radius",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -38,7 +38,7 @@ export const Interactive: Story = {
       </div>
     ),
   },
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -56,7 +56,7 @@ export const AllVariants: Story = {
       </Panel>
     </div>
   ),
-}
+};
 
 export const RadiusVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -77,4 +77,4 @@ export const RadiusVariants: Story = {
       </Panel>
     </div>
   ),
-}
+};

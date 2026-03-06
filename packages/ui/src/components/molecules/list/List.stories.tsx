@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  List,
-  ListItem,
-  ListHeader,
-  FeatureList,
-} from ".";
+import { List, ListItem, ListHeader, FeatureList } from ".";
 import { Panel } from "../../atoms/panel";
 import { Key, Database, Server, Users } from "lucide-react";
 

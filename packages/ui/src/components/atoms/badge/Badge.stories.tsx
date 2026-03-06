@@ -1,6 +1,6 @@
-import * as React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
-import { Badge } from "."
+import * as React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Badge } from ".";
 import {
   Shield,
   Lock,
@@ -11,7 +11,7 @@ import {
   XCircle,
   Wifi,
   WifiOff,
-} from "lucide-react"
+} from "lucide-react";
 
 const meta: Meta<typeof Badge> = {
   title: "Atoms/Badge",
@@ -93,10 +93,10 @@ Badge component for displaying small status indicators and labels.
       description: "Optional icon",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -110,7 +110,7 @@ export const Interactive: Story = {
       <Badge {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -175,7 +175,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const Sizes: Story = {
   parameters: { controls: { hide: true } },
@@ -234,7 +234,7 @@ export const Sizes: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const WithIcons: Story = {
   parameters: { controls: { hide: true } },
@@ -279,7 +279,7 @@ export const WithIcons: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const Examples: Story = {
   parameters: { controls: { hide: true } },
@@ -339,4 +339,4 @@ export const Examples: Story = {
       </div>
     </div>
   ),
-}
+};

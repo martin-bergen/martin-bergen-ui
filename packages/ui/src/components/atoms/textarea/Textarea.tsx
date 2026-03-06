@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
-import { Textarea as TextareaPrimitive } from "../../../primitives/textarea"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Textarea as TextareaPrimitive } from "../../../primitives/textarea";
 
 const textareaVariants = cva(
   "rounded-xl bg-card px-4 py-3 transition-colors duration-200 focus-visible:border-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 resize-y",
@@ -23,22 +23,23 @@ const textareaVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  extends
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
     VariantProps<typeof textareaVariants> {
-  label?: string
-  description?: string
-  error?: string
-  placeholder?: string
-  maxLength?: number
-  showCount?: boolean
-  rows?: number
-  icon?: React.ReactNode
-  secondaryIcon?: React.ReactNode
-  actionButton?: React.ReactNode
+  label?: string;
+  description?: string;
+  error?: string;
+  placeholder?: string;
+  maxLength?: number;
+  showCount?: boolean;
+  rows?: number;
+  icon?: React.ReactNode;
+  secondaryIcon?: React.ReactNode;
+  actionButton?: React.ReactNode;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -62,12 +63,13 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       actionButton,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const textareaId = id || React.useId()
-    const errorId = `${textareaId}-error`
-    const descriptionId = `${textareaId}-description`
-    const characterCount = typeof value === "string" ? value.length : 0
+    const generatedId = React.useId();
+    const textareaId = id || generatedId;
+    const errorId = `${textareaId}-error`;
+    const descriptionId = `${textareaId}-description`;
+    const characterCount = typeof value === "string" ? value.length : 0;
 
     return (
       <div className="flex flex-col gap-2">
@@ -79,7 +81,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
-              error && "text-error"
+              error && "text-error",
             )}
           >
             {label}
@@ -99,7 +101,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             aria-invalid={!!error}
             aria-describedby={cn(
               error && errorId,
-              description && descriptionId
+              description && descriptionId,
             )}
             className={cn(
               textareaVariants({ variant, size }),
@@ -109,7 +111,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
               secondaryIcon && "pr-20",
               actionButton && !secondaryIcon && "pr-12",
               secondaryIcon && actionButton && "pr-20",
-              className
+              className,
             )}
             placeholder={placeholder}
             maxLength={maxLength}
@@ -144,7 +146,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                       "text-xs",
                       characterCount >= maxLength
                         ? "text-error"
-                        : "text-muted-foreground"
+                        : "text-muted-foreground",
                     )}
                   >
                     {characterCount}/{maxLength}
@@ -160,9 +162,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           </div>
         )}
       </div>
-    )
-  }
-)
-Textarea.displayName = "Textarea"
+    );
+  },
+);
+Textarea.displayName = "Textarea";
 
-export { Textarea, textareaVariants }
+export { Textarea, textareaVariants };

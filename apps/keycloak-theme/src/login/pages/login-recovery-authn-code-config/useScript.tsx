@@ -4,16 +4,16 @@ import { useEffect } from "react";
 import { useI18n } from "../../i18n";
 
 export function useScript(params: { olRecoveryCodesListId: string }) {
-    const { olRecoveryCodesListId } = params;
+  const { olRecoveryCodesListId } = params;
 
-    const { msgStr, isFetchingTranslations } = useI18n();
+  const { msgStr, isFetchingTranslations } = useI18n();
 
-    const { insertScriptTags } = useInsertScriptTags({
-        effectId: "LoginRecoveryAuthnCodeConfig",
-        scriptTags: [
-            {
-                type: "text/javascript",
-                textContent: () => `
+  const { insertScriptTags } = useInsertScriptTags({
+    effectId: "LoginRecoveryAuthnCodeConfig",
+    scriptTags: [
+      {
+        type: "text/javascript",
+        textContent: () => `
 
                     /* copy recovery codes  */
                     function copyRecoveryCodes() {
@@ -124,22 +124,22 @@ export function useScript(params: { olRecoveryCodesListId: string }) {
 
                     var printButton = document.getElementById("printRecoveryCodes");
                     printButton && printButton.addEventListener("click", printRecoveryCodes);
-                `
-            }
-        ]
-    });
+                `,
+      },
+    ],
+  });
 
-    useEffect(() => {
-        if (isFetchingTranslations) {
-            return;
-        }
+  useEffect(() => {
+    if (isFetchingTranslations) {
+      return;
+    }
 
-        (async () => {
-            await waitForElementMountedOnDom({
-                elementId: olRecoveryCodesListId
-            });
+    (async () => {
+      await waitForElementMountedOnDom({
+        elementId: olRecoveryCodesListId,
+      });
 
-            insertScriptTags();
-        })();
-    }, [isFetchingTranslations]);
+      insertScriptTags();
+    })();
+  }, [isFetchingTranslations]);
 }

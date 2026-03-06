@@ -20,10 +20,8 @@ export interface CarouselNavProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
   ({ className, total, activeIndex, onNavigate, ...props }, ref) => {
-    const prev = () =>
-      onNavigate((activeIndex - 1 + total) % total);
-    const next = () =>
-      onNavigate((activeIndex + 1) % total);
+    const prev = () => onNavigate((activeIndex - 1 + total) % total);
+    const next = () => onNavigate((activeIndex + 1) % total);
 
     return (
       <div
@@ -45,7 +43,7 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
               key={idx}
               className={cn(
                 "w-2 h-2 rounded-full transition-colors",
-                idx === activeIndex ? "bg-[#52B788]" : "bg-white/20"
+                idx === activeIndex ? "bg-[#52B788]" : "bg-white/20",
               )}
               onClick={() => onNavigate(idx)}
             />
@@ -61,6 +59,6 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
         </Button>
       </div>
     );
-  }
+  },
 );
 CarouselNav.displayName = "CarouselNav";

@@ -6,19 +6,19 @@ import { useI18n } from "../../i18n";
 import { useKcContext } from "../../KcContext";
 
 export function useScript(params: { webAuthnButtonId: string }) {
-    const { webAuthnButtonId } = params;
+  const { webAuthnButtonId } = params;
 
-    const { kcContext } = useKcContext();
-    assert(kcContext.pageId === "login-password.ftl");
+  const { kcContext } = useKcContext();
+  assert(kcContext.pageId === "login-password.ftl");
 
-    const { msgStr, isFetchingTranslations } = useI18n();
+  const { msgStr, isFetchingTranslations } = useI18n();
 
-    const { insertScriptTags } = useInsertScriptTags({
-        effectId: "LoginPassword",
-        scriptTags: [
-            {
-                type: "module",
-                textContent: () => `
+  const { insertScriptTags } = useInsertScriptTags({
+    effectId: "LoginPassword",
+    scriptTags: [
+      {
+        type: "module",
+        textContent: () => `
                     import { authenticateByWebAuthn } from "${import.meta.env.BASE_URL}keycloak-theme/login/js/webauthnAuthenticate.js";
                     import { initAuthenticate } from "${import.meta.env.BASE_URL}keycloak-theme/login/js/passkeysConditionalAuth.js";
 
@@ -41,22 +41,22 @@ export function useScript(params: { webAuthnButtonId: string }) {
                         ...input,
                         errmsg : ${JSON.stringify(msgStr("passkey-unsupported-browser-text"))}
                     });
-                `
-            }
-        ]
-    });
+                `,
+      },
+    ],
+  });
 
-    useEffect(() => {
-        if (isFetchingTranslations) {
-            return;
-        }
+  useEffect(() => {
+    if (isFetchingTranslations) {
+      return;
+    }
 
-        (async () => {
-            await waitForElementMountedOnDom({
-                elementId: webAuthnButtonId
-            });
+    (async () => {
+      await waitForElementMountedOnDom({
+        elementId: webAuthnButtonId,
+      });
 
-            insertScriptTags();
-        })();
-    }, [isFetchingTranslations]);
+      insertScriptTags();
+    })();
+  }, [isFetchingTranslations]);
 }

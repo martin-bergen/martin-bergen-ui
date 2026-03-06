@@ -1,19 +1,18 @@
-import * as React from "react"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import { cn } from "../../../lib/utils";
 
-export interface BergetSymbolProps
-  extends React.SVGAttributes<SVGSVGElement> {
+export interface BergetSymbolProps extends React.SVGAttributes<SVGSVGElement> {
   /** Size (height) of the symbol in pixels */
-  size?: number
+  size?: number;
   /** Color variant */
-  variant?: "light" | "dark"
+  variant?: "light" | "dark";
 }
 
 const BergetSymbol = React.forwardRef<SVGSVGElement, BergetSymbolProps>(
   ({ size = 48, variant = "light", className, ...props }, ref) => {
-    const aspectRatio = 463 / 419
-    const width = size * aspectRatio
-    const height = size
+    const aspectRatio = 463 / 419;
+    const width = size * aspectRatio;
+    const height = size;
 
     return (
       <svg
@@ -31,9 +30,9 @@ const BergetSymbol = React.forwardRef<SVGSVGElement, BergetSymbolProps>(
           fill={variant === "light" ? "#FFFFFF" : "#000000"}
         />
       </svg>
-    )
-  }
-)
-BergetSymbol.displayName = "BergetSymbol"
+    );
+  },
+);
+BergetSymbol.displayName = "BergetSymbol";
 
-export { BergetSymbol }
+export { BergetSymbol };

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Select } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { Select } from ".";
 
 const defaultOptions = [
   { value: "option1", label: "Option 1" },
   { value: "option2", label: "Option 2" },
   { value: "option3", label: "Option 3" },
-]
+];
 
 const meta: Meta<typeof Select> = {
   title: "Atoms/Select",
@@ -46,10 +46,10 @@ const meta: Meta<typeof Select> = {
       description: "Disabled state",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -64,32 +64,67 @@ export const Interactive: Story = {
       <Select {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="p-4 space-y-6">
-      <Select variant="default" label="Default" placeholder="Select..." options={defaultOptions} />
-      <Select variant="primary" label="Primary" placeholder="Select..." options={defaultOptions} />
-      <Select variant="subtle" label="Subtle" placeholder="Select..." options={defaultOptions} />
-      <Select variant="muted" label="Muted" placeholder="Select..." options={defaultOptions} />
+      <Select
+        variant="default"
+        label="Default"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
+      <Select
+        variant="primary"
+        label="Primary"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
+      <Select
+        variant="subtle"
+        label="Subtle"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
+      <Select
+        variant="muted"
+        label="Muted"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
     </div>
   ),
   args: { options: defaultOptions },
-}
+};
 
 export const AllSizes: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="p-4 space-y-6">
-      <Select size="sm" label="Small" placeholder="Select..." options={defaultOptions} />
-      <Select size="default" label="Default" placeholder="Select..." options={defaultOptions} />
-      <Select size="lg" label="Large" placeholder="Select..." options={defaultOptions} />
+      <Select
+        size="sm"
+        label="Small"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
+      <Select
+        size="default"
+        label="Default"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
+      <Select
+        size="lg"
+        label="Large"
+        placeholder="Select..."
+        options={defaultOptions}
+      />
     </div>
   ),
   args: { options: defaultOptions },
-}
+};
 
 export const WithError: Story = {
   parameters: { controls: { hide: true } },
@@ -111,4 +146,4 @@ export const WithError: Story = {
     </div>
   ),
   args: { options: defaultOptions },
-}
+};

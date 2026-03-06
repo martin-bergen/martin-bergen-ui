@@ -1,12 +1,6 @@
-import * as React from "react";
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from ".";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from ".";
 import { Home, Search, User } from "lucide-react";
 
 const meta: Meta<typeof Tabs> = {

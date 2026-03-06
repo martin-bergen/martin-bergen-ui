@@ -1,2 +1,2 @@
-export { PatternBackground } from "./PatternBackground"
-export type { PatternBackgroundProps } from "./PatternBackground"
+export { PatternBackground } from "./PatternBackground";
+export type { PatternBackgroundProps } from "./PatternBackground";

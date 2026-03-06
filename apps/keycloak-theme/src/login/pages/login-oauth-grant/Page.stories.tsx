@@ -1,32 +1,36 @@
-import { createKcPageStory, type Meta, type StoryObj } from "../../mocks/KcPageStory";
+import {
+  createKcPageStory,
+  type Meta,
+  type StoryObj,
+} from "../../mocks/KcPageStory";
 
 // Mock kcContext to simulate real environment
 const mockKcContext = {
-    url: {
-        oauthAction: "/oauth-action"
+  url: {
+    oauthAction: "/oauth-action",
+  },
+  oauth: {
+    clientScopesRequested: [
+      { consentScreenText: "Scope1", dynamicScopeParameter: "dynamicScope1" },
+      { consentScreenText: "Scope2" },
+    ],
+    code: "mockCode",
+  },
+  client: {
+    attributes: {
+      policyUri: "https://twitter.com/en/tos",
+      tosUri: "https://twitter.com/en/privacy",
     },
-    oauth: {
-        clientScopesRequested: [
-            { consentScreenText: "Scope1", dynamicScopeParameter: "dynamicScope1" },
-            { consentScreenText: "Scope2" }
-        ],
-        code: "mockCode"
-    },
-    client: {
-        attributes: {
-            policyUri: "https://twitter.com/en/tos",
-            tosUri: "https://twitter.com/en/privacy"
-        },
-        name: "Twitter",
-        clientId: "twitter-client-id"
-    }
+    name: "Twitter",
+    clientId: "twitter-client-id",
+  },
 };
 
 const { KcPageStory } = createKcPageStory({ pageId: "login-oauth-grant.ftl" });
 
 const meta = {
-    title: "login/login-oauth-grant.ftl",
-    component: KcPageStory
+  title: "login/login-oauth-grant.ftl",
+  component: KcPageStory,
 } satisfies Meta<typeof KcPageStory>;
 
 export default meta;
@@ -40,29 +44,29 @@ type Story = StoryObj<typeof meta>;
  * - Key Aspect: Ensures the component works with a realistic `logoUri` and client name.
  */
 export const Default: Story = {
-    args: {
-        kcContext: mockKcContext
-    }
+  args: {
+    kcContext: mockKcContext,
+  },
 };
 
 export const Arabic: Story = {
-    args: {
-        kcContext: {
-            locale: {
-                currentLanguageTag: "ar",
-                rtl: true
-            }
-        }
-    }
+  args: {
+    kcContext: {
+      locale: {
+        currentLanguageTag: "ar",
+        rtl: true,
+      },
+    },
+  },
 };
 export const French: Story = {
-    args: {
-        kcContext: {
-            locale: {
-                currentLanguageTag: "fr"
-            }
-        }
-    }
+  args: {
+    kcContext: {
+      locale: {
+        currentLanguageTag: "fr",
+      },
+    },
+  },
 };
 
 /**
@@ -72,15 +76,15 @@ export const French: Story = {
  * - Key Aspect: Ensures the component renders correctly when there are no requested scopes.
  */
 export const WithoutScopes: Story = {
-    args: {
-        kcContext: {
-            ...mockKcContext,
-            oauth: {
-                ...mockKcContext.oauth,
-                clientScopesRequested: []
-            }
-        }
-    }
+  args: {
+    kcContext: {
+      ...mockKcContext,
+      oauth: {
+        ...mockKcContext.oauth,
+        clientScopesRequested: [],
+      },
+    },
+  },
 };
 
 /**
@@ -90,16 +94,16 @@ export const WithoutScopes: Story = {
  * - Key Aspect: Ensures that the component can display error messages when form submission fails.
  */
 export const WithFormSubmissionError: Story = {
-    args: {
-        kcContext: {
-            ...mockKcContext,
-            url: {
-                oauthAction: "/error"
-            },
-            message: {
-                type: "error",
-                summary: "An error occurred during form submission."
-            }
-        }
-    }
+  args: {
+    kcContext: {
+      ...mockKcContext,
+      url: {
+        oauthAction: "/error",
+      },
+      message: {
+        type: "error",
+        summary: "An error occurred during form submission.",
+      },
+    },
+  },
 };

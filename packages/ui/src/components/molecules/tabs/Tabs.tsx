@@ -1,13 +1,13 @@
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
 import {
   Tabs as TabsBase,
   TabsList as TabsListBase,
   TabsTrigger as TabsTriggerBase,
   TabsContent as TabsContentBase,
-} from "../../../primitives/tabs"
+} from "../../../primitives/tabs";
 
 const tabListVariants = cva(
   "inline-flex items-center justify-center rounded-xl border bg-cloud/5 p-1 transition-all duration-200",
@@ -29,8 +29,8 @@ const tabListVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 const tabTriggerVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
@@ -56,33 +56,34 @@ const tabTriggerVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 const tabContentVariants = cva(
   "mt-4 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
   {
     variants: {},
     defaultVariants: {},
-  }
-)
+  },
+);
 
 type TabsStyleContextValue = {
-  variant: VariantProps<typeof tabListVariants>["variant"]
-  size: VariantProps<typeof tabListVariants>["size"]
-}
+  variant: VariantProps<typeof tabListVariants>["variant"];
+  size: VariantProps<typeof tabListVariants>["size"];
+};
 
 const TabsStyleContext = React.createContext<TabsStyleContextValue>({
   variant: "default",
   size: "default",
-})
+});
 
-export interface TabsProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> {
-  variant?: VariantProps<typeof tabListVariants>["variant"]
-  size?: VariantProps<typeof tabListVariants>["size"]
-  label?: string
-  description?: string
+export interface TabsProps extends React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.Root
+> {
+  variant?: VariantProps<typeof tabListVariants>["variant"];
+  size?: VariantProps<typeof tabListVariants>["size"];
+  label?: string;
+  description?: string;
 }
 
 const Tabs = React.forwardRef<
@@ -99,7 +100,7 @@ const Tabs = React.forwardRef<
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <TabsStyleContext.Provider value={{ variant, size }}>
@@ -121,19 +122,20 @@ const Tabs = React.forwardRef<
           {children}
         </TabsBase>
       </TabsStyleContext.Provider>
-    )
-  }
-)
-Tabs.displayName = "Tabs"
+    );
+  },
+);
+Tabs.displayName = "Tabs";
 
-export interface TabsListProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> {}
+export type TabsListProps = React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.List
+>;
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
 >(({ className, ...props }, ref) => {
-  const { variant, size } = React.useContext(TabsStyleContext)
+  const { variant, size } = React.useContext(TabsStyleContext);
 
   return (
     <TabsListBase
@@ -141,20 +143,21 @@ const TabsList = React.forwardRef<
       className={cn(tabListVariants({ variant, size }), className)}
       {...props}
     />
-  )
-})
-TabsList.displayName = "TabsList"
+  );
+});
+TabsList.displayName = "TabsList";
 
-export interface TabsTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
-  icon?: React.ReactNode
+export interface TabsTriggerProps extends React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.Trigger
+> {
+  icon?: React.ReactNode;
 }
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TabsTriggerProps
 >(({ className, icon, children, ...props }, ref) => {
-  const { variant, size } = React.useContext(TabsStyleContext)
+  const { variant, size } = React.useContext(TabsStyleContext);
 
   return (
     <TabsTriggerBase
@@ -162,19 +165,20 @@ const TabsTrigger = React.forwardRef<
       className={cn(
         tabTriggerVariants({ variant, size }),
         "flex items-center gap-2",
-        className
+        className,
       )}
       {...props}
     >
       {icon && <span className="flex-shrink-0">{icon}</span>}
       {children}
     </TabsTriggerBase>
-  )
-})
-TabsTrigger.displayName = "TabsTrigger"
+  );
+});
+TabsTrigger.displayName = "TabsTrigger";
 
-export interface TabsContentProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> {}
+export type TabsContentProps = React.ComponentPropsWithoutRef<
+  typeof TabsPrimitive.Content
+>;
 
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
@@ -185,8 +189,8 @@ const TabsContent = React.forwardRef<
     className={cn(tabContentVariants(), className)}
     {...props}
   />
-))
-TabsContent.displayName = "TabsContent"
+));
+TabsContent.displayName = "TabsContent";
 
 export {
   Tabs,
@@ -196,4 +200,4 @@ export {
   tabListVariants,
   tabTriggerVariants,
   tabContentVariants,
-}
+};

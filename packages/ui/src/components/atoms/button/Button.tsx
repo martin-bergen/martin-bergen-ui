@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
-import { Button as ButtonPrimitive } from "../../../primitives/button"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Button as ButtonPrimitive } from "../../../primitives/button";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50",
@@ -10,8 +10,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-cloud text-slate shadow-lg hover:bg-cloud/90 hover:shadow-xl",
-        primary:
-          "bg-moss text-peak shadow-lg hover:bg-moss/90 hover:shadow-xl",
+        primary: "bg-moss text-peak shadow-lg hover:bg-moss/90 hover:shadow-xl",
         secondary:
           "bg-lichen text-night shadow hover:bg-lichen/80 hover:shadow-lg",
         outline:
@@ -42,18 +41,22 @@ const buttonVariants = cva(
       size: "default",
       width: "default",
     },
-  }
-)
+  },
+);
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, width, asChild = false, children, ...props }, ref) => {
-    const isHighlight = variant === "highlight"
+  (
+    { className, variant, size, width, asChild = false, children, ...props },
+    ref,
+  ) => {
+    const isHighlight = variant === "highlight";
 
     if (asChild) {
       return (
@@ -65,7 +68,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         >
           {children}
         </ButtonPrimitive>
-      )
+      );
     }
 
     return (
@@ -80,13 +83,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,hsl(var(--cloud))_0%,transparent_92.4%)] opacity-[0.3] pointer-events-none" />
           </>
         )}
-        <span className={cn("inline-flex items-center", isHighlight && "relative z-10")}>
+        <span
+          className={cn(
+            "inline-flex items-center",
+            isHighlight && "relative z-10",
+          )}
+        >
           {children}
         </span>
       </ButtonPrimitive>
-    )
-  }
-)
-Button.displayName = "Button"
+    );
+  },
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
-import { Separator } from "../../../primitives/separator"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Separator } from "../../../primitives/separator";
 
 const dividerVariants = cva("", {
   variants: {
@@ -22,14 +22,15 @@ const dividerVariants = cva("", {
     variant: "default",
     size: "thin",
   },
-})
+});
 
 export interface DividerProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof dividerVariants> {
-  orientation?: "horizontal" | "vertical"
-  label?: string
-  labelPosition?: "center" | "left" | "right"
+  orientation?: "horizontal" | "vertical";
+  label?: string;
+  labelPosition?: "center" | "left" | "right";
 }
 
 const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
@@ -43,7 +44,7 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
       labelPosition = "center",
       ...props
     },
-    ref
+    ref,
   ) => {
     if (label) {
       return (
@@ -55,10 +56,7 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
           {labelPosition !== "right" && (
             <Separator
               orientation="horizontal"
-              className={cn(
-                dividerVariants({ variant, size }),
-                "flex-1"
-              )}
+              className={cn(dividerVariants({ variant, size }), "flex-1")}
             />
           )}
           <span className="px-4 text-sm text-muted-foreground whitespace-nowrap">
@@ -67,14 +65,11 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
           {labelPosition !== "left" && (
             <Separator
               orientation="horizontal"
-              className={cn(
-                dividerVariants({ variant, size }),
-                "flex-1"
-              )}
+              className={cn(dividerVariants({ variant, size }), "flex-1")}
             />
           )}
         </div>
-      )
+      );
     }
 
     return (
@@ -84,12 +79,12 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
         className={cn(
           dividerVariants({ variant, size }),
           orientation === "vertical" && "h-full !w-[1px]",
-          className
+          className,
         )}
       />
-    )
-  }
-)
-Divider.displayName = "Divider"
+    );
+  },
+);
+Divider.displayName = "Divider";
 
-export { Divider, dividerVariants }
+export { Divider, dividerVariants };

@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
-import { Badge } from "../../atoms/badge"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Badge } from "../../atoms/badge";
 
 const sectionHeaderVariants = cva("text-center", {
   variants: {
@@ -20,15 +20,16 @@ const sectionHeaderVariants = cva("text-center", {
     alignment: "center",
     size: "md",
   },
-})
+});
 
 export interface SectionHeaderProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof sectionHeaderVariants> {
-  title: string
-  description?: string
-  tagline?: string
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "full"
+  title: string;
+  description?: string;
+  tagline?: string;
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "full";
 }
 
 const maxWidthClasses = {
@@ -37,7 +38,7 @@ const maxWidthClasses = {
   lg: "max-w-4xl",
   xl: "max-w-5xl",
   full: "max-w-full",
-}
+};
 
 const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
   (
@@ -51,7 +52,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
       maxWidth = "md",
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <div
@@ -60,7 +61,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           sectionHeaderVariants({ alignment, size }),
           maxWidthClasses[maxWidth],
           (alignment === "center" || alignment === undefined) && "mx-auto",
-          className
+          className,
         )}
         {...props}
       >
@@ -78,9 +79,9 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           </p>
         )}
       </div>
-    )
-  }
-)
-SectionHeader.displayName = "SectionHeader"
+    );
+  },
+);
+SectionHeader.displayName = "SectionHeader";
 
-export { SectionHeader, sectionHeaderVariants }
+export { SectionHeader, sectionHeaderVariants };

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Divider } from "."
+import type { Meta, StoryObj } from "@storybook/react";
+import { Divider } from ".";
 
 const meta: Meta<typeof Divider> = {
   title: "Atoms/Divider",
@@ -34,10 +34,10 @@ const meta: Meta<typeof Divider> = {
       description: "Label position",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
   args: {
@@ -50,7 +50,7 @@ export const Interactive: Story = {
       <Divider {...args} />
     </div>
   ),
-}
+};
 
 export const AllVariants: Story = {
   parameters: { controls: { hide: true } },
@@ -78,7 +78,7 @@ export const AllVariants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const WithLabels: Story = {
   parameters: { controls: { hide: true } },
@@ -90,7 +90,7 @@ export const WithLabels: Story = {
       <Divider label="Primary" variant="primary" />
     </div>
   ),
-}
+};
 
 export const Orientations: Story = {
   parameters: { controls: { hide: true } },
@@ -110,4 +110,4 @@ export const Orientations: Story = {
       </div>
     </div>
   ),
-}
+};

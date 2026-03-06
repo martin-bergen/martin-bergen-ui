@@ -1,5 +1,5 @@
 import { Input } from "@berget-ai/ui";
-import { InputGroupInput } from '@/components/ui/input-group';
+import { InputGroupInput } from "@/components/ui/input-group";
 import { assert } from "tsafe/assert";
 import { useI18n } from "../../i18n";
 import { AddRemoveButtonsMultiValuedAttribute } from "./AddRemoveButtonsMultiValuedAttribute";
@@ -7,131 +7,133 @@ import { FieldErrors } from "./FieldErrors";
 import type { InputFieldByTypeProps } from "./InputFieldByType";
 
 export function InputTag(
-    props: InputFieldByTypeProps & { fieldIndex: number | undefined; isInGroup?: boolean }
+  props: InputFieldByTypeProps & {
+    fieldIndex: number | undefined;
+    isInGroup?: boolean;
+  },
 ) {
-    const {
-        attribute,
-        fieldIndex,
-        dispatchFormAction,
-        valueOrValues,
-        displayableErrors,
-        isInGroup = false
-    } = props;
+  const {
+    attribute,
+    fieldIndex,
+    dispatchFormAction,
+    valueOrValues,
+    displayableErrors,
+    isInGroup = false,
+  } = props;
 
-    const { advancedMsgStr } = useI18n();
+  const { advancedMsgStr } = useI18n();
 
+  const InputComponent = isInGroup ? InputGroupInput : Input;
+  return (
+    <>
+      <InputComponent
+        type={(() => {
+          const { inputType } = attribute.annotations;
 
-    const InputComponent = isInGroup ? InputGroupInput : Input;
-    return (
-        <>
-            <InputComponent
-                type={(() => {
-                    const { inputType } = attribute.annotations;
+          if (inputType?.startsWith("html5-")) {
+            return inputType.slice(6);
+          }
 
-                    if (inputType?.startsWith("html5-")) {
-                        return inputType.slice(6);
-                    }
+          return inputType ?? "text";
+        })()}
+        id={attribute.name}
+        name={attribute.name}
+        value={(() => {
+          if (fieldIndex !== undefined) {
+            assert(valueOrValues instanceof Array);
+            return valueOrValues[fieldIndex];
+          }
 
-                    return inputType ?? "text";
-                })()}
-                id={attribute.name}
-                name={attribute.name}
-                value={(() => {
-                    if (fieldIndex !== undefined) {
-                        assert(valueOrValues instanceof Array);
-                        return valueOrValues[fieldIndex];
-                    }
+          assert(typeof valueOrValues === "string");
 
-                    assert(typeof valueOrValues === "string");
-
-                    return valueOrValues;
-                })()}
-                aria-invalid={displayableErrors.length !== 0}
-                disabled={attribute.readOnly}
-                autoComplete={attribute.autocomplete}
-                placeholder={
-                    attribute.annotations.inputTypePlaceholder === undefined
-                        ? undefined
-                        : advancedMsgStr(attribute.annotations.inputTypePlaceholder)
-                }
-                pattern={attribute.annotations.inputTypePattern}
-                size={
-                    attribute.annotations.inputTypeSize === undefined
-                        ? undefined
-                        : parseInt(`${attribute.annotations.inputTypeSize}`)
-                }
-                maxLength={
-                    attribute.annotations.inputTypeMaxlength === undefined
-                        ? undefined
-                        : parseInt(`${attribute.annotations.inputTypeMaxlength}`)
-                }
-                minLength={
-                    attribute.annotations.inputTypeMinlength === undefined
-                        ? undefined
-                        : parseInt(`${attribute.annotations.inputTypeMinlength}`)
-                }
-                max={attribute.annotations.inputTypeMax}
-                min={attribute.annotations.inputTypeMin}
-                step={attribute.annotations.inputTypeStep}
-                {...Object.fromEntries(
-                    Object.entries(attribute.html5DataAnnotations ?? {}).map(
-                        ([key, value]) => [`data-${key}`, value]
-                    )
-                )}
-                onChange={event =>
-                    dispatchFormAction({
-                        action: "update",
-                        name: attribute.name,
-                        valueOrValues: (() => {
-                            if (fieldIndex !== undefined) {
-                                assert(valueOrValues instanceof Array);
-
-                                return valueOrValues.map((value, i) => {
-                                    if (i === fieldIndex) {
-                                        return event.target.value;
-                                    }
-
-                                    return value;
-                                });
-                            }
-
-                            return event.target.value;
-                        })()
-                    })
-                }
-                onBlur={() =>
-                    dispatchFormAction({
-                        action: "focus lost",
-                        name: attribute.name,
-                        fieldIndex: fieldIndex
-                    })
-                }
-            />
-            {(() => {
-                if (fieldIndex === undefined) {
-                    return null;
-                }
-
+          return valueOrValues;
+        })()}
+        aria-invalid={displayableErrors.length !== 0}
+        disabled={attribute.readOnly}
+        autoComplete={attribute.autocomplete}
+        placeholder={
+          attribute.annotations.inputTypePlaceholder === undefined
+            ? undefined
+            : advancedMsgStr(attribute.annotations.inputTypePlaceholder)
+        }
+        pattern={attribute.annotations.inputTypePattern}
+        size={
+          attribute.annotations.inputTypeSize === undefined
+            ? undefined
+            : parseInt(`${attribute.annotations.inputTypeSize}`)
+        }
+        maxLength={
+          attribute.annotations.inputTypeMaxlength === undefined
+            ? undefined
+            : parseInt(`${attribute.annotations.inputTypeMaxlength}`)
+        }
+        minLength={
+          attribute.annotations.inputTypeMinlength === undefined
+            ? undefined
+            : parseInt(`${attribute.annotations.inputTypeMinlength}`)
+        }
+        max={attribute.annotations.inputTypeMax}
+        min={attribute.annotations.inputTypeMin}
+        step={attribute.annotations.inputTypeStep}
+        {...Object.fromEntries(
+          Object.entries(attribute.html5DataAnnotations ?? {}).map(
+            ([key, value]) => [`data-${key}`, value],
+          ),
+        )}
+        onChange={(event) =>
+          dispatchFormAction({
+            action: "update",
+            name: attribute.name,
+            valueOrValues: (() => {
+              if (fieldIndex !== undefined) {
                 assert(valueOrValues instanceof Array);
 
-                const values = valueOrValues;
+                return valueOrValues.map((value, i) => {
+                  if (i === fieldIndex) {
+                    return event.target.value;
+                  }
 
-                return (
-                    <>
-                        <FieldErrors
-                            attribute={attribute}
-                            displayableErrors={displayableErrors}
-                            fieldIndex={fieldIndex}
-                        />
-                        <AddRemoveButtonsMultiValuedAttribute
-                            attribute={attribute}
-                            values={values}
-                            fieldIndex={fieldIndex}
-                            dispatchFormAction={dispatchFormAction}
-                        />
-                    </>
-                );
-            })()}
-        </>
-    );
+                  return value;
+                });
+              }
+
+              return event.target.value;
+            })(),
+          })
+        }
+        onBlur={() =>
+          dispatchFormAction({
+            action: "focus lost",
+            name: attribute.name,
+            fieldIndex: fieldIndex,
+          })
+        }
+      />
+      {(() => {
+        if (fieldIndex === undefined) {
+          return null;
+        }
+
+        assert(valueOrValues instanceof Array);
+
+        const values = valueOrValues;
+
+        return (
+          <>
+            <FieldErrors
+              attribute={attribute}
+              displayableErrors={displayableErrors}
+              fieldIndex={fieldIndex}
+            />
+            <AddRemoveButtonsMultiValuedAttribute
+              attribute={attribute}
+              values={values}
+              fieldIndex={fieldIndex}
+              dispatchFormAction={dispatchFormAction}
+            />
+          </>
+        );
+      })()}
+    </>
+  );
 }

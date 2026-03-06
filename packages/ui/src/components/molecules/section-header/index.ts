@@ -1,2 +1,2 @@
-export { SectionHeader, sectionHeaderVariants } from "./SectionHeader"
-export type { SectionHeaderProps } from "./SectionHeader"
+export { SectionHeader, sectionHeaderVariants } from "./SectionHeader";
+export type { SectionHeaderProps } from "./SectionHeader";
