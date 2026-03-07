@@ -14,7 +14,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles": "./dist/styles/index.css"
+    "./styles": "./dist/styles/index.css",
+    "./shiki": "./src/lib/shiki.ts"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

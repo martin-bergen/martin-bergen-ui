@@ -22,9 +22,6 @@ export type { BergetSymbolProps } from "./components/atoms/berget-symbol";
 export { Button, buttonVariants } from "./components/atoms/button";
 export type { ButtonProps } from "./components/atoms/button";
 
-export { ChatInput } from "./components/atoms/chat-input";
-export type { ChatInputProps } from "./components/atoms/chat-input";
-
 export {
   Card,
   CardHeader,
@@ -125,6 +122,9 @@ export type {
 
 export { Textarea, textareaVariants } from "./components/atoms/textarea";
 export type { TextareaProps } from "./components/atoms/textarea";
+
+export { ChatInput } from "./components/molecules/chat-input";
+export type { ChatInputProps } from "./components/molecules/chat-input";
 
 // Organisms
 export { AIChatBox } from "./components/organisms/ai-chat-box";

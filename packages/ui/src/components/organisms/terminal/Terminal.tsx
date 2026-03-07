@@ -67,10 +67,10 @@ const syntaxHighlight = (command: string): React.ReactNode => {
     let highlighted = parts.map((part, index) => {
         if (part.match(/^\s+$/)) return part;
         if (keywords.includes(part)) {
-            return <span key={index} className="text-[#FF79C6]">{part}</span>;
+            return <span key={index} className="text-[hsl(var(--terminal-keyword))]">{part}</span>;
         }
         if (part.startsWith("-") || flags.includes(part)) {
-            return <span key={index} className="text-[#8BE9FD]">{part}</span>;
+            return <span key={index} className="text-[hsl(var(--terminal-flag))]">{part}</span>;
         }
         return part;
     });
@@ -208,7 +208,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
             if (line && line.startsWith("✓")) {
                 icon = (
                     <CheckCircle2
-                        className="w-7 h-7 text-[#22C55E] mt-0.5 flex-shrink-0"
+                        className="w-7 h-7 text-[hsl(var(--terminal-success))] mt-0.5 flex-shrink-0"
                         strokeWidth={2}
                     />
                 );
@@ -216,7 +216,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
             } else if (line && line.startsWith("✗")) {
                 icon = (
                     <XCircle
-                        className="w-7 h-7 text-red-400 mt-0.5 flex-shrink-0"
+                        className="w-7 h-7 text-[hsl(var(--terminal-error))] mt-0.5 flex-shrink-0"
                         strokeWidth={2}
                     />
                 );
@@ -224,7 +224,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
             } else if (line && line.startsWith("⚠")) {
                 icon = (
                     <AlertCircle
-                        className="w-7 h-7 text-[#FBB034] mt-0.5 flex-shrink-0"
+                        className="w-7 h-7 text-[hsl(var(--terminal-warning))] mt-0.5 flex-shrink-0"
                         strokeWidth={2}
                     />
                 );
@@ -260,9 +260,9 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
                         <span className="text-xs text-white/60 font-mono">Terminal</span>
                     </div>
                     <div className="flex gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#FBB034]/60" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]/60" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--terminal-error))/60]" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--terminal-warning))/60]" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-[hsl(var(--terminal-success))/60]" />
                     </div>
                 </div>
 
@@ -274,7 +274,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
                     {/* Completed steps */}
                     {completedSteps.map((step, stepIndex) => (
                         <div key={stepIndex} className="mb-4">
-                            <div className="flex items-center gap-2 text-[#52B788]">
+                            <div className="flex items-center gap-2 text-[hsl(var(--terminal-command))]">
                                 <span className="text-white/50">$</span>
                                 <span>{enableSyntaxHighlight ? syntaxHighlight(step.command) : step.command}</span>
                             </div>
@@ -287,12 +287,12 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
                     {/* Current step */}
                     {currentStep < steps.length && (
                         <div>
-                            <div className="flex items-center gap-2 text-[#52B788]">
+                            <div className="flex items-center gap-2 text-[hsl(var(--terminal-command))]">
                                 <span className="text-white/50">$</span>
                                 <span>{enableSyntaxHighlight ? syntaxHighlight(typedCommand) : typedCommand}</span>
                                 {typedCommand.length <
                                     steps[currentStep].command.length && (
-                                    <span className="inline-block w-2 h-4 bg-[#52B788] animate-pulse" />
+                                    <span className="inline-block w-2 h-4 bg-[hsl(var(--terminal-command))] animate-pulse" />
                                 )}
                             </div>
                             {showOutput && (

@@ -33,6 +33,24 @@
   --color-error: hsl(var(--error));
   --color-info: hsl(var(--info));
 
+  /* Terminal colors */
+  --color-terminal-keyword: hsl(var(--terminal-keyword));
+  --color-terminal-flag: hsl(var(--terminal-flag));
+  --color-terminal-success: hsl(var(--terminal-success));
+  --color-terminal-error: hsl(var(--terminal-error));
+  --color-terminal-warning: hsl(var(--terminal-warning));
+  --color-terminal-command: hsl(var(--terminal-command));
+
+  /* Feature card tokens */
+  --spacing-feature-card-padding-vertical: 48px;
+  --spacing-feature-card-padding-horizontal: 40px;
+  --spacing-feature-card-gap: 32px;
+  --font-size-feature-title: 40px;
+  --line-height-feature-title: 56px;
+  --letter-spacing-feature-title: -0.03em;
+  --font-size-feature-description: 16px;
+  --line-height-feature-description: 24px;
+
   /* Float animations for GrainyGradientBackground */
   --animate-float-slow: float-slow 20s ease-in-out infinite;
   --animate-float-medium: float-medium 14s ease-in-out infinite;
@@ -95,6 +113,14 @@
     --border-success: 151 44% 52% / 0.5;
     --border-warning: 71 100% 75% / 0.5;
     --border-destructive: 6 74% 50% / 0.5;
+
+    /* Terminal colors */
+    --terminal-keyword: 255 121 198;
+    --terminal-flag: 139 233 253;
+    --terminal-success: 34 197 94;
+    --terminal-error: 248 113 113;
+    --terminal-warning: 251 176 52;
+    --terminal-command: 82 183 136;
   }
 
   .light,
@@ -152,6 +178,14 @@
     --border-success: 151 44% 52% / 0.5;
     --border-warning: 71 100% 75% / 0.5;
     --border-destructive: 6 74% 50% / 0.5;
+
+    /* Terminal colors */
+    --terminal-keyword: 255 121 198;
+    --terminal-flag: 139 233 253;
+    --terminal-success: 34 197 94;
+    --terminal-error: 248 113 113;
+    --terminal-warning: 251 176 52;
+    --terminal-command: 82 183 136;
   }
 }
 

@@ -11,9 +11,9 @@ const heroBlockVariants = cva(
         variants: {
             variant: {
                 default: "bg-gradient-to-b from-background to-background/50",
-                moss: "bg-gradient-to-b from-[#2D6A4F]/30 via-background to-background",
+                moss: "bg-gradient-to-b from-spruce/30 via-background to-background",
                 gradient:
-                    "bg-gradient-to-br from-[#2D6A4F]/20 via-background to-[#40916C]/10"
+                    "bg-gradient-to-br from-spruce/20 via-background to-moss/10"
             },
             withPattern: {
                 true: "",
@@ -122,7 +122,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
                 <div className="absolute inset-0 pointer-events-none">
                     {withPattern && <PatternBackground tileSize={32} overlayOnly />}
                     {variant === "moss" && (
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(45,106,79,0.15)_0%,transparent_70%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--spruce)/0.15)_0%,transparent_70%)]" />
                     )}
                 </div>
 

@@ -29,11 +29,17 @@ const badgeVariants = cva(
         sm: "text-xs h-5",
         md: "text-sm h-6",
       },
+      iconGap: {
+        none: "gap-0",
+        sm: "gap-1",
+        md: "gap-2",
+      },
     },
     defaultVariants: {
       variant: "default",
       status: "default",
       size: "md",
+      iconGap: "md",
     },
   }
 )
@@ -42,16 +48,15 @@ export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
   icon?: IconComponent
-  iconGap?: number
 }
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-  ({ className, variant, status, size, icon: Icon, iconGap = 2, children, ...props }, ref) => {
+  ({ className, variant, status, size, iconGap, icon: Icon, children, ...props }, ref) => {
     const iconSize = size === "sm" ? "size-3" : "size-4"
 
     return (
       <div
-        className={cn(badgeVariants({ variant, status, size }), className)}
+        className={cn(badgeVariants({ variant, status, size, iconGap: children ? iconGap : "none" }), className)}
         ref={ref}
         {...props}
       >
@@ -59,7 +64,6 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
           <Icon
             className={iconSize}
             strokeWidth={1.5}
-            style={{ marginRight: children ? `${iconGap * 0.25}rem` : "0" }}
           />
         )}
         {children}
