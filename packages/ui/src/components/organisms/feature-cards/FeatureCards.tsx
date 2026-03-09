@@ -110,12 +110,12 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
         ref={ref}
         variant="highlight"
         className={cn(
-          "w-full min-w-[280px] max-w-[413px] p-[48px_40px]",
+          "w-full min-w-[280px] max-w-[413px] py-[var(--spacing-feature-card-padding-vertical)] px-[var(--spacing-feature-card-padding-horizontal)]",
           className,
         )}
         {...props}
       >
-        <div className="flex flex-col items-start gap-[32px]">
+        <div className="flex flex-col items-start gap-[var(--spacing-feature-card-gap)]">
           {/* Icon and badge on same row */}
           {(Icon || badge) && (
             <div className="flex items-center justify-between w-full">
@@ -138,11 +138,11 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             </div>
           )}
 
-          <h3 className="text-[40px] leading-[56px] tracking-[-0.03em] text-foreground font-normal font-['Ovo']">
+          <h3 className="text-[var(--font-size-feature-title)] leading-[var(--line-height-feature-title)] tracking-[var(--letter-spacing-feature-title)] text-foreground font-normal font-[\'Ovo\']">
             {title}
           </h3>
 
-          <p className="text-base leading-6 text-foreground/80 font-normal font-['DM_Sans']">
+          <p className="text-[var(--font-size-feature-description)] leading-[var(--line-height-feature-description)] text-foreground/80 font-normal font-[\'DM_Sans\']">
             {description}
           </p>
 
