@@ -1,173 +1,169 @@
 @theme {
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-input: hsl(var(--input));
-  --color-border: hsl(var(--border));
-  --color-ring: hsl(var(--ring));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-
-  /* Brand colors */
-  --color-moss: hsl(var(--moss));
-  --color-lichen: hsl(var(--lichen));
-  --color-spruce: hsl(var(--spruce));
-  --color-fjord: hsl(var(--fjord));
-  --color-peak: hsl(var(--peak));
-  --color-cloud: hsl(var(--cloud));
-  --color-slate: hsl(var(--slate));
-  --color-night: hsl(var(--night));
-
-  /* Semantic status colors */
-  --color-success: hsl(var(--success));
-  --color-warning: hsl(var(--warning));
-  --color-error: hsl(var(--error));
-  --color-info: hsl(var(--info));
-
-  /* Feature card tokens */
-  --spacing-feature-card-padding-vertical: 48px;
-  --spacing-feature-card-padding-horizontal: 40px;
-  --spacing-feature-card-gap: 32px;
-  --font-size-feature-title: 40px;
-  --line-height-feature-title: 56px;
-  --letter-spacing-feature-title: -0.03em;
-  --font-size-feature-description: 16px;
-  --line-height-feature-description: 24px;
-
-  /* Float animations for GrainyGradientBackground */
-  --animate-float-slow: float-slow 20s ease-in-out infinite;
-  --animate-float-medium: float-medium 14s ease-in-out infinite;
-  --animate-float-fast: float-fast 8s ease-in-out infinite;
+    --brand-moss: 151 44% 52;
+    --brand-lichen: 151 37% 63;
+    --brand-spruce: 153 38% 30;
+    --brand-fjord: 204 67% 21;
+    --brand-peak: 0 0% 100;
+    --brand-cloud: 25 10% 84;
+    --brand-slate: 0 0% 10;
+    --brand-night: 0 0% 4;
+    --semantic-success: 151 44% 52;
+    --semantic-warning: 71 100% 75;
+    --semantic-error: 6 74% 50;
+    --semantic-info: 217 68% 53;
+    --borders-base: 25 10% 84 / 0.05;
+    --borders-hover: 25 10% 84 / 0.1;
+    --borders-strong: 25 10% 84 / 0.08;
+    --borders-primary: 151 44% 52 / 0.2;
+    --borders-moss: 151 44% 52 / 0.2;
+    --borders-lichen: 151 37% 63 / 0.2;
+    --borders-spruce: 153 38% 30 / 0.2;
+    --borders-fjord: 204 67% 21 / 0.2;
+    --borders-cloud: 25 10% 84 / 0.2;
+    --borders-info: 217 68% 53 / 0.5;
+    --borders-success: 151 44% 52 / 0.5;
+    --borders-warning: 71 100% 75 / 0.5;
+    --borders-destructive: 6 74% 50 / 0.5;
+    --ui-background: 0 0% 4;
+    --ui-foreground: 0 0% 100;
+    --ui-primary: 151 44% 52;
+    --ui-primaryForeground: 0 0% 100;
+    --ui-secondary: 151 37% 63;
+    --ui-secondaryForeground: 0 0% 4;
+    --ui-accent: 204 67% 21;
+    --ui-accentForeground: 0 0% 100;
+    --ui-muted: 0 0% 10;
+    --ui-mutedForeground: 25 10% 84 / 0.6;
+    --ui-card: 0 0% 7;
+    --ui-cardForeground: 0 0% 100;
+    --ui-input: 0 0% 15;
+    --ui-destructive: 6 74% 50;
+    --ui-destructiveForeground: 0 0% 100;
+    --ui-ring: 151 44% 52;
+  --spacing-featureCard-paddingVertical: 48px;
+  --spacing-featureCard-paddingHorizontal: 40px;
+  --spacing-featureCard-gap: 32px;
+  --font-feature-title-size: 40px;
+  --font-feature-title-line-height: 56px;
+  --font-feature-title-letter-spacing: -0.03em;
+  --font-feature-description-size: 16px;
+  --font-feature-description-line-height: 24px;
+  --font-heading-h1-size: 64px;
+  --font-heading-h1-line-height: 1.1;
+  --font-heading-h2-size: 40px;
+  --font-heading-h2-line-height: 1.2;
+  --font-heading-h3-size: 24px;
+  --font-heading-h3-line-height: 1.4;
+  --font-body-base-size: 16px;
+  --font-body-base-line-height: 1.5;
+  --font-body-small-size: 14px;
+  --font-body-small-line-height: 1.5;
+  --radius-full: 9999px;
+  --radius-xl: 1rem;
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --animate-slow: float-slow 20s ease-in-out infinite;
+  --animate-medium: float-medium 14s ease-in-out infinite;
+  --animate-fast: float-fast 8s ease-in-out infinite;
 }
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --primary: 151 44% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 151 37% 63%;
-    --secondary-foreground: 0 0% 4%;
-    --accent: 204 67% 21%;
-    --accent-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 25 10% 84% / 0.6;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
-    --input: 0 0% 15%;
-    --destructive: 6 74% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 25 10% 84% / 0.05;
-    --border-hover: 25 10% 84% / 0.1;
-    --border-strong: 25 10% 84% / 0.08;
-    --ring: 151 44% 52%;
-    --radius: 0.5rem;
-
-    /* Brand colors */
-    --moss: 151 44% 52%;
-    --lichen: 151 37% 63%;
-    --spruce: 153 38% 30%;
-    --fjord: 204 67% 21%;
-    --peak: 0 0% 100%;
-    --cloud: 25 10% 84%;
-    --slate: 0 0% 10%;
-    --night: 0 0% 4%;
-
-    /* Semantic status colors */
-    --success: 151 44% 52%;
-    --success-foreground: 0 0% 100%;
-    --warning: 71 100% 75%;
-    --warning-foreground: 0 0% 10%;
-    --error: 6 74% 50%;
-    --info: 217 68% 53%;
-    --info-foreground: 0 0% 100%;
-
-    /* Themed borders */
-    --border-moss: 151 44% 52% / 0.2;
-    --border-lichen: 151 37% 63% / 0.2;
-    --border-spruce: 153 38% 30% / 0.2;
-    --border-fjord: 204 67% 21% / 0.2;
-    --border-cloud: 25 10% 84% / 0.2;
-
-    /* Alert border colors */
-    --border-info: 217 68% 53% / 0.5;
-    --border-success: 151 44% 52% / 0.5;
-    --border-warning: 71 100% 75% / 0.5;
-    --border-destructive: 6 74% 50% / 0.5;
+    --brand-moss: 151 44% 52;
+    --brand-lichen: 151 37% 63;
+    --brand-spruce: 153 38% 30;
+    --brand-fjord: 204 67% 21;
+    --brand-peak: 0 0% 100;
+    --brand-cloud: 25 10% 84;
+    --brand-slate: 0 0% 10;
+    --brand-night: 0 0% 4;
+    --semantic-success: 151 44% 52;
+    --semantic-warning: 71 100% 75;
+    --semantic-error: 6 74% 50;
+    --semantic-info: 217 68% 53;
+    --borders-base: 25 10% 84 / 0.05;
+    --borders-hover: 25 10% 84 / 0.1;
+    --borders-strong: 25 10% 84 / 0.08;
+    --borders-primary: 151 44% 52 / 0.2;
+    --borders-moss: 151 44% 52 / 0.2;
+    --borders-lichen: 151 37% 63 / 0.2;
+    --borders-spruce: 153 38% 30 / 0.2;
+    --borders-fjord: 204 67% 21 / 0.2;
+    --borders-cloud: 25 10% 84 / 0.2;
+    --borders-info: 217 68% 53 / 0.5;
+    --borders-success: 151 44% 52 / 0.5;
+    --borders-warning: 71 100% 75 / 0.5;
+    --borders-destructive: 6 74% 50 / 0.5;
+    --ui-background: 0 0% 4;
+    --ui-foreground: 0 0% 100;
+    --ui-primary: 151 44% 52;
+    --ui-primaryForeground: 0 0% 100;
+    --ui-secondary: 151 37% 63;
+    --ui-secondaryForeground: 0 0% 4;
+    --ui-accent: 204 67% 21;
+    --ui-accentForeground: 0 0% 100;
+    --ui-muted: 0 0% 10;
+    --ui-mutedForeground: 25 10% 84 / 0.6;
+    --ui-card: 0 0% 7;
+    --ui-cardForeground: 0 0% 100;
+    --ui-input: 0 0% 15;
+    --ui-destructive: 6 74% 50;
+    --ui-destructiveForeground: 0 0% 100;
+    --ui-ring: 151 44% 52;
   }
-
-  .light,
-  [data-theme="light"] {
-    --background: 0 0% 96%;
-    --foreground: 0 0% 10%;
-    --primary: 151 44% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 151 37% 63%;
-    --secondary-foreground: 0 0% 10%;
-    --accent: 204 67% 21%;
-    --accent-foreground: 0 0% 100%;
-    --muted: 0 0% 90%;
-    --muted-foreground: 25 10% 84% / 0.6;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --input: 0 0% 90%;
-    --destructive: 6 74% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 0% / 0.1;
-    --border-hover: 0 0% 0% / 0.2;
-    --border-strong: 0 0% 0% / 0.15;
-    --ring: 151 44% 52%;
-
-    /* Brand colors (same in both themes) */
-    --moss: 151 44% 52%;
-    --lichen: 151 37% 63%;
-    --spruce: 153 38% 30%;
-    --fjord: 204 67% 21%;
-    --peak: 0 0% 100%;
-    --cloud: 25 10% 84%;
-    --slate: 0 0% 10%;
-    --night: 0 0% 4%;
-
-    /* Semantic status colors */
-    --success: 151 44% 52%;
-    --success-foreground: 0 0% 100%;
-    --warning: 71 100% 75%;
-    --warning-foreground: 0 0% 10%;
-    --error: 6 74% 50%;
-    --info: 217 68% 53%;
-    --info-foreground: 0 0% 100%;
-
-    /* Themed borders */
-    --border-moss: 151 44% 52% / 0.3;
-    --border-lichen: 151 37% 63% / 0.3;
-    --border-spruce: 153 38% 30% / 0.3;
-    --border-fjord: 204 67% 21% / 0.3;
-    --border-cloud: 25 10% 84% / 0.3;
-
-    /* Alert border colors */
-    --border-info: 217 68% 53% / 0.5;
-    --border-success: 151 44% 52% / 0.5;
-    --border-warning: 71 100% 75% / 0.5;
-    --border-destructive: 6 74% 50% / 0.5;
+  .light, [data-theme="light"] {
+    --brand-moss: 151 44% 52;
+    --brand-lichen: 151 37% 63;
+    --brand-spruce: 153 38% 30;
+    --brand-fjord: 204 67% 21;
+    --brand-peak: 0 0% 100;
+    --brand-cloud: 25 10% 84;
+    --brand-slate: 0 0% 10;
+    --brand-night: 0 0% 4;
+    --semantic-success: 151 44% 52;
+    --semantic-warning: 71 100% 75;
+    --semantic-error: 6 74% 50;
+    --semantic-info: 217 68% 53;
+    --borders-base: 25 10% 84 / 0.05;
+    --borders-hover: 25 10% 84 / 0.1;
+    --borders-strong: 25 10% 84 / 0.08;
+    --borders-primary: 151 44% 52 / 0.2;
+    --borders-moss: 151 44% 52 / 0.2;
+    --borders-lichen: 151 37% 63 / 0.2;
+    --borders-spruce: 153 38% 30 / 0.2;
+    --borders-fjord: 204 67% 21 / 0.2;
+    --borders-cloud: 25 10% 84 / 0.2;
+    --borders-info: 217 68% 53 / 0.5;
+    --borders-success: 151 44% 52 / 0.5;
+    --borders-warning: 71 100% 75 / 0.5;
+    --borders-destructive: 6 74% 50 / 0.5;
+    --ui-background: 0 0% 4;
+    --ui-foreground: 0 0% 100;
+    --ui-primary: 151 44% 52;
+    --ui-primaryForeground: 0 0% 100;
+    --ui-secondary: 151 37% 63;
+    --ui-secondaryForeground: 0 0% 4;
+    --ui-accent: 204 67% 21;
+    --ui-accentForeground: 0 0% 100;
+    --ui-muted: 0 0% 10;
+    --ui-mutedForeground: 25 10% 84 / 0.6;
+    --ui-card: 0 0% 7;
+    --ui-cardForeground: 0 0% 100;
+    --ui-input: 0 0% 15;
+    --ui-destructive: 6 74% 50;
+    --ui-destructiveForeground: 0 0% 100;
+    --ui-ring: 151 44% 52;
   }
 }
 
+
 @keyframes float-slow {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) translateX(0);
   }
   33% {
@@ -179,8 +175,7 @@
 }
 
 @keyframes float-medium {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) translateX(0);
   }
   25% {
@@ -195,8 +190,7 @@
 }
 
 @keyframes float-fast {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0) translateX(0);
   }
   20% {
@@ -212,3 +206,4 @@
     transform: translateY(4px) translateX(-10px);
   }
 }
+

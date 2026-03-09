@@ -3,9 +3,9 @@ import { copyFileSync, mkdirSync } from "fs";
 import path from "path";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/shiki.ts"],
+  entry: ["src/index.ts", "src/shiki.ts", "src/tokens.ts", "src/lib/token-utils.ts"],
   format: ["esm", "cjs"],
-  dts: false,
+  dts: true,
   sourcemap: true,
   clean: true,
   external: ["react", "react-dom", "lucide-react", "@types/react", "@types/react-dom"],

@@ -19,6 +19,11 @@
       "types": "./dist/shiki.d.ts",
       "import": "./dist/shiki.js",
       "require": "./dist/shiki.cjs"
+    },
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js",
+      "require": "./dist/tokens.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -32,9 +37,10 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit"
+    "build": "npm run generate:css && tsup",
+    "dev": "npm run generate:css && tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "generate:css": "tsx scripts/generate-css.ts > src/styles/index.css"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.3",

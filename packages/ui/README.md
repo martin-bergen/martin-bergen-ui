@@ -57,6 +57,28 @@ Components are organized using [Atomic Design](https://bradfrost.com/blog/post/a
 - **Atoms** - Basic UI elements (Button, Input, Badge, Card, etc.)
 - **Molecules** - Compositions of atoms (Alert, Tabs, Section, List, etc.)
 
+## Design Tokens
+
+All design values are defined in a type-safe token system as the single source of truth:
+
+```tsx
+import { getColorValue } from "@berget-ai/ui/tokens";
+
+// Get color values programmatically
+const mossColor = getColorValue("brand.moss");
+// Returns: "151 44% 52"
+```
+
+The token system includes:
+- **Colors** - Brand, semantic, borders, and UI colors
+- **Spacing** - Consistent spacing values
+- **Typography** - Font sizes, line heights, and letter spacing
+- **Border Radius** - Radii values
+- **Shadows** - Shadow definitions
+- **Animations** - Animation timings and easing
+
+See [TOKENS.md](./TOKENS.md) for complete documentation.
+
 ## Development
 
 ```bash

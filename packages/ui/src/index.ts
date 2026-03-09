@@ -189,3 +189,7 @@ export type { CarouselNavProps } from "./components/molecules/carousel-nav";
 
 export { CodeBlock } from "./components/organisms/code-block/index";
 export type { CodeBlockProps } from "./components/organisms/code-block/index";
+
+// Design tokens
+export { tokens } from "./tokens";
+export * from "./lib/token-utils";

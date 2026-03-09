@@ -24,6 +24,8 @@ import {
   Layers,
   Leaf,
 } from "lucide-react";
+import { getColorValue } from "../../../lib/token-utils";
+import { tokens } from "../../../tokens";
 
 const meta = {
   title: "Foundations/DesignTokens",
@@ -87,24 +89,24 @@ export const DesignTokens: Story = {
         {/* Brand Colors */}
         <TokenSection title="Brand Colors">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ColorSwatch name="Moss" value="#52B788" />
-            <ColorSwatch name="Lichen" value="#74C69D" />
-            <ColorSwatch name="Spruce" value="#2D6A4F" />
-            <ColorSwatch name="Fjord" value="#0F405A" />
-            <ColorSwatch name="Peak" value="#FFFFFF" />
-            <ColorSwatch name="Cloud" value="#E5DDD5" />
-            <ColorSwatch name="Slate" value="#1A1A1A" />
-            <ColorSwatch name="Night" value="#0A0A0A" />
+            <ColorSwatch name="Moss" value={`hsl(${getColorValue("brand.moss")})`} hex={`hsl(${getColorValue("brand.moss")})`} />
+            <ColorSwatch name="Lichen" value={`hsl(${getColorValue("brand.lichen")})`} hex={`hsl(${getColorValue("brand.lichen")})`} />
+            <ColorSwatch name="Spruce" value={`hsl(${getColorValue("brand.spruce")})`} hex={`hsl(${getColorValue("brand.spruce")})`} />
+            <ColorSwatch name="Fjord" value={`hsl(${getColorValue("brand.fjord")})`} hex={`hsl(${getColorValue("brand.fjord")})`} />
+            <ColorSwatch name="Peak" value={`hsl(${getColorValue("brand.peak")})`} hex={`hsl(${getColorValue("brand.peak")})`} />
+            <ColorSwatch name="Cloud" value={`hsl(${getColorValue("brand.cloud")})`} hex={`hsl(${getColorValue("brand.cloud")})`} />
+            <ColorSwatch name="Slate" value={`hsl(${getColorValue("brand.slate")})`} hex={`hsl(${getColorValue("brand.slate")})`} />
+            <ColorSwatch name="Night" value={`hsl(${getColorValue("brand.night")})`} hex={`hsl(${getColorValue("brand.night")})`} />
           </div>
         </TokenSection>
 
         {/* Semantic Colors */}
         <TokenSection title="Semantic Colors">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ColorSwatch name="Success" value="#52B788" />
-            <ColorSwatch name="Warning" value="#CFFF8B" />
-            <ColorSwatch name="Error" value="#D1392E" />
-            <ColorSwatch name="Info" value="#3975D6" />
+            <ColorSwatch name="Success" value={`hsl(${getColorValue("semantic.success")})`} hex={`hsl(${getColorValue("semantic.success")})`} />
+            <ColorSwatch name="Warning" value={`hsl(${getColorValue("semantic.warning")})`} hex={`hsl(${getColorValue("semantic.warning")})`} />
+            <ColorSwatch name="Error" value={`hsl(${getColorValue("semantic.error")})`} hex={`hsl(${getColorValue("semantic.error")})`} />
+            <ColorSwatch name="Info" value={`hsl(${getColorValue("semantic.info")})`} hex={`hsl(${getColorValue("semantic.info")})`} />
           </div>
         </TokenSection>
 
