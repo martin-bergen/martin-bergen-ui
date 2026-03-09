@@ -42,6 +42,9 @@ export type { CheckboxProps } from "./components/atoms/checkbox";
 export { Divider, dividerVariants } from "./components/atoms/divider";
 export type { DividerProps } from "./components/atoms/divider";
 
+export { Grid, gridVariants } from "./components/atoms/grid";
+export type { GridProps, SpacingScale as GridSpacingScale, GridColsScale, GridRowsScale } from "./components/atoms/grid";
+
 export {
   FeatureList,
   List,
@@ -100,6 +103,9 @@ export type { SectionHeaderProps } from "./components/molecules/section-header";
 
 export { Select, selectVariants } from "./components/atoms/select";
 export type { SelectProps, SelectOption } from "./components/atoms/select";
+
+export { Stack, stackVariants } from "./components/atoms/stack";
+export type { StackProps, SpacingScale as StackSpacingScale } from "./components/atoms/stack";
 
 export {
   Tabs,

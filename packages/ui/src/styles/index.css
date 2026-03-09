@@ -33,6 +33,16 @@
   --color-error: hsl(var(--error));
   --color-info: hsl(var(--info));
 
+  /* Feature card tokens */
+  --spacing-feature-card-padding-vertical: 48px;
+  --spacing-feature-card-padding-horizontal: 40px;
+  --spacing-feature-card-gap: 32px;
+  --font-size-feature-title: 40px;
+  --line-height-feature-title: 56px;
+  --letter-spacing-feature-title: -0.03em;
+  --font-size-feature-description: 16px;
+  --line-height-feature-description: 24px;
+
   /* Float animations for GrainyGradientBackground */
   --animate-float-slow: float-slow 20s ease-in-out infinite;
   --animate-float-medium: float-medium 14s ease-in-out infinite;

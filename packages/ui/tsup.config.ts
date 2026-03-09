@@ -5,10 +5,10 @@ import path from "path";
 export default defineConfig({
   entry: ["src/index.ts", "src/shiki.ts"],
   format: ["esm", "cjs"],
-  dts: true,
+  dts: false,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-dom", "lucide-react"],
+  external: ["react", "react-dom", "lucide-react", "@types/react", "@types/react-dom"],
   esbuildOptions(options) {
     options.jsx = "automatic";
     options.alias = {
