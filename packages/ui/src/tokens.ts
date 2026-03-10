@@ -169,9 +169,9 @@ export function generateCSSVariables(): string {
     prefix: string = ""
   ) => {
     for (const [key, value] of Object.entries(obj)) {
-      if (typeof value === "object" && "hue" in value) {
-        css += `  --${prefix}${key}: ${colorToHSL(value)};\n`;
-      } else if (typeof value === "object") {
+      if (typeof value === "object" && value !== null && "hue" in value) {
+        css += `  --${prefix}${key}: ${colorToHSL(value as ColorToken)};\n`;
+      } else if (typeof value === "object" && value !== null) {
         generateColorVars(value, `${prefix}${key}-`);
       }
     }

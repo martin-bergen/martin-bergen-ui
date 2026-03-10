@@ -1,6 +1,5 @@
-import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { getColorValue, getSpacingValue, getTypographyValue, getBorderRadiusValue } from "../../../lib/token-utils";
+import { getColorValue, getSpacingValue, getTypographyValue, getBorderRadiusValue, type ColorPath } from "../../lib/token-utils";
 
 const meta = {
   title: "Foundations/TokenSystem",
@@ -13,7 +12,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const ExampleCard = ({ title, description, color }: { title: string; description: string; color: string }) => (
+const ExampleCard = ({ title, description, color }: { title: string; description: string; color: ColorPath }) => (
   <div
     className="p-6 rounded-2xl border border-white/10"
     style={{

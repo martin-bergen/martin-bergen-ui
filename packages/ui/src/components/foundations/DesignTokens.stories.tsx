@@ -24,8 +24,7 @@ import {
   Layers,
   Leaf,
 } from "lucide-react";
-import { getColorValue } from "../../../lib/token-utils";
-import { tokens } from "../../../tokens";
+import { getColorValue } from "../../lib/token-utils";
 
 const meta = {
   title: "Foundations/DesignTokens",
