@@ -13,9 +13,11 @@ import {
 const cardVariants = cva("rounded-2xl relative overflow-hidden", {
   variants: {
     variant: {
-      highlight: "bg-slate/20 border-slate/40 backdrop-blur-[12px]",
-      glass: "bg-cloud/5 border-cloud/10 backdrop-blur-[24px] shadow-xl",
-      solid: "bg-slate border-slate/40",
+      highlight:
+        "bg-berget-brand-slate/20 border-berget-brand-slate/40 backdrop-blur-[12px]",
+      glass:
+        "bg-berget-brand-cloud/5 border-berget-brand-cloud/10 backdrop-blur-[24px] shadow-xl",
+      solid: "bg-berget-brand-slate border-berget-brand-slate/40",
     },
     padding: {
       none: "",
@@ -44,7 +46,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {...props}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(229,221,213,0.04)_0%,_transparent_50%)] pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,var(--color-cloud)_0%,transparent_90%)] opacity-30 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,var(--color-berget-brand-cloud)_0%,transparent_90%)] opacity-30 pointer-events-none" />
         <div className="relative z-10 h-full">{children}</div>
       </CardPrimitive>
     );

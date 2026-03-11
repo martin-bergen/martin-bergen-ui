@@ -9,21 +9,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-cloud text-slate shadow-lg hover:bg-cloud/90 hover:shadow-xl",
-        primary: "bg-moss text-peak shadow-lg hover:bg-moss/90 hover:shadow-xl",
+          "bg-berget-button-default-bg text-berget-button-default-fg shadow-lg hover:bg-berget-button-default-bg/90 hover:shadow-xl",
+        primary:
+          "bg-berget-button-primary-bg text-berget-button-primary-fg shadow-lg hover:bg-berget-button-primary-bg/90 hover:shadow-xl",
         secondary:
-          "bg-lichen text-night shadow hover:bg-lichen/80 hover:shadow-lg",
+          "bg-berget-button-secondary-bg text-berget-button-secondary-fg shadow hover:bg-berget-button-secondary-bg/80 hover:shadow-lg",
         outline:
-          "border-2 border-cloud/20 bg-transparent hover:bg-moss/20 hover:border-moss/40",
-        ghost: "hover:bg-moss/20 hover:text-foreground",
+          "border-2 border-berget-brand-cloud/20 bg-transparent hover:bg-berget-brand-moss/20 hover:border-berget-brand-moss/40",
+        ghost: "hover:bg-berget-brand-moss/20 hover:text-foreground",
         destructive:
-          "bg-error text-peak shadow-sm hover:bg-error/80 hover:shadow",
-        link: "text-moss underline-offset-4 hover:underline",
+          "bg-berget-button-destructive-bg text-berget-button-destructive-fg shadow-sm hover:bg-berget-button-destructive-bg/80 hover:shadow",
+        link: "text-berget-button-link-fg underline-offset-4 hover:underline",
         highlight:
-          "relative overflow-hidden bg-night border border-cloud/20 backdrop-blur-[5px] text-foreground hover:bg-night/80 hover:border-cloud/30 hover:shadow-lg",
+          "relative overflow-hidden bg-berget-background border border-berget-brand-cloud/20 backdrop-blur-[5px] text-foreground hover:bg-berget-background/80 hover:border-berget-brand-cloud/30 hover:shadow-lg",
         stone:
-          "!bg-cloud !text-slate shadow-lg hover:!bg-cloud/90 hover:shadow-xl",
-        icon: "!flex !flex-row !justify-center !items-center !p-0 !w-[32px] !h-[32px] !bg-cloud !text-slate shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-full",
+          "!bg-berget-button-default-bg !text-berget-button-default-fg shadow-lg hover:!bg-berget-button-default-bg/90 hover:shadow-xl",
+        icon: "!flex !flex-row !justify-center !items-center !p-0 !w-[32px] !h-[32px] !bg-berget-button-default-bg !text-berget-button-default-fg shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-full",
       },
       size: {
         sm: "h-6 px-4 py-1.5 text-xs",
@@ -79,8 +80,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isHighlight && (
           <>
-            <div className="absolute inset-0 top-[1px] h-[calc(100%-1px)] w-full bg-[radial-gradient(100%_100%_at_49.87%_0%,hsl(var(--cloud)/0.04)_0%,transparent_100%)] pointer-events-none" />
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,hsl(var(--cloud))_0%,transparent_92.4%)] opacity-[0.3] pointer-events-none" />
+            <div className="absolute inset-0 top-[1px] h-[calc(100%-1px)] w-full bg-[radial-gradient(100%_100%_at_49.87%_0%,hsl(var(--berget-brand-cloud)/0.04)_0%,transparent_100%)] pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,hsl(var(--berget-brand-cloud))_0%,transparent_92.4%)] opacity-[0.3] pointer-events-none" />
           </>
         )}
         <span

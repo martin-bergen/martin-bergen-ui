@@ -2,12 +2,12 @@ import * as React from "react";
 import { cn } from "../../../lib/utils";
 
 export type EllipseColor =
-  | "moss"
-  | "lichen"
-  | "spruce"
-  | "fjord"
-  | "slate"
-  | "cloud";
+  | "berget-brand-moss"
+  | "berget-brand-lichen"
+  | "berget-brand-spruce"
+  | "berget-brand-fjord"
+  | "berget-brand-slate"
+  | "berget-brand-cloud";
 
 export type EllipseAnimation = "slow" | "medium" | "fast";
 
@@ -32,7 +32,7 @@ export interface GrainyGradientBackgroundProps extends React.HTMLAttributes<HTML
 
 const defaultEllipses: EllipseConfig[] = [
   {
-    color: "moss",
+    color: "berget-brand-moss",
     position: {
       left: "60.11%",
       right: "-33.49%",
@@ -45,7 +45,7 @@ const defaultEllipses: EllipseConfig[] = [
     size: 100,
   },
   {
-    color: "moss",
+    color: "berget-brand-moss",
     position: {
       left: "-2.66%",
       right: "-14.25%",
@@ -58,7 +58,7 @@ const defaultEllipses: EllipseConfig[] = [
     size: 100,
   },
   {
-    color: "moss",
+    color: "berget-brand-moss",
     position: {
       left: "35.22%",
       right: "-16.46%",
@@ -71,7 +71,7 @@ const defaultEllipses: EllipseConfig[] = [
     size: 100,
   },
   {
-    color: "lichen",
+    color: "berget-brand-lichen",
     position: {
       left: "-18.17%",
       right: "38.23%",
@@ -84,7 +84,7 @@ const defaultEllipses: EllipseConfig[] = [
     size: 100,
   },
   {
-    color: "spruce",
+    color: "berget-brand-spruce",
     position: {
       left: "-22.84%",
       right: "40.78%",
@@ -97,7 +97,7 @@ const defaultEllipses: EllipseConfig[] = [
     size: 100,
   },
   {
-    color: "spruce",
+    color: "berget-brand-spruce",
     position: {
       left: "-23.29%",
       right: "67.49%",
@@ -110,7 +110,7 @@ const defaultEllipses: EllipseConfig[] = [
     size: 100,
   },
   {
-    color: "fjord",
+    color: "berget-brand-fjord",
     position: {
       left: "30%",
       right: "-20%",
@@ -131,12 +131,12 @@ const animationClassMap: Record<EllipseAnimation, string> = {
 };
 
 const colorClassMap: Record<EllipseColor, string> = {
-  moss: "bg-moss",
-  lichen: "bg-lichen",
-  spruce: "bg-spruce",
-  fjord: "bg-fjord",
-  slate: "bg-slate",
-  cloud: "bg-cloud",
+  "berget-brand-moss": "bg-berget-brand-moss",
+  "berget-brand-lichen": "bg-berget-brand-lichen",
+  "berget-brand-spruce": "bg-berget-brand-spruce",
+  "berget-brand-fjord": "bg-berget-brand-fjord",
+  "berget-brand-slate": "bg-berget-brand-slate",
+  "berget-brand-cloud": "bg-berget-brand-cloud",
 };
 
 const GrainyGradientBackground = React.forwardRef<
@@ -157,7 +157,10 @@ const GrainyGradientBackground = React.forwardRef<
     return (
       <div
         ref={ref}
-        className={cn("relative overflow-hidden bg-night", className)}
+        className={cn(
+          "relative overflow-hidden bg-berget-brand-night",
+          className,
+        )}
         {...props}
       >
         <div

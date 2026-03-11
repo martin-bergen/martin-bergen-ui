@@ -13,7 +13,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <InputPrimitive
         ref={ref}
         className={cn(
-          "bg-card focus-visible:border-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-cloud/[0.02] transition-colors duration-200",
+          "bg-card focus-visible:border-berget-brand-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-berget-brand-cloud/[0.02] transition-colors duration-200",
           icon && "pl-10",
           actionButton && "pr-12",
           className,

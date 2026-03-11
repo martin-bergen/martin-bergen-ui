@@ -57,6 +57,19 @@ const ColorSwatch = ({
   </div>
 );
 
+const VarSwatch = ({ name, varName }: { name: string; varName: string }) => (
+  <div className="flex items-center gap-3">
+    <div
+      className="w-12 h-12 rounded-md border border-white/10 flex-shrink-0"
+      style={{ backgroundColor: `var(${varName})` }}
+    />
+    <div>
+      <div className="text-white font-medium text-sm">{name}</div>
+      <div className="text-white/50 text-xs font-mono">{varName}</div>
+    </div>
+  </div>
+);
+
 const TokenSection = ({
   title,
   children,
@@ -74,7 +87,7 @@ const TokenSection = ({
 
 export const DesignTokens: Story = {
   render: () => (
-    <div className="min-h-screen bg-night p-8">
+    <div className="min-h-screen bg-berget-brand-night p-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-serif text-white mb-4">Design Tokens</h1>
@@ -87,14 +100,14 @@ export const DesignTokens: Story = {
         {/* Brand Colors */}
         <TokenSection title="Brand Colors">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <ColorSwatch name="Moss" value="#52B788" />
-            <ColorSwatch name="Lichen" value="#74C69D" />
-            <ColorSwatch name="Spruce" value="#2D6A4F" />
-            <ColorSwatch name="Fjord" value="#0F405A" />
-            <ColorSwatch name="Peak" value="#FFFFFF" />
-            <ColorSwatch name="Cloud" value="#E5DDD5" />
-            <ColorSwatch name="Slate" value="#1A1A1A" />
-            <ColorSwatch name="Night" value="#0A0A0A" />
+            <ColorSwatch name="--berget-brand-moss" value="#52B788" />
+            <ColorSwatch name="--berget-brand-lichen" value="#74C69D" />
+            <ColorSwatch name="--berget-brand-spruce" value="#2D6A4F" />
+            <ColorSwatch name="--berget-brand-fjord" value="#0F405A" />
+            <ColorSwatch name="--berget-brand-peak" value="#FFFFFF" />
+            <ColorSwatch name="--berget-brand-cloud" value="#E5DDD5" />
+            <ColorSwatch name="--berget-brand-slate" value="#1A1A1A" />
+            <ColorSwatch name="--berget-brand-night" value="#0A0A0A" />
           </div>
         </TokenSection>
 
@@ -112,24 +125,30 @@ export const DesignTokens: Story = {
         <TokenSection title="Border Tokens">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-md border border-cloud/5 bg-white/5" />
+              <div className="w-12 h-12 rounded-md border border-berget-brand-cloud/5 bg-white/5" />
               <div>
                 <div className="text-white font-medium">Border Base</div>
-                <div className="text-white/60 text-sm">Cloud at 5%</div>
+                <div className="text-white/60 text-sm">
+                  --berget-brand-cloud at 5%
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-md border border-cloud/10 bg-white/5" />
+              <div className="w-12 h-12 rounded-md border border-berget-brand-cloud/10 bg-white/5" />
               <div>
                 <div className="text-white font-medium">Border Hover</div>
-                <div className="text-white/60 text-sm">Cloud at 10%</div>
+                <div className="text-white/60 text-sm">
+                  --berget-brand-cloud at 10%
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-md border border-moss/40 bg-moss/5" />
+              <div className="w-12 h-12 rounded-md border border-berget-brand-moss/40 bg-berget-brand-moss/5" />
               <div>
                 <div className="text-white font-medium">Border Primary</div>
-                <div className="text-white/60 text-sm">Moss at 40%</div>
+                <div className="text-white/60 text-sm">
+                  --berget-brand-moss at 40%
+                </div>
               </div>
             </div>
           </div>
@@ -288,7 +307,10 @@ export const DesignTokens: Story = {
                   <span className="text-white/60 text-xs">Layers</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <Leaf strokeWidth={1.5} className="w-8 h-8 text-moss" />
+                  <Leaf
+                    strokeWidth={1.5}
+                    className="w-8 h-8 text-berget-brand-moss"
+                  />
                   <span className="text-white/60 text-xs">Leaf</span>
                 </div>
               </div>
@@ -303,19 +325,19 @@ export const DesignTokens: Story = {
               <div className="text-white/60 text-sm mb-6">Border Radius</div>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-moss rounded-full" />
+                  <div className="w-12 h-12 bg-berget-brand-moss rounded-full" />
                   <span className="text-white text-sm">
                     rounded-full (Buttons/Badges)
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-lichen rounded-2xl" />
+                  <div className="w-12 h-12 bg-berget-brand-lichen rounded-2xl" />
                   <span className="text-white text-sm">
                     rounded-2xl (Cards)
                   </span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-spruce rounded-md" />
+                  <div className="w-12 h-12 bg-berget-brand-spruce rounded-md" />
                   <span className="text-white text-sm">
                     rounded-md (Inputs)
                   </span>
@@ -341,6 +363,229 @@ export const DesignTokens: Story = {
                 <div className="text-white">xl: gap-16 (4rem)</div>
               </div>
             </div>
+          </div>
+        </TokenSection>
+
+        {/* ---- Berget Design Tokens ---- */}
+        <div className="mt-16 mb-8">
+          <h2 className="text-4xl font-serif text-white mb-2">
+            Berget Design Tokens
+          </h2>
+          <p className="text-white/60 mb-8">
+            Live CSS variable swatches — driven by{" "}
+            <code className="text-berget-brand-moss text-sm">
+              var(--berget-*)
+            </code>{" "}
+            values
+          </p>
+        </div>
+
+        {/* 1. Brand Primitives */}
+        <TokenSection title="Brand Primitives">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <VarSwatch name="Moss" varName="--berget-brand-moss" />
+            <VarSwatch name="Lichen" varName="--berget-brand-lichen" />
+            <VarSwatch name="Spruce" varName="--berget-brand-spruce" />
+            <VarSwatch name="Fjord" varName="--berget-brand-fjord" />
+            <VarSwatch name="Peak" varName="--berget-brand-peak" />
+            <VarSwatch name="Cloud" varName="--berget-brand-cloud" />
+            <VarSwatch name="Slate" varName="--berget-brand-slate" />
+            <VarSwatch name="Night" varName="--berget-brand-night" />
+          </div>
+        </TokenSection>
+
+        {/* 2. Surfaces */}
+        <TokenSection title="Surfaces">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <VarSwatch name="background" varName="--berget-background" />
+            <VarSwatch name="foreground" varName="--berget-foreground" />
+            <VarSwatch name="card" varName="--berget-card" />
+            <VarSwatch name="popover" varName="--berget-popover" />
+            <VarSwatch name="muted" varName="--berget-muted" />
+            <VarSwatch
+              name="muted-foreground"
+              varName="--berget-muted-foreground"
+            />
+            <VarSwatch name="border" varName="--berget-border" />
+            <VarSwatch name="input" varName="--berget-input" />
+          </div>
+        </TokenSection>
+
+        {/* 3. Button variants */}
+        <TokenSection title="Button Variants">
+          <div className="space-y-4">
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Default
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch
+                  name="default-bg"
+                  varName="--berget-button-default-bg"
+                />
+                <VarSwatch
+                  name="default-fg"
+                  varName="--berget-button-default-fg"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Primary
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch
+                  name="primary-bg"
+                  varName="--berget-button-primary-bg"
+                />
+                <VarSwatch
+                  name="primary-fg"
+                  varName="--berget-button-primary-fg"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Secondary
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch
+                  name="secondary-bg"
+                  varName="--berget-button-secondary-bg"
+                />
+                <VarSwatch
+                  name="secondary-fg"
+                  varName="--berget-button-secondary-fg"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Destructive
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch
+                  name="destructive-bg"
+                  varName="--berget-button-destructive-bg"
+                />
+                <VarSwatch
+                  name="destructive-fg"
+                  varName="--berget-button-destructive-fg"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Link
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch name="link-fg" varName="--berget-button-link-fg" />
+              </div>
+            </div>
+          </div>
+        </TokenSection>
+
+        {/* 4. Status */}
+        <TokenSection title="Status">
+          <div className="space-y-4">
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Info
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch name="info (bg)" varName="--berget-info" />
+                <VarSwatch
+                  name="info-foreground"
+                  varName="--berget-info-foreground"
+                />
+                <VarSwatch name="info-border" varName="--berget-info-border" />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Success
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch name="success (bg)" varName="--berget-success" />
+                <VarSwatch
+                  name="success-foreground"
+                  varName="--berget-success-foreground"
+                />
+                <VarSwatch
+                  name="success-border"
+                  varName="--berget-success-border"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Warning
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch name="warning (bg)" varName="--berget-warning" />
+                <VarSwatch
+                  name="warning-foreground"
+                  varName="--berget-warning-foreground"
+                />
+                <VarSwatch
+                  name="warning-border"
+                  varName="--berget-warning-border"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                Destructive
+              </div>
+              <div className="flex gap-4 flex-wrap">
+                <VarSwatch
+                  name="destructive (bg)"
+                  varName="--berget-destructive"
+                />
+                <VarSwatch
+                  name="destructive-foreground"
+                  varName="--berget-destructive-foreground"
+                />
+                <VarSwatch
+                  name="destructive-border"
+                  varName="--berget-destructive-border"
+                />
+              </div>
+            </div>
+          </div>
+        </TokenSection>
+
+        {/* 5. Sidebar */}
+        <TokenSection title="Sidebar">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <VarSwatch name="sidebar" varName="--berget-sidebar" />
+            <VarSwatch
+              name="sidebar-foreground"
+              varName="--berget-sidebar-foreground"
+            />
+            <VarSwatch
+              name="sidebar-accent"
+              varName="--berget-sidebar-accent"
+            />
+            <VarSwatch
+              name="sidebar-accent-foreground"
+              varName="--berget-sidebar-accent-foreground"
+            />
+            <VarSwatch
+              name="sidebar-border"
+              varName="--berget-sidebar-border"
+            />
+          </div>
+        </TokenSection>
+
+        {/* 6. Chart */}
+        <TokenSection title="Chart">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <VarSwatch name="chart-1" varName="--berget-chart-1" />
+            <VarSwatch name="chart-2" varName="--berget-chart-2" />
+            <VarSwatch name="chart-3" varName="--berget-chart-3" />
+            <VarSwatch name="chart-4" varName="--berget-chart-4" />
+            <VarSwatch name="chart-5" varName="--berget-chart-5" />
           </div>
         </TokenSection>
       </div>

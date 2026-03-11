@@ -80,7 +80,7 @@ export const EmailTemplate = React.forwardRef<
     return (
       <div
         ref={ref}
-        className="min-h-screen bg-night py-10 px-4"
+        className="min-h-screen bg-berget-brand-night py-10 px-4"
         style={{
           fontFamily:
             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
@@ -147,7 +147,7 @@ export const EmailTemplate = React.forwardRef<
                   style={{
                     margin: 0,
                     fontSize: "12px",
-                    color: "hsl(var(--cloud)/0.3)",
+                    color: "hsl(var(--berget-brand-cloud) / 0.3)",
                   }}
                 >
                   European AI Infrastructure

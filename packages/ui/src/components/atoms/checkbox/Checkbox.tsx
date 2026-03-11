@@ -12,10 +12,13 @@ const checkboxVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-cloud/20 bg-cloud/5 hover:bg-cloud/10",
+        default:
+          "border-berget-brand-cloud/20 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
         primary: "border-primary/50 bg-primary/10 hover:bg-primary/20",
-        subtle: "border-cloud/10 bg-cloud/5 hover:bg-cloud/10",
-        muted: "border-cloud/5 bg-cloud/5 hover:bg-cloud/10",
+        subtle:
+          "border-berget-brand-cloud/10 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
+        muted:
+          "border-berget-brand-cloud/5 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
       },
       size: {
         sm: "w-4 h-4",

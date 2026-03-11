@@ -4,14 +4,17 @@ import { cn } from "../../../lib/utils";
 import { Textarea as TextareaPrimitive } from "../../../primitives/textarea";
 
 const textareaVariants = cva(
-  "rounded-xl bg-card px-4 py-3 transition-colors duration-200 focus-visible:border-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 resize-y",
+  "rounded-xl bg-card px-4 py-3 transition-colors duration-200 focus-visible:border-berget-brand-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 resize-y",
   {
     variants: {
       variant: {
-        default: "border-cloud/20 hover:bg-cloud/[0.02]",
-        primary: "border-moss/50 bg-moss/10 hover:bg-cloud/[0.02]",
-        subtle: "border-cloud/10 hover:bg-cloud/[0.02]",
-        muted: "border-cloud/5 hover:bg-cloud/[0.02]",
+        default:
+          "border-berget-brand-cloud/20 hover:bg-berget-brand-cloud/[0.02]",
+        primary:
+          "border-berget-brand-moss/50 bg-berget-brand-moss/10 hover:bg-berget-brand-cloud/[0.02]",
+        subtle:
+          "border-berget-brand-cloud/10 hover:bg-berget-brand-cloud/[0.02]",
+        muted: "border-berget-brand-cloud/5 hover:bg-berget-brand-cloud/[0.02]",
       },
       size: {
         sm: "px-3 py-2 text-xs min-h-[60px]",
@@ -81,7 +84,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
-              error && "text-error",
+              error && "text-berget-destructive-foreground",
             )}
           >
             {label}
@@ -105,7 +108,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             )}
             className={cn(
               textareaVariants({ variant, size }),
-              error && "border-error/50 bg-error/10",
+              error &&
+                "border-berget-destructive-foreground/50 bg-berget-destructive",
               disabled && "cursor-not-allowed",
               icon && "pl-11",
               secondaryIcon && "pr-20",
@@ -145,7 +149,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                     className={cn(
                       "text-xs",
                       characterCount >= maxLength
-                        ? "text-error"
+                        ? "text-berget-destructive-foreground"
                         : "text-muted-foreground",
                     )}
                   >
@@ -153,7 +157,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                   </span>
                 )}
                 {error && (
-                  <p id={errorId} className="text-xs text-error">
+                  <p
+                    id={errorId}
+                    className="text-xs text-berget-destructive-foreground"
+                  >
                     {error}
                   </p>
                 )}

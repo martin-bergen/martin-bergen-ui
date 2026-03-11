@@ -28,7 +28,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         "flex items-center gap-4 px-6 py-5 border-t border-[hsl(var(--border))]",
         "first:border-t-0",
         interactive &&
-          "transition-all duration-200 hover:bg-cloud/[0.02] cursor-pointer",
+          "transition-all duration-200 hover:bg-berget-brand-cloud/[0.02] cursor-pointer",
         className,
       )}
       {...props}
@@ -92,9 +92,9 @@ const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
         {items.map((item, index) => (
           <li key={index} className="flex items-start gap-3">
             {variant === "bullet" ? (
-              <span className="w-1.5 h-1.5 rounded-full bg-cloud/60 flex-shrink-0 mt-2" />
+              <span className="w-1.5 h-1.5 rounded-full bg-berget-brand-cloud/60 flex-shrink-0 mt-2" />
             ) : (
-              <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5 text-peak" />
+              <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5 text-berget-brand-peak" />
             )}
             <span className="text-sm text-muted-foreground">{item}</span>
           </li>

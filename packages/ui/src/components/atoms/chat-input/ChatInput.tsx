@@ -39,7 +39,7 @@ const ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(
         {icon && (
           <button
             type="button"
-            className="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-auto hover:bg-cloud/10 rounded-full p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-auto hover:bg-berget-brand-cloud/10 rounded-full p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={props.disabled}
           >
             {icon}
@@ -48,7 +48,7 @@ const ChatInput = React.forwardRef<HTMLTextAreaElement, ChatInputProps>(
         <textarea
           ref={mergedRef}
           className={cn(
-            "flex w-full rounded-xl border bg-card border-cloud/10 px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50 resize-none hover:bg-cloud/[0.02] text-foreground placeholder-muted-foreground",
+            "flex w-full rounded-xl border bg-card border-berget-brand-cloud/10 px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-berget-brand-moss/40 disabled:cursor-not-allowed disabled:opacity-50 resize-none hover:bg-berget-brand-cloud/[0.02] text-foreground placeholder-muted-foreground",
             icon && "pl-11",
             (actionButton || secondaryIcon) && "pr-20",
             actionButton && !secondaryIcon && "pr-12",

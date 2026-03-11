@@ -72,7 +72,7 @@ const PatternBackground = React.forwardRef<
         className={cn(
           "relative overflow-hidden",
           overlayOnly && "absolute inset-0",
-          !overlayOnly && "bg-night",
+          !overlayOnly && "bg-berget-brand-night",
           className,
         )}
         {...props}
