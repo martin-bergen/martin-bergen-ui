@@ -1,4 +1,17 @@
-/* A. Brand primitives (raw HSL channels) */
+/*
+ * A. Brand primitives (raw HSL channels)
+ *
+ * Raw H S L values with no hsl() wrapper — e.g. `151 44% 52%`.
+ * This format lets Tailwind inject an alpha channel via opacity modifiers
+ * (bg-berget-brand-moss/20) and lets inline styles compose opacity with
+ * `hsl(var(--berget-brand-moss) / 0.3)`.
+ *
+ * Rules:
+ * - These are the source of truth for all color values. Never invent values.
+ * - Used directly only in section B and in @theme brand aliases (section D).
+ * - Never reference --berget-brand-* directly in component styles;
+ *   use the semantic tokens from section B instead.
+ */
 :root {
   /* Neutrals */
   --berget-brand-peak: 0 0% 100%; /* #ffffff */
@@ -20,7 +33,20 @@
   --berget-brand-error: 6 74% 50%; /* #d1392e */
 }
 
-/* B. Semantic Berget tokens */
+/*
+ * B. Semantic Berget tokens
+ *
+ * Full hsl() values that map roles (surface, border, action…) to brand
+ * primitives. These are what Berget components consume via Tailwind utilities
+ * (bg-berget-background, text-berget-muted-foreground, etc.).
+ *
+ * Rules:
+ * - Always full hsl() — e.g. `hsl(var(--berget-brand-night))`.
+ * - Do NOT use opacity modifiers on semantic tokens in Tailwind classes;
+ *   opacity is baked in here at definition time.
+ * - Component styles must use these tokens (or the @theme aliases in D),
+ *   never raw brand primitives or shadcn vars.
+ */
 :root {
   /* Surfaces */
   --berget-background: hsl(var(--berget-brand-night));
@@ -179,7 +205,19 @@
   --berget-font-mono: "DM Mono", monospace;
 }
 
-/* C. shadcn bridge */
+/*
+ * C. shadcn bridge
+ *
+ * Maps the upstream shadcn/ui CSS variable names (--primary, --border, …)
+ * to Berget brand primitives so that shadcn primitive components render
+ * correctly without modification.
+ *
+ * Rules:
+ * - These vars are for shadcn primitives only (packages/ui/src/primitives/).
+ * - Never use --primary, --border, etc. in Berget wrapper components
+ *   (packages/ui/src/components/). Use --berget-* tokens instead.
+ * - Do not add new entries here unless adding a new shadcn primitive.
+ */
 @layer base {
   :root {
     --background: var(--berget-brand-night);
@@ -205,7 +243,25 @@
   }
 }
 
-/* D. @theme block */
+/*
+ * D. @theme block
+ *
+ * Registers all tokens into Tailwind v4's design system so they are
+ * available as utility classes (bg-*, text-*, shadow-*, etc.).
+ *
+ * Two patterns used here:
+ * - Brand primitives: `hsl(var(--berget-brand-*))` — wrapping the raw HSL
+ *   channel in hsl() is what enables Tailwind opacity modifiers (/20, /90).
+ * - Semantic tokens: bare `var(--berget-*)` — already full hsl() values from
+ *   section B, so no extra wrapper needed. Opacity modifiers do not work on
+ *   these; bake opacity into the section B definition instead.
+ *
+ * Rules:
+ * - Every --berget-* token in section B must have a corresponding alias here.
+ * - Button component-scoped tokens use hsl(var(--berget-brand-*)) directly
+ *   (not via section B) so that hover opacity modifiers (/90, /80) work.
+ * - Do not add arbitrary values here; derive from section A or B.
+ */
 @theme {
   /* Existing shadcn aliases */
   --color-primary: hsl(var(--primary));
