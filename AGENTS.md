@@ -8,16 +8,14 @@
 
 ## Token System
 
-- **Every Tailwind class in a Berget component must resolve through a `--berget-*` CSS variable.** Never use bare brand utilities (`bg-moss`, `text-cloud`, etc.) — use `bg-berget-brand-moss`, `text-berget-brand-cloud`, etc.
-- **Two tiers of `--berget-*` vars:** `--berget-brand-*` are raw HSL channels (e.g. `151 44% 52%`). `--berget-*` semantic tokens are full `hsl(...)` values. Only brand primitives support Tailwind opacity modifiers (`/20`, `/90`); semantic tokens do not.
-- **`@theme` uses `hsl(var(--berget-brand-*))`.** Tailwind v4 generates `color-mix()` rules at build time, which resolve the `var()` at browser runtime — opacity modifiers work correctly even though the value is not a literal.
-- **After editing `packages/ui/src/styles/index.css`, run `pnpm --filter @berget-ai/ui build`.** Storybook imports `@berget-ai/ui/styles` which resolves to `dist/styles/index.css` (the compiled output), not the source file. Changes are invisible in Storybook until the package is rebuilt.
-- **Tokens derive from Figma.** The source of truth is `tokens.json` exported from Figma (sets: `brand-colors/shadcn`, `semantic-colors/shadcn`, `shadows/shadcn`, `chart-colors/shadcn`, `typography/shadcn`, `border-radii/shadcn`). Update `index.css` from that export, never invent values by hand.
-- **Berget is dark-first only.** The `.light / [data-theme="light"]` block was intentionally removed. Do not re-add it.
-- **Berget components never use shadcn vars directly.** Do not write `bg-primary`, `border-border`, `text-muted-foreground` etc. in `src/components/`. The shadcn vars (`--primary`, `--border`, …) exist only as a bridge for shadcn primitives. Berget wrappers must use `--berget-*` utilities.
-- **Button variants use component-scoped tokens** (`--berget-button-<variant>-bg/fg`), not the raw brand or semantic tokens directly. Follow this pattern for any new button variant.
-- **Inline `style=` props must also use `--berget-brand-*`.** Write `hsl(var(--berget-brand-cloud) / 0.3)`, not `hsl(var(--cloud)/0.3)`.
-- **`GrainyGradientBackground` `EllipseColor` type and `colorClassMap` must stay in sync.** Both use the full `"berget-brand-*"` string keys. Adding a new color requires updating both.
+- **Two tiers of `--berget-*` vars:** `--berget-brand-*` are raw HSL channels (`151 44% 52%`); semantic tokens (`--berget-*`) are full `hsl(...)` values. Only brand primitives support Tailwind opacity modifiers (`/20`, `/90`).
+- **Always use `--berget-*` utilities in `src/components/`.** Never bare brand names (`bg-moss`) or shadcn vars (`bg-primary`, `border-border`). Shadcn vars exist only as a bridge for primitives.
+- **Button variants use component-scoped tokens** (`--berget-button-<variant>-bg/fg`). Follow this pattern for new variants.
+- **Inline `style=` props use `--berget-brand-*` with explicit `hsl()`.** Brand tokens are raw HSL channels, so `hsl()` is required: write `hsl(var(--berget-brand-cloud) / 0.3)`, not `hsl(var(--cloud)/0.3)`.
+- **`GrainyGradientBackground` `EllipseColor` type and `colorClassMap` must stay in sync.** Adding a color requires updating both.
+- **Tokens derive from Figma.** Source of truth is `tokens.json` (sets: `brand-colors/shadcn`, `semantic-colors/shadcn`, `shadows/shadcn`, `chart-colors/shadcn`, `typography/shadcn`, `border-radii/shadcn`). Never invent values by hand.
+- **After editing `index.css`, run `pnpm --filter @berget-ai/ui build`.** `@berget-ai/ui/styles` resolves to `dist/styles/index.css`, not the source — changes are invisible in Storybook until rebuilt.
+- **Dark-first only.** The `.light / [data-theme="light"]` block was intentionally removed. Do not re-add it.
 
 ## Adding a New Component
 
