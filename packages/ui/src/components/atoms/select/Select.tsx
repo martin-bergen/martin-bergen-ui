@@ -10,14 +10,17 @@ import {
 } from "../../../primitives/select";
 
 const selectVariants = cva(
-  "flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-moss/40 disabled:cursor-not-allowed disabled:opacity-50",
+  "flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-berget-brand-moss/40 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "border-cloud/20 hover:bg-cloud/[0.02]",
-        primary: "border-moss/50 bg-moss/10 hover:bg-cloud/[0.02]",
-        subtle: "border-cloud/10 hover:bg-cloud/[0.02]",
-        muted: "border-cloud/5 hover:bg-cloud/[0.02]",
+        default:
+          "border-berget-brand-cloud/20 hover:bg-berget-brand-cloud/[0.02]",
+        primary:
+          "border-berget-brand-moss/50 bg-berget-brand-moss/10 hover:bg-berget-brand-cloud/[0.02]",
+        subtle:
+          "border-berget-brand-cloud/10 hover:bg-berget-brand-cloud/[0.02]",
+        muted: "border-berget-brand-cloud/5 hover:bg-berget-brand-cloud/[0.02]",
       },
       size: {
         sm: "px-3 py-2 text-xs",
@@ -93,7 +96,7 @@ const Select = React.forwardRef<
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
-              error && "text-error",
+              error && "text-berget-destructive-foreground",
             )}
           >
             {label}
@@ -118,7 +121,8 @@ const Select = React.forwardRef<
             )}
             className={cn(
               selectVariants({ variant, size }),
-              error && "border-error/50 bg-error/10",
+              error &&
+                "border-berget-destructive-foreground/50 bg-berget-destructive",
               className,
             )}
           >
@@ -144,7 +148,10 @@ const Select = React.forwardRef<
         )}
 
         {error && (
-          <p id={errorId} className="text-xs text-error">
+          <p
+            id={errorId}
+            className="text-xs text-berget-destructive-foreground"
+          >
             {error}
           </p>
         )}

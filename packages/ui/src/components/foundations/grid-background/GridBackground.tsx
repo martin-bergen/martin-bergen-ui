@@ -27,7 +27,7 @@ const GridBackground = React.forwardRef<HTMLDivElement, GridBackgroundProps>(
     return (
       <div
         ref={ref}
-        className={cn("relative min-h-screen bg-night", className)}
+        className={cn("relative min-h-screen bg-berget-brand-night", className)}
         style={{
           backgroundImage: `
             linear-gradient(to bottom, rgba(${color}, ${opacity}) 1px, transparent 1px),

@@ -7,9 +7,12 @@ const gradientBackgroundVariants = cva(
   {
     variants: {
       variant: {
-        berget: "from-spruce via-moss to-lichen",
-        subtle: "from-night via-slate to-night",
-        night: "from-slate via-night to-slate",
+        berget:
+          "from-berget-brand-spruce via-berget-brand-moss to-berget-brand-lichen",
+        subtle:
+          "from-berget-brand-night via-berget-brand-slate to-berget-brand-night",
+        night:
+          "from-berget-brand-slate via-berget-brand-night to-berget-brand-slate",
       },
     },
     defaultVariants: {

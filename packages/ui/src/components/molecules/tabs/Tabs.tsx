@@ -10,14 +10,14 @@ import {
 } from "../../../primitives/tabs";
 
 const tabListVariants = cva(
-  "inline-flex items-center justify-center rounded-xl border bg-cloud/5 p-1 transition-all duration-200",
+  "inline-flex items-center justify-center rounded-xl border bg-berget-brand-cloud/5 p-1 transition-all duration-200",
   {
     variants: {
       variant: {
-        default: "border-cloud/20",
-        primary: "border-moss/50 bg-moss/10",
-        subtle: "border-cloud/10",
-        muted: "border-cloud/5",
+        default: "border-berget-brand-cloud/20",
+        primary: "border-berget-brand-moss/50 bg-berget-brand-moss/10",
+        subtle: "border-berget-brand-cloud/10",
+        muted: "border-berget-brand-cloud/5",
       },
       size: {
         sm: "gap-1",
@@ -38,13 +38,13 @@ const tabTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          "text-muted-foreground hover:text-foreground hover:bg-cloud/10 data-[state=active]:text-foreground data-[state=active]:bg-cloud/10",
+          "text-muted-foreground hover:text-foreground hover:bg-berget-brand-cloud/10 data-[state=active]:text-foreground data-[state=active]:bg-berget-brand-cloud/10",
         primary:
-          "text-moss/60 hover:text-moss hover:bg-moss/20 data-[state=active]:text-moss data-[state=active]:bg-moss/20",
+          "text-berget-brand-moss/60 hover:text-berget-brand-moss hover:bg-berget-brand-moss/20 data-[state=active]:text-berget-brand-moss data-[state=active]:bg-berget-brand-moss/20",
         subtle:
-          "text-muted-foreground hover:text-foreground hover:bg-cloud/5 data-[state=active]:text-foreground data-[state=active]:bg-cloud/5",
+          "text-muted-foreground hover:text-foreground hover:bg-berget-brand-cloud/5 data-[state=active]:text-foreground data-[state=active]:bg-berget-brand-cloud/5",
         muted:
-          "text-muted-foreground hover:text-foreground/80 hover:bg-cloud/5 data-[state=active]:text-foreground/80 data-[state=active]:bg-cloud/5",
+          "text-muted-foreground hover:text-foreground/80 hover:bg-berget-brand-cloud/5 data-[state=active]:text-foreground/80 data-[state=active]:bg-berget-brand-cloud/5",
       },
       size: {
         sm: "px-2 py-1 text-xs",

@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 
 const panelVariants = cva(
-  "rounded-2xl border bg-slate border-slate/40 backdrop-blur-[12px] relative overflow-hidden",
+  "rounded-2xl border bg-berget-brand-slate border-berget-brand-slate/40 backdrop-blur-[12px] relative overflow-hidden",
   {
     variants: {
       padding: {

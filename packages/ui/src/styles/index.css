@@ -1,4 +1,213 @@
+/* A. Brand primitives (raw HSL channels) */
+:root {
+  /* Neutrals */
+  --berget-brand-peak: 0 0% 100%; /* #ffffff */
+  --berget-brand-cloud: 25 10% 84%; /* #e5ddd5 */
+  --berget-brand-slate: 0 0% 10%; /* #1a1a1a */
+  --berget-brand-night: 0 0% 4%; /* #0a0a0a */
+  --berget-brand-coal: 0 0% 0%; /* #000000 */
+
+  /* Greens */
+  --berget-brand-moss: 151 44% 52%; /* #52b788 */
+  --berget-brand-lichen: 151 37% 63%; /* #74c69d */
+  --berget-brand-spruce: 153 38% 30%; /* #2d6a4f */
+  --berget-brand-fjord: 204 67% 21%; /* #0f405a */
+
+  /* Status */
+  --berget-brand-info: 217 68% 53%; /* #3975d6 */
+  --berget-brand-success: 151 44% 52%; /* #52b788 = moss */
+  --berget-brand-warning: 71 100% 75%; /* #cfff8b */
+  --berget-brand-error: 6 74% 50%; /* #d1392e */
+}
+
+/* B. Semantic Berget tokens */
+:root {
+  /* Surfaces */
+  --berget-background: hsl(var(--berget-brand-night));
+  --berget-foreground: hsl(var(--berget-brand-peak));
+  --berget-foreground-alt: hsl(var(--berget-brand-night));
+  --berget-body-background: hsl(var(--berget-brand-peak) / 0.8);
+  --berget-mid-alt: hsl(var(--berget-brand-coal));
+
+  /* Cards / containers */
+  --berget-card: hsl(var(--berget-brand-slate) / 0.4);
+  --berget-card-foreground: hsl(var(--berget-brand-peak));
+  --berget-popover: hsl(var(--berget-brand-slate));
+  --berget-popover-foreground: hsl(var(--berget-brand-peak));
+  --berget-muted: hsl(var(--berget-brand-night));
+  --berget-muted-foreground: hsl(var(--berget-brand-peak) / 0.6);
+
+  /* Surface semantic aliases (cloud = primary surface, moss = action) */
+  --berget-primary: hsl(var(--berget-brand-cloud));
+  --berget-primary-foreground: hsl(var(--berget-brand-peak));
+  --berget-primary-hover: hsl(var(--berget-brand-night));
+  --berget-secondary: hsl(var(--berget-brand-moss));
+  --berget-secondary-foreground: hsl(var(--berget-brand-peak));
+  --berget-secondary-hover: hsl(var(--berget-brand-moss) / 0.4);
+
+  /* Accent (Lichen) */
+  --berget-accent: hsl(var(--berget-brand-lichen));
+  --berget-accent-foreground: hsl(var(--berget-brand-slate));
+  --berget-accent-2: hsl(var(--berget-brand-warning));
+  --berget-accent-3: hsl(var(--berget-brand-fjord));
+
+  /* Ghost */
+  --berget-ghost: hsl(var(--berget-brand-slate) / 0.4);
+  --berget-ghost-hover: hsl(var(--berget-brand-slate) / 0.8);
+  --berget-ghost-foreground: hsl(var(--berget-brand-peak));
+
+  /* Outline */
+  --berget-outline: hsl(var(--berget-brand-moss) / 0.4);
+  --berget-outline-hover: hsl(var(--berget-brand-peak) / 0.05);
+  --berget-outline-active: hsl(0 0% 100% / 0.15);
+
+  /* Borders / inputs */
+  --berget-border: hsl(var(--berget-brand-slate));
+  --berget-input: hsl(var(--berget-brand-slate));
+  --berget-ring: hsl(var(--berget-brand-moss) / 0.2);
+  --berget-ring-error: hsl(var(--berget-brand-error) / 0.2);
+
+  /* Destructive */
+  --berget-destructive: hsl(var(--berget-brand-error) / 0.2);
+  --berget-destructive-border: hsl(var(--berget-brand-error) / 0.2);
+  --berget-destructive-foreground: hsl(var(--berget-brand-error));
+
+  /* Sidebar */
+  --berget-sidebar: hsl(var(--berget-brand-slate) / 0.4);
+  --berget-sidebar-foreground: hsl(var(--berget-brand-peak) / 0.6);
+  --berget-sidebar-accent: hsl(var(--berget-brand-moss) / 0.8);
+  --berget-sidebar-accent-foreground: hsl(var(--berget-brand-peak));
+  --berget-sidebar-border: hsl(var(--berget-brand-peak) / 0.05);
+  --berget-sidebar-ring: hsl(var(--berget-brand-moss) / 0.2);
+
+  /* Utility */
+  --berget-backdrop: hsl(var(--berget-brand-slate) / 0.8);
+
+  /* Status semantic */
+  --berget-info: hsl(var(--berget-brand-info) / 0.2);
+  --berget-info-foreground: hsl(var(--berget-brand-info));
+  --berget-info-border: hsl(var(--berget-brand-info) / 0.5);
+  --berget-success: hsl(var(--berget-brand-success) / 0.2);
+  --berget-success-foreground: hsl(var(--berget-brand-success));
+  --berget-success-border: hsl(var(--berget-brand-success) / 0.5);
+  --berget-warning: hsl(var(--berget-brand-warning) / 0.2);
+  --berget-warning-foreground: hsl(var(--berget-brand-warning));
+  --berget-warning-border: hsl(var(--berget-brand-warning) / 0.5);
+
+  /* Button component-scoped tokens */
+  /* default (cloud bg, slate text) */
+  --berget-button-default-bg: hsl(var(--berget-brand-cloud));
+  --berget-button-default-fg: hsl(var(--berget-brand-slate));
+  /* primary (moss bg, peak text) */
+  --berget-button-primary-bg: hsl(var(--berget-brand-moss));
+  --berget-button-primary-fg: hsl(var(--berget-brand-peak));
+  /* secondary / accent (lichen bg, night text) */
+  --berget-button-secondary-bg: hsl(var(--berget-brand-lichen));
+  --berget-button-secondary-fg: hsl(var(--berget-brand-night));
+  /* destructive (error bg, peak text) */
+  --berget-button-destructive-bg: hsl(var(--berget-brand-error));
+  --berget-button-destructive-fg: hsl(var(--berget-brand-peak));
+  /* link */
+  --berget-button-link-fg: hsl(var(--berget-brand-moss));
+
+  /* Gradients */
+  --berget-gradient-fjord-slate: linear-gradient(
+    90deg,
+    #0f405a 0%,
+    #1a1a1a 100%
+  );
+  --berget-gradient-slate-night: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #0a0a0a 100%
+  );
+  --berget-gradient-spruce-fjord: linear-gradient(
+    90deg,
+    #2d6a4f 0%,
+    #0f405a 100%
+  );
+  --berget-gradient-spruce-slate: linear-gradient(
+    90deg,
+    #2d6a4f 0%,
+    #1a1a1a 100%
+  );
+  --berget-gradient-spruce-night: linear-gradient(
+    90deg,
+    #2d6a4f 0%,
+    #0a0a0a 100%
+  );
+  --berget-gradient-moss-lichen: linear-gradient(
+    90deg,
+    #52b788 0%,
+    #74c69d 100%
+  );
+  --berget-gradient-moss-spruce: linear-gradient(
+    90deg,
+    #52b788 0%,
+    #2d6a4f 100%
+  );
+  --berget-gradient-lichen-cloud: linear-gradient(
+    90deg,
+    #74c69d 0%,
+    #e5ddd5 100%
+  );
+  --berget-gradient-card: radial-gradient(#e5ddd50a 0%, #1a1a1a00 100%);
+
+  /* Shadows */
+  --berget-shadow-sm: 0 4px 4px hsl(var(--berget-brand-slate) / 0.05);
+  --berget-shadow-md: 0 8px 8px 4px hsl(var(--berget-brand-slate) / 0.05);
+  --berget-shadow-lg: 0 8px 12px hsl(var(--berget-brand-slate) / 0.4);
+
+  /* Chart */
+  --berget-chart-1: hsl(var(--berget-brand-warning));
+  --berget-chart-2: hsl(var(--berget-brand-success));
+  --berget-chart-3: hsl(var(--berget-brand-moss));
+  --berget-chart-4: hsl(var(--berget-brand-spruce));
+  --berget-chart-5: hsl(var(--berget-brand-fjord));
+
+  /* Border radii */
+  --berget-radius-none: 0px;
+  --berget-radius-xs: 12px;
+  --berget-radius-sm: 16px;
+  --berget-radius-md: 24px;
+  --berget-radius-lg: 32px;
+  --berget-radius-full: 9999px;
+
+  /* Typography */
+  --berget-font-sans: "DM Sans", sans-serif;
+  --berget-font-serif: "Ovo", serif;
+  --berget-font-mono: "DM Mono", monospace;
+}
+
+/* C. shadcn bridge */
+@layer base {
+  :root {
+    --background: var(--berget-brand-night);
+    --foreground: var(--berget-brand-peak);
+    --primary: var(--berget-brand-cloud);
+    --primary-foreground: var(--berget-brand-peak);
+    --secondary: var(--berget-brand-moss);
+    --secondary-foreground: var(--berget-brand-peak);
+    --accent: var(--berget-brand-lichen);
+    --accent-foreground: var(--berget-brand-slate);
+    --muted: var(--berget-brand-night);
+    --muted-foreground: var(--berget-brand-peak);
+    --card: var(--berget-brand-slate);
+    --card-foreground: var(--berget-brand-peak);
+    --popover: var(--berget-brand-slate);
+    --popover-foreground: var(--berget-brand-peak);
+    --input: var(--berget-brand-slate);
+    --border: var(--berget-brand-slate);
+    --ring: var(--berget-brand-moss);
+    --destructive: var(--berget-brand-error);
+    --destructive-foreground: var(--berget-brand-peak);
+    --radius: 0.5rem;
+  }
+}
+
+/* D. @theme block */
 @theme {
+  /* Existing shadcn aliases */
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-secondary: hsl(var(--secondary));
@@ -17,22 +226,6 @@
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
-  /* Brand colors */
-  --color-moss: hsl(var(--moss));
-  --color-lichen: hsl(var(--lichen));
-  --color-spruce: hsl(var(--spruce));
-  --color-fjord: hsl(var(--fjord));
-  --color-peak: hsl(var(--peak));
-  --color-cloud: hsl(var(--cloud));
-  --color-slate: hsl(var(--slate));
-  --color-night: hsl(var(--night));
-
-  /* Semantic status colors */
-  --color-success: hsl(var(--success));
-  --color-warning: hsl(var(--warning));
-  --color-error: hsl(var(--error));
-  --color-info: hsl(var(--info));
-
   /* Feature card tokens */
   --spacing-feature-card-padding-vertical: 48px;
   --spacing-feature-card-padding-horizontal: 40px;
@@ -47,122 +240,116 @@
   --animate-float-slow: float-slow 20s ease-in-out infinite;
   --animate-float-medium: float-medium 14s ease-in-out infinite;
   --animate-float-fast: float-fast 8s ease-in-out infinite;
-}
 
-@layer base {
-  :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --primary: 151 44% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 151 37% 63%;
-    --secondary-foreground: 0 0% 4%;
-    --accent: 204 67% 21%;
-    --accent-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 25 10% 84% / 0.6;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
-    --input: 0 0% 15%;
-    --destructive: 6 74% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 25 10% 84% / 0.05;
-    --border-hover: 25 10% 84% / 0.1;
-    --border-strong: 25 10% 84% / 0.08;
-    --ring: 151 44% 52%;
-    --radius: 0.5rem;
+  /* Brand primitive aliases */
+  --color-berget-brand-peak: hsl(var(--berget-brand-peak));
+  --color-berget-brand-cloud: hsl(var(--berget-brand-cloud));
+  --color-berget-brand-slate: hsl(var(--berget-brand-slate));
+  --color-berget-brand-night: hsl(var(--berget-brand-night));
+  --color-berget-brand-coal: hsl(var(--berget-brand-coal));
+  --color-berget-brand-moss: hsl(var(--berget-brand-moss));
+  --color-berget-brand-lichen: hsl(var(--berget-brand-lichen));
+  --color-berget-brand-spruce: hsl(var(--berget-brand-spruce));
+  --color-berget-brand-fjord: hsl(var(--berget-brand-fjord));
+  --color-berget-brand-info: hsl(var(--berget-brand-info));
+  --color-berget-brand-success: hsl(var(--berget-brand-success));
+  --color-berget-brand-warning: hsl(var(--berget-brand-warning));
+  --color-berget-brand-error: hsl(var(--berget-brand-error));
 
-    /* Brand colors */
-    --moss: 151 44% 52%;
-    --lichen: 151 37% 63%;
-    --spruce: 153 38% 30%;
-    --fjord: 204 67% 21%;
-    --peak: 0 0% 100%;
-    --cloud: 25 10% 84%;
-    --slate: 0 0% 10%;
-    --night: 0 0% 4%;
+  /* Semantic surface aliases */
+  --color-berget-background: var(--berget-background);
+  --color-berget-foreground: var(--berget-foreground);
+  --color-berget-foreground-alt: var(--berget-foreground-alt);
+  --color-berget-body-background: var(--berget-body-background);
+  --color-berget-mid-alt: var(--berget-mid-alt);
+  --color-berget-card: var(--berget-card);
+  --color-berget-card-foreground: var(--berget-card-foreground);
+  --color-berget-popover: var(--berget-popover);
+  --color-berget-popover-foreground: var(--berget-popover-foreground);
+  --color-berget-muted: var(--berget-muted);
+  --color-berget-muted-foreground: var(--berget-muted-foreground);
+  --color-berget-primary: var(--berget-primary);
+  --color-berget-primary-foreground: var(--berget-primary-foreground);
+  --color-berget-primary-hover: var(--berget-primary-hover);
+  --color-berget-secondary: var(--berget-secondary);
+  --color-berget-secondary-foreground: var(--berget-secondary-foreground);
+  --color-berget-secondary-hover: var(--berget-secondary-hover);
+  --color-berget-accent: var(--berget-accent);
+  --color-berget-accent-foreground: var(--berget-accent-foreground);
+  --color-berget-accent-2: var(--berget-accent-2);
+  --color-berget-accent-3: var(--berget-accent-3);
+  --color-berget-ghost: var(--berget-ghost);
+  --color-berget-ghost-hover: var(--berget-ghost-hover);
+  --color-berget-ghost-foreground: var(--berget-ghost-foreground);
+  --color-berget-outline: var(--berget-outline);
+  --color-berget-outline-hover: var(--berget-outline-hover);
+  --color-berget-outline-active: var(--berget-outline-active);
+  --color-berget-border: var(--berget-border);
+  --color-berget-input: var(--berget-input);
+  --color-berget-ring: var(--berget-ring);
+  --color-berget-ring-error: var(--berget-ring-error);
+  --color-berget-destructive: var(--berget-destructive);
+  --color-berget-destructive-foreground: var(--berget-destructive-foreground);
+  --color-berget-destructive-border: var(--berget-destructive-border);
+  --color-berget-backdrop: var(--berget-backdrop);
 
-    /* Semantic status colors */
-    --success: 151 44% 52%;
-    --success-foreground: 0 0% 100%;
-    --warning: 71 100% 75%;
-    --warning-foreground: 0 0% 10%;
-    --error: 6 74% 50%;
-    --info: 217 68% 53%;
-    --info-foreground: 0 0% 100%;
+  /* Status aliases */
+  --color-berget-info: var(--berget-info);
+  --color-berget-info-foreground: var(--berget-info-foreground);
+  --color-berget-info-border: var(--berget-info-border);
+  --color-berget-success: var(--berget-success);
+  --color-berget-success-foreground: var(--berget-success-foreground);
+  --color-berget-success-border: var(--berget-success-border);
+  --color-berget-warning: var(--berget-warning);
+  --color-berget-warning-foreground: var(--berget-warning-foreground);
+  --color-berget-warning-border: var(--berget-warning-border);
 
-    /* Themed borders */
-    --border-moss: 151 44% 52% / 0.2;
-    --border-lichen: 151 37% 63% / 0.2;
-    --border-spruce: 153 38% 30% / 0.2;
-    --border-fjord: 204 67% 21% / 0.2;
-    --border-cloud: 25 10% 84% / 0.2;
+  /* Button component-scoped aliases — must use hsl(var(--berget-brand-*)) so
+     Tailwind opacity modifiers (e.g. /90) can inject the alpha channel */
+  --color-berget-button-default-bg: hsl(var(--berget-brand-cloud));
+  --color-berget-button-default-fg: hsl(var(--berget-brand-slate));
+  --color-berget-button-primary-bg: hsl(var(--berget-brand-moss));
+  --color-berget-button-primary-fg: hsl(var(--berget-brand-peak));
+  --color-berget-button-secondary-bg: hsl(var(--berget-brand-lichen));
+  --color-berget-button-secondary-fg: hsl(var(--berget-brand-night));
+  --color-berget-button-destructive-bg: hsl(var(--berget-brand-error));
+  --color-berget-button-destructive-fg: hsl(var(--berget-brand-peak));
+  --color-berget-button-link-fg: hsl(var(--berget-brand-moss));
 
-    /* Alert border colors */
-    --border-info: 217 68% 53% / 0.5;
-    --border-success: 151 44% 52% / 0.5;
-    --border-warning: 71 100% 75% / 0.5;
-    --border-destructive: 6 74% 50% / 0.5;
-  }
+  /* Sidebar aliases */
+  --color-berget-sidebar: var(--berget-sidebar);
+  --color-berget-sidebar-foreground: var(--berget-sidebar-foreground);
+  --color-berget-sidebar-accent: var(--berget-sidebar-accent);
+  --color-berget-sidebar-accent-foreground: var(
+    --berget-sidebar-accent-foreground
+  );
+  --color-berget-sidebar-border: var(--berget-sidebar-border);
+  --color-berget-sidebar-ring: var(--berget-sidebar-ring);
 
-  .light,
-  [data-theme="light"] {
-    --background: 0 0% 96%;
-    --foreground: 0 0% 10%;
-    --primary: 151 44% 52%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 151 37% 63%;
-    --secondary-foreground: 0 0% 10%;
-    --accent: 204 67% 21%;
-    --accent-foreground: 0 0% 100%;
-    --muted: 0 0% 90%;
-    --muted-foreground: 25 10% 84% / 0.6;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --input: 0 0% 90%;
-    --destructive: 6 74% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 0% / 0.1;
-    --border-hover: 0 0% 0% / 0.2;
-    --border-strong: 0 0% 0% / 0.15;
-    --ring: 151 44% 52%;
+  /* Chart */
+  --color-berget-chart-1: var(--berget-chart-1);
+  --color-berget-chart-2: var(--berget-chart-2);
+  --color-berget-chart-3: var(--berget-chart-3);
+  --color-berget-chart-4: var(--berget-chart-4);
+  --color-berget-chart-5: var(--berget-chart-5);
 
-    /* Brand colors (same in both themes) */
-    --moss: 151 44% 52%;
-    --lichen: 151 37% 63%;
-    --spruce: 153 38% 30%;
-    --fjord: 204 67% 21%;
-    --peak: 0 0% 100%;
-    --cloud: 25 10% 84%;
-    --slate: 0 0% 10%;
-    --night: 0 0% 4%;
+  /* Shadows */
+  --shadow-berget-sm: var(--berget-shadow-sm);
+  --shadow-berget-md: var(--berget-shadow-md);
+  --shadow-berget-lg: var(--berget-shadow-lg);
 
-    /* Semantic status colors */
-    --success: 151 44% 52%;
-    --success-foreground: 0 0% 100%;
-    --warning: 71 100% 75%;
-    --warning-foreground: 0 0% 10%;
-    --error: 6 74% 50%;
-    --info: 217 68% 53%;
-    --info-foreground: 0 0% 100%;
+  /* Border radii */
+  --radius-berget-none: var(--berget-radius-none);
+  --radius-berget-xs: var(--berget-radius-xs);
+  --radius-berget-sm: var(--berget-radius-sm);
+  --radius-berget-md: var(--berget-radius-md);
+  --radius-berget-lg: var(--berget-radius-lg);
+  --radius-berget-full: var(--berget-radius-full);
 
-    /* Themed borders */
-    --border-moss: 151 44% 52% / 0.3;
-    --border-lichen: 151 37% 63% / 0.3;
-    --border-spruce: 153 38% 30% / 0.3;
-    --border-fjord: 204 67% 21% / 0.3;
-    --border-cloud: 25 10% 84% / 0.3;
-
-    /* Alert border colors */
-    --border-info: 217 68% 53% / 0.5;
-    --border-success: 151 44% 52% / 0.5;
-    --border-warning: 71 100% 75% / 0.5;
-    --border-destructive: 6 74% 50% / 0.5;
-  }
+  /* Typography */
+  --font-berget-sans: var(--berget-font-sans);
+  --font-berget-serif: var(--berget-font-serif);
+  --font-berget-mono: var(--berget-font-mono);
 }
 
 @keyframes float-slow {

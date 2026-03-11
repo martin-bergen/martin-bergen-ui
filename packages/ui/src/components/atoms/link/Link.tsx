@@ -8,11 +8,11 @@ const linkVariants = cva(
     variants: {
       variant: {
         default: "text-foreground hover:text-foreground/80",
-        primary: "text-moss hover:text-moss/80",
-        secondary: "text-lichen hover:text-lichen/80",
+        primary: "text-berget-secondary hover:text-berget-secondary/80",
+        secondary: "text-berget-accent hover:text-berget-accent/80",
         ghost: "text-muted-foreground hover:text-foreground",
         muted: "text-muted-foreground hover:text-muted-foreground/80",
-        code: "text-moss hover:text-moss/80 font-mono text-sm bg-moss/10 px-2 py-1 rounded hover:bg-moss/20",
+        code: "text-berget-secondary hover:text-berget-secondary/80 font-mono text-sm bg-berget-brand-moss/10 px-2 py-1 rounded hover:bg-berget-brand-moss/20",
       },
       size: {
         sm: "text-sm",
