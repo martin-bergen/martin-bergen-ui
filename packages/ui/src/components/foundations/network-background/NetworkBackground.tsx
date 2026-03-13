@@ -6,7 +6,7 @@ export interface NetworkBackgroundProps {
   nodeCount?: number;
   /** Opacity of the entire network (0-1) @default 0.4 */
   opacity?: number;
-  /** Color for network elements as RGB tuple @default [229, 221, 213] (Cloud) */
+  /** Color for network elements as RGB tuple @default [229, 221, 213] (maps to --berget-brand-cloud) */
   color?: [number, number, number];
   /** Additional CSS classes */
   className?: string;

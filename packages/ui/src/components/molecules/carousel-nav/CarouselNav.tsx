@@ -43,7 +43,9 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
               key={idx}
               className={cn(
                 "w-2 h-2 rounded-full transition-colors",
-                idx === activeIndex ? "bg-[#52B788]" : "bg-white/20",
+                idx === activeIndex
+                  ? "bg-berget-brand-moss"
+                  : "bg-berget-brand-peak/20",
               )}
               onClick={() => onNavigate(idx)}
             />

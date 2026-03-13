@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Grid } from "./Grid"
+import type { Meta, StoryObj } from "@storybook/react";
+import { Grid } from "./Grid";
 
 const meta: Meta<typeof Grid> = {
   title: "Atoms/Grid",
@@ -31,17 +31,26 @@ const meta: Meta<typeof Grid> = {
     },
     gap: {
       control: "select",
-      options: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96],
+      options: [
+        0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80,
+        96,
+      ],
       description: "Gap spacing (Tailwind scale)",
     },
     gapX: {
       control: "select",
-      options: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96],
+      options: [
+        0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80,
+        96,
+      ],
       description: "Horizontal gap spacing",
     },
     gapY: {
       control: "select",
-      options: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96],
+      options: [
+        0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80,
+        96,
+      ],
       description: "Vertical gap spacing",
     },
     asChild: {
@@ -49,20 +58,28 @@ const meta: Meta<typeof Grid> = {
       description: "Render as child element (Radix Slot)",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Grid>
+export default meta;
+type Story = StoryObj<typeof Grid>;
 
-function Placeholder({ color, label, height }: { color: string; label: string; height?: string }) {
+function Placeholder({
+  color,
+  label,
+  height,
+}: {
+  color: string;
+  label: string;
+  height?: string;
+}) {
   return (
     <div
-      className={`flex items-center justify-center rounded-lg text-sm font-normal text-white ${color}`}
+      className={`flex items-center justify-center rounded-lg text-sm  text-white ${color}`}
       style={{ minHeight: height || "80px" }}
     >
       {label}
     </div>
-  )
+  );
 }
 
 export const TwoColumns: Story = {
@@ -76,7 +93,7 @@ export const TwoColumns: Story = {
       </>
     ),
   },
-}
+};
 
 export const ThreeColumns: Story = {
   args: {
@@ -90,7 +107,7 @@ export const ThreeColumns: Story = {
       </>
     ),
   },
-}
+};
 
 export const FourColumns: Story = {
   args: {
@@ -105,7 +122,7 @@ export const FourColumns: Story = {
       </>
     ),
   },
-}
+};
 
 export const SixColumns: Story = {
   args: {
@@ -122,17 +139,21 @@ export const SixColumns: Story = {
       </>
     ),
   },
-}
+};
 
 export const TwelveColumns: Story = {
   args: {
     cols: 12,
     gap: 2,
     children: Array.from({ length: 12 }, (_, i) => (
-      <Placeholder key={i} color={`bg-${i % 2 === 0 ? "moss" : "lichen"}/80`} label={`${i + 1}`} />
+      <Placeholder
+        key={i}
+        color={`bg-${i % 2 === 0 ? "moss" : "lichen"}/80`}
+        label={`${i + 1}`}
+      />
     )),
   },
-}
+};
 
 export const WithRows: Story = {
   args: {
@@ -140,10 +161,14 @@ export const WithRows: Story = {
     rows: 3,
     gap: 4,
     children: Array.from({ length: 9 }, (_, i) => (
-      <Placeholder key={i} color={`bg-${["moss", "lichen", "spruce", "fjord", "cloud", "slate"][i % 6]}`} label={`${i + 1}`} />
+      <Placeholder
+        key={i}
+        color={`bg-${["moss", "lichen", "spruce", "fjord", "cloud", "slate"][i % 6]}`}
+        label={`${i + 1}`}
+      />
     )),
   },
-}
+};
 
 export const Centered: Story = {
   args: {
@@ -158,7 +183,7 @@ export const Centered: Story = {
       </>
     ),
   },
-}
+};
 
 export const AsymmetricGaps: Story = {
   args: {
@@ -166,16 +191,22 @@ export const AsymmetricGaps: Story = {
     gapX: 8,
     gapY: 4,
     children: Array.from({ length: 6 }, (_, i) => (
-      <Placeholder key={i} color={`bg-${["moss", "lichen", "spruce"][i % 3]}`} label={`${i + 1}`} />
+      <Placeholder
+        key={i}
+        color={`bg-${["moss", "lichen", "spruce"][i % 3]}`}
+        label={`${i + 1}`}
+      />
     )),
   },
-}
+};
 
 export const VisualGrid: Story = {
   args: {
     children: (
       <>
-        <div className="text-sm text-muted-foreground mb-4">Column Variants</div>
+        <div className="text-sm text-muted-foreground mb-4">
+          Column Variants
+        </div>
         <div className="flex flex-col gap-8 mb-8">
           <div>
             <span className="text-xs text-muted-foreground">cols-2</span>
@@ -203,7 +234,9 @@ export const VisualGrid: Story = {
           </div>
         </div>
 
-        <div className="text-sm text-muted-foreground mb-4">Alignment Variants</div>
+        <div className="text-sm text-muted-foreground mb-4">
+          Alignment Variants
+        </div>
         <div className="grid grid-cols-2 gap-4 mb-8">
           <div>
             <span className="text-xs text-muted-foreground">align-start</span>
@@ -249,10 +282,14 @@ export const VisualGrid: Story = {
           </div>
         </div>
 
-        <div className="text-sm text-muted-foreground mb-4">Asymmetric Gaps</div>
+        <div className="text-sm text-muted-foreground mb-4">
+          Asymmetric Gaps
+        </div>
         <div className="flex flex-col gap-4">
           <div>
-            <span className="text-xs text-muted-foreground">gap-x-8 gap-y-2</span>
+            <span className="text-xs text-muted-foreground">
+              gap-x-8 gap-y-2
+            </span>
             <Grid cols={3} gapX={8} gapY={2} className="mt-2">
               <Placeholder color="bg-moss/20" label="1" />
               <Placeholder color="bg-lichen/20" label="2" />
@@ -266,7 +303,7 @@ export const VisualGrid: Story = {
       </>
     ),
   },
-}
+};
 
 export const Playground: Story = {
   args: {
@@ -282,4 +319,4 @@ export const Playground: Story = {
       </>
     ),
   },
-}
+};

@@ -92,7 +92,7 @@ const Select = React.forwardRef<
           <label
             htmlFor={selectId}
             className={cn(
-              "text-sm font-medium leading-none",
+              "text-sm  leading-none",
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",

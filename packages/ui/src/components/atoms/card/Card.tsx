@@ -45,8 +45,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         className={cn(cardVariants({ variant, padding }), className)}
         {...props}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(229,221,213,0.04)_0%,_transparent_50%)] pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,var(--color-berget-brand-cloud)_0%,transparent_90%)] opacity-30 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_hsl(var(--berget-brand-cloud))/0.04_0%,_transparent_50%)] pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[radial-gradient(55.66%_112.5%_at_50%_0%,hsl(var(--berget-brand-cloud))_0%,transparent_90%)] opacity-30 pointer-events-none" />
         <div className="relative z-10 h-full">{children}</div>
       </CardPrimitive>
     );

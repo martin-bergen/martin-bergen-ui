@@ -56,7 +56,7 @@ export function CodeBlock({
     >
       {title && (
         <div className="!h-10 flex items-center !px-4 !text-xs !leading-normal border-b border-white/10 bg-white/5">
-          <span className="font-medium text-white/60">{title}</span>
+          <span className=" text-white/60">{title}</span>
         </div>
       )}
       <div className="absolute right-2 top-2 z-10">{copyButton}</div>
@@ -66,7 +66,7 @@ export function CodeBlock({
           dangerouslySetInnerHTML={{ __html: html }}
         />
       ) : (
-        <pre className="!p-4 !m-0 overflow-x-auto !text-sm !leading-relaxed text-[#d6cdc5]">
+        <pre className="!p-4 !m-0 overflow-x-auto !text-sm !leading-relaxed text-berget-muted-foreground">
           <code>{code}</code>
         </pre>
       )}

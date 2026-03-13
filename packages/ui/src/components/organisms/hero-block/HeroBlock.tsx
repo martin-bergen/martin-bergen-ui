@@ -141,7 +141,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
               </Badge>
             )}
 
-            <h1 className="text-5xl font-medium mb-6 leading-tight">{title}</h1>
+            <h1 className="text-5xl  mb-6 leading-tight">{title}</h1>
 
             <p className="text-xl text-white/80 mb-8 leading-relaxed">
               {description}

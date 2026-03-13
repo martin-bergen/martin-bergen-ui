@@ -64,9 +64,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className="space-y-8 w-[500px]">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
-          Default
-        </p>
+        <p className="text-sm  text-muted-foreground mb-3">Default</p>
         <Tabs defaultValue="tab1">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -77,9 +75,7 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
-          Primary
-        </p>
+        <p className="text-sm  text-muted-foreground mb-3">Primary</p>
         <Tabs defaultValue="tab1" variant="primary">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -90,7 +86,7 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Subtle</p>
+        <p className="text-sm  text-muted-foreground mb-3">Subtle</p>
         <Tabs defaultValue="tab1" variant="subtle">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -101,7 +97,7 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Muted</p>
+        <p className="text-sm  text-muted-foreground mb-3">Muted</p>
         <Tabs defaultValue="tab1" variant="muted">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -184,7 +180,7 @@ export const Sizes: Story = {
   render: () => (
     <div className="space-y-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Small</p>
+        <p className="text-sm  text-muted-foreground mb-3">Small</p>
         <Tabs defaultValue="tab1" size="sm">
           <TabsList>
             <TabsTrigger value="tab1">Small</TabsTrigger>
@@ -194,9 +190,7 @@ export const Sizes: Story = {
         </Tabs>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
-          Default
-        </p>
+        <p className="text-sm  text-muted-foreground mb-3">Default</p>
         <Tabs defaultValue="tab1">
           <TabsList>
             <TabsTrigger value="tab1">Default</TabsTrigger>
@@ -206,7 +200,7 @@ export const Sizes: Story = {
         </Tabs>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Large</p>
+        <p className="text-sm  text-muted-foreground mb-3">Large</p>
         <Tabs defaultValue="tab1" size="lg">
           <TabsList>
             <TabsTrigger value="tab1">Large</TabsTrigger>

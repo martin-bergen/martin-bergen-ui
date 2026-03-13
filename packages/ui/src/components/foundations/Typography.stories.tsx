@@ -4,6 +4,18 @@ const meta = {
   title: "Foundations/Typography",
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component: `
+# Typography
+
+All font weights are locked to 400 (Regular) globally via CSS custom properties.
+Using font-medium, font-semibold, font-bold, etc. will have no visual effect.
+
+This ensures consistent typography across the entire design system.
+`,
+      },
+    },
   },
 } satisfies Meta;
 
@@ -18,43 +30,43 @@ export const Headings: Story = {
       <div>
         <h2 className="font-serif text-3xl text-foreground mb-1">Headings</h2>
         <p className="text-muted-foreground">
-          Serif headings use Ovo, sub-headings use DM Sans
+          H1, H2, H4 = Ovo (serif) | H3 = DM Sans (sans)
         </p>
       </div>
 
-      <div className="bg-cloud/5 border border-cloud/10 rounded-xl p-8 space-y-8">
+      <div className="bg-berget-brand-cloud/5 border border-berget-brand-cloud/10 rounded-xl p-8 space-y-8">
         <div className="space-y-2">
           <div className="text-xs text-muted-foreground font-mono">
             h1 - Ovo / 5rem / -0.03em
           </div>
-          <h1 className="text-foreground">{pangram}</h1>
+          <h1 className="font-serif text-5xl text-foreground">{pangram}</h1>
         </div>
 
-        <div className="border-t border-cloud/10" />
+        <div className="border-t border-berget-brand-cloud/10" />
 
         <div className="space-y-2">
           <div className="text-xs text-muted-foreground font-mono">
             h2 - Ovo / 2.5rem / -0.03em
           </div>
-          <h2 className="text-foreground">{pangram}</h2>
+          <h2 className="font-serif text-4xl text-foreground">{pangram}</h2>
         </div>
 
-        <div className="border-t border-cloud/10" />
+        <div className="border-t border-berget-brand-cloud/10" />
 
         <div className="space-y-2">
           <div className="text-xs text-muted-foreground font-mono">
             h3 - DM Sans / 1.5rem
           </div>
-          <h3 className="text-foreground">{pangram}</h3>
+          <h3 className="font-sans text-3xl text-foreground">{pangram}</h3>
         </div>
 
-        <div className="border-t border-cloud/10" />
+        <div className="border-t border-berget-brand-cloud/10" />
 
         <div className="space-y-2">
           <div className="text-xs text-muted-foreground font-mono">
-            h4 - DM Sans / 1.25rem
+            h4 - Ovo / 1.25rem
           </div>
-          <h4 className="text-xl text-foreground">{pangram}</h4>
+          <h4 className="font-serif text-xl text-foreground">{pangram}</h4>
         </div>
       </div>
     </div>
@@ -71,7 +83,7 @@ export const BodyText: Story = {
         </p>
       </div>
 
-      <div className="bg-cloud/5 border border-cloud/10 rounded-xl p-8 space-y-8">
+      <div className="bg-berget-brand-cloud/5 border border-berget-brand-cloud/10 rounded-xl p-8 space-y-8">
         <div className="space-y-2">
           <div className="text-xs text-muted-foreground font-mono">
             text-lg - 18px
@@ -118,34 +130,17 @@ export const FontWeights: Story = {
           Font Weights
         </h2>
         <p className="text-muted-foreground">
-          DM Sans weights: 400 (regular), 500 (medium), 600 (semibold)
+          All font weights render as 400 (Regular) - see locked weights note
+          above
         </p>
       </div>
 
-      <div className="bg-cloud/5 border border-cloud/10 rounded-xl p-8 space-y-8">
+      <div className="bg-berget-brand-cloud/5 border border-berget-brand-cloud/10 rounded-xl p-8 space-y-8">
         <div className="space-y-2">
           <div className="text-xs text-muted-foreground font-mono">
-            font-normal (400) - body text
+            (400) - all text
           </div>
-          <p className="text-xl font-normal text-foreground">{pangram}</p>
-        </div>
-
-        <div className="border-t border-cloud/10" />
-
-        <div className="space-y-2">
-          <div className="text-xs text-muted-foreground font-mono">
-            font-medium (500) - labels, buttons
-          </div>
-          <p className="text-xl font-medium text-foreground">{pangram}</p>
-        </div>
-
-        <div className="border-t border-cloud/10" />
-
-        <div className="space-y-2">
-          <div className="text-xs text-muted-foreground font-mono">
-            font-semibold (600) - card titles, emphasis
-          </div>
-          <p className="text-xl font-semibold text-foreground">{pangram}</p>
+          <p className="text-xl text-foreground">{pangram}</p>
         </div>
       </div>
     </div>
@@ -162,7 +157,7 @@ export const TextColors: Story = {
         <p className="text-muted-foreground">Semantic text color tokens</p>
       </div>
 
-      <div className="bg-cloud/5 border border-cloud/10 rounded-xl p-8 space-y-6">
+      <div className="bg-berget-brand-cloud/5 border border-berget-brand-cloud/10 rounded-xl p-8 space-y-6">
         <div className="space-y-1">
           <p className="text-foreground text-lg">
             text-foreground - Primary text

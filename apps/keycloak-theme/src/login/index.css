@@ -159,10 +159,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Serif font for headings */
-h1,
-h2,
-h3 {
+/* Serif font for headings - scoped to login pages */
+.kcBodyClass h1,
+.kcBodyClass h2,
+.kcBodyClass h3 {
   font-family: "Ovo", "Georgia", serif;
   font-weight: 400;
   letter-spacing: -0.04em;

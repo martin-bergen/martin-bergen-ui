@@ -337,7 +337,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
           {/* Completed steps */}
           {completedSteps.map((step, stepIndex) => (
             <div key={stepIndex} className="mb-4">
-              <div className="flex items-center gap-2 text-[#52B788]">
+              <div className="flex items-center gap-2 text-berget-brand-moss">
                 <span className="text-white/50">$</span>
                 <span>
                   {enableSyntaxHighlight
@@ -354,7 +354,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
           {/* Current step */}
           {currentStep < steps.length && (
             <div>
-              <div className="flex items-center gap-2 text-[#52B788]">
+              <div className="flex items-center gap-2 text-berget-brand-moss">
                 <span className="text-white/50">$</span>
                 <span>
                   {enableSyntaxHighlight
@@ -363,7 +363,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
                 </span>
                 {typedCommand.length <
                   (steps[currentStep]?.command.length ?? 0) && (
-                  <span className="inline-block w-2 h-4 bg-[#52B788] animate-pulse" />
+                  <span className="inline-block w-2 h-4 bg-berget-brand-moss animate-pulse" />
                 )}
               </div>
               {showOutput && (

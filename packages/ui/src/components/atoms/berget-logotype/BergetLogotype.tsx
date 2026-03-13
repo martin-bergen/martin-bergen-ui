@@ -13,7 +13,10 @@ const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
     const aspectRatio = 793.63 / 204.37;
     const width = size * aspectRatio;
     const height = size;
-    const fillColor = variant === "light" ? "#FFFFFF" : "#000000";
+    const fillColor =
+      variant === "light"
+        ? "var(--berget-brand-peak)"
+        : "var(--berget-brand-night)";
 
     return (
       <svg

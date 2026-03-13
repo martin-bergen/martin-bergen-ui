@@ -30,11 +30,7 @@ export const Interactive: Story = {
     variant: "light",
   },
   render: (args) => (
-    <div
-      className={
-        args.variant === "light" ? "bg-background p-8" : "bg-white p-8"
-      }
-    >
+    <div className="bg-berget-brand-night p-8 rounded-lg border border-berget-brand-cloud/20">
       <BergetLogotype {...args} />
     </div>
   ),
@@ -45,24 +41,24 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
-          Light (for dark backgrounds)
+        <p className="text-sm  text-muted-foreground mb-3">
+          Light variant (white logotype on dark background)
         </p>
-        <div className="bg-background p-6 rounded-md">
+        <div className="bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
           <BergetLogotype size={48} variant="light" />
         </div>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">
-          Dark (for light backgrounds)
+        <p className="text-sm  text-muted-foreground mb-3">
+          Dark variant (black logotype on light background)
         </p>
-        <div className="bg-white p-6 rounded-md">
+        <div className="bg-berget-brand-cloud p-6 rounded-lg border border-berget-brand-cloud/20">
           <BergetLogotype size={48} variant="dark" />
         </div>
       </div>
       <div>
-        <p className="text-sm font-medium text-muted-foreground mb-3">Sizes</p>
-        <div className="flex items-end gap-8 bg-background p-6 rounded-md">
+        <p className="text-sm  text-muted-foreground mb-3">Sizes</p>
+        <div className="flex items-end gap-8 bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
           <div className="text-center">
             <BergetLogotype size={24} variant="light" />
             <p className="text-xs text-muted-foreground mt-2">24px</p>
