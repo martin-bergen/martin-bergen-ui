@@ -3,20 +3,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 
 const gradientBackgroundVariants = cva(
-  "relative min-h-screen overflow-hidden bg-gradient-to-br",
+  "relative min-h-screen overflow-hidden",
   {
     variants: {
       variant: {
-        berget:
-          "from-berget-brand-spruce via-berget-brand-moss to-berget-brand-lichen",
-        subtle:
-          "from-berget-brand-night via-berget-brand-slate to-berget-brand-night",
-        night:
-          "from-berget-brand-slate via-berget-brand-night to-berget-brand-slate",
+        "fjord-slate": "",
+        "slate-night": "",
+        "spruce-fjord": "",
+        "spruce-slate": "",
+        "spruce-night": "",
+        "moss-lichen": "",
+        "moss-spruce": "",
+        "lichen-cloud": "",
       },
     },
     defaultVariants: {
-      variant: "berget",
+      variant: "fjord-slate",
     },
   },
 );
@@ -26,16 +28,33 @@ export interface GradientBackgroundProps
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof gradientBackgroundVariants> {
   children?: React.ReactNode;
+  rotation?: number;
 }
 
 const GradientBackground = React.forwardRef<
   HTMLDivElement,
   GradientBackgroundProps
->(({ variant, children, className, ...props }, ref) => {
+>(({ variant, children, className, rotation = 90, style, ...props }, ref) => {
+  const gradients = {
+    "fjord-slate": "#0f405a 0%, #1a1a1a 100%",
+    "slate-night": "#1a1a1a 0%, #0a0a0a 100%",
+    "spruce-fjord": "#2d6a4f 0%, #0f405a 100%",
+    "spruce-slate": "#2d6a4f 0%, #1a1a1a 100%",
+    "spruce-night": "#2d6a4f 0%, #0a0a0a 100%",
+    "moss-lichen": "#52b788 0%, #74c69d 100%",
+    "moss-spruce": "#52b788 0%, #2d6a4f 100%",
+    "lichen-cloud": "#74c69d 0%, #e5ddd5 100%",
+  };
+
+  const backgroundImage = variant
+    ? `linear-gradient(${rotation}deg, ${gradients[variant]})`
+    : undefined;
+
   return (
     <div
       ref={ref}
       className={cn(gradientBackgroundVariants({ variant }), className)}
+      style={{ backgroundImage, ...style }}
       {...props}
     >
       {children}

@@ -121,7 +121,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
       >
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
-          {withPattern && <PatternBackground tileSize={32} overlayOnly />}
+          {withPattern && <PatternBackground size="md" overlayOnly />}
           {variant === "moss" && (
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(45,106,79,0.15)_0%,transparent_70%)]" />
           )}
