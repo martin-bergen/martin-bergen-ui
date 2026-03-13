@@ -111,47 +111,6 @@
   --berget-button-link-fg: hsl(var(--berget-brand-moss));
 
   /* Gradients */
-  --berget-gradient-fjord-slate: linear-gradient(
-    90deg,
-    #0f405a 0%,
-    #1a1a1a 100%
-  );
-  --berget-gradient-slate-night: linear-gradient(
-    90deg,
-    #1a1a1a 0%,
-    #0a0a0a 100%
-  );
-  --berget-gradient-spruce-fjord: linear-gradient(
-    90deg,
-    #2d6a4f 0%,
-    #0f405a 100%
-  );
-  --berget-gradient-spruce-slate: linear-gradient(
-    90deg,
-    #2d6a4f 0%,
-    #1a1a1a 100%
-  );
-  --berget-gradient-spruce-night: linear-gradient(
-    90deg,
-    #2d6a4f 0%,
-    #0a0a0a 100%
-  );
-  --berget-gradient-moss-lichen: linear-gradient(
-    90deg,
-    #52b788 0%,
-    #74c69d 100%
-  );
-  --berget-gradient-moss-spruce: linear-gradient(
-    90deg,
-    #52b788 0%,
-    #2d6a4f 100%
-  );
-  --berget-gradient-lichen-cloud: linear-gradient(
-    90deg,
-    #74c69d 0%,
-    #e5ddd5 100%
-  );
-  --berget-gradient-card: radial-gradient(#e5ddd50a 0%, #1a1a1a00 100%);
 
   /* Shadows */
   --berget-shadow-sm: 0 4px 4px hsl(var(--berget-brand-slate) / 0.05);

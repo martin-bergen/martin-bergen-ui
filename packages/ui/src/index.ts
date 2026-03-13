@@ -43,7 +43,12 @@ export { Divider, dividerVariants } from "./components/atoms/divider";
 export type { DividerProps } from "./components/atoms/divider";
 
 export { Grid, gridVariants } from "./components/atoms/grid";
-export type { GridProps, SpacingScale as GridSpacingScale, GridColsScale, GridRowsScale } from "./components/atoms/grid";
+export type {
+  GridProps,
+  SpacingScale as GridSpacingScale,
+  GridColsScale,
+  GridRowsScale,
+} from "./components/atoms/grid";
 
 export {
   FeatureList,
@@ -71,9 +76,6 @@ export type {
   EllipseColor,
   EllipseAnimation,
 } from "./components/foundations/grainy-gradient-background";
-
-export { GridBackground } from "./components/foundations/grid-background";
-export type { GridBackgroundProps } from "./components/foundations/grid-background";
 
 export { Input } from "./components/atoms/input";
 export type { InputProps } from "./components/atoms/input";
@@ -105,7 +107,10 @@ export { Select, selectVariants } from "./components/atoms/select";
 export type { SelectProps, SelectOption } from "./components/atoms/select";
 
 export { Stack, stackVariants } from "./components/atoms/stack";
-export type { StackProps, SpacingScale as StackSpacingScale } from "./components/atoms/stack";
+export type {
+  StackProps,
+  SpacingScale as StackSpacingScale,
+} from "./components/atoms/stack";
 
 export {
   Tabs,

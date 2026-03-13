@@ -1,17 +1,27 @@
 import * as React from "react";
 import { cn } from "../../../lib/utils";
 
+export type PatternSize = "sm" | "md" | "lg";
+
 export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
-  /** Size of the pattern tiles in pixels @default 48 */
-  tileSize?: 32 | 48;
+  /** Size of the pattern tiles @default "lg" */
+  size?: PatternSize;
   /** Don't set background color, only show pattern overlay @default false */
   overlayOnly?: boolean;
-  /** Opacity of the grid lines (0-1) @default 0.04 */
+  /** Opacity of the grid lines (0-1) @default 0.1 */
   lineOpacity?: number;
-  /** Opacity of the dots in the pattern (0-1) @default 0.02 */
+  /** Opacity of the dots (0-1) @default 0.1 */
   dotOpacity?: number;
+  /** Color for pattern elements using CSS variable @default "hsl(var(--berget-brand-cloud))" */
+  color?: string;
 }
+
+const sizeMap = {
+  sm: 24,
+  md: 34,
+  lg: 48,
+};
 
 const PatternBackground = React.forwardRef<
   HTMLDivElement,
@@ -21,50 +31,33 @@ const PatternBackground = React.forwardRef<
     {
       children,
       className,
-      tileSize = 48,
+      size = "lg",
       overlayOnly = false,
-      lineOpacity = 0.04,
-      dotOpacity = 0.02,
+      lineOpacity = 0.1,
+      dotOpacity = 0.1,
+      color = "hsl(var(--berget-brand-cloud))",
       ...props
     },
     ref,
   ) => {
-    const patterns = {
-      32: {
-        size: "32px 32px",
-        backgroundImage: `
-        linear-gradient(rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, ${dotOpacity}) 3px, transparent 3px),
-        radial-gradient(circle at 32px 32px, rgba(255, 255, 255, ${dotOpacity}) 2px, transparent 2px),
-        radial-gradient(circle at 32px 0, rgba(255, 255, 255, ${dotOpacity}) 2px, transparent 2px),
-        radial-gradient(circle at 0 32px, rgba(255, 255, 255, ${dotOpacity}) 2px, transparent 2px),
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 32px 32px, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 0 32px, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 32px 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px)
-      `,
-      },
-      48: {
-        size: "48px 48px",
-        backgroundImage: `
-        linear-gradient(rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, ${lineOpacity}) 1px, transparent 1px),
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, ${dotOpacity}) 3px, transparent 3px),
-        radial-gradient(circle at 48px 48px, rgba(255, 255, 255, ${dotOpacity}) 2px, transparent 2px),
-        radial-gradient(circle at 48px 0, rgba(255, 255, 255, ${dotOpacity}) 2px, transparent 2px),
-        radial-gradient(circle at 0 48px, rgba(255, 255, 255, ${dotOpacity}) 2px, transparent 2px),
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 48px 48px, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 0 48px, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 0 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 48px 0, rgba(255, 255, 255, ${dotOpacity}) 1.5px, transparent 1.5px)
-      `,
-      },
-    };
+    const px = sizeMap[size];
 
-    const pattern = patterns[tileSize];
+    const gridLines = `
+      linear-gradient(${color} 1px, transparent 1px),
+      linear-gradient(90deg, ${color} 1px, transparent 1px)
+    `;
+
+    const dots = `
+      radial-gradient(circle at 0 0, ${color} 3px, transparent 3px),
+      radial-gradient(circle at ${px}px ${px}px, ${color} 2px, transparent 2px),
+      radial-gradient(circle at ${px}px 0, ${color} 2px, transparent 2px),
+      radial-gradient(circle at 0 ${px}px, ${color} 2px, transparent 2px),
+      radial-gradient(circle at 0 0, ${color} 1.5px, transparent 1.5px),
+      radial-gradient(circle at ${px}px ${px}px, ${color} 1.5px, transparent 1.5px),
+      radial-gradient(circle at 0 ${px}px, ${color} 1.5px, transparent 1.5px),
+      radial-gradient(circle at 0 0, ${color} 1.5px, transparent 1.5px),
+      radial-gradient(circle at ${px}px 0, ${color} 1.5px, transparent 1.5px)
+    `;
 
     return (
       <div
@@ -80,10 +73,19 @@ const PatternBackground = React.forwardRef<
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: pattern.backgroundImage,
-            backgroundSize: pattern.size,
+            backgroundImage: gridLines,
+            backgroundSize: `${px}px ${px}px`,
             backgroundPosition: "0 0",
-            opacity: 0.8,
+            opacity: lineOpacity,
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: dots,
+            backgroundSize: `${px}px ${px}px`,
+            backgroundPosition: "0 0",
+            opacity: dotOpacity,
           }}
         />
 
