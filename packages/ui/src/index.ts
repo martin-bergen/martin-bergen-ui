@@ -196,11 +196,5 @@ export { CodeBlock } from "./components/organisms/code-block/index";
 export type { CodeBlockProps } from "./components/organisms/code-block/index";
 
 // Pages
-export {
-  LandingPage,
-  defaultLandingPageData,
-} from "./components/pages/landing-page";
-export type {
-  LandingPageProps,
-  LandingPageData,
-} from "./components/pages/landing-page";
+export { LandingPage, defaultLandingPageData } from "./components/pages";
+export type { LandingPageProps, LandingPageData } from "./components/pages";
