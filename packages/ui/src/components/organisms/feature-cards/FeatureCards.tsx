@@ -130,7 +130,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
 
               {badge && (
                 <div className="flex h-6 items-center justify-start px-6 bg-berget-brand-spruce rounded-full">
-                  <span className="text-xs  leading-4 text-berget-warning-foreground">
+                  <span className="text-p font-p leading-p text-berget-warning-foreground">
                     {badge}
                   </span>
                 </div>
@@ -138,11 +138,11 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             </div>
           )}
 
-          <h3 className="text-[var(--font-size-feature-title)] leading-[var(--line-height-feature-title)] tracking-[var(--letter-spacing-feature-title)] text-foreground  font-[\'Ovo\']">
+          <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-foreground">
             {title}
-          </h3>
+          </h2>
 
-          <p className="text-[var(--font-size-feature-description)] leading-[var(--line-height-feature-description)] text-foreground/80  font-[\'DM_Sans\']">
+          <p className="text-p font-p leading-p text-foreground/80">
             {description}
           </p>
 
@@ -151,7 +151,10 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
           )}
 
           {linkText && linkHref && (
-            <a href={linkHref} className="text-sm text-berget-accent">
+            <a
+              href={linkHref}
+              className="text-p font-p leading-p text-berget-accent"
+            >
               {linkText} →
             </a>
           )}

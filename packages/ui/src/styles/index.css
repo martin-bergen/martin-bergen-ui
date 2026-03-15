@@ -305,26 +305,40 @@
   --radius-berget-lg: var(--berget-radius-lg);
   --radius-berget-full: var(--berget-radius-full);
 
-  /* Typography */
-  --font-berget-sans: var(--berget-font-sans);
-  --font-berget-serif: var(--berget-font-serif);
-  --font-berget-mono: var(--berget-font-mono);
+  /* Typography scale */
+  /* Heading 1 (80/88px) */
+  --text-h1: 5rem;
+  --leading-h1: 5.5rem;
+  --tracking-h1: -0.03em;
+  --font-h1: "Ovo", serif;
 
-  /* Override Tailwind default fonts */
-  --font-sans: var(--berget-font-sans);
-  --font-serif: var(--berget-font-serif);
-  --font-mono: var(--berget-font-mono);
+  /* Heading 2 (40/56px) */
+  --text-h2: 2.5rem;
+  --leading-h2: 3.5rem;
+  --tracking-h2: -0.03em;
+  --font-h2: "Ovo", serif;
 
-  /* Font weights - locked to 400 (Regular) globally */
-  --font-weight-thin: 400;
-  --font-weight-extralight: 400;
-  --font-weight-light: 400;
-  --font-weight-normal: 400;
-  --font-weight-medium: 400;
-  --font-weight-semibold: 400;
-  --font-weight-bold: 400;
-  --font-weight-extrabold: 400;
-  --font-weight-black: 400;
+  /* Heading 3 (24/32px) */
+  --text-h3: 1.5rem;
+  --leading-h3: 2rem;
+  --tracking-h3: -0.01em;
+  --font-h3: "DM Sans", sans-serif;
+
+  /* Heading 4 (24/40px) */
+  --text-h4: 1.5rem;
+  --leading-h4: 2.5rem;
+  --tracking-h4: -0.01em;
+  --font-h4: "Ovo", serif;
+
+  /* Paragraph (16/24px) */
+  --text-p: 1rem;
+  --leading-p: 1.5rem;
+  --font-p: "DM Sans", sans-serif;
+
+  /* Monospaced (16/16px) */
+  --text-mono: 1rem;
+  --leading-mono: 1rem;
+  --font-mono: "DM Mono", monospace;
 }
 
 @keyframes float-slow {

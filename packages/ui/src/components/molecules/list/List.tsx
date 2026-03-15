@@ -90,13 +90,16 @@ const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
     return (
       <ul ref={ref} className={cn("space-y-3", className)} {...props}>
         {items.map((item, index) => (
-          <li key={index} className="flex items-start gap-3">
+          <li
+            key={index}
+            className="flex items-start gap-3 text-p font-p leading-p"
+          >
             {variant === "bullet" ? (
               <span className="w-1.5 h-1.5 rounded-full bg-berget-brand-cloud/60 flex-shrink-0 mt-2" />
             ) : (
               <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5 text-berget-brand-peak" />
             )}
-            <span className="text-sm text-muted-foreground">{item}</span>
+            <span className="text-muted-foreground">{item}</span>
           </li>
         ))}
       </ul>
