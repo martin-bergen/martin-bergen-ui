@@ -9,6 +9,7 @@ export default tseslint.config(
       "**/dist/",
       "**/node_modules/",
       "**/.storybook/",
+      "**/storybook-static/",
       "apps/keycloak-theme/",
     ],
   },

@@ -31,7 +31,7 @@ export const Interactive: Story = {
     radius: "default",
     children: (
       <div className="relative z-10">
-        <h3 className="font-medium mb-2">Panel Component</h3>
+        <h3 className=" mb-2">Panel Component</h3>
         <p className="text-sm text-muted-foreground">
           Base container with rounded corners, backdrop blur, and border.
         </p>
@@ -64,15 +64,15 @@ export const RadiusVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6 w-[600px]">
       <Panel radius="default" padding="lg">
-        <p className="text-base font-medium mb-1">Default (rounded-2xl)</p>
+        <p className="text-base  mb-1">Default (rounded-2xl)</p>
         <p className="text-sm text-white/60">Standard border radius</p>
       </Panel>
       <Panel radius="lg" padding="lg">
-        <p className="text-base font-medium mb-1">Large (rounded-3xl)</p>
+        <p className="text-base  mb-1">Large (rounded-3xl)</p>
         <p className="text-sm text-white/60">Larger border radius</p>
       </Panel>
       <Panel radius="xl" padding="lg">
-        <p className="text-base font-medium mb-1">XL (rounded-[2rem])</p>
+        <p className="text-base  mb-1">XL (rounded-[2rem])</p>
         <p className="text-sm text-white/60">Extra large border radius</p>
       </Panel>
     </div>

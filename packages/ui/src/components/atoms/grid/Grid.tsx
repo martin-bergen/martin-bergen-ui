@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
-import { Slot } from "@radix-ui/react-slot"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Slot } from "@radix-ui/react-slot";
 
 const gridVariants = cva("grid", {
   variants: {
@@ -24,33 +24,68 @@ const gridVariants = cva("grid", {
     align: "stretch",
     justify: "start",
   },
-})
+});
 
-export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 96
+export type SpacingScale =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 8
+  | 10
+  | 12
+  | 16
+  | 20
+  | 24
+  | 32
+  | 40
+  | 48
+  | 56
+  | 64
+  | 72
+  | 80
+  | 96;
 
-export type GridColsScale = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+export type GridColsScale = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export type GridRowsScale = 1 | 2 | 3 | 4 | 5 | 6
+export type GridRowsScale = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface GridProps
-  extends React.HTMLAttributes<HTMLElement>,
-    VariantProps<typeof gridVariants> {
-  children: React.ReactNode
-  cols?: GridColsScale
-  rows?: GridRowsScale
-  gap?: SpacingScale
-  gapX?: SpacingScale
-  gapY?: SpacingScale
-  asChild?: boolean
+  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof gridVariants> {
+  children: React.ReactNode;
+  cols?: GridColsScale;
+  rows?: GridRowsScale;
+  gap?: SpacingScale;
+  gapX?: SpacingScale;
+  gapY?: SpacingScale;
+  asChild?: boolean;
 }
 
 const Grid = React.forwardRef<HTMLElement, GridProps>(
-  ({ className, align, justify, cols, rows, gap, gapX, gapY, asChild = false, children, ...props }, ref) => {
-    const Component = asChild ? Slot : "div"
-    
+  (
+    {
+      className,
+      align,
+      justify,
+      cols,
+      rows,
+      gap,
+      gapX,
+      gapY,
+      asChild = false,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const Component = asChild ? Slot : "div";
+
     return (
       <Component
-        ref={ref as any}
+        ref={ref as React.RefObject<HTMLDivElement>}
         className={cn(
           gridVariants({ align, justify }),
           cols !== undefined && `grid-cols-${cols}`,
@@ -58,15 +93,15 @@ const Grid = React.forwardRef<HTMLElement, GridProps>(
           gap !== undefined && `gap-${gap}`,
           gapX !== undefined && `gap-x-${gapX}`,
           gapY !== undefined && `gap-y-${gapY}`,
-          className
+          className,
         )}
         {...props}
       >
         {children}
       </Component>
-    )
-  }
-)
-Grid.displayName = "Grid"
+    );
+  },
+);
+Grid.displayName = "Grid";
 
-export { Grid, gridVariants }
+export { Grid, gridVariants };

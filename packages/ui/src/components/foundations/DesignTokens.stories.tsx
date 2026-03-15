@@ -51,7 +51,7 @@ const ColorSwatch = ({
       style={{ backgroundColor: value }}
     />
     <div>
-      <div className="text-white font-medium">{name}</div>
+      <div className="text-white ">{name}</div>
       <div className="text-white/60 text-sm">{hex || value}</div>
     </div>
   </div>
@@ -64,7 +64,7 @@ const VarSwatch = ({ name, varName }: { name: string; varName: string }) => (
       style={{ backgroundColor: `var(${varName})` }}
     />
     <div>
-      <div className="text-white font-medium text-sm">{name}</div>
+      <div className="text-white  text-sm">{name}</div>
       <div className="text-white/50 text-xs font-mono">{varName}</div>
     </div>
   </div>
@@ -127,7 +127,7 @@ export const DesignTokens: Story = {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-md border border-berget-brand-cloud/5 bg-white/5" />
               <div>
-                <div className="text-white font-medium">Border Base</div>
+                <div className="text-white ">Border Base</div>
                 <div className="text-white/60 text-sm">
                   --berget-brand-cloud at 5%
                 </div>
@@ -136,7 +136,7 @@ export const DesignTokens: Story = {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-md border border-berget-brand-cloud/10 bg-white/5" />
               <div>
-                <div className="text-white font-medium">Border Hover</div>
+                <div className="text-white ">Border Hover</div>
                 <div className="text-white/60 text-sm">
                   --berget-brand-cloud at 10%
                 </div>
@@ -145,7 +145,7 @@ export const DesignTokens: Story = {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-md border border-berget-brand-moss/40 bg-berget-brand-moss/5" />
               <div>
-                <div className="text-white font-medium">Border Primary</div>
+                <div className="text-white ">Border Primary</div>
                 <div className="text-white/60 text-sm">
                   --berget-brand-moss at 40%
                 </div>
@@ -194,19 +194,15 @@ export const DesignTokens: Story = {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div className="bg-white/5 rounded-lg p-4">
-                  <div className="text-white font-medium mb-2">Library</div>
+                  <div className="text-white  mb-2">Library</div>
                   <div className="text-white/70">Lucide React (outline)</div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-4">
-                  <div className="text-white font-medium mb-2">
-                    Stroke Width
-                  </div>
+                  <div className="text-white  mb-2">Stroke Width</div>
                   <div className="text-white/70">1.5px</div>
                 </div>
                 <div className="bg-white/5 rounded-lg p-4">
-                  <div className="text-white font-medium mb-2">
-                    Default Size
-                  </div>
+                  <div className="text-white  mb-2">Default Size</div>
                   <div className="text-white/70">32x32px</div>
                 </div>
               </div>

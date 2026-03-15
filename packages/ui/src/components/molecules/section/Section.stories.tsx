@@ -32,7 +32,7 @@ export const Interactive: Story = {
   },
   render: (args) => (
     <Section {...args}>
-      <h2 className="text-3xl font-medium mb-4">Section Title</h2>
+      <h2 className="text-3xl  mb-4">Section Title</h2>
       <p className="text-muted-foreground">
         This is the section content area with automatic container and padding.
       </p>
@@ -46,27 +46,25 @@ export const AllVariants: Story = {
     <div>
       <Section padding="sm">
         <p className="text-sm text-muted-foreground">padding=&quot;sm&quot;</p>
-        <h3 className="text-xl font-medium">Small Padding Section</h3>
+        <h3 className="text-xl ">Small Padding Section</h3>
       </Section>
       <Section padding="md" background="muted">
         <p className="text-sm text-muted-foreground">
           padding=&quot;md&quot; background=&quot;muted&quot;
         </p>
-        <h3 className="text-xl font-medium">
-          Medium Padding with Muted Background
-        </h3>
+        <h3 className="text-xl ">Medium Padding with Muted Background</h3>
       </Section>
       <Section padding="lg">
         <p className="text-sm text-muted-foreground">
           padding=&quot;lg&quot; (default)
         </p>
-        <h3 className="text-xl font-medium">Large Padding Section</h3>
+        <h3 className="text-xl ">Large Padding Section</h3>
       </Section>
       <Section padding="xl" background="muted">
         <p className="text-sm text-muted-foreground">
           padding=&quot;xl&quot; background=&quot;muted&quot;
         </p>
-        <h3 className="text-xl font-medium">Extra Large Padding Section</h3>
+        <h3 className="text-xl ">Extra Large Padding Section</h3>
       </Section>
     </div>
   ),

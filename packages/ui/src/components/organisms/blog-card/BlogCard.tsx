@@ -159,7 +159,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           {/* Title */}
           <h3
             className={cn(
-              "font-medium mb-3",
+              " mb-3",
               variant === "featured" ? "text-2xl md:text-3xl" : "text-xl",
             )}
           >
@@ -185,7 +185,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                 {!post.authorImage && (
                   <User className="w-4 h-4 text-white" strokeWidth={2} />
                 )}
-                <span className="font-medium text-white">{post.author}</span>
+                <span className=" text-white">{post.author}</span>
                 <span>•</span>
                 <div className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-white" strokeWidth={2} />
@@ -207,7 +207,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           {/* Read More */}
           {variant !== "minimal" && (
             <div className="mt-4 pt-4 border-t border-border">
-              <div className="flex items-center gap-2 text-sm font-medium text-secondary">
+              <div className="flex items-center gap-2 text-sm  text-secondary">
                 Read More
                 <ArrowRight
                   className="w-4 h-4 text-secondary"

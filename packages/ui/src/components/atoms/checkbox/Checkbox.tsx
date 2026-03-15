@@ -118,7 +118,7 @@ const Checkbox = React.forwardRef<
               <label
                 htmlFor={checkboxId}
                 className={cn(
-                  "text-sm font-medium leading-none",
+                  "text-sm  leading-none",
                   disabled
                     ? "text-white/40 cursor-not-allowed"
                     : "text-white cursor-pointer",

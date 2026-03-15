@@ -206,7 +206,7 @@ export const BlogPageExample: StoryObj<typeof BlogGrid> = {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-medium mb-4">Blog & Insights</h1>
+          <h1 className="text-5xl  mb-4">Blog & Insights</h1>
           <p className="text-xl text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
             Latest updates, tutorials, and insights from the Berget AI team
           </p>

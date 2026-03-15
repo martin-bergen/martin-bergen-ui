@@ -365,6 +365,22 @@
   --font-berget-sans: var(--berget-font-sans);
   --font-berget-serif: var(--berget-font-serif);
   --font-berget-mono: var(--berget-font-mono);
+
+  /* Override Tailwind default fonts */
+  --font-sans: var(--berget-font-sans);
+  --font-serif: var(--berget-font-serif);
+  --font-mono: var(--berget-font-mono);
+
+  /* Font weights - locked to 400 (Regular) globally */
+  --font-weight-thin: 400;
+  --font-weight-extralight: 400;
+  --font-weight-light: 400;
+  --font-weight-normal: 400;
+  --font-weight-medium: 400;
+  --font-weight-semibold: 400;
+  --font-weight-bold: 400;
+  --font-weight-extrabold: 400;
+  --font-weight-black: 400;
 }
 
 @keyframes float-slow {

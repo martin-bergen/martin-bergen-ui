@@ -121,7 +121,7 @@ export const TerminalCarousel = React.forwardRef<
 
     return (
       <div ref={ref} className={cn("relative", className)} {...props}>
-        <div className="max-w-3xl mx-auto bg-[#1A1A1A] rounded-xl border border-[#40916C]/20 overflow-hidden shadow-xl">
+        <div className="max-w-3xl mx-auto bg-[#1A1A1A] rounded-xl border border-berget-brand-moss/20 overflow-hidden shadow-xl">
           {/* Terminal header */}
           <div className="bg-[#2D2D2D] px-4 py-3 flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -140,13 +140,13 @@ export const TerminalCarousel = React.forwardRef<
             className="p-6 font-mono text-sm overflow-hidden"
             style={{ height: contentHeight }}
           >
-            <div className="mb-4 text-[#52B788]">
+            <div className="mb-4 text-berget-brand-moss">
               {currentExample.description}
             </div>
 
             <div className="space-y-4">
               <div className="flex items-start">
-                <span className="text-[#52B788] mr-2">$</span>
+                <span className="text-berget-brand-moss mr-2">$</span>
                 <span className="text-white">{typedText}</span>
                 {isTyping && (
                   <span className="inline-block w-2 h-4 bg-white/70 ml-0.5 animate-pulse" />

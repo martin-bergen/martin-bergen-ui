@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import { Stack } from "./Stack"
+import type { Meta, StoryObj } from "@storybook/react";
+import { Stack } from "./Stack";
 
 const meta: Meta<typeof Stack> = {
   title: "Atoms/Stack",
@@ -31,7 +31,10 @@ const meta: Meta<typeof Stack> = {
     },
     gap: {
       control: "select",
-      options: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96],
+      options: [
+        0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80,
+        96,
+      ],
       description: "Gap spacing (Tailwind scale)",
     },
     asChild: {
@@ -39,20 +42,20 @@ const meta: Meta<typeof Stack> = {
       description: "Render as child element (Radix Slot)",
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Stack>
+export default meta;
+type Story = StoryObj<typeof Stack>;
 
 function Placeholder({ color, label }: { color: string; label: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-lg text-sm font-normal text-white ${color}`}
+      className={`flex items-center justify-center rounded-lg text-sm  text-white ${color}`}
       style={{ minWidth: "80px", minHeight: "60px" }}
     >
       {label}
     </div>
-  )
+  );
 }
 
 export const Horizontal: Story = {
@@ -68,7 +71,7 @@ export const Horizontal: Story = {
       </>
     ),
   },
-}
+};
 
 export const Vertical: Story = {
   args: {
@@ -83,7 +86,7 @@ export const Vertical: Story = {
       </>
     ),
   },
-}
+};
 
 export const Centered: Story = {
   args: {
@@ -99,7 +102,7 @@ export const Centered: Story = {
       </>
     ),
   },
-}
+};
 
 export const SpaceBetween: Story = {
   args: {
@@ -115,7 +118,7 @@ export const SpaceBetween: Story = {
       </>
     ),
   },
-}
+};
 
 export const Wrapped: Story = {
   args: {
@@ -132,7 +135,7 @@ export const Wrapped: Story = {
       </>
     ),
   },
-}
+};
 
 export const VisualGrid: Story = {
   args: {
@@ -211,7 +214,7 @@ export const VisualGrid: Story = {
       </>
     ),
   },
-}
+};
 
 export const Playground: Story = {
   args: {
@@ -228,4 +231,4 @@ export const Playground: Story = {
       </>
     ),
   },
-}
+};

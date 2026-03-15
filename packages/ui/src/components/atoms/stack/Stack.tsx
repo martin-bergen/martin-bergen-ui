@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../../lib/utils"
-import { Slot } from "@radix-ui/react-slot"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../../lib/utils";
+import { Slot } from "@radix-ui/react-slot";
 
 const stackVariants = cva("flex", {
   variants: {
@@ -38,37 +38,72 @@ const stackVariants = cva("flex", {
     justify: "start",
     wrap: "nowrap",
   },
-})
+});
 
-export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 16 | 20 | 24 | 32 | 40 | 48 | 56 | 64 | 72 | 80 | 96
+export type SpacingScale =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 8
+  | 10
+  | 12
+  | 16
+  | 20
+  | 24
+  | 32
+  | 40
+  | 48
+  | 56
+  | 64
+  | 72
+  | 80
+  | 96;
 
 export interface StackProps
-  extends React.HTMLAttributes<HTMLElement>,
+  extends
+    React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof stackVariants> {
-  children: React.ReactNode
-  gap?: SpacingScale
-  asChild?: boolean
+  children: React.ReactNode;
+  gap?: SpacingScale;
+  asChild?: boolean;
 }
 
 const Stack = React.forwardRef<HTMLElement, StackProps>(
-  ({ className, direction, align, justify, wrap, gap, asChild = false, children, ...props }, ref) => {
-    const Component = asChild ? Slot : "div"
-    
+  (
+    {
+      className,
+      direction,
+      align,
+      justify,
+      wrap,
+      gap,
+      asChild = false,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    const Component = asChild ? Slot : "div";
+
     return (
       <Component
-        ref={ref as any}
+        ref={ref as React.RefObject<HTMLDivElement>}
         className={cn(
           stackVariants({ direction, align, justify, wrap }),
           gap !== undefined && `gap-${gap}`,
-          className
+          className,
         )}
         {...props}
       >
         {children}
       </Component>
-    )
-  }
-)
-Stack.displayName = "Stack"
+    );
+  },
+);
+Stack.displayName = "Stack";
 
-export { Stack, stackVariants }
+export { Stack, stackVariants };
