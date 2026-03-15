@@ -15,8 +15,8 @@ const BergetSymbol = React.forwardRef<SVGSVGElement, BergetSymbolProps>(
     const height = size;
     const fillColor =
       variant === "light"
-        ? "var(--berget-brand-peak)"
-        : "var(--berget-brand-night)";
+        ? "hsl(var(--berget-brand-peak))"
+        : "hsl(var(--berget-brand-night))";
 
     return (
       <svg
