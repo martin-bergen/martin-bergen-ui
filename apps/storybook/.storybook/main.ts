@@ -52,11 +52,6 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     const { mergeConfig } = await import("vite");
     return mergeConfig(config, {
-      resolve: {
-        alias: {
-          "@": path.resolve(__dirname, "../../../packages/ui/src"),
-        },
-      },
       plugins: [
         tailwindcss({
           content: [
