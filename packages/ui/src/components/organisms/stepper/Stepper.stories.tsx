@@ -19,7 +19,7 @@ const InteractiveStepper = () => {
 
         <div className="flex justify-between mt-8">
           <Button
-            variant="outline"
+            variant="default"
             onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
             disabled={currentStep === 0}
           >

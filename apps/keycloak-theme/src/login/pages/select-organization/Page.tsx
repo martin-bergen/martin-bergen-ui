@@ -101,7 +101,7 @@ export function Page() {
                   <Button
                     id={`organization-${alias}`}
                     type="button"
-                    variant="outline"
+                    variant="default"
                     onClick={onOrganizationClick(alias)}
                     disabled={isSubmitting}
                     className="w-full h-auto p-4 flex items-center gap-3 justify-start hover:bg-accent hover:border-primary transition-colors"

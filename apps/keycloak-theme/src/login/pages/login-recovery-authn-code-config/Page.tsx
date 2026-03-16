@@ -59,7 +59,7 @@ export function Page() {
         <div className="flex flex-wrap  gap-2">
           <Button
             id="printRecoveryCodes"
-            variant="outline"
+            variant="default"
             size="sm"
             type="button"
             className="flex items-center gap-2"
@@ -69,7 +69,7 @@ export function Page() {
           </Button>
           <Button
             id="downloadRecoveryCodes"
-            variant="outline"
+            variant="default"
             size="sm"
             type="button"
             className="flex items-center gap-2"
@@ -79,7 +79,7 @@ export function Page() {
           </Button>
           <Button
             id="copyRecoveryCodes"
-            variant="outline"
+            variant="default"
             size="sm"
             type="button"
             className="flex items-center gap-2"
@@ -149,7 +149,7 @@ export function Page() {
               </Button>
               <Button
                 type="submit"
-                variant="outline"
+                variant="default"
                 name="cancel-aia"
                 value="true"
                 id="cancelRecoveryAuthnCodesBtn"

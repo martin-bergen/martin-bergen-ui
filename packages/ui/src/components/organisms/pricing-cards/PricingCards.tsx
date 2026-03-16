@@ -36,7 +36,7 @@ export interface PricingTier {
   /**
    * CTA button variant
    */
-  ctaVariant?: "default" | "primary" | "secondary" | "outline";
+  ctaVariant?: "default" | "primary" | "secondary";
   /**
    * Optional callback when CTA is clicked
    */

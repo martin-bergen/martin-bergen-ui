@@ -56,7 +56,7 @@ export function Page() {
                     </span>
                   </div>
                   <div className="mt-4">
-                    <Button variant="outline" asChild>
+                    <Button variant="default" asChild>
                       <a href={kcContext.totp.qrUrl} className="text-sm">
                         {msg("loginTotpScanBarcode")}
                       </a>
@@ -119,7 +119,7 @@ export function Page() {
                 alt="Figure: Barcode"
               />
 
-              <Button variant="outline" asChild>
+              <Button variant="default" asChild>
                 <a href={kcContext.totp.manualUrl} id="mode-manual">
                   {msg("loginTotpUnableToScan")}
                 </a>

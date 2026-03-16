@@ -22,7 +22,7 @@ export function Page() {
         <div className="flex flex-col sm:flex-row gap-3 sm:justify-between mt-6">
           <Button
             name="cancel-aia"
-            variant="outline"
+            variant="default"
             className="flex-1"
             id="kc-cancel"
             type="submit"

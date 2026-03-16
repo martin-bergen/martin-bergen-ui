@@ -16,7 +16,7 @@ export function Languages() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
-            variant="outline"
+            variant="default"
             size="icon"
             aria-label={msgStr("languages")}
             aria-haspopup="true"

@@ -42,7 +42,7 @@ export interface LandingPageData {
       features: string[];
       recommended?: boolean;
       ctaText?: string;
-      ctaVariant?: "default" | "primary" | "secondary" | "outline";
+      ctaVariant?: "default" | "primary" | "secondary";
       onCtaClick?: () => void;
     }>;
     columns?: 1 | 2 | 3 | 4;
@@ -60,7 +60,7 @@ export const defaultLandingPageData: LandingPageData = {
         <Button size="lg" variant="primary">
           Get Started
         </Button>
-        <Button size="lg" variant="outline">
+        <Button size="lg" variant="default">
           Learn More
         </Button>
       </>
@@ -146,7 +146,7 @@ export const defaultLandingPageData: LandingPageData = {
           "Custom integrations",
         ],
         ctaText: "Contact Sales",
-        ctaVariant: "outline",
+        ctaVariant: "default",
       },
     ],
     columns: 3,

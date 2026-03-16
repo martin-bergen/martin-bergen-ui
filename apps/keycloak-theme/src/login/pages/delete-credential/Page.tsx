@@ -31,7 +31,7 @@ export function Page() {
       >
         <div className="flex flex-col sm:flex-row gap-3 sm:justify-between mt-6">
           <Button
-            variant="outline"
+            variant="default"
             name="cancel-aia"
             id="kc-decline"
             type="submit"

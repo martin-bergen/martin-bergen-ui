@@ -70,7 +70,7 @@ export function Page() {
             type="submit"
             name="resend"
             id="kc-resend"
-            variant="outline"
+            variant="default"
             className="w-full"
           >
             {msgStr("doResend")}

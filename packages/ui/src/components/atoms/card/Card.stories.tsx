@@ -107,23 +107,128 @@ export const WithCompoundComponents: Story = {
   parameters: { controls: { hide: true } },
   args: { children: undefined as unknown as React.ReactNode },
   render: () => (
-    <div className="max-w-md">
-      <Card padding="none">
-        <CardHeader>
-          <CardTitle>Compound Card</CardTitle>
+    <div className="flex flex-col gap-6">
+      <div className="max-w-md">
+        <Card padding="none">
+          <CardHeader>
+            <CardTitle>Compound Card - No Padding</CardTitle>
+            <CardDescription>
+              Using CardHeader, CardTitle, CardDescription, CardContent, and
+              CardFooter
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm">
+              Main content area of the card. Padding is handled by each
+              sub-component.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <p className="text-sm text-muted-foreground">Footer content</p>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div className="max-w-md">
+        <Card padding="sm">
+          <CardHeader className="pb-2">
+            <CardTitle>Compact Card - Small Padding</CardTitle>
+            <CardDescription>
+              Card with padding="sm" for dense layouts
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="pb-2">
+            <p className="text-sm">
+              This card uses the small padding variant (p-4) with minimal
+              spacing.
+            </p>
+          </CardContent>
+          <CardFooter className="pt-2">
+            <p className="text-sm text-muted-foreground">Footer content</p>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div className="max-w-md">
+        <Card padding="lg">
+          <CardHeader className="pb-8">
+            <CardTitle>Large Padding Card</CardTitle>
+            <CardDescription>
+              Card with padding="lg" plus additional spacing in header
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="pb-8">
+            <p className="text-sm mb-4">
+              This card uses the large padding variant (p-8) with additional
+              spacing between sections.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Perfect for content-heavy cards that need more breathing room.
+            </p>
+          </CardContent>
+          <CardFooter className="pt-4">
+            <p className="text-sm text-muted-foreground">Footer content</p>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+  ),
+};
+
+export const CompoundAllVariants: Story = {
+  parameters: { controls: { hide: true } },
+  args: { children: undefined as unknown as React.ReactNode },
+  render: () => (
+    <div className="flex flex-col gap-6">
+      <Card variant="highlight" padding="lg" className="max-w-md">
+        <CardHeader className="pb-6">
+          <CardTitle>Highlight Variant</CardTitle>
           <CardDescription>
-            Using CardHeader, CardTitle, CardDescription, CardContent, and
-            CardFooter
+            Semi-transparent with radial gradient overlay
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm">
-            Main content area of the card. Padding is handled by each
-            sub-component.
+            This is the highlight variant with large padding. Perfect for
+            featured content or important information.
           </p>
         </CardContent>
         <CardFooter>
-          <p className="text-sm text-muted-foreground">Footer content</p>
+          <p className="text-sm text-muted-foreground">Highlight footer</p>
+        </CardFooter>
+      </Card>
+
+      <Card variant="glass" padding="lg" className="max-w-md">
+        <CardHeader className="pb-6">
+          <CardTitle>Glass Variant</CardTitle>
+          <CardDescription>
+            Light, ethereal feel with cloud/5 backdrop
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm">
+            This is the glass variant with large padding. Creates a subtle,
+            modern appearance.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <p className="text-sm text-muted-foreground">Glass footer</p>
+        </CardFooter>
+      </Card>
+
+      <Card variant="solid" padding="lg" className="max-w-md">
+        <CardHeader className="pb-6">
+          <CardTitle>Solid Variant</CardTitle>
+          <CardDescription>Most authoritative, no transparency</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm">
+            This is the solid variant with large padding. Best for
+            high-contrast, serious content.
+          </p>
+        </CardContent>
+        <CardFooter>
+          <p className="text-sm text-muted-foreground">Solid footer</p>
         </CardFooter>
       </Card>
     </div>

@@ -4,7 +4,7 @@ import { cn } from "../../../lib/utils";
 import { Button as ButtonPrimitive } from "../../../primitives/button";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm  cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm  cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-6 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -14,17 +14,11 @@ const buttonVariants = cva(
           "bg-berget-button-primary-bg text-berget-button-primary-fg shadow-lg hover:bg-berget-button-primary-bg/90 hover:shadow-xl",
         secondary:
           "bg-berget-button-secondary-bg text-berget-button-secondary-fg shadow hover:bg-berget-button-secondary-bg/80 hover:shadow-lg",
-        outline:
-          "border-2 border-berget-brand-cloud/20 bg-transparent hover:bg-berget-brand-moss/20 hover:border-berget-brand-moss/40",
-        ghost: "hover:bg-berget-brand-moss/20 hover:text-foreground",
         destructive:
           "bg-berget-button-destructive-bg text-berget-button-destructive-fg shadow-sm hover:bg-berget-button-destructive-bg/80 hover:shadow",
-        link: "text-berget-button-link-fg underline-offset-4 hover:underline",
         highlight:
           "relative overflow-hidden bg-berget-background border border-berget-brand-cloud/20 backdrop-blur-[5px] text-foreground hover:bg-berget-background/80 hover:border-berget-brand-cloud/30 hover:shadow-lg",
-        stone:
-          "!bg-berget-button-default-bg !text-berget-button-default-fg shadow-lg hover:!bg-berget-button-default-bg/90 hover:shadow-xl",
-        icon: "!flex !flex-row !justify-center !items-center !p-0 !w-[32px] !h-[32px] !bg-berget-button-default-bg !text-berget-button-default-fg shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-full",
+        icon: "!flex !flex-row !justify-center !items-center !gap-0 !p-0 !w-[32px] !h-[32px] !bg-berget-button-default-bg !text-berget-button-default-fg shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-full",
       },
       size: {
         sm: "h-6 px-4 py-1.5 text-xs",
@@ -58,6 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     const isHighlight = variant === "highlight";
+    const isIcon = variant === "icon";
 
     if (asChild) {
       return (
@@ -87,6 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span
           className={cn(
             "inline-flex items-center",
+            !isIcon && "gap-2",
             isHighlight && "relative z-10",
           )}
         >

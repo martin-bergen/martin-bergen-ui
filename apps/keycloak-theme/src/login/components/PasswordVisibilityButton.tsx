@@ -20,7 +20,7 @@ export function PasswordVisibilityButton(props: {
     <Button
       type="button"
       tabIndex={tabIndex}
-      variant="ghost"
+      variant="default"
       size="icon"
       aria-label={msgStr(isPasswordRevealed ? "hidePassword" : "showPassword")}
       aria-controls={passwordInputId}

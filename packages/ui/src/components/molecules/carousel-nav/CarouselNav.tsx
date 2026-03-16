@@ -30,7 +30,7 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
         {...props}
       >
         <Button
-          variant="outline"
+          variant="default"
           size="icon"
           onClick={prev}
           className="rounded-full"
@@ -52,7 +52,7 @@ export const CarouselNav = React.forwardRef<HTMLDivElement, CarouselNavProps>(
           ))}
         </div>
         <Button
-          variant="outline"
+          variant="default"
           size="icon"
           onClick={next}
           className="rounded-full"

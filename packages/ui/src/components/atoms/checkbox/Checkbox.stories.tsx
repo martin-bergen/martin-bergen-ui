@@ -11,7 +11,7 @@ const meta: Meta<typeof Checkbox> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["default", "primary", "subtle", "muted"],
+      options: ["default", "error", "success"],
       description: "Visual variant",
     },
     size: {
@@ -59,63 +59,24 @@ export const Interactive: Story = {
   ),
 };
 
-export const AllVariants: Story = {
+export const Sizes: Story = {
   parameters: { controls: { hide: true } },
   render: () => (
-    <div className="p-4 space-y-4">
-      <Checkbox
-        variant="default"
-        label="Default"
-        description="Default variant"
-      />
-      <Checkbox
-        variant="primary"
-        label="Primary"
-        description="Primary variant"
-      />
-      <Checkbox variant="subtle" label="Subtle" description="Subtle variant" />
-      <Checkbox variant="muted" label="Muted" description="Muted variant" />
-    </div>
-  ),
-};
-
-export const AllSizes: Story = {
-  parameters: { controls: { hide: true } },
-  render: () => (
-    <div className="p-4 space-y-4">
-      <Checkbox size="sm" label="Small" description="Compact size" />
-      <Checkbox size="default" label="Default" description="Standard size" />
-      <Checkbox size="lg" label="Large" description="Large size" />
-    </div>
-  ),
-};
-
-export const States: Story = {
-  parameters: { controls: { hide: true } },
-  render: () => (
-    <div className="p-4 space-y-4">
-      <Checkbox label="Unchecked" />
-      <Checkbox label="Checked" defaultChecked />
-      <Checkbox label="Disabled" disabled />
-      <Checkbox label="Checked and disabled" defaultChecked disabled />
-    </div>
-  ),
-};
-
-export const WithError: Story = {
-  parameters: { controls: { hide: true } },
-  render: () => (
-    <div className="p-4 space-y-4">
-      <Checkbox
-        label="Accept terms"
-        error="You must accept the terms to continue"
-      />
-      <Checkbox
-        variant="primary"
-        label="Confirm email"
-        defaultChecked
-        error="Email address is invalid"
-      />
+    <div className="p-6">
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-3">
+          <Checkbox size="sm" />
+          <span className="text-sm text-white">Small (16px)</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Checkbox size="default" />
+          <span className="text-sm text-white">Default (20px)</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Checkbox size="lg" />
+          <span className="text-sm text-white">Large (24px)</span>
+        </div>
+      </div>
     </div>
   ),
 };

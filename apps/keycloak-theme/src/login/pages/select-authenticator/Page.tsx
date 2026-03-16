@@ -75,7 +75,7 @@ export function Page() {
           {auth.authenticationSelections.map((authenticationSelection, i) => (
             <Button
               key={i}
-              variant="outline"
+              variant="default"
               className="w-full h-auto p-4 flex items-center justify-between text-left hover:bg-accent"
               type="submit"
               name="authenticationExecution"

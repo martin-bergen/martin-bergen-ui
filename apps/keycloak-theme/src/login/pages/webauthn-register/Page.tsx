@@ -61,7 +61,7 @@ export function Page() {
             >
               <Button
                 type="submit"
-                variant="outline"
+                variant="default"
                 className="w-full"
                 id="cancelWebAuthnAIA"
                 name="cancel-aia"

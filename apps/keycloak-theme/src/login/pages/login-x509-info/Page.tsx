@@ -43,7 +43,7 @@ export function Page() {
         <div className="flex flex-col sm:flex-row gap-3">
           {x509.formData.isUserEnabled && (
             <Button
-              variant="outline"
+              variant="default"
               name="cancel"
               id="kc-cancel"
               type="submit"
