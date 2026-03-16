@@ -30,7 +30,13 @@ export const Interactive: Story = {
     variant: "white",
   },
   render: (args) => (
-    <div className="bg-berget-brand-night p-8 rounded-lg border border-berget-brand-cloud/20">
+    <div
+      className={`p-8 rounded-lg border border-berget-brand-cloud/20 ${
+        args.variant === "white"
+          ? "bg-berget-brand-night"
+          : "bg-berget-brand-cloud"
+      }`}
+    >
       <BergetSymbol {...args} />
     </div>
   ),

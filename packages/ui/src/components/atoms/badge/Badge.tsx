@@ -61,6 +61,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
     ref,
   ) => {
     const iconSize = size === "sm" ? "size-3" : "size-4";
+    const strokeWidth = size === "sm" ? 1.25 : 1.5;
 
     return (
       <div
@@ -71,7 +72,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         {Icon && (
           <Icon
             className={iconSize}
-            strokeWidth={1.5}
+            strokeWidth={strokeWidth}
             style={{ marginRight: children ? `${iconGap * 0.25}rem` : "0" }}
           />
         )}
