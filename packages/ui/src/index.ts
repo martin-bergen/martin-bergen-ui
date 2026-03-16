@@ -42,13 +42,13 @@ export type { CheckboxProps } from "./components/atoms/checkbox";
 export { Divider, dividerVariants } from "./components/atoms/divider";
 export type { DividerProps } from "./components/atoms/divider";
 
-export { Grid, gridVariants } from "./components/atoms/grid";
+export { Grid, gridVariants } from "./components/foundations/grid";
 export type {
   GridProps,
   SpacingScale as GridSpacingScale,
   GridColsScale,
   GridRowsScale,
-} from "./components/atoms/grid";
+} from "./components/foundations/grid";
 
 export {
   FeatureList,

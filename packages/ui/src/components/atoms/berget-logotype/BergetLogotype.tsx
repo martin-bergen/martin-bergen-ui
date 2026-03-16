@@ -14,7 +14,9 @@ const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
     const width = size * aspectRatio;
     const height = size;
     const fillColor =
-      variant === "white" ? "hsl(var(--berget-brand-peak))" : "#000000";
+      variant === "white"
+        ? "hsl(var(--berget-brand-peak))"
+        : "hsl(var(--berget-brand-coal))";
 
     return (
       <svg
@@ -27,10 +29,7 @@ const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
         className={cn("inline-block", className)}
         {...props}
       >
-        <defs>
-          <style>{`.berget-logotype-fill { fill: ${fillColor}; }`}</style>
-        </defs>
-        <g>
+        <g style={{ fill: fillColor }}>
           <path
             className="berget-logotype-fill"
             d="M268.78,172.54v-96.04h37.74c10.39,0,18.26,2.33,23.6,7,5.33,4.67,8.01,10.52,8.01,17.56,0,6.13-1.72,11-5.15,14.61-3.43,3.61-7.58,6.06-12.44,7.34,3.81.73,7.22,2.2,10.22,4.39,3.01,2.2,5.36,4.94,7.08,8.23,1.72,3.29,2.58,6.86,2.58,10.7,0,4.94-1.27,9.4-3.79,13.38-2.53,3.98-6.22,7.11-11.08,9.4-4.86,2.29-10.82,3.43-17.87,3.43h-38.89ZM283.93,117.66h20.74c5.81,0,10.24-1.3,13.29-3.91,3.05-2.61,4.58-6.19,4.58-10.77s-1.51-8.05-4.51-10.7c-3-2.65-7.55-3.98-13.65-3.98h-20.45v29.36ZM283.93,160.61h21.74c6.1,0,10.84-1.37,14.22-4.11,3.38-2.75,5.08-6.59,5.08-11.53s-1.76-8.85-5.29-11.73-8.29-4.32-14.3-4.32h-21.45v31.69Z"
@@ -65,7 +64,7 @@ const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
           />
         </g>
         <path
-          className="berget-logotype-fill"
+          style={{ fill: fillColor }}
           d="M99.9,0h24.37l99.9,202.18h-25.14l-44.26-77.52-27.24-41.38-14.84-41.81,2.44,1.3h-6.09l2.44-1.3-61.72,123-25.4,37.71H0L99.9,0Z"
         />
       </svg>
