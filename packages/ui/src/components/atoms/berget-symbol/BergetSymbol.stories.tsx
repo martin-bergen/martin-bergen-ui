@@ -15,7 +15,7 @@ const meta: Meta<typeof BergetSymbol> = {
     },
     variant: {
       control: "select",
-      options: ["light", "dark"],
+      options: ["white", "black"],
       description: "Color variant for different backgrounds",
     },
   },
@@ -27,7 +27,7 @@ type Story = StoryObj<typeof BergetSymbol>;
 export const Interactive: Story = {
   args: {
     size: 48,
-    variant: "light",
+    variant: "white",
   },
   render: (args) => (
     <div className="bg-berget-brand-night p-8 rounded-lg border border-berget-brand-cloud/20">
@@ -42,37 +42,37 @@ export const AllVariants: Story = {
     <div className="flex flex-col gap-8">
       <div>
         <p className="text-sm  text-muted-foreground mb-3">
-          Light variant (white symbol on dark background)
+          White variant (white symbol on dark background)
         </p>
         <div className="bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
-          <BergetSymbol size={48} variant="light" />
+          <BergetSymbol size={48} variant="white" />
         </div>
       </div>
       <div>
         <p className="text-sm  text-muted-foreground mb-3">
-          Dark variant (black symbol on light background)
+          Black variant (black symbol on light background)
         </p>
         <div className="bg-berget-brand-cloud p-6 rounded-lg border border-berget-brand-cloud/20">
-          <BergetSymbol size={48} variant="dark" />
+          <BergetSymbol size={48} variant="black" />
         </div>
       </div>
       <div>
         <p className="text-sm  text-muted-foreground mb-3">Sizes</p>
         <div className="flex items-end gap-8 bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
           <div className="text-center">
-            <BergetSymbol size={24} variant="light" />
+            <BergetSymbol size={24} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">24px</p>
           </div>
           <div className="text-center">
-            <BergetSymbol size={32} variant="light" />
+            <BergetSymbol size={32} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">32px</p>
           </div>
           <div className="text-center">
-            <BergetSymbol size={48} variant="light" />
+            <BergetSymbol size={48} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">48px</p>
           </div>
           <div className="text-center">
-            <BergetSymbol size={96} variant="light" />
+            <BergetSymbol size={96} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">96px</p>
           </div>
         </div>

@@ -5,18 +5,16 @@ export interface BergetLogotypeProps extends React.SVGAttributes<SVGSVGElement> 
   /** Size (height) of the logotype in pixels */
   size?: number;
   /** Color variant */
-  variant?: "light" | "dark";
+  variant?: "white" | "black";
 }
 
 const BergetLogotype = React.forwardRef<SVGSVGElement, BergetLogotypeProps>(
-  ({ size = 48, variant = "light", className, ...props }, ref) => {
+  ({ size = 48, variant = "white", className, ...props }, ref) => {
     const aspectRatio = 793.63 / 204.37;
     const width = size * aspectRatio;
     const height = size;
     const fillColor =
-      variant === "light"
-        ? "var(--berget-brand-peak)"
-        : "var(--berget-brand-night)";
+      variant === "white" ? "hsl(var(--berget-brand-peak))" : "#000000";
 
     return (
       <svg

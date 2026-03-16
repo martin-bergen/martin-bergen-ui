@@ -3,6 +3,7 @@ import type { Plugin } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import path from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

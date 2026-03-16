@@ -15,7 +15,7 @@ const meta: Meta<typeof BergetLogotype> = {
     },
     variant: {
       control: "select",
-      options: ["light", "dark"],
+      options: ["white", "black"],
       description: "Color variant for different backgrounds",
     },
   },
@@ -27,7 +27,7 @@ type Story = StoryObj<typeof BergetLogotype>;
 export const Interactive: Story = {
   args: {
     size: 48,
-    variant: "light",
+    variant: "white",
   },
   render: (args) => (
     <div className="bg-berget-brand-night p-8 rounded-lg border border-berget-brand-cloud/20">
@@ -42,37 +42,37 @@ export const AllVariants: Story = {
     <div className="flex flex-col gap-8">
       <div>
         <p className="text-sm  text-muted-foreground mb-3">
-          Light variant (white logotype on dark background)
+          White variant (white logotype on dark background)
         </p>
         <div className="bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
-          <BergetLogotype size={48} variant="light" />
+          <BergetLogotype size={48} variant="white" />
         </div>
       </div>
       <div>
         <p className="text-sm  text-muted-foreground mb-3">
-          Dark variant (black logotype on light background)
+          Black variant (black logotype on light background)
         </p>
         <div className="bg-berget-brand-cloud p-6 rounded-lg border border-berget-brand-cloud/20">
-          <BergetLogotype size={48} variant="dark" />
+          <BergetLogotype size={48} variant="black" />
         </div>
       </div>
       <div>
         <p className="text-sm  text-muted-foreground mb-3">Sizes</p>
         <div className="flex items-end gap-8 bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
           <div className="text-center">
-            <BergetLogotype size={24} variant="light" />
+            <BergetLogotype size={24} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">24px</p>
           </div>
           <div className="text-center">
-            <BergetLogotype size={32} variant="light" />
+            <BergetLogotype size={32} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">32px</p>
           </div>
           <div className="text-center">
-            <BergetLogotype size={48} variant="light" />
+            <BergetLogotype size={48} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">48px</p>
           </div>
           <div className="text-center">
-            <BergetLogotype size={96} variant="light" />
+            <BergetLogotype size={96} variant="white" />
             <p className="text-xs text-muted-foreground mt-2">96px</p>
           </div>
         </div>

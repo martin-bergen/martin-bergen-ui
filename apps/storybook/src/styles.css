@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "@berget-ai/ui/styles";
+@import "../../../packages/ui/src/styles/index.css";
 @import "../../../apps/keycloak-theme/src/login/index.css";
-@source "../../../packages/ui/src";
-@source "../../../apps/keycloak-theme/src";
+
+/* Tailwind v4 kräver explicita source-direktiv för monorepos */
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";

@@ -11,9 +11,9 @@ const sectionHeaderVariants = cva("text-center", {
       right: "text-right",
     },
     size: {
-      sm: "[&_h2]:text-2xl [&_h2]:md:text-3xl",
-      md: "[&_h2]:text-3xl [&_h2]:md:text-4xl",
-      lg: "[&_h2]:text-4xl [&_h2]:md:text-5xl",
+      sm: "[&_h2]:text-h3 [&_h2]:font-h3 [&_h2]:leading-h3 [&_h2]:tracking-h3",
+      md: "[&_h2]:text-h2 [&_h2]:font-h2 [&_h2]:leading-h2 [&_h2]:tracking-h2",
+      lg: "[&_h2]:text-h1 [&_h2]:font-h1 [&_h2]:leading-h1 [&_h2]:tracking-h1",
     },
   },
   defaultVariants: {
@@ -71,10 +71,12 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           </Badge>
         )}
 
-        <h2 className=" mb-6 leading-tight">{title}</h2>
+        <h2 className="mb-6 leading-tight text-h2 font-h2 leading-h2 tracking-h2">
+          {title}
+        </h2>
 
         {description && (
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-p font-p leading-p text-muted-foreground">
             {description}
           </p>
         )}

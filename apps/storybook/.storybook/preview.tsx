@@ -40,10 +40,7 @@ style.innerHTML = `
     color: hsl(0 0% 100%);
   }
 
-  body, .sb-show-main, #storybook-root {
-    font-family: 'DM Sans', sans-serif !important;
-    color: hsl(0 0% 100%) !important;
-  }
+
 
   /* Light mode overrides for Storybook wrapper */
   html.light .sb-main-padded,

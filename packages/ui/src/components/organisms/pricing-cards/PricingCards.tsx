@@ -125,11 +125,15 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
             className="w-full min-w-[280px] max-w-[400px] p-6 md:p-8"
           >
             <div className="mb-6">
-              <h3 className="text-xl md:text-2xl  mb-2">{tier.name}</h3>
-              <p className="text-sm text-[hsl(var(--muted-foreground))] mb-4">
+              <h3 className="text-h3 font-h3 leading-h3 tracking-h3 mb-2">
+                {tier.name}
+              </h3>
+              <p className="text-p font-p leading-p text-[hsl(var(--muted-foreground))] mb-4">
                 {tier.description}
               </p>
-              <div className="text-3xl md:text-4xl ">{tier.price}</div>
+              <div className="text-h2 font-h2 leading-h2 tracking-h2">
+                {tier.price}
+              </div>
             </div>
 
             <Button
