@@ -3,6 +3,7 @@ import type { Plugin } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import path from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -48,15 +49,14 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
-  typescript: {
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenOptions: {
-      tsconfigPath: resolve(__dirname, "../../../packages/ui/tsconfig.json"),
-    },
-  },
   async viteFinal(config) {
     const { mergeConfig } = await import("vite");
     return mergeConfig(config, {
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "../../../packages/ui/src"),
+        },
+      },
       plugins: [
         tailwindcss({
           content: [
