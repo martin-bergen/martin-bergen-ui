@@ -48,6 +48,12 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenOptions: {
+      tsconfigPath: resolve(__dirname, "../../../packages/ui/tsconfig.json"),
+    },
+  },
   async viteFinal(config) {
     const { mergeConfig } = await import("vite");
     return mergeConfig(config, {
