@@ -21,7 +21,7 @@ export function Page() {
           <Button
             type="submit"
             className="w-full"
-            variant="outline"
+            variant="default"
             name="submitAction"
             id="updateProfile"
             value="updateProfile"

@@ -25,7 +25,7 @@ export function Page() {
         <form className="space-y-4" action={url.loginAction} method="POST">
           <div className="flex flex-col sm:flex-row gap-3 sm:justify-between">
             <Button
-              variant="outline"
+              variant="default"
               name="cancel"
               id="kc-decline"
               type="submit"

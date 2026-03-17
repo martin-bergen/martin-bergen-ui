@@ -129,7 +129,7 @@ export function Template(props: {
     <div className="berget-auth-container px-4">
       {/* Navigation */}
       <div className="fixed top-4 start-4 z-20 flex gap-2">
-        <Button type="button" variant="outline" size="icon" asChild>
+        <Button type="button" variant="default" size="icon" asChild>
           <a href={kcContext.client?.baseUrl ?? redirectUrlOrigin}>
             <FiHome />
           </a>
@@ -170,7 +170,7 @@ export function Template(props: {
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <Button variant="outline" size="icon" asChild>
+                        <Button variant="default" size="icon" asChild>
                           <a
                             id="reset-login"
                             href={url.loginRestartFlowUrl}

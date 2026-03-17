@@ -30,7 +30,7 @@ export function AddRemoveButtonsMultiValuedAttribute(props: {
         <Button
           id={`kc-remove${idPostfix}`}
           type="button"
-          variant="ghost"
+          variant="default"
           size="sm"
           onClick={() =>
             dispatchFormAction({
@@ -47,7 +47,7 @@ export function AddRemoveButtonsMultiValuedAttribute(props: {
         <Button
           id={`kc-add${idPostfix}`}
           type="button"
-          variant="outline"
+          variant="default"
           size="sm"
           onClick={() =>
             dispatchFormAction({

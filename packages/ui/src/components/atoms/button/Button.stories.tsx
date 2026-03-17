@@ -16,7 +16,7 @@ The Button component is versatile and accessible with multiple variants and size
 It supports all native button attributes and can be used with the \`asChild\` prop for composition.
 
 **Features:**
-- Multiple variants (default, primary, secondary, outline, ghost, destructive, link, highlight, stone, icon)
+- Multiple variants (default, primary, secondary, destructive, highlight, icon)
 - Multiple sizes (sm, default, lg, icon)
 - Icon support via lucide-react
 - Loading states
@@ -35,12 +35,8 @@ It supports all native button attributes and can be used with the \`asChild\` pr
         "default",
         "primary",
         "secondary",
-        "outline",
-        "ghost",
         "destructive",
-        "link",
         "highlight",
-        "stone",
         "icon",
       ],
       description: "Visual style variant",
@@ -100,12 +96,8 @@ export const AllVariants: Story = {
           <Button variant="default">Default</Button>
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="ghost">Ghost</Button>
           <Button variant="destructive">Destructive</Button>
-          <Button variant="link">Link</Button>
           <Button variant="highlight">Highlight</Button>
-          <Button variant="stone">Stone</Button>
           <Button variant="icon">
             <Plus className="w-6 h-6" strokeWidth={1.5} />
           </Button>
@@ -137,7 +129,7 @@ export const Sizes: Story = {
           <Button size="default">Default</Button>
           <Button size="lg">Large</Button>
           <Button size="icon">
-            <Plus className="w-4 h-4" strokeWidth={1.5} />
+            <Plus className="w-6 h-6" strokeWidth={1.5} />
           </Button>
         </div>
       </div>
@@ -156,45 +148,7 @@ export const Sizes: Story = {
             Large
           </Button>
           <Button variant="primary" size="icon">
-            <Plus className="w-4 h-4" strokeWidth={1.5} />
-          </Button>
-        </div>
-      </div>
-      <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">
-          Sizes with variant &quot;outline&quot;
-        </p>
-        <div className="flex flex-wrap items-center gap-3">
-          <Button variant="outline" size="sm">
-            Small
-          </Button>
-          <Button variant="outline" size="default">
-            Default
-          </Button>
-          <Button variant="outline" size="lg">
-            Large
-          </Button>
-          <Button variant="outline" size="icon">
-            <Plus className="w-4 h-4" strokeWidth={1.5} />
-          </Button>
-        </div>
-      </div>
-      <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">
-          Sizes with variant &quot;ghost&quot;
-        </p>
-        <div className="flex flex-wrap items-center gap-3">
-          <Button variant="ghost" size="sm">
-            Small
-          </Button>
-          <Button variant="ghost" size="default">
-            Default
-          </Button>
-          <Button variant="ghost" size="lg">
-            Large
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Plus className="w-4 h-4" strokeWidth={1.5} />
+            <Plus className="w-6 h-6" strokeWidth={1.5} />
           </Button>
         </div>
       </div>
@@ -208,31 +162,27 @@ export const WithIcons: Story = {
   render: () => (
     <div className="flex flex-wrap gap-3">
       <Button>
-        <Mail className="w-4 h-4" />
+        <Mail className="w-6 h-6" />
         Email
       </Button>
       <Button variant="primary">
-        <Plus className="w-4 h-4" />
+        <Plus className="w-6 h-6" />
         Add New
       </Button>
       <Button variant="secondary">
         Download
-        <Download className="w-4 h-4" />
-      </Button>
-      <Button variant="outline">
-        Continue
-        <ArrowRight className="w-4 h-4" />
+        <Download className="w-6 h-6" />
       </Button>
       <Button variant="icon">
         <Plus className="w-6 h-6" strokeWidth={1.5} />
       </Button>
       <Button variant="highlight">
-        <Mail className="w-4 h-4" />
+        <Mail className="w-6 h-6" />
         View Pricing
       </Button>
       <Button variant="highlight">
         View Pricing
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-6 h-6" />
       </Button>
     </div>
   ),
@@ -245,12 +195,12 @@ export const FullWidth: Story = {
     <div className="w-64 space-y-3">
       <Button width="full">Full Width Default</Button>
       <Button variant="primary" width="full">
-        <Plus className="w-4 h-4" />
+        <Plus className="w-6 h-6" />
         Add New
       </Button>
       <Button variant="highlight" width="full">
         View Pricing
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-6 h-6" />
       </Button>
     </div>
   ),

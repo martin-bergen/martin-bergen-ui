@@ -108,7 +108,7 @@ export function Page() {
                 type="submit"
                 name="cancel"
                 id="kc-cancel"
-                variant="outline"
+                variant="default"
                 className="flex-1"
               >
                 {msgStr("doNo")}

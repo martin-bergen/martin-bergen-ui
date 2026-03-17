@@ -51,7 +51,7 @@ export function SocialProviders() {
           <li key={p.alias}>
             <div className="relative">
               <Button
-                variant="outline"
+                variant="default"
                 className="w-full hover:text-current"
                 asChild
               >

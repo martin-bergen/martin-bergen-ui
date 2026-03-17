@@ -45,7 +45,7 @@ export function Page() {
           </Button>
           {isAppInitiatedAction && (
             <Button
-              variant="outline"
+              variant="default"
               className="w-full"
               type="submit"
               name="cancel-aia"

@@ -229,7 +229,7 @@ export function Form() {
             id={webAuthnButtonId}
             type="button"
             className="w-full"
-            variant="outline"
+            variant="default"
           >
             <Fingerprint className="w-4 h-4" />
             {msgStr("passkey-doAuthenticate")}

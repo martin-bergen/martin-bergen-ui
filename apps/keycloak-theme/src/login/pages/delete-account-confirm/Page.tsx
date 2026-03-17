@@ -40,7 +40,7 @@ export function Page() {
         <div className="flex flex-col sm:flex-row gap-3 sm:justify-between mt-6">
           {kcContext.triggered_from_aia && (
             <Button
-              variant="outline"
+              variant="default"
               type="submit"
               name="cancel-aia"
               value="true"

@@ -8,17 +8,16 @@ import {
 } from "../../../primitives/checkbox";
 
 const checkboxVariants = cva(
-  "inline-flex items-center justify-center rounded-md border transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  "inline-flex items-center justify-center rounded-md transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "border-berget-brand-cloud/20 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
-        primary: "border-primary/50 bg-primary/10 hover:bg-primary/20",
-        subtle:
-          "border-berget-brand-cloud/10 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
-        muted:
-          "border-berget-brand-cloud/5 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
+          "border border-berget-brand-cloud/20 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
+        error:
+          "border border-berget-destructive-border bg-berget-destructive text-berget-destructive-foreground hover:bg-berget-destructive/90",
+        success:
+          "border border-berget-success-border bg-berget-success text-berget-success-foreground hover:bg-berget-success/90",
       },
       size: {
         sm: "w-4 h-4",
@@ -81,8 +80,8 @@ const Checkbox = React.forwardRef<
             aria-describedby={error ? errorId : undefined}
             className={cn(
               checkboxVariants({ variant, size }),
-              "data-[state=checked]:border-primary",
-              error && "border-red-500/50 bg-red-500/10",
+              error &&
+                "border border-berget-destructive-border bg-berget-destructive text-berget-destructive-foreground",
               "cursor-pointer",
               disabled && "cursor-not-allowed pointer-events-none",
               className,
@@ -96,7 +95,6 @@ const Checkbox = React.forwardRef<
                     size === "sm" && "w-3 h-3",
                     size === "default" && "w-3.5 h-3.5",
                     size === "lg" && "w-4 h-4",
-                    "text-white",
                   )}
                   viewBox="0 0 24 24"
                   fill="none"
@@ -121,8 +119,12 @@ const Checkbox = React.forwardRef<
                   "text-sm  leading-none",
                   disabled
                     ? "text-white/40 cursor-not-allowed"
-                    : "text-white cursor-pointer",
-                  error && "text-red-400",
+                    : variant === "error"
+                      ? "text-berget-destructive-foreground cursor-pointer"
+                      : variant === "success"
+                        ? "text-berget-success-foreground cursor-pointer"
+                        : "text-white cursor-pointer",
+                  error && "text-berget-destructive-foreground",
                 )}
               >
                 {label}
@@ -132,7 +134,10 @@ const Checkbox = React.forwardRef<
               <p className="text-xs text-white/60">{description}</p>
             )}
             {error && (
-              <p id={errorId} className="text-xs text-red-400">
+              <p
+                id={errorId}
+                className="text-xs text-berget-destructive-foreground"
+              >
                 {error}
               </p>
             )}

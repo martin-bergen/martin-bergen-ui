@@ -61,7 +61,7 @@ export const Default: Story = {
     actions: (
       <>
         <Button>Get Started</Button>
-        <Button variant="outline">Learn More</Button>
+        <Button variant="default">Learn More</Button>
       </>
     ),
 
@@ -86,7 +86,7 @@ export const WithTagline: Story = {
     actions: (
       <>
         <Button className="px-8 py-6 text-lg">Get Started</Button>
-        <Button variant="outline" className="px-8 py-6 text-lg">
+        <Button variant="default" className="px-8 py-6 text-lg">
           Book a Demo
         </Button>
       </>
@@ -113,7 +113,7 @@ export const MossVariant: Story = {
     actions: (
       <>
         <Button>Try for Free</Button>
-        <Button variant="outline">View Pricing</Button>
+        <Button variant="default">View Pricing</Button>
       </>
     ),
 
@@ -138,7 +138,7 @@ export const GradientVariant: Story = {
     actions: (
       <>
         <Button>Get Started</Button>
-        <Button variant="ghost">See Benchmarks →</Button>
+        <Button variant="default">See Benchmarks →</Button>
       </>
     ),
 
@@ -175,7 +175,7 @@ export const WithoutTagline: Story = {
     actions: (
       <>
         <Button>Start Building</Button>
-        <Button variant="outline">Read Docs</Button>
+        <Button variant="default">Read Docs</Button>
       </>
     ),
   },
@@ -211,8 +211,8 @@ export const ThreeCTAs: Story = {
     actions: (
       <>
         <Button>For Startups</Button>
-        <Button variant="outline">For Enterprise</Button>
-        <Button variant="ghost">For Developers</Button>
+        <Button variant="default">For Enterprise</Button>
+        <Button variant="default">For Developers</Button>
       </>
     ),
 
@@ -235,7 +235,7 @@ export const ProductsPageHero: Story = {
     actions: (
       <>
         <Button>View All Products</Button>
-        <Button variant="outline">Compare Plans</Button>
+        <Button variant="default">Compare Plans</Button>
       </>
     ),
 
@@ -260,7 +260,7 @@ export const WhyBergetHero: Story = {
     actions: (
       <>
         <Button className="px-8 py-6 text-lg">Get Started</Button>
-        <Button variant="outline" className="px-8 py-6 text-lg">
+        <Button variant="default" className="px-8 py-6 text-lg">
           Book Demo
         </Button>
       </>
@@ -287,7 +287,7 @@ export const AnnouncementHero: Story = {
     actions: (
       <>
         <Button>Request Access</Button>
-        <Button variant="outline">Read Announcement</Button>
+        <Button variant="default">Read Announcement</Button>
       </>
     ),
 
@@ -325,7 +325,7 @@ export const LongDescription: Story = {
     actions: (
       <>
         <Button>Contact Sales</Button>
-        <Button variant="outline">Download Whitepaper</Button>
+        <Button variant="default">Download Whitepaper</Button>
       </>
     ),
   },

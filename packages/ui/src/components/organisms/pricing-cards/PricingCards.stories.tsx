@@ -34,7 +34,7 @@ const sampleTiers: PricingTier[] = [
     price: "$0",
     features: ["1 user", "10 projects", "Basic support", "1GB storage"],
     ctaText: "Get Started",
-    ctaVariant: "outline",
+    ctaVariant: "default",
   },
   {
     id: "pro",
@@ -113,7 +113,7 @@ export const FreeTier: Story = {
         price: "$0",
         features: ["1 user", "10 projects", "Basic support", "1GB storage"],
         ctaText: "Get Started",
-        ctaVariant: "outline",
+        ctaVariant: "default",
       },
     ],
     columns: 1,
@@ -236,7 +236,7 @@ export const SaaSPricing: Story = {
           "Basic analytics",
         ],
         ctaText: "Start Building",
-        ctaVariant: "outline",
+        ctaVariant: "default",
       },
       {
         id: "startup",
