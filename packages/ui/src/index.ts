@@ -63,11 +63,11 @@ export type {
   ListHeaderProps,
 } from "./components/molecules/list";
 
-export {
-  GradientBackground,
-  gradientBackgroundVariants,
+export { GradientBackground } from "./components/foundations/gradient-background";
+export type {
+  GradientBackgroundProps,
+  GradientBackgroundVariant,
 } from "./components/foundations/gradient-background";
-export type { GradientBackgroundProps } from "./components/foundations/gradient-background";
 
 export { GrainyGradientBackground } from "./components/foundations/grainy-gradient-background";
 export type {
@@ -204,3 +204,6 @@ export type {
   LandingPageProps,
   LandingPageData,
 } from "./components/pages/landing-page";
+
+export { BrandPortal } from "./components/pages/brand-portal";
+export type { BrandPortalProps } from "./components/pages/brand-portal";

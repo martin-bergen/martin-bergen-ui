@@ -1,0 +1,1085 @@
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { BergetLogotype } from "../../atoms/berget-logotype";
+import { BergetSymbol } from "../../atoms/berget-symbol";
+import { Section } from "../../molecules/section";
+import { Badge } from "../../atoms/badge";
+import { Shield } from "lucide-react";
+
+export type BrandPortalProps = React.HTMLAttributes<HTMLDivElement>;
+
+const ColorSwatch = ({
+  name,
+  hslValue,
+  hexValue,
+  description,
+}: {
+  name: string;
+  hslValue: string;
+  hexValue: string;
+  description?: string;
+}) => {
+  const handleCopy = (value: string) => {
+    navigator.clipboard.writeText(value);
+  };
+
+  const isNight = name === "Night";
+
+  return (
+    <div className="group">
+      <div
+        className={`aspect-square rounded-md mb-2 ${isNight ? "border border-berget-brand-slate/70" : ""}`}
+        style={{ backgroundColor: hslValue }}
+      />
+      <div className="text-sm font-semibold text-berget-brand-peak">{name}</div>
+      <button
+        onClick={() => handleCopy(hexValue)}
+        className="block w-full text-left text-xs font-mono mt-0.5 text-berget-brand-peak/60 hover:text-berget-brand-peak/90 transition-colors cursor-pointer"
+      >
+        {hexValue}
+      </button>
+      <button
+        onClick={() => handleCopy(hslValue)}
+        className="block w-full text-left text-xs font-mono mt-0.5 text-berget-brand-peak/60 hover:text-berget-brand-peak/90 transition-colors cursor-pointer"
+      >
+        {hslValue}
+      </button>
+      {description && (
+        <div className="text-xs mt-0.5 text-berget-brand-peak/50">
+          {description}
+        </div>
+      )}
+    </div>
+  );
+};
+
+type GradientSwatchProps = {
+  name: string;
+  variant?:
+    | "moss-lichen"
+    | "spruce-fjord"
+    | "fjord-slate"
+    | "slate-night"
+    | "spruce-slate"
+    | "spruce-night"
+    | "moss-spruce"
+    | "lichen-cloud";
+  description?: string;
+};
+
+const gradientCssVarMap: Record<
+  NonNullable<GradientSwatchProps["variant"]>,
+  string
+> = {
+  "moss-lichen": "var(--bg-image-gradient-moss-lichen)",
+  "spruce-fjord": "var(--bg-image-gradient-spruce-fjord)",
+  "fjord-slate": "var(--bg-image-gradient-fjord-slate)",
+  "slate-night": "var(--bg-image-gradient-slate-night)",
+  "spruce-slate": "var(--bg-image-gradient-spruce-slate)",
+  "spruce-night": "var(--bg-image-gradient-spruce-night)",
+  "moss-spruce": "var(--bg-image-gradient-moss-spruce)",
+  "lichen-cloud": "var(--bg-image-gradient-lichen-cloud)",
+};
+
+const GradientSwatch = ({
+  name,
+  variant,
+  description,
+}: GradientSwatchProps) => {
+  const handleCopy = (value: string) => {
+    navigator.clipboard.writeText(value);
+  };
+
+  const cssGradient = variant ? gradientCssVarMap[variant] : undefined;
+
+  return (
+    <div className="group">
+      <div
+        className="aspect-square rounded-md mb-2"
+        style={{ background: cssGradient }}
+      />
+      <div className="text-sm font-semibold text-berget-brand-peak">{name}</div>
+      <button
+        onClick={() => handleCopy(cssGradient || "")}
+        className="block w-full text-left text-xs font-mono mt-0.5 text-berget-brand-peak/60 hover:text-berget-brand-peak/90 transition-colors cursor-pointer"
+      >
+        {cssGradient}
+      </button>
+      {description && (
+        <div className="text-xs mt-0.5 text-berget-brand-peak/50">
+          {description}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn("min-h-screen bg-berget-brand-night", className)}
+        {...props}
+      >
+        <div className="py-16">
+          <div className="max-w-7xl mx-auto px-8 text-center">
+            <div className="mb-8">
+              <BergetSymbol size={80} variant="white" className="mx-auto" />
+            </div>
+            <h1 className="text-6xl font-serif text-berget-brand-peak mb-4">
+              Brand Portal
+            </h1>
+            <p className="text-berget-brand-peak/70 text-lg max-w-2xl mx-auto mb-6">
+              Berget Design System - Brand guidelines and visual identity
+            </p>
+            <p className="text-berget-brand-peak/60 text-base max-w-3xl mx-auto mb-6">
+              This guide provides practical examples and guidelines for
+              maintaining a consistent visual identity across all Berget AI
+              materials.
+            </p>
+            <div className="mb-6">
+              <Badge variant="default" icon={Shield} iconGap={2}>
+                Internal & Press Use Only
+              </Badge>
+            </div>
+          </div>
+        </div>
+
+        <Section padding="xl">
+          <div className="mb-12">
+            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+              Logo & Symbol
+            </h2>
+            <p className="text-berget-brand-peak/70 mb-4">
+              The Berget logo and symbol represent our brand identity
+            </p>
+            <p className="text-berget-brand-peak/60 max-w-3xl">
+              The Berget AI logo is available in two main variants: with text
+              and mark-only. Each variant comes in black and white versions with
+              transparent backgrounds, available in both SVG (for web and print)
+              and PNG formats (for digital applications)
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Symbol
+              </h3>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(151 44% 52%)" }}
+                  >
+                    <div className="w-full max-w-[120px]">
+                      <BergetSymbol
+                        size={60}
+                        variant="white"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-white/80 text-sm">
+                      White variant on Moss
+                    </span>
+                  </div>
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(0 0% 10%)" }}
+                  >
+                    <div className="w-full max-w-[120px]">
+                      <BergetSymbol
+                        size={60}
+                        variant="white"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-white/80 text-sm">
+                      White variant on Slate
+                    </span>
+                  </div>
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(25 10% 84%)" }}
+                  >
+                    <div className="w-full max-w-[120px]">
+                      <BergetSymbol
+                        size={60}
+                        variant="black"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-berget-brand-slate/80 text-sm">
+                      Black variant on Cloud
+                    </span>
+                  </div>
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(151 37% 63%)" }}
+                  >
+                    <div className="w-full max-w-[120px]">
+                      <BergetSymbol
+                        size={60}
+                        variant="black"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-berget-brand-slate/80 text-sm">
+                      Black variant on Lichen
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Symbol Sizes
+              </h3>
+              <div
+                className="rounded-xl p-8"
+                style={{ backgroundColor: "hsl(0 0% 10%)" }}
+              >
+                <div className="space-y-12">
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetSymbol size={32} variant="white" />
+                    <span className="text-white/80 text-sm">XS (32px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetSymbol size={40} variant="white" />
+                    <span className="text-white/80 text-sm">Small (40px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetSymbol size={60} variant="white" />
+                    <span className="text-white/80 text-sm">Medium (60px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetSymbol size={80} variant="white" />
+                    <span className="text-white/80 text-sm">Large (80px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetSymbol size={120} variant="white" />
+                    <span className="text-white/80 text-sm">XL (120px)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Logotype
+              </h3>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(151 44% 52%)" }}
+                  >
+                    <div className="w-full max-w-[200px]">
+                      <BergetLogotype
+                        size={48}
+                        variant="white"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-white/80 text-sm">
+                      White variant on Moss
+                    </span>
+                  </div>
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(0 0% 10%)" }}
+                  >
+                    <div className="w-full max-w-[200px]">
+                      <BergetLogotype
+                        size={48}
+                        variant="white"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-white/80 text-sm">
+                      White variant on Slate
+                    </span>
+                  </div>
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(25 10% 84%)" }}
+                  >
+                    <div className="w-full max-w-[200px]">
+                      <BergetLogotype
+                        size={48}
+                        variant="black"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-berget-brand-slate/80 text-sm">
+                      Black variant on Cloud
+                    </span>
+                  </div>
+                  <div
+                    className="rounded-xl p-8 flex flex-col items-center gap-4"
+                    style={{ backgroundColor: "hsl(151 37% 63%)" }}
+                  >
+                    <div className="w-full max-w-[200px]">
+                      <BergetLogotype
+                        size={48}
+                        variant="black"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <span className="text-berget-brand-slate/80 text-sm">
+                      Black variant on Lichen
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Logotype Sizes
+              </h3>
+              <div
+                className="rounded-xl p-8"
+                style={{ backgroundColor: "hsl(0 0% 10%)" }}
+              >
+                <div className="space-y-12">
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetLogotype size={24} variant="white" />
+                    <span className="text-white/80 text-sm">XS (24px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetLogotype size={32} variant="white" />
+                    <span className="text-white/80 text-sm">Small (32px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetLogotype size={48} variant="white" />
+                    <span className="text-white/80 text-sm">Medium (48px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetLogotype size={64} variant="white" />
+                    <span className="text-white/80 text-sm">Large (64px)</span>
+                  </div>
+                  <div className="flex flex-row items-center gap-10">
+                    <BergetLogotype size={96} variant="white" />
+                    <span className="text-white/80 text-sm">XL (96px)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Usage Guidelines
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-medium text-berget-success-foreground mb-4 flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Do's
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Use white variant on dark backgrounds (Slate, Night, Moss,
+                      Spruce)
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Use black variant on light backgrounds (Peak, Cloud,
+                      Lichen)
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Maintain minimum clear space equivalent to the height of
+                      the symbol
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Use appropriate sizes for different media (24px-120px for
+                      symbol, 24px-96px for logotype)
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Use SVG format for print and large-scale applications
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium text-berget-destructive-foreground mb-4 flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                    Don'ts
+                  </h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                      Do not change the colors of the logo or symbol
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                      Do not stretch, distort, or alter the proportions
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                      Do not add shadows, gradients, or effects
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                      Do not rotate, flip, or mirror the logo or symbol
+                    </li>
+                    <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
+                      <svg
+                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                      Do not use on busy, patterned, or low-contrast backgrounds
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-16">
+                <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                  Downloads
+                </h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-xl font-serif text-berget-brand-peak mb-4">
+                      Logotype
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Logotype - White (SVG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Vector format for web and print
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Logotype - Black (SVG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Vector format for web and print
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Logotype - White (PNG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Raster format for digital applications
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Logotype - Black (PNG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Raster format for digital applications
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-serif text-berget-brand-peak mb-4">
+                      Symbol
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Symbol - White (SVG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Vector format for web and print
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Symbol - Black (SVG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Vector format for web and print
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Symbol - White (PNG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Raster format for digital applications
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="#"
+                        className="flex items-center justify-between p-4 rounded-lg border border-berget-brand-peak/20 hover:border-berget-brand-peak/40 transition-colors"
+                      >
+                        <div>
+                          <div className="text-berget-brand-peak font-medium">
+                            Berget Symbol - Black (PNG)
+                          </div>
+                          <div className="text-berget-brand-peak/60 text-sm">
+                            Raster format for digital applications
+                          </div>
+                        </div>
+                        <svg
+                          className="w-5 h-5 text-berget-brand-peak"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section padding="xl" background="muted">
+          <div className="mb-12">
+            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+              Colors
+            </h2>
+            <p className="text-berget-brand-peak/70">
+              Core brand colors and status colors
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Brand Colors
+              </h3>
+              <p className="text-berget-brand-peak/60 mb-6">
+                Core brand colors that define Berget's visual identity
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ColorSwatch
+                  name="Moss"
+                  hslValue="hsl(151 44% 52%)"
+                  hexValue="#52B788"
+                  description="Primary brand color"
+                />
+                <ColorSwatch
+                  name="Lichen"
+                  hslValue="hsl(151 37% 63%)"
+                  hexValue="#74C69D"
+                  description="Secondary accent"
+                />
+                <ColorSwatch
+                  name="Spruce"
+                  hslValue="hsl(153 38% 30%)"
+                  hexValue="#2D6A4F"
+                  description="Dark green"
+                />
+                <ColorSwatch
+                  name="Fjord"
+                  hslValue="hsl(204 67% 21%)"
+                  hexValue="#0F405A"
+                  description="Blue accent"
+                />
+                <ColorSwatch
+                  name="Peak"
+                  hslValue="hsl(0 0% 100%)"
+                  hexValue="#FFFFFF"
+                  description="Pure white"
+                />
+                <ColorSwatch
+                  name="Cloud"
+                  hslValue="hsl(25 10% 84%)"
+                  hexValue="#E5DDD5"
+                  description="Light neutral"
+                />
+                <ColorSwatch
+                  name="Slate"
+                  hslValue="hsl(0 0% 10%)"
+                  hexValue="#1A1A1A"
+                  description="Dark neutral"
+                />
+                <ColorSwatch
+                  name="Night"
+                  hslValue="hsl(0 0% 4%)"
+                  hexValue="#0A0A0A"
+                  description="Background"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Status Colors
+              </h3>
+              <p className="text-berget-brand-peak/60 mb-6">
+                Colors for status and feedback states
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ColorSwatch
+                  name="Info"
+                  hslValue="hsl(217 68% 53%)"
+                  hexValue="#3975D6"
+                  description="Informational"
+                />
+                <ColorSwatch
+                  name="Success"
+                  hslValue="hsl(151 44% 52%)"
+                  hexValue="#52B788"
+                  description="Success state"
+                />
+                <ColorSwatch
+                  name="Warning"
+                  hslValue="hsl(71 100% 75%)"
+                  hexValue="#CFFF8B"
+                  description="Warning state"
+                />
+                <ColorSwatch
+                  name="Error"
+                  hslValue="hsl(6 74% 50%)"
+                  hexValue="#D1392E"
+                  description="Error state"
+                />
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section padding="xl">
+          <div className="mb-12">
+            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+              Gradients
+            </h2>
+            <p className="text-berget-brand-peak/70">
+              Brand gradients for backgrounds and visual effects
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            <div>
+              <h3 className="text-2xl font-serif text-berget-brand-peak mb-6">
+                Gradients
+              </h3>
+              <p className="text-berget-brand-peak/60 mb-6">
+                Gradients using brand colors
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <GradientSwatch
+                  name="Moss to Lichen"
+                  variant="moss-lichen"
+                  description="Light green"
+                />
+                <GradientSwatch
+                  name="Moss to Spruce"
+                  variant="moss-spruce"
+                  description="Green to dark"
+                />
+                <GradientSwatch
+                  name="Spruce to Fjord"
+                  variant="spruce-fjord"
+                  description="Dark to blue"
+                />
+                <GradientSwatch
+                  name="Spruce to Slate"
+                  variant="spruce-slate"
+                  description="Dark to charcoal"
+                />
+                <GradientSwatch
+                  name="Spruce to Night"
+                  variant="spruce-night"
+                  description="Dark to black"
+                />
+                <GradientSwatch
+                  name="Fjord to Slate"
+                  variant="fjord-slate"
+                  description="Blue to charcoal"
+                />
+                <GradientSwatch
+                  name="Slate to Night"
+                  variant="slate-night"
+                  description="Charcoal to black"
+                />
+                <GradientSwatch
+                  name="Lichen to Cloud"
+                  variant="lichen-cloud"
+                  description="Light to white"
+                />
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section padding="xl" background="muted">
+          <div className="mb-12">
+            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+              Typography
+            </h2>
+            <p className="text-berget-brand-peak/70">
+              Font families and type scale
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-berget-brand-peak/60 text-sm mb-6">
+                Serif (Ovo) - Headings
+              </h3>
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-5xl font-serif text-berget-brand-peak mb-2">
+                    Heading 1
+                  </h1>
+                  <div className="text-xs text-berget-brand-peak/50 font-mono">
+                    5rem (80px) / 5.5rem line-height
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-4xl font-serif text-berget-brand-peak mb-2">
+                    Heading 2
+                  </h2>
+                  <div className="text-xs text-berget-brand-peak/50 font-mono">
+                    2.5rem (40px) / 3.5rem line-height
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-xl font-serif text-berget-brand-peak mb-2">
+                    Heading 4
+                  </h4>
+                  <div className="text-xs text-berget-brand-peak/50 font-mono">
+                    1.5rem (24px) / 2.5rem line-height
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-berget-brand-peak/60 text-sm mb-6">
+                Sans (DM Sans) - Body & UI
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-sans text-berget-brand-peak mb-2">
+                    Heading 3
+                  </h3>
+                  <div className="text-xs text-berget-brand-peak/50 font-mono">
+                    1.5rem (24px) / 2rem line-height
+                  </div>
+                </div>
+                <div>
+                  <p className="text-base text-berget-brand-peak mb-2">
+                    Body text
+                  </p>
+                  <div className="text-xs text-berget-brand-peak/50 font-mono">
+                    1rem (16px) / 1.5rem line-height
+                  </div>
+                </div>
+                <div>
+                  <p className="text-sm text-berget-brand-peak mb-2">
+                    Small text
+                  </p>
+                  <div className="text-xs text-berget-brand-peak/50 font-mono">
+                    0.875rem (14px) / 1.25rem line-height
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-berget-brand-peak/60 text-sm mb-6">
+                Monospace (DM Mono) - Code
+              </h3>
+              <div>
+                <p className="text-base font-mono text-berget-brand-peak mb-2">
+                  Monospace text
+                </p>
+                <div className="text-xs text-berget-brand-peak/50 font-mono">
+                  1rem (16px) / 1rem line-height
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+      </div>
+    );
+  },
+);
+BrandPortal.displayName = "BrandPortal";
+
+export { BrandPortal };
