@@ -1,62 +1,6 @@
+import * as React from "react";
 import type { Preview } from "@storybook/react";
-import React from "react";
 import "../src/styles.css";
-
-// Force dark background on Storybook wrapper elements
-const style = document.createElement("style");
-style.innerHTML = `
-  .sb-main-padded {
-    max-width: none !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    background: hsl(0 0% 4%) !important;
-  }
-
-  .sb-main-padded:has([data-layout="centered"]) {
-    padding: 2rem !important;
-    background: hsl(0 0% 4%) !important;
-    background-image:
-      linear-gradient(to bottom, rgba(229, 221, 213, 0.02) 1px, transparent 1px),
-      linear-gradient(to right, rgba(229, 221, 213, 0.02) 1px, transparent 1px) !important;
-    background-size: 24px 24px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 100vh !important;
-  }
-
-  .sb-show-main {
-    background: hsl(0 0% 4%) !important;
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  #storybook-root {
-    width: 100% !important;
-    max-width: none !important;
-    min-height: 100vh !important;
-    background: hsl(0 0% 4%);
-    color: hsl(0 0% 100%);
-  }
-
-
-
-  /* Light mode overrides for Storybook wrapper */
-  html.light .sb-main-padded,
-  html.light .sb-show-main,
-  html.light #storybook-root {
-    background: hsl(0 0% 96%) !important;
-    color: hsl(0 0% 10%) !important;
-  }
-
-  html.light body,
-  html.light .sb-show-main,
-  html.light #storybook-root {
-    color: hsl(0 0% 10%) !important;
-  }
-`;
-document.head.appendChild(style);
 
 const preview: Preview = {
   parameters: {
@@ -82,12 +26,33 @@ const preview: Preview = {
           "Atoms",
           "Molecules",
           "Organisms",
+          "Pages",
           "Templates",
           "Utilities",
           "login",
           "email",
           "*",
         ],
+      },
+    },
+    viewport: {
+      defaultViewport: "desktop",
+      viewports: {
+        desktop: {
+          name: "Desktop",
+          styles: { width: "1280px", height: "900px" },
+          type: "desktop",
+        },
+        tablet: {
+          name: "Tablet",
+          styles: { width: "768px", height: "1024px" },
+          type: "tablet",
+        },
+        mobile: {
+          name: "Mobile",
+          styles: { width: "375px", height: "812px" },
+          type: "mobile",
+        },
       },
     },
   },

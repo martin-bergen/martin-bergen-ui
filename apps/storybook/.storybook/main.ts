@@ -52,19 +52,7 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     const { mergeConfig } = await import("vite");
     return mergeConfig(config, {
-      plugins: [
-        tailwindcss({
-          content: [
-            resolve(__dirname, "../../../packages/ui/src/**/*.{js,ts,jsx,tsx}"),
-            resolve(
-              __dirname,
-              "../../../apps/keycloak-theme/src/**/*.{js,ts,jsx,tsx}",
-            ),
-            resolve(__dirname, "../src/**/*.{js,ts,jsx,tsx}"),
-          ],
-        }),
-        monorepoAliasPlugin(),
-      ],
+      plugins: [tailwindcss(), monorepoAliasPlugin()],
     });
   },
 };

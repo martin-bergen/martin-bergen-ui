@@ -136,8 +136,6 @@
   /* link */
   --berget-button-link-fg: hsl(var(--berget-brand-moss));
 
-  /* Gradients */
-
   /* Shadows */
   --berget-shadow-sm: 0 4px 4px hsl(var(--berget-brand-slate) / 0.05);
   --berget-shadow-md: 0 8px 8px 4px hsl(var(--berget-brand-slate) / 0.05);
@@ -255,6 +253,48 @@
   --animate-float-slow: float-slow 20s ease-in-out infinite;
   --animate-float-medium: float-medium 14s ease-in-out infinite;
   --animate-float-fast: float-fast 8s ease-in-out infinite;
+
+  /* Gradient tokens */
+  --bg-image-gradient-fjord-slate: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-fjord)),
+    hsl(var(--berget-brand-slate))
+  );
+  --bg-image-gradient-slate-night: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-slate)),
+    hsl(var(--berget-brand-night))
+  );
+  --bg-image-gradient-spruce-fjord: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-spruce)),
+    hsl(var(--berget-brand-fjord))
+  );
+  --bg-image-gradient-spruce-slate: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-spruce)),
+    hsl(var(--berget-brand-slate))
+  );
+  --bg-image-gradient-spruce-night: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-spruce)),
+    hsl(var(--berget-brand-night))
+  );
+  --bg-image-gradient-moss-lichen: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-moss)),
+    hsl(var(--berget-brand-lichen))
+  );
+  --bg-image-gradient-moss-spruce: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-moss)),
+    hsl(var(--berget-brand-spruce))
+  );
+  --bg-image-gradient-lichen-cloud: linear-gradient(
+    to right,
+    hsl(var(--berget-brand-lichen)),
+    hsl(var(--berget-brand-cloud))
+  );
 
   /* Brand primitive aliases */
   --color-berget-brand-peak: hsl(var(--berget-brand-peak));

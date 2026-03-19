@@ -3,5 +3,37 @@
 @import "../../../apps/keycloak-theme/src/login/index.css";
 
 /* Tailwind v4 kräver explicita source-direktiv för monorepos */
-@source "../../../packages/ui/src/**/*.{ts,tsx}";
-@source "../src/**/*.{ts,tsx}";
+@source "../../../packages/ui/src/**/*.{js,ts,jsx,tsx}";
+@source "../../../apps/keycloak-theme/src/**/*.{js,ts,jsx,tsx}";
+@source "../src/**/*.{js,ts,jsx,tsx}";
+
+/* Storybook wrapper styling */
+.sb-main-padded {
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: hsl(0 0% 4%) !important;
+}
+
+.sb-show-main {
+  background: hsl(0 0% 4%) !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+#storybook-root {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh !important;
+  background: hsl(0 0% 4%);
+  color: hsl(0 0% 100%);
+}
+
+/* Light mode overrides for Storybook wrapper */
+html.light .sb-main-padded,
+html.light .sb-show-main,
+html.light #storybook-root {
+  background: hsl(0 0% 96%) !important;
+  color: hsl(0 0% 10%) !important;
+}

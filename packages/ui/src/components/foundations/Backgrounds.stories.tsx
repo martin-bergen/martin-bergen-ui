@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { GradientBackground } from "./gradient-background";
-import type { GradientBackgroundProps } from "./gradient-background";
+import type { GradientBackgroundVariant } from "./gradient-background";
 import { NetworkBackground } from "./network-background";
 import { GrainyGradientBackground } from "./grainy-gradient-background";
 import type {
@@ -11,7 +11,7 @@ import type {
 import { PatternBackground } from "./pattern-background";
 import { Button } from "../atoms/button";
 
-const gradientOptions = [
+const gradientOptions: GradientBackgroundVariant[] = [
   "fjord-slate",
   "slate-night",
   "spruce-fjord",
@@ -38,13 +38,12 @@ const meta = {
 
 export default meta;
 
-export const GradientBackgroundDemo: StoryObj<
-  Pick<GradientBackgroundProps, "variant" | "rotation">
-> = {
+export const GradientBackgroundDemo: StoryObj<{
+  variant?: GradientBackgroundVariant;
+}> = {
   name: "Gradient Background",
   args: {
     variant: "fjord-slate",
-    rotation: 90,
   },
   argTypes: {
     variant: {
@@ -52,24 +51,17 @@ export const GradientBackgroundDemo: StoryObj<
       options: gradientOptions,
       description: "Gradient variant to display",
     },
-    rotation: {
-      control: { type: "range", min: 0, max: 360, step: 1 },
-      description: "Rotation angle for the gradient",
-    },
   },
   render: (args) => (
     <GradientBackground
       variant={args.variant}
-      rotation={args.rotation}
       className="min-h-screen flex items-center justify-center"
     >
       <div className="text-center max-w-2xl px-6">
         <h1 className="text-4xl md:text-5xl mb-4 text-white">
           Gradient Background
         </h1>
-        <p className="text-white/80 text-lg">
-          Variant: {args.variant} • Rotation: {args.rotation}deg
-        </p>
+        <p className="text-white/80 text-lg">Variant: {args.variant}</p>
       </div>
     </GradientBackground>
   ),
