@@ -16,6 +16,9 @@ export type { BadgeProps } from "./components/atoms/badge";
 export { BergetLogotype } from "./components/atoms/berget-logotype";
 export type { BergetLogotypeProps } from "./components/atoms/berget-logotype";
 
+export { Icon } from "./components/atoms/icon";
+export type { IconProps } from "./components/atoms/icon";
+
 export { BergetSymbol } from "./components/atoms/berget-symbol";
 export type { BergetSymbolProps } from "./components/atoms/berget-symbol";
 

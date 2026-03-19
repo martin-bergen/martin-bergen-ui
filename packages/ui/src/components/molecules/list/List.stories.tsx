@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { List, ListItem, ListHeader, FeatureList } from ".";
 import { Panel } from "../../atoms/panel";
+import { Icon } from "../../atoms/icon";
 import { Key, Database, Server, Users } from "lucide-react";
 
 const meta: Meta<typeof List> = {
@@ -21,7 +22,7 @@ export const Interactive: Story = {
       <div className="relative z-10">
         <List>
           <ListItem
-            icon={<Database className="w-6 h-6 text-white" strokeWidth={1.5} />}
+            icon={<Icon icon={Database} size={24} className="text-white" />}
           >
             <div>
               <h3 className="text-base  mb-1">PostgreSQL Database</h3>
@@ -29,7 +30,7 @@ export const Interactive: Story = {
             </div>
           </ListItem>
           <ListItem
-            icon={<Server className="w-6 h-6 text-white" strokeWidth={1.5} />}
+            icon={<Icon icon={Server} size={24} className="text-white" />}
           >
             <div>
               <h3 className="text-base  mb-1">API Server</h3>
@@ -37,7 +38,7 @@ export const Interactive: Story = {
             </div>
           </ListItem>
           <ListItem
-            icon={<Users className="w-6 h-6 text-white" strokeWidth={1.5} />}
+            icon={<Icon icon={Users} size={24} className="text-white" />}
           >
             <div>
               <h3 className="text-base  mb-1">Team Members</h3>
@@ -64,7 +65,7 @@ export const WithHeader: Story = {
         </ListHeader>
         <List>
           <ListItem
-            icon={<Server className="w-6 h-6 text-white" strokeWidth={1.5} />}
+            icon={<Icon icon={Server} size={24} className="text-white" />}
           >
             <div className="flex items-center gap-4">
               <div className="flex-1">
@@ -79,7 +80,7 @@ export const WithHeader: Story = {
             </div>
           </ListItem>
           <ListItem
-            icon={<Database className="w-6 h-6 text-white" strokeWidth={1.5} />}
+            icon={<Icon icon={Database} size={24} className="text-white" />}
           >
             <div className="flex items-center gap-4">
               <div className="flex-1">
@@ -182,7 +183,7 @@ export const APIKeysList: Story = {
           </ListHeader>
           <List>
             <ListItem
-              icon={<Key className="w-6 h-6 text-white" strokeWidth={1.5} />}
+              icon={<Icon icon={Key} size={24} className="text-white" />}
             >
               <div className="flex items-center gap-4">
                 <div className="flex-1">
@@ -194,7 +195,7 @@ export const APIKeysList: Story = {
               </div>
             </ListItem>
             <ListItem
-              icon={<Key className="w-6 h-6 text-white" strokeWidth={1.5} />}
+              icon={<Icon icon={Key} size={24} className="text-white" />}
             >
               <div className="flex items-center gap-4">
                 <div className="flex-1">

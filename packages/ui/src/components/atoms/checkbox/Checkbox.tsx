@@ -99,7 +99,9 @@ const Checkbox = React.forwardRef<
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={1.5}
+                  strokeWidth={
+                    size === "sm" ? 1.2 : size === "default" ? 1.5 : 1.6
+                  }
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >

@@ -49,22 +49,8 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     const { mergeConfig } = await import("vite");
-    if (configType === "DEVELOPMENT") {
-      return mergeConfig(config, {
-        server: {
-          watch: {
-            usePolling: true,
-            interval: 1000,
-          },
-        },
-        optimizeDeps: {
-          exclude: ["@tailwindcss/vite"],
-          force: true,
-        },
-      });
-    }
     return mergeConfig(config, {
       plugins: [tailwindcss(), monorepoAliasPlugin()],
     });

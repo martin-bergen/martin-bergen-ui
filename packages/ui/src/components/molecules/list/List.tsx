@@ -1,5 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../lib/utils";
+import { Icon } from "../../atoms/icon/Icon";
+import { Check } from "lucide-react";
 
 export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -64,22 +66,6 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
 );
 ListHeader.displayName = "ListHeader";
 
-function CheckIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
 export interface FeatureListProps extends React.HTMLAttributes<HTMLUListElement> {
   items: string[];
   variant?: "bullet" | "checkmark";
@@ -97,7 +83,13 @@ const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
             {variant === "bullet" ? (
               <span className="w-1.5 h-1.5 rounded-full bg-berget-brand-cloud/60 flex-shrink-0 mt-2" />
             ) : (
-              <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5 text-berget-brand-peak" />
+              <div className="flex-shrink-0 mt-0.5">
+                <Icon
+                  icon={Check}
+                  size={24}
+                  className="text-berget-brand-peak"
+                />
+              </div>
             )}
             <span className="text-muted-foreground">{item}</span>
           </li>

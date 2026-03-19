@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from ".";
+import { Icon } from "../../atoms/icon";
 import { Home, Search, User } from "lucide-react";
 
 const meta: Meta<typeof Tabs> = {
@@ -115,22 +116,13 @@ export const WithIcons: Story = {
   render: () => (
     <Tabs defaultValue="home">
       <TabsList>
-        <TabsTrigger
-          value="home"
-          icon={<Home className="w-4 h-4" strokeWidth={1.5} />}
-        >
+        <TabsTrigger value="home" icon={<Icon icon={Home} size={16} />}>
           Home
         </TabsTrigger>
-        <TabsTrigger
-          value="search"
-          icon={<Search className="w-4 h-4" strokeWidth={1.5} />}
-        >
+        <TabsTrigger value="search" icon={<Icon icon={Search} size={16} />}>
           Search
         </TabsTrigger>
-        <TabsTrigger
-          value="profile"
-          icon={<User className="w-4 h-4" strokeWidth={1.5} />}
-        >
+        <TabsTrigger value="profile" icon={<Icon icon={User} size={16} />}>
           Profile
         </TabsTrigger>
       </TabsList>
