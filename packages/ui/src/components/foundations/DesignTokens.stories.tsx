@@ -427,7 +427,7 @@ export const DesignTokens: Story = {
                   <div className="bg-white/5 rounded-lg p-4">
                     <div className="text-white mb-2">Stroke Width</div>
                     <div className="text-white/70">
-                      1.25-1.5px (size-dependent)
+                      1.4-1.8px (size-dependent)
                     </div>
                   </div>
                   <div className="bg-white/5 rounded-lg p-4">
@@ -444,38 +444,38 @@ export const DesignTokens: Story = {
                 <div className="text-white/60 text-sm mb-6">Icon Sizes</div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="flex flex-col items-center gap-4">
-                    <Home strokeWidth={1.25} className="w-4 h-4 text-white" />
+                    <Home strokeWidth={1.4} className="w-4 h-4 text-white" />
                     <div className="text-center">
                       <div className="text-white text-sm">Small</div>
                       <div className="text-white/50 text-xs font-mono">
                         16x16px
                       </div>
                       <div className="text-white/50 text-xs font-mono">
-                        Stroke: 1.25px
+                        Stroke: 1.4px
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-center gap-4">
-                    <Home strokeWidth={1.5} className="w-6 h-6 text-white" />
+                    <Home strokeWidth={1.6} className="w-6 h-6 text-white" />
                     <div className="text-center">
                       <div className="text-white text-sm">Medium</div>
                       <div className="text-white/50 text-xs font-mono">
                         24x24px
                       </div>
                       <div className="text-white/50 text-xs font-mono">
-                        Stroke: 1.5px
+                        Stroke: 1.6px
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col items-center gap-4">
-                    <Home strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Home strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <div className="text-center">
                       <div className="text-white text-sm">Large</div>
                       <div className="text-white/50 text-xs font-mono">
                         32x32px
                       </div>
                       <div className="text-white/50 text-xs font-mono">
-                        Stroke: 1.5px
+                        Stroke: 1.8px
                       </div>
                     </div>
                   </div>
@@ -487,101 +487,101 @@ export const DesignTokens: Story = {
                 </div>
                 <div className="grid grid-cols-4 md:grid-cols-8 gap-6">
                   <div className="flex flex-col items-center gap-2">
-                    <Home strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Home strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Home</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <Settings
-                      strokeWidth={1.5}
+                      strokeWidth={1.8}
                       className="w-8 h-8 text-white"
                     />
                     <span className="text-white/60 text-xs">Settings</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <User strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <User strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">User</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Search strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Search strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Search</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Bell strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Bell strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Bell</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Heart strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Heart strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Heart</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Star strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Star strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Star</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <ChevronRight
-                      strokeWidth={1.5}
+                      strokeWidth={1.8}
                       className="w-8 h-8 text-white"
                     />
                     <span className="text-white/60 text-xs">Chevron</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Plus strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Plus strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Plus</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Minus strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Minus strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Minus</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Check strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Check strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Check</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <X strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <X strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">X</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Zap strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Zap strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Zap</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Bot strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Bot strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Bot</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Server strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Server strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Server</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Cloud strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Cloud strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Cloud</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Shield strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Shield strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Shield</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Folder strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Folder strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Folder</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Cog strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Cog strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Cog</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <BrainCircuit
-                      strokeWidth={1.5}
+                      strokeWidth={1.8}
                       className="w-8 h-8 text-white"
                     />
                     <span className="text-white/60 text-xs">Brain</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <Layers strokeWidth={1.5} className="w-8 h-8 text-white" />
+                    <Layers strokeWidth={1.8} className="w-8 h-8 text-white" />
                     <span className="text-white/60 text-xs">Layers</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
                     <Leaf
-                      strokeWidth={1.5}
+                      strokeWidth={1.8}
                       className="w-8 h-8 text-berget-brand-moss"
                     />
                     <span className="text-white/60 text-xs">Leaf</span>

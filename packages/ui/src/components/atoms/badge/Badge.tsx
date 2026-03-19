@@ -2,9 +2,6 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type IconComponent = React.ComponentType<any>;
-
 const badgeVariants = cva(
   "inline-flex items-center whitespace-nowrap rounded-full  transition-colors focus:outline-none focus:ring-1 focus:ring-ring focus:ring-offset-2 focus:ring-opacity-20",
   {
@@ -26,7 +23,7 @@ const badgeVariants = cva(
         error: "bg-berget-destructive text-berget-destructive-foreground",
       },
       size: {
-        sm: "text-xs h-5",
+        sm: "text-xs h-6",
         md: "text-sm h-6",
       },
     },
@@ -42,39 +39,25 @@ export interface BadgeProps
   extends
     React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
-  icon?: IconComponent;
+  icon?: React.ReactNode;
   iconGap?: number;
 }
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   (
-    {
-      className,
-      variant,
-      status,
-      size,
-      icon: Icon,
-      iconGap = 2,
-      children,
-      ...props
-    },
+    { className, variant, status, size, icon, iconGap = 2, children, ...props },
     ref,
   ) => {
-    const iconSize = size === "sm" ? "size-3" : "size-4";
-    const strokeWidth = size === "sm" ? 1.25 : 1.5;
-
     return (
       <div
         className={cn(badgeVariants({ variant, status, size }), className)}
         ref={ref}
         {...props}
       >
-        {Icon && (
-          <Icon
-            className={iconSize}
-            strokeWidth={strokeWidth}
-            style={{ marginRight: children ? `${iconGap * 0.25}rem` : "0" }}
-          />
+        {icon && (
+          <div style={{ marginRight: children ? `${iconGap * 0.25}rem` : "0" }}>
+            {icon}
+          </div>
         )}
         {children}
       </div>

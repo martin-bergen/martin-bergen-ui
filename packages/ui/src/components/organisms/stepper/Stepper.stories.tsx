@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { Stepper, type Step } from "./Stepper";
 import { Button } from "../../atoms/button";
+import { Icon } from "../../atoms/icon";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 // Wrapper components for interactive stories
@@ -23,7 +24,7 @@ const InteractiveStepper = () => {
             onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
             disabled={currentStep === 0}
           >
-            <ArrowLeft className="mr-2 w-6 h-6 text-white" strokeWidth={1.5} />
+            <Icon icon={ArrowLeft} size={24} className="mr-2 text-white" />
             Back
           </Button>
 
@@ -34,7 +35,7 @@ const InteractiveStepper = () => {
             }
           >
             {currentStep === sampleSteps.length - 1 ? "Submit" : "Continue"}
-            <ArrowRight className="ml-2 w-6 h-6 text-white" strokeWidth={1.5} />
+            <Icon icon={ArrowRight} size={24} className="ml-2 text-white" />
           </Button>
         </div>
       </div>

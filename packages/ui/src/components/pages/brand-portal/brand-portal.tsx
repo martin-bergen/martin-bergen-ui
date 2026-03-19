@@ -4,6 +4,7 @@ import { BergetLogotype } from "../../atoms/berget-logotype";
 import { BergetSymbol } from "../../atoms/berget-symbol";
 import { Section } from "../../molecules/section";
 import { Badge } from "../../atoms/badge";
+import { Icon } from "../../atoms/icon";
 import {
   Shield,
   ChevronLeft,
@@ -180,7 +181,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
               materials.
             </p>
             <div className="mb-6">
-              <Badge variant="default" icon={Shield} iconGap={2}>
+              <Badge
+                variant="default"
+                icon={<Icon icon={Shield} size={16} />}
+                iconGap={2}
+              >
                 Internal & Press Use Only
               </Badge>
             </div>
@@ -429,104 +434,52 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h4 className="text-lg font-medium text-berget-success-foreground mb-4 flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                    <Icon icon={Check} size={24} />
                     Do's
                   </h4>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      <Icon
+                        icon={Check}
+                        size={24}
+                        className="text-berget-success-foreground flex-shrink-0 mt-0.5"
+                      />
                       Use white variant on dark backgrounds (Slate, Night, Moss,
                       Spruce)
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      <Icon
+                        icon={Check}
+                        size={24}
+                        className="text-berget-success-foreground flex-shrink-0 mt-0.5"
+                      />
                       Use black variant on light backgrounds (Peak, Cloud,
                       Lichen)
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      <Icon
+                        icon={Check}
+                        size={24}
+                        className="text-berget-success-foreground flex-shrink-0 mt-0.5"
+                      />
                       Maintain minimum clear space equivalent to the height of
                       the symbol
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      <Icon
+                        icon={Check}
+                        size={24}
+                        className="text-berget-success-foreground flex-shrink-0 mt-0.5"
+                      />
                       Use appropriate sizes for different media (24px-120px for
                       symbol, 24px-96px for logotype)
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-success-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      <Icon
+                        icon={Check}
+                        size={24}
+                        className="text-berget-success-foreground flex-shrink-0 mt-0.5"
+                      />
                       Use SVG format for print and large-scale applications
                     </li>
                   </ul>
@@ -534,100 +487,48 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
                 <div>
                   <h4 className="text-lg font-medium text-berget-destructive-foreground mb-4 flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
+                    <Icon icon={X} size={24} />
                     Don'ts
                   </h4>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <Icon
+                        icon={X}
+                        size={24}
+                        className="text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                      />
                       Do not change the colors of the logo or symbol
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <Icon
+                        icon={X}
+                        size={24}
+                        className="text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                      />
                       Do not stretch, distort, or alter the proportions
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <Icon
+                        icon={X}
+                        size={24}
+                        className="text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                      />
                       Do not add shadows, gradients, or effects
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <Icon
+                        icon={X}
+                        size={24}
+                        className="text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                      />
                       Do not rotate, flip, or mirror the logo or symbol
                     </li>
                     <li className="flex items-start gap-3 text-berget-brand-peak/80 text-sm">
-                      <svg
-                        className="w-5 h-5 text-berget-destructive-foreground flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
+                      <Icon
+                        icon={X}
+                        size={24}
+                        className="text-berget-destructive-foreground flex-shrink-0 mt-0.5"
+                      />
                       Do not use on busy, patterned, or low-contrast backgrounds
                     </li>
                   </ul>
@@ -656,19 +557,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Vector format for web and print
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                       <a
                         href="#"
@@ -682,19 +575,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Vector format for web and print
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                       <a
                         href="#"
@@ -708,19 +593,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Raster format for digital applications
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                       <a
                         href="#"
@@ -734,19 +611,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Raster format for digital applications
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                     </div>
                   </div>
@@ -768,19 +637,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Vector format for web and print
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                       <a
                         href="#"
@@ -794,19 +655,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Vector format for web and print
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                       <a
                         href="#"
@@ -820,19 +673,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Raster format for digital applications
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                          />
-                        </svg>
+                        <Icon
+                          icon={Upload}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                       <a
                         href="#"
@@ -846,19 +691,11 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                             Raster format for digital applications
                           </div>
                         </div>
-                        <svg
-                          className="w-5 h-5 text-berget-brand-peak"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
+                        <Icon
+                          icon={X}
+                          size={24}
+                          className="text-berget-brand-peak"
+                        />
                       </a>
                     </div>
                   </div>
@@ -1308,294 +1145,254 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
               </h3>
               <p className="text-berget-brand-peak/60 mb-8">
                 Common icons used throughout the interface, shown at 32px with
-                1.5px stroke
+                1.8px stroke
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ChevronLeft
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ChevronLeft
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ChevronRight
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ChevronRight
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ChevronDown
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ChevronDown
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ChevronUp
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ChevronUp
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Search size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Search
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Settings
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Settings
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <User size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    User
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Bell size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Bell
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Check size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Check
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <X size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">X</span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Plus size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Plus
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Minus size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Minus
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ArrowRight
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ArrowRight
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ArrowLeft
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ArrowLeft
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ArrowUp size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ArrowUp
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ArrowDown
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ArrowDown
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Menu size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Menu
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Close size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Close
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Home size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Home
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <ExternalLink
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    ExternalLink
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Lock size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Lock
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Unlock size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Unlock
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Eye size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">Eye</span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <EyeOff size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    EyeOff
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Star size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Star
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Heart size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Heart
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Download
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Download
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Upload size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Upload
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Copy size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Copy
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Trash size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Trash
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Edit size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Edit
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Calendar
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Calendar
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Clock size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Clock
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Filter size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Filter
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Info size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Info
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <AlertCircle
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    AlertCircle
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <CheckCircle
-                    size={32}
-                    strokeWidth={1.5}
-                    className="text-white"
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    CheckCircle
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <XCircle size={32} strokeWidth={1.5} className="text-white" />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    XCircle
-                  </span>
-                </div>
-                <div className="rounded-xl p-6 bg-berget-card flex flex-col items-center gap-3">
-                  <Leaf
-                    size={32}
-                    strokeWidth={1.5}
-                    style={{ color: "hsl(var(--berget-brand-moss))" }}
-                  />
-                  <span className="text-sm text-berget-brand-peak/60">
-                    Leaf
-                  </span>
+              <div className="rounded-xl p-8 bg-berget-card">
+                <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ChevronLeft} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ChevronLeft
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon
+                      icon={ChevronRight}
+                      size={32}
+                      className="text-white"
+                    />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ChevronRight
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ChevronDown} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ChevronDown
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ChevronUp} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ChevronUp
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Search} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Search
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Settings} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Settings
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={User} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      User
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Bell} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Bell
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Check} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Check
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={X} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">X</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Plus} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Plus
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Minus} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Minus
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ArrowRight} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ArrowRight
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ArrowLeft} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ArrowLeft
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ArrowUp} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ArrowUp
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={ArrowDown} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ArrowDown
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Menu} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Menu
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Close} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Close
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Home} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Home
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon
+                      icon={ExternalLink}
+                      size={32}
+                      className="text-white"
+                    />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      ExternalLink
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Lock} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Lock
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Unlock} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Unlock
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Eye} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Eye
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={EyeOff} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      EyeOff
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Star} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Star
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Heart} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Heart
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Download} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Download
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Upload} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Upload
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Copy} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Copy
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Trash} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Trash
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Edit} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Edit
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Calendar} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Calendar
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Clock} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Clock
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Filter} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Filter
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={Info} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Info
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={AlertCircle} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      AlertCircle
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={CheckCircle} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      CheckCircle
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon icon={XCircle} size={32} className="text-white" />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      XCircle
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <Icon
+                      icon={Leaf}
+                      size={32}
+                      style={{ color: "hsl(var(--berget-brand-moss))" }}
+                    />
+                    <span className="text-xs text-berget-brand-peak/60">
+                      Leaf
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

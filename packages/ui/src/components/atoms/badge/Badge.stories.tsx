@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from ".";
+import { Icon } from "../icon";
 import {
   Shield,
   Lock,
@@ -123,13 +124,21 @@ export const AllVariants: Story = {
           <Badge variant="default" status="default">
             Default
           </Badge>
-          <Badge variant="default" status="default" icon={Check}>
+          <Badge
+            variant="default"
+            status="default"
+            icon={<Icon icon={Check} size={16} />}
+          >
             GDPR compliant
           </Badge>
           <Badge variant="default" status="active">
             Active
           </Badge>
-          <Badge variant="default" status="active" icon={Check}>
+          <Badge
+            variant="default"
+            status="active"
+            icon={<Icon icon={Check} size={16} />}
+          >
             Verified
           </Badge>
         </div>
@@ -236,22 +245,46 @@ export const WithIcons: Story = {
           With text and icons
         </p>
         <div className="flex flex-wrap gap-2">
-          <Badge variant="default" status="default" icon={Shield}>
+          <Badge
+            variant="default"
+            status="default"
+            icon={<Icon icon={Shield} size={16} />}
+          >
             No data leaves Sweden
           </Badge>
-          <Badge variant="default" status="active" icon={Lock}>
+          <Badge
+            variant="default"
+            status="active"
+            icon={<Icon icon={Lock} size={16} />}
+          >
             End-to-end encrypted
           </Badge>
-          <Badge variant="semantic" status="info" icon={Info}>
+          <Badge
+            variant="semantic"
+            status="info"
+            icon={<Icon icon={Info} size={16} />}
+          >
             Info
           </Badge>
-          <Badge variant="semantic" status="success" icon={Check}>
+          <Badge
+            variant="semantic"
+            status="success"
+            icon={<Icon icon={Check} size={16} />}
+          >
             Verified
           </Badge>
-          <Badge variant="semantic" status="warning" icon={AlertCircle}>
+          <Badge
+            variant="semantic"
+            status="warning"
+            icon={<Icon icon={AlertCircle} size={16} />}
+          >
             Attention
           </Badge>
-          <Badge variant="semantic" status="error" icon={XCircle}>
+          <Badge
+            variant="semantic"
+            status="error"
+            icon={<Icon icon={XCircle} size={16} />}
+          >
             Error
           </Badge>
         </div>
@@ -259,10 +292,26 @@ export const WithIcons: Story = {
       <div className="border-t border-border pt-4">
         <p className="text-sm  text-muted-foreground mb-3">Icon-only</p>
         <div className="flex flex-wrap gap-2">
-          <Badge variant="semantic" status="info" icon={Wifi} />
-          <Badge variant="semantic" status="success" icon={Wifi} />
-          <Badge variant="semantic" status="warning" icon={WifiOff} />
-          <Badge variant="semantic" status="error" icon={WifiOff} />
+          <Badge
+            variant="semantic"
+            status="info"
+            icon={<Icon icon={Wifi} size={16} />}
+          />
+          <Badge
+            variant="semantic"
+            status="success"
+            icon={<Icon icon={Wifi} size={16} />}
+          />
+          <Badge
+            variant="semantic"
+            status="warning"
+            icon={<Icon icon={WifiOff} size={16} />}
+          />
+          <Badge
+            variant="semantic"
+            status="error"
+            icon={<Icon icon={WifiOff} size={16} />}
+          />
         </div>
       </div>
     </div>
@@ -310,13 +359,25 @@ export const Examples: Story = {
           Privacy & Security
         </p>
         <div className="flex flex-wrap gap-3">
-          <Badge variant="default" status="default" icon={Shield}>
+          <Badge
+            variant="default"
+            status="default"
+            icon={<Icon icon={Shield} size={16} />}
+          >
             No data leaves Sweden
           </Badge>
-          <Badge variant="default" status="active" icon={Lock}>
+          <Badge
+            variant="default"
+            status="active"
+            icon={<Icon icon={Lock} size={16} />}
+          >
             End-to-end encrypted
           </Badge>
-          <Badge variant="default" status="default" icon={Check}>
+          <Badge
+            variant="default"
+            status="default"
+            icon={<Icon icon={Check} size={16} />}
+          >
             GDPR compliant
           </Badge>
         </div>

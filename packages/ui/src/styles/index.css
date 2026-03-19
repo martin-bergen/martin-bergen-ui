@@ -435,6 +435,11 @@
   --text-mono: 1rem;
   --leading-mono: 1rem;
   --font-mono: "DM Mono", monospace;
+
+  /* Icon stroke widths */
+  --stroke-icon-sm: 1.4px;
+  --stroke-icon-md: 1.6px;
+  --stroke-icon-lg: 1.8px;
 }
 
 @keyframes float-slow {

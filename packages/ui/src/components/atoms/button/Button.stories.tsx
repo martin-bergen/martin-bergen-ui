@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from ".";
+import { Icon } from "../icon";
 import { ArrowRight, Download, Loader2, Mail, Plus } from "lucide-react";
 import { cn } from "../../../lib/utils";
 
@@ -76,7 +77,7 @@ export const Interactive: Story = {
     <div className={cn("p-4", args.width === "full" && "w-64")}>
       <Button {...args}>
         {args.variant === "icon" ? (
-          <Plus className="w-6 h-6" strokeWidth={1.5} />
+          <Icon icon={Plus} size={24} />
         ) : (
           args.children
         )}
@@ -99,7 +100,7 @@ export const AllVariants: Story = {
           <Button variant="destructive">Destructive</Button>
           <Button variant="highlight">Highlight</Button>
           <Button variant="icon">
-            <Plus className="w-6 h-6" strokeWidth={1.5} />
+            <Icon icon={Plus} size={24} />
           </Button>
         </div>
       </div>
@@ -129,7 +130,7 @@ export const Sizes: Story = {
           <Button size="default">Default</Button>
           <Button size="lg">Large</Button>
           <Button size="icon">
-            <Plus className="w-6 h-6" strokeWidth={1.5} />
+            <Icon icon={Plus} size={24} />
           </Button>
         </div>
       </div>
@@ -148,7 +149,7 @@ export const Sizes: Story = {
             Large
           </Button>
           <Button variant="primary" size="icon">
-            <Plus className="w-6 h-6" strokeWidth={1.5} />
+            <Icon icon={Plus} size={24} />
           </Button>
         </div>
       </div>
@@ -162,27 +163,27 @@ export const WithIcons: Story = {
   render: () => (
     <div className="flex flex-wrap gap-3">
       <Button>
-        <Mail className="w-6 h-6" />
+        <Icon icon={Mail} size={24} />
         Email
       </Button>
       <Button variant="primary">
-        <Plus className="w-6 h-6" />
+        <Icon icon={Plus} size={24} />
         Add New
       </Button>
       <Button variant="secondary">
         Download
-        <Download className="w-6 h-6" />
+        <Icon icon={Download} size={24} />
       </Button>
       <Button variant="icon">
-        <Plus className="w-6 h-6" strokeWidth={1.5} />
+        <Icon icon={Plus} size={24} />
       </Button>
       <Button variant="highlight">
-        <Mail className="w-6 h-6" />
+        <Icon icon={Mail} size={24} />
         View Pricing
       </Button>
       <Button variant="highlight">
         View Pricing
-        <ArrowRight className="w-6 h-6" />
+        <Icon icon={ArrowRight} size={24} />
       </Button>
     </div>
   ),
@@ -195,12 +196,12 @@ export const FullWidth: Story = {
     <div className="w-64 space-y-3">
       <Button width="full">Full Width Default</Button>
       <Button variant="primary" width="full">
-        <Plus className="w-6 h-6" />
+        <Icon icon={Plus} size={24} />
         Add New
       </Button>
       <Button variant="highlight" width="full">
         View Pricing
-        <ArrowRight className="w-6 h-6" />
+        <Icon icon={ArrowRight} size={24} />
       </Button>
     </div>
   ),

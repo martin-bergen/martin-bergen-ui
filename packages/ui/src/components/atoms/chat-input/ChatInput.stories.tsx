@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ChatInput } from ".";
 import { Button } from "../button";
+import { Icon } from "../icon";
 import { ArrowUp, Mic, Plus } from "lucide-react";
 
 const meta: Meta<typeof ChatInput> = {
@@ -67,7 +68,7 @@ export const WithIcon: Story = {
   },
   render: (args) => (
     <div className="p-4 w-full max-w-2xl">
-      <ChatInput {...args} icon={<Plus className="size-4" />} />
+      <ChatInput {...args} icon={<Icon icon={Plus} size={16} />} />
     </div>
   ),
 };
@@ -85,7 +86,7 @@ export const WithActionButton: Story = {
         {...args}
         actionButton={
           <Button variant="icon">
-            <ArrowUp className="size-4" strokeWidth={2} />
+            <Icon icon={ArrowUp} size={16} />
           </Button>
         }
       />
@@ -104,18 +105,18 @@ export const FullChatInterface: Story = {
     <div className="p-4 w-full max-w-2xl">
       <ChatInput
         {...args}
-        icon={<Plus className="size-4" />}
+        icon={<Icon icon={Plus} size={16} />}
         secondaryIcon={
           <button
             type="button"
             className="pointer-events-auto hover:bg-cloud/10 rounded-full p-2 transition-colors"
           >
-            <Mic className="size-4" />
+            <Icon icon={Mic} size={16} />
           </button>
         }
         actionButton={
           <Button variant="icon">
-            <ArrowUp className="size-4" strokeWidth={2} />
+            <Icon icon={ArrowUp} size={16} />
           </Button>
         }
       />
@@ -146,7 +147,7 @@ export const States: Story = {
           placeholder="Ask anything"
           actionButton={
             <Button variant="icon" disabled>
-              <ArrowUp className="size-4" strokeWidth={2} />
+              <Icon icon={ArrowUp} size={16} />
             </Button>
           }
         />

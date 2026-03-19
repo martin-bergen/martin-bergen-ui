@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 import { LucideIcon } from "lucide-react";
 import { Badge } from "../../atoms/badge";
+import { Icon } from "../../atoms/icon";
 import { PatternBackground } from "../../foundations/pattern-background";
 
 const heroBlockVariants = cva(
@@ -133,7 +134,11 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
             {tagline && (
               <Badge
                 variant="default"
-                icon={TaglineIcon}
+                icon={
+                  TaglineIcon ? (
+                    <Icon icon={TaglineIcon} size={16} />
+                  ) : undefined
+                }
                 iconGap={2}
                 className="mb-6"
               >
