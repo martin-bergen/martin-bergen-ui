@@ -88,7 +88,7 @@ export interface FeatureListProps extends React.HTMLAttributes<HTMLUListElement>
 const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
   ({ items, variant = "bullet", className, ...props }, ref) => {
     return (
-      <ul ref={ref} className={cn("space-y-3", className)} {...props}>
+      <ul ref={ref} className={cn("flex flex-col gap-3", className)} {...props}>
         {items.map((item, index) => (
           <li
             key={index}
