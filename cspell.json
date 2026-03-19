@@ -9,7 +9,8 @@
     "node_modules",
     "dist",
     "pnpm-lock.yaml",
-    "apps/keycloak-theme"
+    "apps/keycloak-theme",
+    ".agents"
   ],
   "words": [
     "autodocs",
