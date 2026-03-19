@@ -1,5 +1,10 @@
 # Berget Design System — Agent Guidelines
 
+## Language
+
+- **Conversations:** Respond and reason in the user's preferred language. English and Swedish are both supported — follow the user's lead.
+- **Repository files:** All files in this repo must be in English, including source code, comments, and documentation. Do not write Swedish (or any other language) in files committed to the repo.
+
 ## Token System
 
 - **Button variants use component-scoped tokens** (`--berget-button-<variant>-bg/fg`). Follow this pattern for new variants.

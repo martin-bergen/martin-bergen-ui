@@ -36,8 +36,8 @@ export function TokenTable({ tokens, title }: TokenTableProps) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-white/10">
-              <th className="text-left py-3 px-4 text-white/70">Namn</th>
-              <th className="text-left py-3 px-4 text-white/70">Värde</th>
+              <th className="text-left py-3 px-4 text-white/70">Name</th>
+              <th className="text-left py-3 px-4 text-white/70">Value</th>
             </tr>
           </thead>
           <tbody>
