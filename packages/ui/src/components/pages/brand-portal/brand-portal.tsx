@@ -212,7 +212,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(151 44% 52%)" }}
+                    style={{ backgroundColor: "hsl(var(--berget-brand-moss))" }}
                   >
                     <div className="w-full max-w-[120px]">
                       <BergetSymbol
@@ -227,7 +227,9 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   </div>
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(0 0% 10%)" }}
+                    style={{
+                      backgroundColor: "hsl(var(--berget-brand-slate))",
+                    }}
                   >
                     <div className="w-full max-w-[120px]">
                       <BergetSymbol
@@ -242,7 +244,9 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   </div>
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(25 10% 84%)" }}
+                    style={{
+                      backgroundColor: "hsl(var(--berget-brand-cloud))",
+                    }}
                   >
                     <div className="w-full max-w-[120px]">
                       <BergetSymbol
@@ -257,7 +261,9 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   </div>
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(151 37% 63%)" }}
+                    style={{
+                      backgroundColor: "hsl(var(--berget-brand-lichen))",
+                    }}
                   >
                     <div className="w-full max-w-[120px]">
                       <BergetSymbol
@@ -280,7 +286,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
               </h3>
               <div
                 className="rounded-xl p-8"
-                style={{ backgroundColor: "hsl(0 0% 10%)" }}
+                style={{ backgroundColor: "hsl(var(--berget-brand-slate))" }}
               >
                 <div className="space-y-12">
                   <div className="flex flex-row items-center gap-10">
@@ -315,7 +321,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(151 44% 52%)" }}
+                    style={{ backgroundColor: "hsl(var(--berget-brand-moss))" }}
                   >
                     <div className="w-full max-w-[200px]">
                       <BergetLogotype
@@ -330,7 +336,9 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   </div>
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(0 0% 10%)" }}
+                    style={{
+                      backgroundColor: "hsl(var(--berget-brand-slate))",
+                    }}
                   >
                     <div className="w-full max-w-[200px]">
                       <BergetLogotype
@@ -345,7 +353,9 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   </div>
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(25 10% 84%)" }}
+                    style={{
+                      backgroundColor: "hsl(var(--berget-brand-cloud))",
+                    }}
                   >
                     <div className="w-full max-w-[200px]">
                       <BergetLogotype
@@ -360,7 +370,9 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   </div>
                   <div
                     className="rounded-xl p-8 flex flex-col items-center gap-4"
-                    style={{ backgroundColor: "hsl(151 37% 63%)" }}
+                    style={{
+                      backgroundColor: "hsl(var(--berget-brand-lichen))",
+                    }}
                   >
                     <div className="w-full max-w-[200px]">
                       <BergetLogotype
@@ -383,7 +395,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
               </h3>
               <div
                 className="rounded-xl p-8"
-                style={{ backgroundColor: "hsl(0 0% 10%)" }}
+                style={{ backgroundColor: "hsl(var(--berget-brand-slate))" }}
               >
                 <div className="space-y-12">
                   <div className="flex flex-row items-center gap-10">
@@ -1579,7 +1591,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                   <Leaf
                     size={32}
                     strokeWidth={1.5}
-                    style={{ color: "hsl(151 44% 52%)" }}
+                    style={{ color: "hsl(var(--berget-brand-moss))" }}
                   />
                   <span className="text-sm text-berget-brand-peak/60">
                     Leaf

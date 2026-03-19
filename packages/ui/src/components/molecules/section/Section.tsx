@@ -37,7 +37,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
         className={cn(sectionVariants({ padding, background }), className)}
         {...props}
       >
-        <div className="max-w-7xl mx-auto px-4">{children}</div>
+        <div className="container mx-auto px-4">{children}</div>
       </section>
     );
   },
