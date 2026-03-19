@@ -30,17 +30,3 @@ pnpm build
 # Build the Keycloak theme
 pnpm build-keycloak-theme
 ```
-
-## Tech Stack
-
-- **React 18** with TypeScript
-- **Tailwind CSS v4** for styling
-- **Radix UI** for accessible primitives
-- **CVA** (Class Variance Authority) for component variants
-- **tsup** for library bundling
-- **Storybook** for component development
-- **Keycloakify** for Keycloak theming
-
-## License
-
-MIT

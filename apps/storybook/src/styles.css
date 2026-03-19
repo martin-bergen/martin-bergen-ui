@@ -2,7 +2,7 @@
 @import "../../../packages/ui/src/styles/index.css";
 @import "../../../apps/keycloak-theme/src/login/index.css";
 
-/* Tailwind v4 kräver explicita source-direktiv för monorepos */
+/* Tailwind v4 requires explicit source directives for monorepos */
 @source "../../../packages/ui/src/**/*.{js,ts,jsx,tsx}";
 @source "../../../apps/keycloak-theme/src/**/*.{js,ts,jsx,tsx}";
 @source "../src/**/*.{js,ts,jsx,tsx}";

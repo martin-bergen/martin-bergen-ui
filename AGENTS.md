@@ -1,10 +1,9 @@
 # Berget Design System — Agent Guidelines
 
-## Key Rules
+## Language
 
-- **Primitives are upstream shadcn/ui.** Minimize divergence. Never use Berget brand colors (`moss`, `cloud`, `slate`, `night`, `peak`, `lichen`, `spruce`, `fjord`) in `packages/ui/src/primitives/` — only standard shadcn tokens (`--primary`, `--secondary`, `--border`, etc.).
-- **Brand colors belong in the design system layer only** (`packages/ui/src/components/`).
-- **Keycloak theme should use `@berget-ai/ui` components.** Only keep a custom component in `apps/keycloak-theme/` if the shared one breaks the Keycloak theme without substantial rework.
+- **Conversations:** Respond and reason in the user's preferred language. English and Swedish are both supported — follow the user's lead.
+- **Repository files:** All files in this repo must be in English, including source code, comments, and documentation. Do not write Swedish (or any other language) in files committed to the repo.
 
 ## Token System
 
@@ -26,3 +25,7 @@
 2. Create the design system wrapper in the appropriate level under `src/components/` (`atoms/`, `molecules/`, or `foundations/`).
 3. Export from `src/index.ts`.
 4. Add a Storybook story co-located with the component.
+- **Button variants use component-scoped tokens** (`--berget-button-<variant>-bg/fg`). Follow this pattern for new variants.
+- **`GrainyGradientBackground` `EllipseColor` type and `colorClassMap` must stay in sync.** Adding a color requires updating both.
+- **After editing `index.css`, run `pnpm --filter @berget-ai/ui build`.** `@berget-ai/ui/styles` resolves to `dist/styles/index.css`, not the source — changes are invisible in Storybook until rebuilt.
+- **Dark-first only.** The `.light / [data-theme="light"]` block was intentionally removed. Do not re-add it.
