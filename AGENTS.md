@@ -6,34 +6,16 @@
 - **Brand colors belong in the design system layer only** (`packages/ui/src/components/`).
 - **Keycloak theme should use `@berget-ai/ui` components.** Only keep a custom component in `apps/keycloak-theme/` if the shared one breaks the Keycloak theme without substantial rework.
 
-## Using Brand Colors
+## Token System
 
-In `src/components/`, always reference brand colors through their design tokens — never hardcode raw HSL values.
-
-- **Tailwind utilities** (className): use `bg-berget-brand-moss`, `text-berget-brand-peak`, etc.
-- **Inline `style=` props**: use `hsl(var(--berget-brand-moss))`, not `hsl(151 44% 52%)`.
-- **CSS custom properties** (in `.css` files): `hsl(var(--berget-brand-moss))`.
-
-## CSS Tokens Are the Source of Truth
-
-Design values defined as CSS custom properties in `packages/ui/src/styles/index.css` must not be duplicated in TypeScript/JavaScript. Components should reference tokens directly:
-
-```tsx
-// Wrong — duplicates what index.css already defines
-const gradientMap = { "moss-lichen": "linear-gradient(...)" };
-style={{ backgroundImage: gradientMap[variant] }}
-
-// Correct — reference the CSS token
-style={{ backgroundImage: `var(--bg-image-gradient-${variant})` }}
-```
-
-## File Hygiene
-
-- Never commit `.bak`, `.tmp`, or other scratch files. Use git stash or a local branch for work-in-progress snapshots.
-
-## Changing Shared Layout Components
-
-Changes to shared layout primitives (`Section`, `Container`, etc.) affect every consumer. If you modify layout behaviour (e.g. `container` → `max-w-7xl`), call it out explicitly in the PR description with the rationale, even if the change is intentional.
+- **Two tiers of `--berget-*` vars:** `--berget-brand-*` are raw HSL channels (`151 44% 52%`); semantic tokens (`--berget-*`) are full `hsl(...)` values. Only brand primitives support Tailwind opacity modifiers (`/20`, `/90`).
+- **Always use `--berget-*` utilities in `src/components/`.** Never bare brand names (`bg-moss`) or shadcn vars (`bg-primary`, `border-border`). Shadcn vars exist only as a bridge for primitives.
+- **Button variants use component-scoped tokens** (`--berget-button-<variant>-bg/fg`). Follow this pattern for new variants.
+- **Inline `style=` props use `--berget-brand-*` with explicit `hsl()`.** Brand tokens are raw HSL channels, so `hsl()` is required: write `hsl(var(--berget-brand-cloud) / 0.3)`, not `hsl(var(--cloud)/0.3)`.
+- **`GrainyGradientBackground` `EllipseColor` type and `colorClassMap` must stay in sync.** Adding a color requires updating both.
+- **Source of truth for tokens is sections A and B in `packages/ui/src/styles/index.css`.** Never invent values by hand.
+- **After editing `index.css`, run `pnpm --filter @berget-ai/ui build`.** `@berget-ai/ui/styles` resolves to `dist/styles/index.css`, not the source — changes are invisible in Storybook until rebuilt.
+- **Dark-first only.** The `.light / [data-theme="light"]` block was intentionally removed. Do not re-add it.
 
 ## Adding a New Component
 
