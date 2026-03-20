@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@berget-ai/ui/styles";
 
 @source "../**/*.{ts,tsx}";
 @source "../../../packages/ui/src";
