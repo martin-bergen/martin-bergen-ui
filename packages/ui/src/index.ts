@@ -66,6 +66,25 @@ export type {
   ListHeaderProps,
 } from "./components/molecules/list";
 
+export {
+  SidebarNavigation,
+  SidebarHeader,
+  SidebarNav,
+  SidebarFooter,
+  SidebarList,
+  SidebarListItem,
+  SidebarToggle,
+} from "./components/molecules/sidebar-navigation";
+export type {
+  SidebarNavigationProps,
+  SidebarHeaderProps,
+  SidebarNavProps,
+  SidebarFooterProps,
+  SidebarListItemProps,
+  SidebarListProps,
+  SidebarToggleProps,
+} from "./components/molecules/sidebar-navigation";
+
 export { GradientBackground } from "./components/foundations/gradient-background";
 export type {
   GradientBackgroundProps,
@@ -99,6 +118,9 @@ export type { PatternBackgroundProps } from "./components/foundations/pattern-ba
 
 export { Section, sectionVariants } from "./components/atoms/section";
 export type { SectionProps } from "./components/atoms/section";
+
+export { Sidebar, sidebarVariants } from "./components/atoms/sidebar/index";
+export type { SidebarProps } from "./components/atoms/sidebar/index";
 
 export { SectionHeader } from "./components/molecules/section-header";
 export type { SectionHeaderProps } from "./components/molecules/section-header";
