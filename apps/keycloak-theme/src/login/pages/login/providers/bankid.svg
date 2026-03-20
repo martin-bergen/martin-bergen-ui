@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#193E4F"/>
+  <!-- BankID wordmark -->
+  <text x="100" y="95" font-family="Arial Black, Arial, sans-serif" font-size="36" font-weight="900" fill="white" text-anchor="middle" letter-spacing="-1">BANK</text>
+  <text x="100" y="135" font-family="Arial Black, Arial, sans-serif" font-size="36" font-weight="900" fill="white" text-anchor="middle" letter-spacing="-1">ID</text>
+  <!-- Underline bars characteristic of BankID -->
+  <rect x="30" y="148" width="140" height="5" rx="2.5" fill="#5BA3BE"/>
+  <rect x="30" y="158" width="140" height="5" rx="2.5" fill="#5BA3BE"/>
+  <rect x="30" y="168" width="140" height="5" rx="2.5" fill="#5BA3BE"/>
+</svg>

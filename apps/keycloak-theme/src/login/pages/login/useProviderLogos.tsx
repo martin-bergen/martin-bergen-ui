@@ -1,4 +1,5 @@
 import appleLogo from "./providers/apple.svg";
+import bankidLogo from "./providers/bankid.svg";
 import bitbucketLogo from "./providers/bitbucket.svg";
 import discordLogo from "./providers/discord.svg";
 import facebookLogo from "./providers/facebook.svg";
@@ -17,6 +18,7 @@ import xLogo from "./providers/x.svg";
 
 const useProviderLogos: () => Record<string, string> = () => ({
   apple: appleLogo,
+  bankid: bankidLogo,
   bitbucket: bitbucketLogo,
   discord: discordLogo,
   facebook: facebookLogo,
