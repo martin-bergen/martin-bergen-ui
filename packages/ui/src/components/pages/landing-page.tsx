@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { HeroBlock } from "../organisms/hero-block";
 import { FeatureCards } from "../organisms/feature-cards";
 import { PricingCards } from "../organisms/pricing-cards";
-import { Section } from "../molecules/section";
+import { Section } from "../atoms/section";
 import { Button } from "../atoms/button";
 import { SectionHeader } from "../molecules/section-header";
 import { LucideIcon } from "lucide-react";
@@ -173,7 +173,6 @@ const LandingPage = React.forwardRef<HTMLElement, LandingPageProps>(
               <SectionHeader
                 title={data.features.title}
                 description={data.features.description}
-                alignment="center"
                 className="mb-12"
               />
             )}
@@ -190,7 +189,6 @@ const LandingPage = React.forwardRef<HTMLElement, LandingPageProps>(
               <SectionHeader
                 title={data.pricing.title}
                 description={data.pricing.description}
-                alignment="center"
                 className="mb-12"
               />
             )}

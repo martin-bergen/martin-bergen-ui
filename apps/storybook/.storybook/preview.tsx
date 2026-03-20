@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { Preview } from "@storybook/react";
+import { themes } from "storybook/theming";
 import "../src/styles.css";
 
 const preview: Preview = {
@@ -17,6 +18,9 @@ const preview: Preview = {
         { name: "berget-dark", value: "transparent" },
         { name: "light", value: "#f5f5f5" },
       ],
+    },
+    docs: {
+      theme: themes.dark,
     },
     options: {
       storySort: {

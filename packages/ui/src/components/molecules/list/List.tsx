@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../lib/utils";
 import { Icon } from "../../atoms/icon/Icon";
+import { Divider } from "../../atoms/divider";
 import { Check } from "lucide-react";
 
 export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -8,11 +9,19 @@ export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const List = React.forwardRef<HTMLDivElement, ListProps>(
-  ({ className, children, ...props }, ref) => (
-    <div ref={ref} className={cn("flex flex-col", className)} {...props}>
-      {children}
-    </div>
-  ),
+  ({ className, children, ...props }, ref) => {
+    const childrenArray = React.Children.toArray(children);
+    return (
+      <div ref={ref} className={cn("flex flex-col", className)} {...props}>
+        {childrenArray.map((child, index) => (
+          <React.Fragment key={index}>
+            {child}
+            {index < childrenArray.length - 1 && <Divider variant="subtle" />}
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  },
 );
 List.displayName = "List";
 
@@ -27,8 +36,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center gap-4 px-6 py-5 border-t border-[hsl(var(--border))]",
-        "first:border-t-0",
+        "flex items-center gap-4 px-6 py-5",
         interactive &&
           "transition-all duration-200 hover:bg-berget-brand-cloud/[0.02] cursor-pointer",
         className,
@@ -54,10 +62,7 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(
-        "px-6 py-4 text-sm text-muted-foreground border-b border-[hsl(var(--border))]",
-        className,
-      )}
+      className={cn("px-6 py-4 text-sm text-muted-foreground", className)}
       {...props}
     >
       {children}

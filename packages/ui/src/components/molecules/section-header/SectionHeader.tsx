@@ -1,89 +1,48 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 import { Badge } from "../../atoms/badge";
 
-const sectionHeaderVariants = cva("text-center", {
-  variants: {
-    alignment: {
-      left: "text-left",
-      center: "text-center",
-      right: "text-right",
-    },
-    size: {
-      sm: "[&_h2]:text-h3 [&_h2]:font-h3 [&_h2]:leading-h3 [&_h2]:tracking-h3",
-      md: "[&_h2]:text-h2 [&_h2]:font-h2 [&_h2]:leading-h2 [&_h2]:tracking-h2",
-      lg: "[&_h2]:text-h1 [&_h2]:font-h1 [&_h2]:leading-h1 [&_h2]:tracking-h1",
-    },
-  },
-  defaultVariants: {
-    alignment: "center",
-    size: "md",
-  },
-});
-
-export interface SectionHeaderProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof sectionHeaderVariants> {
+export interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
   tagline?: string;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "full";
+  action?: React.ReactNode;
 }
 
-const maxWidthClasses = {
-  sm: "max-w-2xl",
-  md: "max-w-3xl",
-  lg: "max-w-4xl",
-  xl: "max-w-5xl",
-  full: "max-w-full",
-};
-
 const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
-  (
-    {
-      className,
-      alignment,
-      size,
-      title,
-      description,
-      tagline,
-      maxWidth = "md",
-      ...props
-    },
-    ref,
-  ) => {
+  ({ className, title, description, tagline, action, ...props }, ref) => {
     return (
       <div
         ref={ref}
         className={cn(
-          sectionHeaderVariants({ alignment, size }),
-          maxWidthClasses[maxWidth],
-          (alignment === "center" || alignment === undefined) && "mx-auto",
+          "w-full px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 text-center",
           className,
         )}
         {...props}
       >
-        {tagline && (
-          <Badge variant="default" className="mb-6 text-sm">
-            {tagline}
-          </Badge>
-        )}
+        <div className="flex flex-col items-center gap-8 md:gap-12">
+          {tagline && (
+            <Badge variant="default" className="text-sm">
+              {tagline}
+            </Badge>
+          )}
 
-        <h2 className="mb-6 leading-tight text-h2 font-h2 leading-h2 tracking-h2">
-          {title}
-        </h2>
+          <h1 className="text-h1-mobile md:text-h1-tablet lg:text-h1 font-h1-mobile md:font-h1-tablet lg:font-h1 leading-h1-mobile md:leading-h1-tablet lg:leading-h1 tracking-h1-mobile md:tracking-h1-tablet lg:tracking-h1">
+            {title}
+          </h1>
 
-        {description && (
-          <p className="text-p font-p leading-p text-muted-foreground">
-            {description}
-          </p>
-        )}
+          {description && (
+            <h3 className="text-h3-mobile md:text-h3-tablet lg:text-h3 font-h3-mobile md:font-h3-tablet lg:font-h3 leading-h3-mobile md:leading-h3-tablet lg:leading-h3 tracking-h3-mobile md:tracking-h3-tablet lg:tracking-h3 text-muted-foreground">
+              {description}
+            </h3>
+          )}
+
+          {action && <div className="mt-4">{action}</div>}
+        </div>
       </div>
     );
   },
 );
 SectionHeader.displayName = "SectionHeader";
 
-export { SectionHeader, sectionHeaderVariants };
+export { SectionHeader };

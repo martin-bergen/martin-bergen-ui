@@ -95,7 +95,7 @@
 
   /* Destructive */
   --berget-destructive: hsl(var(--berget-brand-error) / 0.2);
-  --berget-destructive-border: hsl(var(--berget-brand-error) / 0.2);
+  --berget-destructive-border: hsl(var(--berget-brand-error) / 0.5);
   --berget-destructive-foreground: hsl(var(--berget-brand-error));
 
   /* Sidebar */
@@ -402,7 +402,18 @@
   --radius-berget-full: var(--berget-radius-full);
 
   /* Typography scale */
-  /* Heading 1 (80/88px) */
+  /* Heading 1 */
+  /* Mobile (30/36px) */
+  --text-h1-mobile: 1.875rem;
+  --leading-h1-mobile: 2.25rem;
+  --tracking-h1-mobile: -0.02em;
+  --font-h1-mobile: "Ovo", serif;
+  /* Tablet (48/56px) */
+  --text-h1-tablet: 3rem;
+  --leading-h1-tablet: 3.5rem;
+  --tracking-h1-tablet: -0.025em;
+  --font-h1-tablet: "Ovo", serif;
+  /* Desktop (80/88px) */
   --text-h1: 5rem;
   --leading-h1: 5.5rem;
   --tracking-h1: -0.03em;
@@ -414,7 +425,18 @@
   --tracking-h2: -0.03em;
   --font-h2: "Ovo", serif;
 
-  /* Heading 3 (24/32px) */
+  /* Heading 3 */
+  /* Mobile (16/24px) */
+  --text-h3-mobile: 1rem;
+  --leading-h3-mobile: 1.5rem;
+  --tracking-h3-mobile: -0.005em;
+  --font-h3-mobile: "DM Sans", sans-serif;
+  /* Tablet (20/28px) */
+  --text-h3-tablet: 1.25rem;
+  --leading-h3-tablet: 1.75rem;
+  --tracking-h3-tablet: -0.008em;
+  --font-h3-tablet: "DM Sans", sans-serif;
+  /* Desktop (24/32px) */
   --text-h3: 1.5rem;
   --leading-h3: 2rem;
   --tracking-h3: -0.01em;

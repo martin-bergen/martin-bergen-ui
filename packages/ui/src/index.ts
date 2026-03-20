@@ -97,13 +97,10 @@ export type { PanelProps } from "./components/atoms/panel";
 export { PatternBackground } from "./components/foundations/pattern-background";
 export type { PatternBackgroundProps } from "./components/foundations/pattern-background";
 
-export { Section, sectionVariants } from "./components/molecules/section";
-export type { SectionProps } from "./components/molecules/section";
+export { Section, sectionVariants } from "./components/atoms/section";
+export type { SectionProps } from "./components/atoms/section";
 
-export {
-  SectionHeader,
-  sectionHeaderVariants,
-} from "./components/molecules/section-header";
+export { SectionHeader } from "./components/molecules/section-header";
 export type { SectionHeaderProps } from "./components/molecules/section-header";
 
 export { Select, selectVariants } from "./components/atoms/select";
@@ -207,6 +204,9 @@ export type {
   LandingPageProps,
   LandingPageData,
 } from "./components/pages/landing-page";
+
+export { AnimatedHeroPage } from "./components/pages/animated-hero-page";
+export type { AnimatedHeroPageProps } from "./components/pages/animated-hero-page";
 
 export { BrandPortal } from "./components/pages/brand-portal";
 export type { BrandPortalProps } from "./components/pages/brand-portal";
