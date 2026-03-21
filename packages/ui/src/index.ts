@@ -214,6 +214,12 @@ export type {
 export { CarouselNav } from "./components/molecules/carousel-nav";
 export type { CarouselNavProps } from "./components/molecules/carousel-nav";
 
+export { AreaChart } from "./components/molecules/area-chart";
+export type { AreaChartProps } from "./components/molecules/area-chart";
+
+export { BarChart } from "./components/molecules/bar-chart";
+export type { BarChartProps } from "./components/molecules/bar-chart";
+
 export { CodeBlock } from "./components/organisms/code-block/index";
 export type { CodeBlockProps } from "./components/organisms/code-block/index";
 
