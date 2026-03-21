@@ -44,7 +44,25 @@ const config: StorybookConfig = {
     "../../../packages/ui/src/**/*.mdx",
     "../../../apps/keycloak-theme/src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: ["@storybook/addon-docs"],
+  addons: [
+    "@storybook/addon-docs",
+    {
+      name: "@storybook/addon-themes",
+      options: {
+        defaultTheme: "dark",
+        themes: {
+          dark: {
+            class: "dark",
+            color: "#000000",
+          },
+          light: {
+            class: "light",
+            color: "#ffffff",
+          },
+        },
+      },
+    },
+  ],
   framework: {
     name: "@storybook/react-vite",
     options: {},

@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { BergetLogotype } from "../../atoms/berget-logotype";
 import { BergetSymbol } from "../../atoms/berget-symbol";
-import { Section } from "../../molecules/section";
+import { Section } from "../../atoms/section";
 import { Badge } from "../../atoms/badge";
 import { Icon } from "../../atoms/icon";
 import {
@@ -194,7 +194,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl">
           <div className="mb-12">
-            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Logo & Symbol
             </h2>
             <p className="text-berget-brand-peak/70 mb-4">
@@ -707,7 +707,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl" background="muted">
           <div className="mb-12">
-            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Typography
             </h2>
             <p className="text-berget-brand-peak/70">
@@ -959,7 +959,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl" background="muted">
           <div className="mb-12">
-            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Colors
             </h2>
             <p className="text-berget-brand-peak/70">
@@ -1117,7 +1117,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl" background="muted">
           <div className="mb-12">
-            <h2 className="text-3xl font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Icons
             </h2>
             <p className="text-berget-brand-peak/70">
@@ -1145,7 +1145,8 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
               </h3>
               <p className="text-berget-brand-peak/60 mb-8">
                 Common icons used throughout the interface, shown at 32px with
-                1.8px stroke
+                1.8px stroke. Available sizes: 16px (1.4px stroke), 24px (1.6px
+                stroke), 32px (1.8px stroke).
               </p>
               <div className="rounded-xl p-8 bg-berget-card">
                 <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
@@ -1428,7 +1429,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
                       </li>
                       <li className="flex items-start gap-3 text-berget-brand-peak/70 text-sm">
                         <div className="w-1.5 h-1.5 rounded-full bg-berget-brand-moss mt-2 flex-shrink-0" />
-                        Maintain consistent icon size of 32px and 1.5px stroke
+                        Only use specified sizes and stroke widths
                       </li>
                     </ul>
                   </div>
