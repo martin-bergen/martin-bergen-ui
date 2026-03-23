@@ -425,6 +425,12 @@
   --tracking-h2: -0.03em;
   --font-h2: "Ovo", serif;
 
+  /* Heading 2 tablet (24/40px) */
+  --text-h2-tablet: 1.5rem;
+  --leading-h2-tablet: 2.5rem;
+  --tracking-h2-tablet: -0.01em;
+  --font-h2-tablet: "Ovo", serif;
+
   /* Heading 3 */
   /* Mobile (16/24px) */
   --text-h3-mobile: 1rem;
