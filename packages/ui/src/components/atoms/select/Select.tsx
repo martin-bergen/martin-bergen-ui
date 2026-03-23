@@ -10,7 +10,7 @@ import {
 } from "../../../primitives/select";
 
 const selectVariants = cva(
-  "flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:border-berget-brand-moss/40 disabled:cursor-not-allowed disabled:opacity-50",
+  "flex w-full items-center justify-between rounded-xl border bg-card px-4 py-3 text-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-berget-brand-moss/40 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {

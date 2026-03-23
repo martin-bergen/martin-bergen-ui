@@ -190,6 +190,12 @@ export type {
 export { HeroBlock } from "./components/organisms/hero-block";
 export type { HeroBlockProps } from "./components/organisms/hero-block";
 
+export { Header } from "./components/organisms/header/Header";
+export type {
+  HeaderProps,
+  HeaderLink,
+} from "./components/organisms/header/Header";
+
 export { PricingCards } from "./components/organisms/pricing-cards";
 export type {
   PricingCardsProps,
