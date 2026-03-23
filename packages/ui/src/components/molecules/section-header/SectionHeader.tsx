@@ -27,12 +27,12 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
             </Badge>
           )}
 
-          <h1 className="text-[var(--text-h1)] font-[var(--font-h1)] leading-[var(--leading-h1)] tracking-[var(--tracking-h1)]">
+          <h1 className="text-[var(--berget-text-h1)] font-[var(--berget-font-h1)] leading-[var(--berget-leading-h1)] tracking-[var(--berget-tracking-h1)]">
             {title}
           </h1>
 
           {description && (
-            <h3 className="text-[var(--text-h3)] font-[var(--font-h3)] leading-[var(--leading-h3)] tracking-[var(--tracking-h3)] text-muted-foreground">
+            <h3 className="text-[var(--berget-text-h3)] font-[var(--berget-font-h3)] leading-[var(--berget-leading-h3)] tracking-[var(--berget-tracking-h3)] text-muted-foreground">
               {description}
             </h3>
           )}

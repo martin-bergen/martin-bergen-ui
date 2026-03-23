@@ -160,6 +160,69 @@
   --berget-font-sans: "DM Sans", sans-serif;
   --berget-font-serif: "Ovo", serif;
   --berget-font-mono: "DM Mono", monospace;
+
+  /* Typography scale - fluid */
+  /* Heading 1 (Ovo, Serif) */
+  --berget-text-h1: clamp(
+    1.875rem,
+    1.875rem + 3.125rem * ((100vw - 390px) / 1050),
+    5rem
+  );
+  --berget-leading-h1: clamp(
+    2.25rem,
+    2.25rem + 3.25rem * ((100vw - 390px) / 1050),
+    5.5rem
+  );
+  --berget-tracking-h1: -0.03em;
+  --berget-font-h1: "Ovo", serif;
+
+  /* Heading 2 (Ovo, Serif) */
+  --berget-text-h2: clamp(
+    1.75rem,
+    1.75rem + 0.75rem * ((100vw - 390px) / 1050),
+    2.5rem
+  );
+  --berget-leading-h2: clamp(
+    2.5rem,
+    2.5rem + 1rem * ((100vw - 390px) / 1050),
+    3.5rem
+  );
+  --berget-tracking-h2: -0.03em;
+  --berget-font-h2: "Ovo", serif;
+
+  /* Heading 3 (DM Sans, Sans) */
+  --berget-text-h3: clamp(
+    1.25rem,
+    1.25rem + 0.25rem * ((100vw - 390px) / 1050),
+    1.5rem
+  );
+  --berget-leading-h3: clamp(
+    1.5rem,
+    1.5rem + 0.5rem * ((100vw - 390px) / 1050),
+    2rem
+  );
+  --berget-tracking-h3: -0.01em;
+  --berget-font-h3: "DM Sans", sans-serif;
+
+  /* Heading 4 (Ovo, Serif) */
+  --berget-text-h4: clamp(
+    1.25rem,
+    1.25rem + 0.25rem * ((100vw - 390px) / 1050),
+    1.5rem
+  );
+  --berget-leading-h4: 2.5rem;
+  --berget-tracking-h4: -0.01em;
+  --berget-font-h4: "Ovo", serif;
+
+  /* Paragraph (DM Sans, Sans) */
+  --berget-text-p: 1rem;
+  --berget-leading-p: 1.5rem;
+  --berget-font-p: "DM Sans", sans-serif;
+
+  /* Monospaced (DM Mono, Monospace) */
+  --berget-text-mono: 1rem;
+  --berget-leading-mono: 1rem;
+  --berget-font-mono: "DM Mono", monospace;
 }
 
 /*
@@ -400,61 +463,6 @@
   --radius-berget-md: var(--berget-radius-md);
   --radius-berget-lg: var(--berget-radius-lg);
   --radius-berget-full: var(--berget-radius-full);
-
-  /* Typography scale - fluid */
-  /* Heading 1 (Ovo, Serif) */
-  --text-h1: clamp(
-    1.875rem,
-    1.875rem + 3.125rem * ((100vw - 390px) / 1050),
-    5rem
-  );
-  --leading-h1: clamp(
-    2.25rem,
-    2.25rem + 3.25rem * ((100vw - 390px) / 1050),
-    5.5rem
-  );
-  --tracking-h1: -0.03em;
-  --font-h1: "Ovo", serif;
-
-  /* Heading 2 (Ovo, Serif) */
-  --text-h2: clamp(
-    1.75rem,
-    1.75rem + 0.75rem * ((100vw - 390px) / 1050),
-    2.5rem
-  );
-  --leading-h2: clamp(2.5rem, 2.5rem + 1rem * ((100vw - 390px) / 1050), 3.5rem);
-  --tracking-h2: -0.03em;
-  --font-h2: "Ovo", serif;
-
-  /* Heading 3 (DM Sans, Sans) */
-  --text-h3: clamp(
-    1.25rem,
-    1.25rem + 0.25rem * ((100vw - 390px) / 1050),
-    1.5rem
-  );
-  --leading-h3: clamp(1.5rem, 1.5rem + 0.5rem * ((100vw - 390px) / 1050), 2rem);
-  --tracking-h3: -0.01em;
-  --font-h3: "DM Sans", sans-serif;
-
-  /* Heading 4 (Ovo, Serif) */
-  --text-h4: clamp(
-    1.25rem,
-    1.25rem + 0.25rem * ((100vw - 390px) / 1050),
-    1.5rem
-  );
-  --leading-h4: 2.5rem;
-  --tracking-h4: -0.01em;
-  --font-h4: "Ovo", serif;
-
-  /* Paragraph (DM Sans, Sans) */
-  --text-p: 1rem;
-  --leading-p: 1.5rem;
-  --font-p: "DM Sans", sans-serif;
-
-  /* Monospaced (DM Mono, Monospace) */
-  --text-mono: 1rem;
-  --leading-mono: 1rem;
-  --font-mono: "DM Mono", monospace;
 
   /* Icon stroke widths */
   --stroke-icon-sm: 1.4px;

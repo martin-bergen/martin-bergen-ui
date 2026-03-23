@@ -146,7 +146,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
               </Badge>
             )}
 
-            <h1 className="text-[var(--text-h1)] font-[var(--font-h1)] leading-[var(--leading-h1)] tracking-[var(--tracking-h1)] mb-6">
+            <h1 className="text-[var(--berget-text-h1)] font-[var(--berget-font-h1)] leading-[var(--berget-leading-h1)] tracking-[var(--berget-tracking-h1)] mb-6">
               {title}
             </h1>
 

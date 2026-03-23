@@ -138,7 +138,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             </div>
           )}
 
-          <h2 className="text-[var(--text-h2)] font-[var(--font-h2)] leading-[var(--leading-h2)] tracking-[var(--tracking-h2)] text-foreground">
+          <h2 className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)] text-foreground">
             {title}
           </h2>
 
