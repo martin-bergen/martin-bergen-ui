@@ -194,7 +194,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl">
           <div className="mb-12">
-            <h2 className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)] font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Logo & Symbol
             </h2>
             <p className="text-berget-brand-peak/70 mb-4">
@@ -707,7 +707,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl" background="muted">
           <div className="mb-12">
-            <h2 className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)] font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Typography
             </h2>
             <p className="text-berget-brand-peak/70">
@@ -959,7 +959,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl" background="muted">
           <div className="mb-12">
-            <h2 className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)] font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Colors
             </h2>
             <p className="text-berget-brand-peak/70">
@@ -1117,7 +1117,7 @@ const BrandPortal = React.forwardRef<HTMLDivElement, BrandPortalProps>(
 
         <Section padding="xl" background="muted">
           <div className="mb-12">
-            <h2 className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)] font-serif text-berget-brand-peak mb-4">
+            <h2 className="text-h2 font-h2 leading-h2 tracking-h2 font-serif text-berget-brand-peak mb-4">
               Icons
             </h2>
             <p className="text-berget-brand-peak/70">

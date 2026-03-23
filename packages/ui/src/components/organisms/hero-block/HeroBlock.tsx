@@ -7,7 +7,7 @@ import { Icon } from "../../atoms/icon";
 import { PatternBackground } from "../../foundations/pattern-background";
 
 const heroBlockVariants = cva(
-  "relative overflow-hidden min-h-[70vh] flex items-center py-16",
+  "relative overflow-hidden min-h-[70dvh] flex items-center py-fluid-2xl",
   {
     variants: {
       variant: {
@@ -129,8 +129,8 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+        <div className="w-full max-w-screen-2xl mx-auto px-fluid-md relative z-10">
+          <div className="mx-auto text-center">
             {tagline && (
               <Badge
                 variant="default"
@@ -140,22 +140,22 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
                   ) : undefined
                 }
                 iconGap={2}
-                className="mb-6"
+                className="mb-fluid-md"
               >
                 {tagline}
               </Badge>
             )}
 
-            <h1 className="text-[var(--berget-text-h1)] font-[var(--berget-font-h1)] leading-[var(--berget-leading-h1)] tracking-[var(--berget-tracking-h1)] mb-6">
+            <h1 className="text-h1 font-h1 leading-h1 tracking-h1 mb-fluid-md">
               {title}
             </h1>
 
-            <p className="text-p font-p leading-p text-white/80 mb-8">
+            <p className="text-p font-p leading-p text-white/80 mb-fluid-lg">
               {description}
             </p>
 
             {actions && (
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-fluid-md justify-center">
                 {actions}
               </div>
             )}

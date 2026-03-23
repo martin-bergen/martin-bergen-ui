@@ -109,13 +109,10 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
       <Card
         ref={ref}
         variant="highlight"
-        className={cn(
-          "w-full min-w-[280px] max-w-[413px] py-[var(--spacing-feature-card-padding-vertical)] px-[var(--spacing-feature-card-padding-horizontal)]",
-          className,
-        )}
+        className={cn("w-full py-fluid-lg px-fluid-md", className)}
         {...props}
       >
-        <div className="flex flex-col items-start gap-[var(--spacing-feature-card-gap)]">
+        <div className="flex flex-col items-start gap-fluid-md">
           {/* Icon and badge on same row */}
           {(Icon || badge) && (
             <div className="flex items-center justify-between w-full">
@@ -138,7 +135,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             </div>
           )}
 
-          <h2 className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)] text-foreground">
+          <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-foreground">
             {title}
           </h2>
 
@@ -214,7 +211,7 @@ export const FeatureCards = React.forwardRef<HTMLDivElement, FeatureCardsProps>(
       <div
         ref={ref}
         className={cn(
-          "grid gap-6 md:gap-8 p-6",
+          "grid gap-fluid-lg p-fluid-md",
           // Explicit classes so Tailwind compiles them
           columns === 1 && "grid-cols-1 max-w-md mx-auto",
           columns === 2 && "grid-cols-1 md:grid-cols-2",

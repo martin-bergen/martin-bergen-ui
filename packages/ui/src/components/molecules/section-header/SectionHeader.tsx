@@ -14,25 +14,20 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
     return (
       <div
         ref={ref}
-        className={cn(
-          "w-full px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 text-center",
-          className,
-        )}
+        className={cn("w-full px-fluid-md py-fluid-xl text-center", className)}
         {...props}
       >
-        <div className="flex flex-col items-center gap-8 md:gap-12">
+        <div className="flex flex-col items-center gap-fluid-lg">
           {tagline && (
             <Badge variant="default" className="text-sm">
               {tagline}
             </Badge>
           )}
 
-          <h1 className="text-[var(--berget-text-h1)] font-[var(--berget-font-h1)] leading-[var(--berget-leading-h1)] tracking-[var(--berget-tracking-h1)]">
-            {title}
-          </h1>
+          <h1 className="text-h1 font-h1 leading-h1 tracking-h1">{title}</h1>
 
           {description && (
-            <h3 className="text-[var(--berget-text-h3)] font-[var(--berget-font-h3)] leading-[var(--berget-leading-h3)] tracking-[var(--berget-tracking-h3)] text-muted-foreground">
+            <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-muted-foreground">
               {description}
             </h3>
           )}

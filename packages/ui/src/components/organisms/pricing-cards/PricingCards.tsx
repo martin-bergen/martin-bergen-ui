@@ -109,7 +109,7 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
       <div
         ref={ref}
         className={cn(
-          "grid gap-6 md:gap-8 p-6",
+          "grid gap-fluid-lg p-fluid-md",
           // Explicit classes so Tailwind compiles them
           columns === 1 && "grid-cols-1 max-w-md mx-auto",
           columns === 2 && "grid-cols-1 md:grid-cols-2",
@@ -122,16 +122,16 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
           <Card
             key={tier.id}
             variant="highlight"
-            className="w-full min-w-[280px] max-w-[400px] p-6 md:p-8"
+            className="w-full p-fluid-md md:p-fluid-lg"
           >
             <div className="mb-6">
-              <h3 className="text-[var(--berget-text-h3)] font-[var(--berget-font-h3)] leading-[var(--berget-leading-h3)] tracking-[var(--berget-tracking-h3)] mb-2">
+              <h3 className="text-h3 font-h3 leading-h3 tracking-h3 mb-2">
                 {tier.name}
               </h3>
               <p className="text-p font-p leading-p text-[hsl(var(--muted-foreground))] mb-4">
                 {tier.description}
               </p>
-              <div className="text-[var(--berget-text-h2)] font-[var(--berget-font-h2)] leading-[var(--berget-leading-h2)] tracking-[var(--berget-tracking-h2)]">
+              <div className="text-h2 font-h2 leading-h2 tracking-h2">
                 {tier.price}
               </div>
             </div>

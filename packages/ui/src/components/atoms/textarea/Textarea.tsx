@@ -17,9 +17,9 @@ const textareaVariants = cva(
         muted: "border-berget-brand-cloud/5 hover:bg-berget-brand-cloud/[0.02]",
       },
       size: {
-        sm: "px-3 py-2 text-xs min-h-[60px]",
-        default: "px-4 py-3 text-sm min-h-[80px]",
-        lg: "px-5 py-4 text-base min-h-[120px]",
+        sm: "px-fluid-sm py-fluid-sm text-xs",
+        default: "px-fluid-md py-fluid-md text-sm",
+        lg: "px-fluid-lg py-fluid-lg text-base",
       },
     },
     defaultVariants: {
