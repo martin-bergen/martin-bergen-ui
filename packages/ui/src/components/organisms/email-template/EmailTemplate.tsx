@@ -123,8 +123,11 @@ export const EmailTemplate = React.forwardRef<
             </div>
             {title && (
               <h1
-                className="text-3xl  text-foreground mb-6 text-center"
-                style={{ margin: "0 0 24px 0" }}
+                className="text-3xl text-foreground mb-6 text-center"
+                style={{
+                  margin: "0 0 24px 0",
+                  fontFamily: '"Ovo", serif',
+                }}
               >
                 {title}
               </h1>

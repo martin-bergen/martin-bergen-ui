@@ -36,7 +36,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center gap-4 px-6 py-5",
+        "flex items-center gap-fluid-md px-fluid-md py-fluid-md",
         interactive &&
           "transition-all duration-200 hover:bg-berget-brand-cloud/[0.02] cursor-pointer",
         className,
@@ -62,7 +62,10 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("px-6 py-4 text-sm text-muted-foreground", className)}
+      className={cn(
+        "px-fluid-md py-fluid-sm text-sm text-muted-foreground",
+        className,
+      )}
       {...props}
     >
       {children}
@@ -79,11 +82,15 @@ export interface FeatureListProps extends React.HTMLAttributes<HTMLUListElement>
 const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
   ({ items, variant = "bullet", className, ...props }, ref) => {
     return (
-      <ul ref={ref} className={cn("flex flex-col gap-3", className)} {...props}>
+      <ul
+        ref={ref}
+        className={cn("flex flex-col gap-fluid-md", className)}
+        {...props}
+      >
         {items.map((item, index) => (
           <li
             key={index}
-            className="flex items-start gap-3 text-p font-p leading-p"
+            className="flex items-start gap-fluid-md text-p font-p leading-p"
           >
             {variant === "bullet" ? (
               <span className="w-1.5 h-1.5 rounded-full bg-berget-brand-cloud/60 flex-shrink-0 mt-2" />

@@ -112,7 +112,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
           {(title || subtitle || description) && (
             <div className="flex flex-col gap-2">
               {title && (
-                <h2 className="text-h4 md:text-[var(--text-h2)] font-[var(--font-h2)] leading-[var(--leading-h2)] tracking-[var(--tracking-h2)] text-berget-foreground">
+                <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-berget-foreground">
                   {title}
                 </h2>
               )}

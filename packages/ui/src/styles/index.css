@@ -401,73 +401,59 @@
   --radius-berget-lg: var(--berget-radius-lg);
   --radius-berget-full: var(--berget-radius-full);
 
-  /* Typography scale */
-  /* Heading 1 */
-  /* Mobile (30/36px) */
-  --text-h1-mobile: 1.875rem;
-  --leading-h1-mobile: 2.25rem;
-  --tracking-h1-mobile: -0.02em;
-  --font-h1-mobile: "Ovo", serif;
-  /* Tablet (48/56px) */
-  --text-h1-tablet: 3rem;
-  --leading-h1-tablet: 3.5rem;
-  --tracking-h1-tablet: -0.025em;
-  --font-h1-tablet: "Ovo", serif;
-  /* Desktop (80/88px) */
-  --text-h1: 5rem;
-  --leading-h1: 5.5rem;
-  --tracking-h1: -0.03em;
-  --font-h1: "Ovo", serif;
-
-  /* Heading 2 (40/56px) */
-  --text-h2: 2.5rem;
-  --leading-h2: 3.5rem;
-  --tracking-h2: -0.03em;
-  --font-h2: "Ovo", serif;
-
-  /* Heading 2 tablet (24/40px) */
-  --text-h2-tablet: 1.5rem;
-  --leading-h2-tablet: 2.5rem;
-  --tracking-h2-tablet: -0.01em;
-  --font-h2-tablet: "Ovo", serif;
-
-  /* Heading 3 */
-  /* Mobile (16/24px) */
-  --text-h3-mobile: 1rem;
-  --leading-h3-mobile: 1.5rem;
-  --tracking-h3-mobile: -0.005em;
-  --font-h3-mobile: "DM Sans", sans-serif;
-  /* Tablet (20/28px) */
-  --text-h3-tablet: 1.25rem;
-  --leading-h3-tablet: 1.75rem;
-  --tracking-h3-tablet: -0.008em;
-  --font-h3-tablet: "DM Sans", sans-serif;
-  /* Desktop (24/32px) */
-  --text-h3: 1.5rem;
-  --leading-h3: 2rem;
-  --tracking-h3: -0.01em;
-  --font-h3: "DM Sans", sans-serif;
-
-  /* Heading 4 (24/40px) */
-  --text-h4: 1.5rem;
-  --leading-h4: 2.5rem;
-  --tracking-h4: -0.01em;
-  --font-h4: "Ovo", serif;
-
-  /* Paragraph (16/24px) */
-  --text-p: 1rem;
-  --leading-p: 1.5rem;
-  --font-p: "DM Sans", sans-serif;
-
-  /* Monospaced (16/16px) */
-  --text-mono: 1rem;
-  --leading-mono: 1rem;
-  --font-mono: "DM Mono", monospace;
-
   /* Icon stroke widths */
   --stroke-icon-sm: 1.4px;
   --stroke-icon-md: 1.6px;
   --stroke-icon-lg: 1.8px;
+
+  /* Typography scale - fluid */
+  /* Heading 1 (Ovo, Serif) */
+  --text-h1: clamp(1.875rem, 0.714rem + 4.76vw, 5rem);
+  --leading-h1: clamp(1.1, 1.06 + 0.09vw, 1.2);
+  --tracking-h1: -0.03em;
+  --font-h1: "Ovo", serif;
+
+  /* Heading 2 (Ovo, Serif) */
+  --text-h2: clamp(1.75rem, 1.47rem + 1.14vw, 2.5rem);
+  --leading-h2: clamp(1.2, 1.16 + 0.09vw, 1.3);
+  --tracking-h2: -0.03em;
+  --font-h2: "Ovo", serif;
+
+  /* Heading 3 (DM Sans, Sans) */
+  --text-h3: clamp(1.25rem, 1.16rem + 0.38vw, 1.5rem);
+  --leading-h3: clamp(1.2, 1.16 + 0.09vw, 1.3);
+  --tracking-h3: -0.01em;
+  --font-h3: "DM Sans", sans-serif;
+
+  /* Heading 4 (Ovo, Serif) */
+  --text-h4: clamp(1.25rem, 1.16rem + 0.38vw, 1.5rem);
+  --leading-h4: 1.3;
+  --tracking-h4: -0.01em;
+  --font-h4: "Ovo", serif;
+
+  /* Paragraph (DM Sans, Sans) */
+  --text-p: 1rem;
+  --leading-p: 1.5rem;
+  --font-p: "DM Sans", sans-serif;
+
+  /* Monospaced (DM Mono, Monospace) */
+  --text-mono: 1rem;
+  --leading-mono: 1rem;
+  --font-mono: "DM Mono", monospace;
+
+  /* Fluid Spacing Scale (Base 16px) */
+  /* Viewport range: 390px → 1440px */
+  --spacing-fluid-xs: clamp(0.5rem, 0.41rem + 0.38vw, 0.75rem);
+  --spacing-fluid-sm: clamp(0.75rem, 0.66rem + 0.38vw, 1rem);
+  --spacing-fluid-md: clamp(1rem, 0.82rem + 0.76vw, 1.5rem);
+  --spacing-fluid-lg: clamp(1.5rem, 1.14rem + 1.52vw, 2.5rem);
+  --spacing-fluid-xl: clamp(2.5rem, 1.96rem + 2.29vw, 4rem);
+  --spacing-fluid-2xl: clamp(4rem, 2.93rem + 4.38vw, 6.875rem);
+
+  /* Semantiska Layout-alias */
+  --spacing-container-px: var(--spacing-fluid-md);
+  --spacing-section-py: var(--spacing-fluid-xl);
+  --spacing-gutter: var(--spacing-fluid-lg);
 }
 
 @keyframes float-slow {
