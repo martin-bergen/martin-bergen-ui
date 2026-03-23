@@ -11,6 +11,7 @@ import {
   TooltipProps,
 } from "recharts";
 import { cn } from "../../../lib/utils";
+import { Panel } from "../../atoms/panel";
 import {
   ChartDataPoint,
   ChartSeries,
@@ -102,153 +103,156 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     ref,
   ) => {
     return (
-      <div
-        ref={ref}
-        className={cn("w-full flex flex-col gap-4", className)}
-        {...props}
-      >
-        {(title || subtitle || description) && (
-          <div className="flex flex-col gap-2">
-            {title && (
-              <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-berget-foreground">
-                {title}
-              </h2>
-            )}
-            {subtitle && (
-              <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-berget-muted-foreground">
-                {subtitle}
-              </h3>
-            )}
-            {description && (
-              <p className="text-p font-p leading-p text-berget-muted-foreground">
-                {description}
-              </p>
-            )}
-          </div>
-        )}
+      <Panel padding="md" radius="default">
+        <div
+          ref={ref}
+          className={cn("w-full flex flex-col gap-4", className)}
+          {...props}
+        >
+          {(title || subtitle || description) && (
+            <div className="flex flex-col gap-2">
+              {title && (
+                <h2 className="text-h4 md:text-[var(--text-h2)] font-[var(--font-h2)] leading-[var(--leading-h2)] tracking-[var(--tracking-h2)] text-berget-foreground">
+                  {title}
+                </h2>
+              )}
+              {subtitle && (
+                <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-berget-muted-foreground">
+                  {subtitle}
+                </h3>
+              )}
+              {description && (
+                <p className="text-p font-p leading-p text-berget-muted-foreground">
+                  {description}
+                </p>
+              )}
+            </div>
+          )}
 
-        <ResponsiveContainer width="100%" height={height}>
-          <RechartsAreaChart
-            data={data}
-            margin={{
-              top: 10,
-              right: 10,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            {showGrid && (
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                stroke="var(--berget-border)"
-                strokeOpacity={0.2}
-              />
-            )}
+          <ResponsiveContainer width="100%" height={height}>
+            <RechartsAreaChart
+              data={data}
+              margin={{
+                top: 10,
+                right: 10,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              {showGrid && (
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="var(--berget-border)"
+                  strokeOpacity={0.2}
+                />
+              )}
 
-            <XAxis
-              dataKey={xAxisKey}
-              type={xAxisType}
-              axisLine={false}
-              tickLine={false}
-              tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
-              tickFormatter={formatDateLabel}
-              label={
-                xAxisLabel
-                  ? {
-                      value: xAxisLabel,
-                      position: "insideBottom",
-                      offset: -5,
-                      style: {
-                        fill: "var(--berget-muted-foreground)",
-                        fontSize: 12,
-                      },
-                    }
-                  : undefined
-              }
-            />
-
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
-              tickFormatter={(value) => formatTooltipValue(value)}
-              label={
-                yAxisLabel
-                  ? {
-                      value: yAxisLabel,
-                      angle: -90,
-                      position: "insideLeft",
-                      style: {
-                        fill: "var(--berget-muted-foreground)",
-                        fontSize: 12,
-                      },
-                    }
-                  : undefined
-              }
-            />
-
-            {showTooltip && (
-              <Tooltip
-                content={
-                  <CustomTooltip
-                    active={undefined}
-                    payload={undefined}
-                    label={undefined}
-                  />
+              <XAxis
+                dataKey={xAxisKey}
+                type={xAxisType}
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
+                tickFormatter={formatDateLabel}
+                label={
+                  xAxisLabel
+                    ? {
+                        value: xAxisLabel,
+                        position: "insideBottom",
+                        offset: -5,
+                        style: {
+                          fill: "var(--berget-muted-foreground)",
+                          fontSize: 12,
+                        },
+                      }
+                    : undefined
                 }
               />
-            )}
 
-            {showLegend && (
-              <Legend
-                iconType="circle"
-                wrapperStyle={{
-                  paddingTop: "10px",
-                }}
-                formatter={(value: string) => (
-                  <span className="text-sm text-berget-muted-foreground">
-                    {value}
-                  </span>
-                )}
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
+                tickFormatter={(value) => formatTooltipValue(value)}
+                label={
+                  yAxisLabel
+                    ? {
+                        value: yAxisLabel,
+                        angle: -90,
+                        position: "insideLeft",
+                        style: {
+                          fill: "var(--berget-muted-foreground)",
+                          fontSize: 12,
+                        },
+                      }
+                    : undefined
+                }
               />
-            )}
 
-            {series.map((serie) => {
-              const color = getChartColor(serie.color);
-              return (
-                <defs key={serie.dataKey}>
-                  <linearGradient
-                    id={`gradient-${serie.dataKey}`}
-                    x1="0"
-                    y1="0"
-                    x2="0"
-                    y2="1"
-                  >
-                    <stop offset="0%" stopColor={color} stopOpacity={0.8} />
-                    <stop offset="100%" stopColor={color} stopOpacity={0.1} />
-                  </linearGradient>
-                </defs>
-              );
-            })}
-
-            {series.map((serie) => {
-              const color = getChartColor(serie.color);
-              return (
-                <Area
-                  key={serie.dataKey}
-                  type="monotone"
-                  dataKey={serie.dataKey}
-                  name={serie.name}
-                  stroke={color}
-                  strokeWidth={2}
-                  fill={`url(#gradient-${serie.dataKey})`}
+              {showTooltip && (
+                <Tooltip
+                  content={
+                    <CustomTooltip
+                      active={undefined}
+                      payload={undefined}
+                      label={undefined}
+                    />
+                  }
                 />
-              );
-            })}
-          </RechartsAreaChart>
-        </ResponsiveContainer>
-      </div>
+              )}
+
+              {showLegend && (
+                <Legend
+                  iconType="circle"
+                  wrapperStyle={{
+                    paddingTop: "10px",
+                  }}
+                  formatter={(value: string) => (
+                    <span className="text-sm text-berget-muted-foreground">
+                      {value}
+                    </span>
+                  )}
+                />
+              )}
+
+              {series.map((serie) => {
+                const color = getChartColor(serie.color);
+                return (
+                  <defs key={serie.dataKey}>
+                    <linearGradient
+                      id={`gradient-${serie.dataKey}`}
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="1"
+                    >
+                      <stop offset="0%" stopColor={color} stopOpacity={0.4} />
+                      <stop offset="50%" stopColor={color} stopOpacity={0} />
+                      <stop offset="100%" stopColor={color} stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                );
+              })}
+
+              {series.map((serie) => {
+                const color = getChartColor(serie.color);
+                return (
+                  <Area
+                    key={serie.dataKey}
+                    type="monotone"
+                    dataKey={serie.dataKey}
+                    name={serie.name}
+                    stroke={color}
+                    strokeWidth={2}
+                    fill={`url(#gradient-${serie.dataKey})`}
+                  />
+                );
+              })}
+            </RechartsAreaChart>
+          </ResponsiveContainer>
+        </div>
+      </Panel>
     );
   },
 );

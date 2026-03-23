@@ -11,6 +11,7 @@ import {
   TooltipProps,
 } from "recharts";
 import { cn } from "../../../lib/utils";
+import { Panel } from "../../atoms/panel";
 import {
   ChartDataPoint,
   ChartSeries,
@@ -110,135 +111,137 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
     ref,
   ) => {
     return (
-      <div
-        ref={ref}
-        className={cn("w-full flex flex-col gap-4", className)}
-        {...props}
-      >
-        {(title || subtitle || description) && (
-          <div className="flex flex-col gap-2">
-            {title && (
-              <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-berget-foreground">
-                {title}
-              </h2>
-            )}
-            {subtitle && (
-              <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-berget-muted-foreground">
-                {subtitle}
-              </h3>
-            )}
-            {description && (
-              <p className="text-p font-p leading-p text-berget-muted-foreground">
-                {description}
-              </p>
-            )}
-          </div>
-        )}
+      <Panel padding="md" radius="default">
+        <div
+          ref={ref}
+          className={cn("w-full flex flex-col gap-4", className)}
+          {...props}
+        >
+          {(title || subtitle || description) && (
+            <div className="flex flex-col gap-2">
+              {title && (
+                <h2 className="text-h4 md:text-[var(--text-h2)] font-[var(--font-h2)] leading-[var(--leading-h2)] tracking-[var(--tracking-h2)] text-berget-foreground">
+                  {title}
+                </h2>
+              )}
+              {subtitle && (
+                <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-berget-muted-foreground">
+                  {subtitle}
+                </h3>
+              )}
+              {description && (
+                <p className="text-p font-p leading-p text-berget-muted-foreground">
+                  {description}
+                </p>
+              )}
+            </div>
+          )}
 
-        <ResponsiveContainer width="100%" height={height}>
-          <RechartsBarChart
-            data={data}
-            margin={{
-              top: 10,
-              right: 10,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            {showGrid && (
-              <CartesianGrid
-                strokeDasharray="3 3"
-                vertical={false}
-                stroke="var(--berget-border)"
-                strokeOpacity={0.2}
-              />
-            )}
+          <ResponsiveContainer width="100%" height={height}>
+            <RechartsBarChart
+              data={data}
+              margin={{
+                top: 10,
+                right: 10,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              {showGrid && (
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="var(--berget-border)"
+                  strokeOpacity={0.2}
+                />
+              )}
 
-            <XAxis
-              dataKey={xAxisKey}
-              type={xAxisType}
-              axisLine={false}
-              tickLine={false}
-              tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
-              tickFormatter={formatDateLabel}
-              label={
-                xAxisLabel
-                  ? {
-                      value: xAxisLabel,
-                      position: "insideBottom",
-                      offset: -5,
-                      style: {
-                        fill: "var(--berget-muted-foreground)",
-                        fontSize: 12,
-                      },
-                    }
-                  : undefined
-              }
-            />
-
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
-              tickFormatter={(value) => formatTooltipValue(value, yAxisUnit)}
-              label={
-                yAxisLabel
-                  ? {
-                      value: yAxisLabel,
-                      angle: -90,
-                      position: "insideLeft",
-                      style: {
-                        fill: "var(--berget-muted-foreground)",
-                        fontSize: 12,
-                      },
-                    }
-                  : undefined
-              }
-            />
-
-            {showTooltip && (
-              <Tooltip
-                content={
-                  <CustomTooltip
-                    active={undefined}
-                    payload={undefined}
-                    label={undefined}
-                    yAxisUnit={yAxisUnit}
-                  />
+              <XAxis
+                dataKey={xAxisKey}
+                type={xAxisType}
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
+                tickFormatter={formatDateLabel}
+                label={
+                  xAxisLabel
+                    ? {
+                        value: xAxisLabel,
+                        position: "insideBottom",
+                        offset: -5,
+                        style: {
+                          fill: "var(--berget-muted-foreground)",
+                          fontSize: 12,
+                        },
+                      }
+                    : undefined
                 }
               />
-            )}
 
-            {showLegend && (
-              <Legend
-                iconType="circle"
-                wrapperStyle={{
-                  paddingTop: "10px",
-                }}
-                formatter={(value: string) => (
-                  <span className="text-sm text-berget-muted-foreground">
-                    {value}
-                  </span>
-                )}
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "var(--berget-muted-foreground)", fontSize: 12 }}
+                tickFormatter={(value) => formatTooltipValue(value, yAxisUnit)}
+                label={
+                  yAxisLabel
+                    ? {
+                        value: yAxisLabel,
+                        angle: -90,
+                        position: "insideLeft",
+                        style: {
+                          fill: "var(--berget-muted-foreground)",
+                          fontSize: 12,
+                        },
+                      }
+                    : undefined
+                }
               />
-            )}
 
-            {series.map((serie) => {
-              const color = getChartColor(serie.color);
-              return (
-                <Bar
-                  key={serie.dataKey}
-                  dataKey={serie.dataKey}
-                  name={serie.name}
-                  fill={color}
-                  radius={[4, 4, 0, 0]}
-                  maxBarSize={60}
+              {showTooltip && (
+                <Tooltip
+                  content={
+                    <CustomTooltip
+                      active={undefined}
+                      payload={undefined}
+                      label={undefined}
+                      yAxisUnit={yAxisUnit}
+                    />
+                  }
                 />
-              );
-            })}
-          </RechartsBarChart>
-        </ResponsiveContainer>
-      </div>
+              )}
+
+              {showLegend && (
+                <Legend
+                  iconType="circle"
+                  wrapperStyle={{
+                    paddingTop: "10px",
+                  }}
+                  formatter={(value: string) => (
+                    <span className="text-sm text-berget-muted-foreground">
+                      {value}
+                    </span>
+                  )}
+                />
+              )}
+
+              {series.map((serie) => {
+                const color = getChartColor(serie.color);
+                return (
+                  <Bar
+                    key={serie.dataKey}
+                    dataKey={serie.dataKey}
+                    name={serie.name}
+                    fill={color}
+                    radius={[4, 4, 0, 0]}
+                    maxBarSize={60}
+                  />
+                );
+              })}
+            </RechartsBarChart>
+          </ResponsiveContainer>
+        </div>
+      </Panel>
     );
   },
 );
