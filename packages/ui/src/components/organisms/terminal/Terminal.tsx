@@ -332,7 +332,7 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
         {/* Terminal content */}
         <div
           ref={contentRef}
-          className="p-6 font-mono text-sm h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+          className="p-6 font-mono text-sm aspect-video min-h-[250px] max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent isolate"
         >
           {/* Completed steps */}
           {completedSteps.map((step, stepIndex) => (

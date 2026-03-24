@@ -21,6 +21,11 @@ import {
   AxisType,
 } from "../../../lib/chart-utils";
 
+export interface ChartHeightConfig {
+  aspect?: "video" | "square" | "4/3" | "3/2" | "auto";
+  minHeight?: string;
+}
+
 export interface BarChartProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   subtitle?: string;
@@ -32,7 +37,7 @@ export interface BarChartProps extends React.HTMLAttributes<HTMLDivElement> {
   xAxisLabel?: string;
   yAxisLabel?: string;
   yAxisUnit?: string;
-  height?: number;
+  height?: number | ChartHeightConfig | "auto";
   showGrid?: boolean;
   showTooltip?: boolean;
   showLegend?: boolean;
@@ -110,8 +115,16 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
     },
     ref,
   ) => {
+    const heightClass =
+      typeof height === "object" && height?.aspect
+        ? height.aspect === "auto"
+          ? ""
+          : `aspect-${height.aspect} ${height.minHeight || "min-h-[300px]"}`
+        : typeof height === "number"
+          ? ""
+          : "aspect-video min-h-[300px]";
     return (
-      <Panel padding="md" radius="default">
+      <Panel padding="md" radius="default" className={heightClass}>
         <div
           ref={ref}
           className={cn("w-full flex flex-col gap-4", className)}
@@ -137,7 +150,10 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
             </div>
           )}
 
-          <ResponsiveContainer width="100%" height={height}>
+          <ResponsiveContainer
+            width="100%"
+            height={typeof height === "number" ? height : "100%"}
+          >
             <RechartsBarChart
               data={data}
               margin={{

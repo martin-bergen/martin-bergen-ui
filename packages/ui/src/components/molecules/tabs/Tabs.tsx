@@ -47,9 +47,9 @@ const tabTriggerVariants = cva(
           "text-muted-foreground hover:text-foreground/80 hover:bg-berget-brand-cloud/5 data-[state=active]:text-foreground/80 data-[state=active]:bg-berget-brand-cloud/5",
       },
       size: {
-        sm: "px-2 py-1 text-xs",
-        default: "px-3 py-2 text-sm",
-        lg: "px-4 py-3 text-base",
+        sm: "px-2 py-1.5 text-xs sm:px-3 sm:py-2",
+        default: "px-3 py-2 sm:px-4 sm:py-2.5 text-sm",
+        lg: "px-4 py-3 sm:px-5 sm:py-3.5 text-base",
       },
     },
     defaultVariants: {

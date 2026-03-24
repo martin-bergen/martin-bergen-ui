@@ -25,9 +25,12 @@ export interface TerminalCarouselProps extends React.HTMLAttributes<HTMLDivEleme
   typingSpeed?: number;
   /**
    * Height of the terminal content area
-   * @default "320px"
+   * @default { aspect: "video", minHeight: "250px" }
    */
-  contentHeight?: string;
+  contentHeight?:
+    | string
+    | { mobile?: string; desktop?: string }
+    | { aspect?: "video" | "4/3"; minHeight?: string };
 }
 
 export const TerminalCarousel = React.forwardRef<
@@ -39,11 +42,17 @@ export const TerminalCarousel = React.forwardRef<
       className,
       examples,
       typingSpeed = 30,
-      contentHeight = "320px",
+      contentHeight = { aspect: "video", minHeight: "250px" },
       ...props
     },
     ref,
   ) => {
+    const heightClass =
+      typeof contentHeight === "string"
+        ? ""
+        : "aspect" in contentHeight && contentHeight.aspect
+          ? `aspect-${contentHeight.aspect} ${contentHeight.minHeight || "min-h-[250px]"}`
+          : "aspect-video min-h-[250px] sm:min-h-[300px]";
     const [currentIndex, setCurrentIndex] = useState(0);
     const [typingIdx, setTypingIdx] = useState(0);
     const [commandIndex, setCommandIndex] = useState(0);
@@ -113,6 +122,7 @@ export const TerminalCarousel = React.forwardRef<
       showOutput,
       commandIndex,
       currentCommand,
+      currentExample,
       currentExample?.commands.length,
       typingSpeed,
     ]);
@@ -137,8 +147,7 @@ export const TerminalCarousel = React.forwardRef<
 
           {/* Terminal content */}
           <div
-            className="p-6 font-mono text-sm overflow-hidden"
-            style={{ height: contentHeight }}
+            className={`p-6 font-mono text-sm overflow-hidden ${heightClass}`}
           >
             <div className="mb-4 text-berget-brand-moss">
               {currentExample.description}

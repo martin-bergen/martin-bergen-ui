@@ -207,8 +207,12 @@ const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
         }
       };
 
+      let resizeTimeout: number;
       const resizeObserver = new ResizeObserver(() => {
-        resize();
+        clearTimeout(resizeTimeout);
+        resizeTimeout = window.setTimeout(() => {
+          resize();
+        }, 100);
       });
       resizeObserver.observe(container);
       initParticles();
@@ -219,7 +223,7 @@ const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
         mouseRef.current.y = e.clientY - rect.top;
       };
 
-      canvas.addEventListener("mousemove", handleMouseMove);
+      canvas.addEventListener("mousemove", handleMouseMove, { passive: true });
 
       const startAnimation = () => {
         if (!isRunning) {
@@ -265,6 +269,7 @@ const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
       particleSize,
       particleOpacity,
       particleInteractionRadius,
+      particleColorValue,
     ]);
 
     return (
