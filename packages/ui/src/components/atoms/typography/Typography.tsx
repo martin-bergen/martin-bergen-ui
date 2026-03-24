@@ -53,10 +53,6 @@ export interface TypographyProps
     Omit<React.HTMLAttributes<HTMLElement>, "color">,
     VariantProps<typeof typographyVariants> {
   as?: React.ElementType;
-  /** Forwarded to `<label>` when as="label" */
-  htmlFor?: string;
-  /** Forwarded to `<a>` when as="a" */
-  href?: string;
 }
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps>(
