@@ -2,7 +2,7 @@
 @import "@berget-ai/ui/styles";
 
 @source "../**/*.{ts,tsx}";
-@source "../../../packages/ui/src";
+@source "../../../../packages/ui/src";
 
 @custom-variant dark (&:is(.dark *));
 
