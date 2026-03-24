@@ -3,14 +3,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 
 const panelVariants = cva(
-  "rounded-2xl border bg-berget-brand-slate border-berget-brand-slate/40 backdrop-blur-[12px] relative overflow-hidden",
+  "rounded-2xl border bg-berget-brand-slate border-berget-brand-slate/40 backdrop-blur-[12px] relative overflow-hidden isolate",
   {
     variants: {
       padding: {
         none: "p-0",
-        sm: "p-4",
-        md: "p-6",
-        lg: "p-8",
+        sm: "p-3 sm:p-4",
+        md: "p-4 sm:p-6",
+        lg: "p-6 sm:p-8",
       },
       radius: {
         default: "rounded-2xl",

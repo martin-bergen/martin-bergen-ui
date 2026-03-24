@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
+import { Container } from "../container";
 
 const sectionVariants = cva("relative", {
   variants: {
@@ -37,7 +38,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
         className={cn(sectionVariants({ padding, background }), className)}
         {...props}
       >
-        <div className="max-w-7xl mx-auto px-4">{children}</div>
+        <Container>{children}</Container>
       </section>
     );
   },

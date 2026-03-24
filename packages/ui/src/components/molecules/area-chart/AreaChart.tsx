@@ -21,6 +21,11 @@ import {
   AxisType,
 } from "../../../lib/chart-utils";
 
+export interface ChartHeightConfig {
+  aspect?: "video" | "square" | "4/3" | "3/2" | "auto";
+  minHeight?: string;
+}
+
 export interface AreaChartProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   subtitle?: string;
@@ -31,7 +36,7 @@ export interface AreaChartProps extends React.HTMLAttributes<HTMLDivElement> {
   xAxisType?: AxisType;
   xAxisLabel?: string;
   yAxisLabel?: string;
-  height?: number;
+  height?: number | ChartHeightConfig | "auto";
   showGrid?: boolean;
   showTooltip?: boolean;
   showLegend?: boolean;
@@ -102,8 +107,16 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
     },
     ref,
   ) => {
+    const heightClass =
+      typeof height === "object" && height?.aspect
+        ? height.aspect === "auto"
+          ? ""
+          : `aspect-${height.aspect} ${height.minHeight || "min-h-[300px]"}`
+        : typeof height === "number"
+          ? ""
+          : "aspect-video min-h-[300px]";
     return (
-      <Panel padding="md" radius="default">
+      <Panel padding="md" radius="default" className={heightClass}>
         <div
           ref={ref}
           className={cn("w-full flex flex-col gap-4", className)}
@@ -129,7 +142,10 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
             </div>
           )}
 
-          <ResponsiveContainer width="100%" height={height}>
+          <ResponsiveContainer
+            width="100%"
+            height={typeof height === "number" ? height : "100%"}
+          >
             <RechartsAreaChart
               data={data}
               margin={{

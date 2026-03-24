@@ -50,7 +50,7 @@ const SidebarNavigation = React.forwardRef<
     },
     ref,
   ) => {
-    const width = isMinimized ? "w-16" : "w-64";
+    const width = isMinimized ? "w-16" : "w-64 sm:w-72 lg:w-80";
 
     return (
       <SidebarStyleContext.Provider

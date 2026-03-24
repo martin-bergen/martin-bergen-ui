@@ -7,6 +7,7 @@ import { Link } from "../../atoms/link";
 import { Stack } from "../../atoms/stack";
 import { Icon } from "../../atoms/icon";
 import { Select, type SelectOption } from "../../atoms/select";
+import { Container } from "../../atoms/container";
 
 const headerVariants = cva(
   "sticky top-0 z-50 bg-berget-backdrop/80 backdrop-blur-md border-b border-berget-border transition-all duration-200",
@@ -294,7 +295,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
           className={cn(headerVariants({ variant }), className)}
           {...props}
         >
-          <div className="w-full max-w-screen-2xl mx-auto px-fluid-md">
+          <Container size="xl">
             <Stack
               direction="row"
               align="center"
@@ -321,7 +322,7 @@ const Header = React.forwardRef<HTMLElement, HeaderProps>(
                 <MobileMenuButton />
               </Stack>
             </Stack>
-          </div>
+          </Container>
 
           <MobileMenu
             links={links}

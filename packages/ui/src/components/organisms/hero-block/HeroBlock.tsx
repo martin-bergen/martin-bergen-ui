@@ -5,6 +5,7 @@ import { LucideIcon } from "lucide-react";
 import { Badge } from "../../atoms/badge";
 import { Icon } from "../../atoms/icon";
 import { PatternBackground } from "../../foundations/pattern-background";
+import { Container } from "../../atoms/container";
 
 const heroBlockVariants = cva(
   "relative overflow-hidden min-h-[70dvh] flex items-center py-fluid-2xl",
@@ -129,7 +130,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         </div>
 
         {/* Content */}
-        <div className="w-full max-w-screen-2xl mx-auto px-fluid-md relative z-10">
+        <Container size="xl" className="relative z-10">
           <div className="mx-auto text-center">
             {tagline && (
               <Badge
@@ -160,7 +161,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
               </div>
             )}
           </div>
-        </div>
+        </Container>
       </div>
     );
   },

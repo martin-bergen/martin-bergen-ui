@@ -26,8 +26,12 @@ export interface AIChatBoxProps {
   disabled?: boolean;
   /**
    * Maximum height of the chat container
+   * @default { aspect: "video", minHeight: "300px" }
    */
-  maxHeight?: string;
+  maxHeight?:
+    | string
+    | { mobile?: string; desktop?: string }
+    | { aspect?: "video" | "4/3"; minHeight?: string };
   /**
    * Callback when a message is sent
    */
@@ -70,7 +74,7 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
   messages = [],
   loading = false,
   disabled = false,
-  maxHeight = "500px",
+  maxHeight = { aspect: "video", minHeight: "300px" },
   onSendMessage,
   onAttachmentClick,
   onVoiceClick,
@@ -81,6 +85,12 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
   onClearClick,
   compact = false,
 }) => {
+  const chatHeight =
+    typeof maxHeight === "string"
+      ? ""
+      : "aspect" in maxHeight && maxHeight.aspect
+        ? `aspect-${maxHeight.aspect} ${maxHeight.minHeight || "min-h-[300px]"}`
+        : "aspect-video min-h-[300px] sm:min-h-[400px]";
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -114,10 +124,7 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
   };
 
   return (
-    <Panel
-      className={`flex flex-col ${compact ? "p-4" : "p-6"}`}
-      style={{ maxHeight }}
-    >
+    <Panel className={`flex flex-col ${compact ? "p-4" : "p-6"} ${chatHeight}`}>
       {showHeader && (
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg  text-white">{headerTitle}</h3>
@@ -150,7 +157,7 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
             }`}
           >
             <div
-              className={`max-w-[80%] rounded-lg px-4 py-3 ${
+              className={`max-w-[90%] sm:max-w-[80%] rounded-lg px-3 py-2 sm:px-4 sm:py-3 ${
                 message.role === "user"
                   ? "bg-white/10 text-white"
                   : "bg-black/20 text-gray-200"

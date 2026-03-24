@@ -42,6 +42,9 @@ export type { CardProps } from "./components/atoms/card";
 export { Checkbox, checkboxVariants } from "./components/atoms/checkbox";
 export type { CheckboxProps } from "./components/atoms/checkbox";
 
+export { Container, containerVariants } from "./components/atoms/container";
+export type { ContainerProps } from "./components/atoms/container";
+
 export { Divider, dividerVariants } from "./components/atoms/divider";
 export type { DividerProps } from "./components/atoms/divider";
 

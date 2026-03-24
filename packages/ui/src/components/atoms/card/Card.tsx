@@ -10,7 +10,7 @@ import {
   CardFooter,
 } from "../../../primitives/card";
 
-const cardVariants = cva("rounded-2xl relative overflow-hidden", {
+const cardVariants = cva("rounded-2xl relative overflow-hidden isolate", {
   variants: {
     variant: {
       highlight:

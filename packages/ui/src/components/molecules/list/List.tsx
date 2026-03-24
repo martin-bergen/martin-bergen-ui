@@ -36,7 +36,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center gap-fluid-md px-fluid-md py-fluid-md",
+        "flex items-center gap-4 px-4 py-3 sm:px-6 sm:py-4",
         interactive &&
           "transition-all duration-200 hover:bg-berget-brand-cloud/[0.02] cursor-pointer",
         className,
@@ -63,7 +63,7 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
     <div
       ref={ref}
       className={cn(
-        "px-fluid-md py-fluid-sm text-sm text-muted-foreground",
+        "px-4 py-2 sm:px-6 sm:py-3 text-sm text-muted-foreground",
         className,
       )}
       {...props}

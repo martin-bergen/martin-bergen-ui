@@ -119,7 +119,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-2xl border backdrop-blur-xl cursor-pointer relative",
+          "rounded-2xl border backdrop-blur-xl cursor-pointer relative isolate",
           variant === "featured" && "border-secondary/30 bg-secondary/5",
           variant === "default" && "border-border bg-white/5",
           variant === "minimal" && "border-transparent bg-transparent",
@@ -140,7 +140,10 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
         )}
 
         <div
-          className={cn("p-6 relative z-10", variant === "featured" && "p-8")}
+          className={cn(
+            "p-4 sm:p-6 relative z-10",
+            variant === "featured" && "p-6 sm:p-8 md:p-10",
+          )}
         >
           {/* Category & Language */}
           <div className="flex items-center gap-2 mb-3">

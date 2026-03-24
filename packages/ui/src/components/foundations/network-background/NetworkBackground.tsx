@@ -1,6 +1,42 @@
 import { useEffect, useRef } from "react";
 import { cn } from "../../../lib/utils";
 
+class Spark {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 2;
+    this.vx = Math.cos(angle) * speed;
+    this.vy = Math.sin(angle) * speed;
+    this.maxLife = 10;
+    this.life = this.maxLife;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.life--;
+    return this.life > 0;
+  }
+
+  draw(ctx: CanvasRenderingContext2D, r: number, g: number, b: number) {
+    const alpha = this.life / this.maxLife;
+    ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    ctx.beginPath();
+    ctx.moveTo(this.x, this.y);
+    ctx.lineTo(this.x - this.vx, this.y - this.vy);
+    ctx.stroke();
+  }
+}
+
 export interface NetworkBackgroundProps {
   /** Number of nodes in the network @default 50 */
   nodeCount?: number;
@@ -90,42 +126,6 @@ function NetworkBackground({
     });
     resizeObserver.observe(container);
     resize();
-
-    class Spark {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      life: number;
-      maxLife: number;
-
-      constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 2;
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed;
-        this.maxLife = 10;
-        this.life = this.maxLife;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.life--;
-        return this.life > 0;
-      }
-
-      draw(ctx: CanvasRenderingContext2D) {
-        const alpha = this.life / this.maxLife;
-        ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x - this.vx, this.y - this.vy);
-        ctx.stroke();
-      }
-    }
 
     const sparks: Spark[] = [];
 
@@ -221,7 +221,7 @@ function NetworkBackground({
         if (!spark.update()) {
           sparks.splice(i, 1);
         } else {
-          spark.draw(ctx);
+          spark.draw(ctx, r, g, b);
         }
       }
 
