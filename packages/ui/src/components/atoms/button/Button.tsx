@@ -4,7 +4,7 @@ import { cn } from "../../../lib/utils";
 import { Button as ButtonPrimitive } from "../../../primitives/button";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm  cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-6 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm  cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-opacity-20 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -21,10 +21,10 @@ const buttonVariants = cva(
         icon: "!flex !flex-row !justify-center !items-center !gap-0 !p-0 !w-[32px] !h-[32px] !bg-berget-button-default-bg !text-berget-button-default-fg shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_-1px_rgba(0,0,0,0.1)] !rounded-full",
       },
       size: {
-        sm: "h-6 px-4 py-1.5 text-xs",
-        default: "h-8 px-8 py-2",
-        lg: "h-10 px-10 py-2.5 text-base",
-        icon: "!w-[32px] !h-[32px] !p-0",
+        sm: "h-6 px-4 py-1.5 text-xs [&_svg]:size-4",
+        default: "h-8 px-8 py-2 text-sm [&_svg]:size-6",
+        lg: "h-10 px-10 py-2.5 text-base [&_svg]:size-6",
+        icon: "!w-[32px] !h-[32px] !p-0 [&_svg]:size-5",
       },
       width: {
         default: "w-auto",
