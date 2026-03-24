@@ -71,6 +71,7 @@ const config: StorybookConfig = {
     const { mergeConfig } = await import("vite");
     return mergeConfig(config, {
       plugins: [tailwindcss(), monorepoAliasPlugin()],
+      publicDir: resolve(__dirname, "../public"),
     });
   },
 };
