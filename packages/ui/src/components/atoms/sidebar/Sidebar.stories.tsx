@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Sidebar } from "./Sidebar";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof Sidebar> = {
   title: "Atoms/Sidebar",
@@ -30,7 +31,9 @@ export const Interactive: Story = {
   },
   render: (args) => (
     <Sidebar {...args} className="w-64">
-      <p className="text-muted-foreground">Sidebar content placeholder</p>
+      <Typography variant="body" color="muted">
+        Sidebar content placeholder
+      </Typography>
     </Sidebar>
   ),
 };
@@ -42,26 +45,32 @@ export const AllVariants: Story = {
     <div className="flex gap-6">
       <Sidebar variant="highlight" className="w-64">
         <div>
-          <h3 className="text-lg mb-2">Highlight</h3>
-          <p className="text-muted-foreground text-sm">
+          <Typography variant="h5" className="mb-2">
+            Highlight
+          </Typography>
+          <Typography variant="small" color="muted">
             Semi-transparent, blends into background with sharp edge
-          </p>
+          </Typography>
         </div>
       </Sidebar>
       <Sidebar variant="glass" className="w-64">
         <div>
-          <h3 className="text-lg mb-2">Glass</h3>
-          <p className="text-muted-foreground text-sm">
+          <Typography variant="h5" className="mb-2">
+            Glass
+          </Typography>
+          <Typography variant="small" color="muted">
             Lighter, ethereal feel with cloud/5
-          </p>
+          </Typography>
         </div>
       </Sidebar>
       <Sidebar variant="solid" className="w-64">
         <div>
-          <h3 className="text-lg mb-2">Solid</h3>
-          <p className="text-muted-foreground text-sm">
+          <Typography variant="h5" className="mb-2">
+            Solid
+          </Typography>
+          <Typography variant="small" color="muted">
             Most authoritative, no transparency
-          </p>
+          </Typography>
         </div>
       </Sidebar>
     </div>
@@ -74,16 +83,28 @@ export const PaddingVariants: Story = {
   render: () => (
     <div className="flex gap-6">
       <Sidebar variant="highlight" padding="sm" className="w-64">
-        <h3 className="text-lg mb-2">Small</h3>
-        <p className="text-muted-foreground text-sm">p-4 (16px)</p>
+        <Typography variant="h5" className="mb-2">
+          Small
+        </Typography>
+        <Typography variant="small" color="muted">
+          p-4 (16px)
+        </Typography>
       </Sidebar>
       <Sidebar variant="highlight" padding="md" className="w-64">
-        <h3 className="text-lg mb-2">Medium</h3>
-        <p className="text-muted-foreground text-sm">p-6 (24px)</p>
+        <Typography variant="h5" className="mb-2">
+          Medium
+        </Typography>
+        <Typography variant="small" color="muted">
+          p-6 (24px)
+        </Typography>
       </Sidebar>
       <Sidebar variant="highlight" padding="lg" className="w-64">
-        <h3 className="text-lg mb-2">Large</h3>
-        <p className="text-muted-foreground text-sm">p-8 (32px)</p>
+        <Typography variant="h5" className="mb-2">
+          Large
+        </Typography>
+        <Typography variant="small" color="muted">
+          p-8 (32px)
+        </Typography>
       </Sidebar>
     </div>
   ),

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Divider } from ".";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof Divider> = {
   title: "Atoms/Divider",
@@ -57,23 +58,33 @@ export const AllVariants: Story = {
   render: () => (
     <div className="p-4 space-y-8">
       <div>
-        <h3 className="text-white mb-4">Default</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Default
+        </Typography>
         <Divider variant="default" />
       </div>
       <div>
-        <h3 className="text-white mb-4">Subtle</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Subtle
+        </Typography>
         <Divider variant="subtle" />
       </div>
       <div>
-        <h3 className="text-white mb-4">Strong</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Strong
+        </Typography>
         <Divider variant="strong" />
       </div>
       <div>
-        <h3 className="text-white mb-4">Primary</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Primary
+        </Typography>
         <Divider variant="primary" />
       </div>
       <div>
-        <h3 className="text-white mb-4">Muted</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Muted
+        </Typography>
         <Divider variant="muted" />
       </div>
     </div>
@@ -97,11 +108,15 @@ export const Orientations: Story = {
   render: () => (
     <div className="p-4 space-y-8">
       <div>
-        <h3 className="text-white mb-4">Horizontal</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Horizontal
+        </Typography>
         <Divider orientation="horizontal" />
       </div>
       <div>
-        <h3 className="text-white mb-4">Vertical</h3>
+        <Typography variant="body" as="h3" className="text-white mb-4">
+          Vertical
+        </Typography>
         <div className="flex h-32 items-center">
           <div className="flex-1 text-white/60">Left content</div>
           <Divider orientation="vertical" />

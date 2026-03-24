@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BergetSymbol } from ".";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof BergetSymbol> = {
   title: "Atoms/BergetSymbol",
@@ -47,39 +48,49 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           White variant (white symbol on dark background)
-        </p>
+        </Typography>
         <div className="bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
           <BergetSymbol size={48} variant="white" />
         </div>
       </div>
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           Black variant (black symbol on light background)
-        </p>
+        </Typography>
         <div className="bg-berget-brand-cloud p-6 rounded-lg border border-berget-brand-cloud/20">
           <BergetSymbol size={48} variant="black" />
         </div>
       </div>
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Sizes</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Sizes
+        </Typography>
         <div className="flex items-end gap-8 bg-berget-brand-night p-6 rounded-lg border border-berget-brand-cloud/20">
           <div className="text-center">
             <BergetSymbol size={24} variant="white" />
-            <p className="text-xs text-muted-foreground mt-2">24px</p>
+            <Typography variant="xs" color="muted" className="mt-2 block">
+              24px
+            </Typography>
           </div>
           <div className="text-center">
             <BergetSymbol size={32} variant="white" />
-            <p className="text-xs text-muted-foreground mt-2">32px</p>
+            <Typography variant="xs" color="muted" className="mt-2 block">
+              32px
+            </Typography>
           </div>
           <div className="text-center">
             <BergetSymbol size={48} variant="white" />
-            <p className="text-xs text-muted-foreground mt-2">48px</p>
+            <Typography variant="xs" color="muted" className="mt-2 block">
+              48px
+            </Typography>
           </div>
           <div className="text-center">
             <BergetSymbol size={96} variant="white" />
-            <p className="text-xs text-muted-foreground mt-2">96px</p>
+            <Typography variant="xs" color="muted" className="mt-2 block">
+              96px
+            </Typography>
           </div>
         </div>
       </div>

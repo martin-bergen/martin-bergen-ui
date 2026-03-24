@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ChatInput } from ".";
+import { Typography } from "../typography";
 import { Button } from "../button";
 import { Icon } from "../icon";
 import { ArrowUp, Mic, Plus } from "lucide-react";
@@ -134,15 +135,21 @@ export const States: Story = {
   render: () => (
     <div className="p-4 space-y-4 w-full max-w-2xl">
       <div>
-        <p className="text-sm text-muted-foreground mb-2">Default</p>
+        <Typography variant="small" color="muted" className="mb-2 block">
+          Default
+        </Typography>
         <ChatInput placeholder="Ask anything" />
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-2">Disabled</p>
+        <Typography variant="small" color="muted" className="mb-2 block">
+          Disabled
+        </Typography>
         <ChatInput placeholder="Ask anything" disabled />
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-2">With Action Button</p>
+        <Typography variant="small" color="muted" className="mb-2 block">
+          With Action Button
+        </Typography>
         <ChatInput
           placeholder="Ask anything"
           actionButton={

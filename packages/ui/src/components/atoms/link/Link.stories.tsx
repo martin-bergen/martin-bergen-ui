@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Link } from ".";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof Link> = {
   title: "Atoms/Link",
@@ -56,7 +57,9 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6 w-[600px]">
       <div>
-        <h3 className="text-sm  text-muted-foreground mb-3">Variants</h3>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Variants
+        </Typography>
         <div className="flex flex-col gap-3">
           <Link href="#" variant="default">
             Default link
@@ -80,7 +83,9 @@ export const AllVariants: Story = {
       </div>
 
       <div className="border-t border-border pt-4">
-        <h3 className="text-sm  text-muted-foreground mb-3">Sizes</h3>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Sizes
+        </Typography>
         <div className="flex flex-col gap-3">
           <Link href="#" size="sm">
             Small link

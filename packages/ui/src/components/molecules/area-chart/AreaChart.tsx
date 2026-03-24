@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import { cn } from "../../../lib/utils";
 import { Panel } from "../../atoms/panel";
+import { Typography } from "../../atoms/typography";
 import {
   ChartDataPoint,
   ChartSeries,
@@ -61,16 +62,16 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   return (
     <div className="bg-berget-card border border-berget-border rounded-lg p-3 shadow-lg backdrop-blur-sm">
       {label && (
-        <p className="text-xs text-berget-muted-foreground mb-2">
+        <Typography variant="xs" color="muted" className="mb-2 block">
           {formatDateLabel(label)}
-        </p>
+        </Typography>
       )}
       {payload.map(
         (
           entry: { name: string; value: number; color: string },
           index: number,
         ) => (
-          <div key={index} className="text-sm">
+          <Typography variant="small" key={index} as="div">
             <span
               className="inline-block w-2 h-2 rounded-full mr-2"
               style={{ backgroundColor: entry.color }}
@@ -79,7 +80,7 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
             <span className="text-berget-foreground font-medium ml-1">
               {formatTooltipValue(entry.value)}
             </span>
-          </div>
+          </Typography>
         ),
       )}
     </div>
@@ -124,20 +125,16 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
         >
           {(title || subtitle || description) && (
             <div className="flex flex-col gap-2">
-              {title && (
-                <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-berget-foreground">
-                  {title}
-                </h2>
-              )}
+              {title && <Typography variant="h2">{title}</Typography>}
               {subtitle && (
-                <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-berget-muted-foreground">
+                <Typography variant="h3" color="muted">
                   {subtitle}
-                </h3>
+                </Typography>
               )}
               {description && (
-                <p className="text-p font-p leading-p text-berget-muted-foreground">
+                <Typography variant="body" color="muted">
                   {description}
-                </p>
+                </Typography>
               )}
             </div>
           )}
@@ -225,9 +222,9 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                     paddingTop: "10px",
                   }}
                   formatter={(value: string) => (
-                    <span className="text-sm text-berget-muted-foreground">
+                    <Typography variant="small" color="muted" as="span">
                       {value}
-                    </span>
+                    </Typography>
                   )}
                 />
               )}

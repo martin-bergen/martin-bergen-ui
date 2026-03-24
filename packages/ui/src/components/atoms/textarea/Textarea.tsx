@@ -2,6 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 import { Textarea as TextareaPrimitive } from "../../../primitives/textarea";
+import { Typography } from "../typography";
 
 const textareaVariants = cva(
   "rounded-xl bg-card px-4 py-3 transition-colors duration-200 focus-visible:border-berget-brand-moss/40 focus-visible:ring-0 focus-visible:ring-offset-0 resize-y",
@@ -77,10 +78,12 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="flex flex-col gap-2">
         {label && (
-          <label
+          <Typography
+            variant="small"
+            as="label"
             htmlFor={textareaId}
             className={cn(
-              "text-sm  leading-none",
+              "leading-none",
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
@@ -88,7 +91,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             )}
           >
             {label}
-          </label>
+          </Typography>
         )}
 
         <div className="relative">
@@ -138,31 +141,32 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {(description || error || (showCount && maxLength)) && (
           <div className="flex items-center justify-between gap-2">
             {description && (
-              <p id={descriptionId} className="text-xs text-muted-foreground">
+              <Typography variant="xs" color="muted" id={descriptionId}>
                 {description}
-              </p>
+              </Typography>
             )}
             {(error || (showCount && maxLength)) && (
               <div className="flex items-center gap-2 ml-auto">
                 {showCount && maxLength && (
-                  <span
+                  <Typography
+                    variant="xs"
                     className={cn(
-                      "text-xs",
                       characterCount >= maxLength
                         ? "text-berget-destructive-foreground"
                         : "text-muted-foreground",
                     )}
                   >
                     {characterCount}/{maxLength}
-                  </span>
+                  </Typography>
                 )}
                 {error && (
-                  <p
+                  <Typography
+                    variant="xs"
                     id={errorId}
-                    className="text-xs text-berget-destructive-foreground"
+                    className="text-berget-destructive-foreground"
                   >
                     {error}
-                  </p>
+                  </Typography>
                 )}
               </div>
             )}

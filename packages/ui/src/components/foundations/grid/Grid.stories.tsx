@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Grid } from "./Grid";
+import { Typography } from "../../atoms/typography";
 
 const meta: Meta<typeof Grid> = {
   title: "Foundations/Grid",
@@ -89,14 +90,18 @@ export const Basic: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm text-muted-foreground mb-3">Two Columns</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Two Columns
+        </Typography>
         <Grid cols={2} gap={4}>
           <Placeholder color="bg-moss" label="Column 1" />
           <Placeholder color="bg-lichen" label="Column 2" />
         </Grid>
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-3">Three Columns</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Three Columns
+        </Typography>
         <Grid cols={3} gap={4}>
           <Placeholder color="bg-moss" label="Column 1" />
           <Placeholder color="bg-lichen" label="Column 2" />
@@ -104,7 +109,9 @@ export const Basic: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-3">Four Columns</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Four Columns
+        </Typography>
         <Grid cols={4} gap={4}>
           <Placeholder color="bg-moss" label="1" />
           <Placeholder color="bg-lichen" label="2" />
@@ -121,9 +128,9 @@ export const VariableWidths: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           3-column grid with col-span-2 and col-span-1
-        </p>
+        </Typography>
         <Grid cols={3} gap={4}>
           <Placeholder
             color="bg-moss"
@@ -138,9 +145,9 @@ export const VariableWidths: Story = {
         </Grid>
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           4-column grid with mixed spans
-        </p>
+        </Typography>
         <Grid cols={4} gap={4}>
           <div className="col-span-2">
             <Placeholder color="bg-spruce" label="2 cols wide" />
@@ -171,12 +178,14 @@ export const Alignment: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           Cross-axis alignment (align)
-        </p>
+        </Typography>
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <span className="text-xs text-muted-foreground">align-start</span>
+            <Typography variant="xs" color="muted">
+              align-start
+            </Typography>
             <Grid cols={2} gap={4} align="start" className="mt-2">
               <Placeholder color="bg-moss" label="Short" />
               <Placeholder
@@ -187,7 +196,9 @@ export const Alignment: Story = {
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">align-center</span>
+            <Typography variant="xs" color="muted">
+              align-center
+            </Typography>
             <Grid cols={2} gap={4} align="center" className="mt-2">
               <Placeholder color="bg-spruce" label="Short" />
               <Placeholder
@@ -198,7 +209,9 @@ export const Alignment: Story = {
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">align-end</span>
+            <Typography variant="xs" color="muted">
+              align-end
+            </Typography>
             <Grid cols={2} gap={4} align="end" className="mt-2">
               <Placeholder color="bg-cloud" label="Short" />
               <Placeholder
@@ -209,9 +222,9 @@ export const Alignment: Story = {
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">
+            <Typography variant="xs" color="muted">
               align-stretch (default)
-            </span>
+            </Typography>
             <Grid cols={2} gap={4} align="stretch" className="mt-2">
               <Placeholder color="bg-moss" label="Stretched" />
               <Placeholder color="bg-lichen" label="Stretched" />
@@ -220,39 +233,41 @@ export const Alignment: Story = {
         </div>
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           Main-axis alignment (justify)
-        </p>
+        </Typography>
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <span className="text-xs text-muted-foreground">justify-start</span>
+            <Typography variant="xs" color="muted">
+              justify-start
+            </Typography>
             <Grid cols={2} gap={4} justify="start" className="mt-2">
               <Placeholder color="bg-spruce" label="1" />
               <Placeholder color="bg-fjord" label="2" />
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">
+            <Typography variant="xs" color="muted">
               justify-center
-            </span>
+            </Typography>
             <Grid cols={2} gap={4} justify="center" className="mt-2">
               <Placeholder color="bg-cloud" label="1" />
               <Placeholder color="bg-slate" label="2" />
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">
+            <Typography variant="xs" color="muted">
               justify-between
-            </span>
+            </Typography>
             <Grid cols={2} gap={4} justify="between" className="mt-2">
               <Placeholder color="bg-moss" label="Left" />
               <Placeholder color="bg-lichen" label="Right" />
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">
+            <Typography variant="xs" color="muted">
               justify-around
-            </span>
+            </Typography>
             <Grid cols={2} gap={4} justify="around" className="mt-2">
               <Placeholder color="bg-spruce" label="1" />
               <Placeholder color="bg-fjord" label="2" />
@@ -269,10 +284,14 @@ export const Gaps: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm text-muted-foreground mb-3">Uniform gap</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Uniform gap
+        </Typography>
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <span className="text-xs text-muted-foreground">gap-2</span>
+            <Typography variant="xs" color="muted">
+              gap-2
+            </Typography>
             <Grid cols={3} gap={2} className="mt-2">
               <Placeholder color="bg-cloud" label="2" />
               <Placeholder color="bg-slate" label="2" />
@@ -280,7 +299,9 @@ export const Gaps: Story = {
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">gap-4</span>
+            <Typography variant="xs" color="muted">
+              gap-4
+            </Typography>
             <Grid cols={3} gap={4} className="mt-2">
               <Placeholder color="bg-lichen" label="4" />
               <Placeholder color="bg-spruce" label="4" />
@@ -288,7 +309,9 @@ export const Gaps: Story = {
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">gap-8</span>
+            <Typography variant="xs" color="muted">
+              gap-8
+            </Typography>
             <Grid cols={3} gap={8} className="mt-2">
               <Placeholder color="bg-cloud" label="8" />
               <Placeholder color="bg-slate" label="8" />
@@ -298,14 +321,14 @@ export const Gaps: Story = {
         </div>
       </div>
       <div>
-        <p className="text-sm text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           Asymmetric gaps (gapX, gapY)
-        </p>
+        </Typography>
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <span className="text-xs text-muted-foreground">
+            <Typography variant="xs" color="muted">
               gap-x-8 gap-y-2
-            </span>
+            </Typography>
             <Grid cols={3} gapX={8} gapY={2} className="mt-2">
               <Placeholder color="bg-moss" label="1" />
               <Placeholder color="bg-lichen" label="2" />
@@ -316,9 +339,9 @@ export const Gaps: Story = {
             </Grid>
           </div>
           <div>
-            <span className="text-xs text-muted-foreground">
+            <Typography variant="xs" color="muted">
               gap-x-2 gap-y-8
-            </span>
+            </Typography>
             <Grid cols={3} gapX={2} gapY={8} className="mt-2">
               <Placeholder color="bg-spruce" label="1" />
               <Placeholder color="bg-fjord" label="2" />

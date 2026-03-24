@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Check } from "lucide-react";
 import { cn } from "../../../lib/utils";
+import { Typography } from "../../atoms/typography";
 
 export interface Step {
   /**
@@ -155,27 +156,35 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                       {isCompleted ? (
                         <Check className="w-7 h-7" strokeWidth={2} />
                       ) : showNumbers ? (
-                        <span className="text-sm ">{index + 1}</span>
+                        <Typography variant="small" as="span">
+                          {index + 1}
+                        </Typography>
                       ) : null}
                     </div>
 
                     {/* Step Label */}
                     {variant === "default" && (
                       <div className="text-center">
-                        <div
+                        <Typography
+                          variant="small"
+                          as="div"
                           className={cn(
-                            "text-sm  transition-colors",
+                            "transition-colors",
                             isCurrent && "text-white",
                             isCompleted && "text-white/80",
                             isUpcoming && "text-white/40",
                           )}
                         >
                           {step.label}
-                        </div>
+                        </Typography>
                         {step.description && (
-                          <div className="text-xs text-white/40 mt-0.5 hidden md:block">
+                          <Typography
+                            variant="xs"
+                            as="div"
+                            className="text-white/40 mt-0.5 hidden md:block"
+                          >
                             {step.description}
-                          </div>
+                          </Typography>
                         )}
                       </div>
                     )}

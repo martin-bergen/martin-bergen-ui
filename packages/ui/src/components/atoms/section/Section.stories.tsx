@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Section } from ".";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof Section> = {
   title: "Atoms/Section",
@@ -32,10 +33,12 @@ export const Interactive: Story = {
   },
   render: (args) => (
     <Section {...args}>
-      <h2 className="text-3xl  mb-4">Section Title</h2>
-      <p className="text-muted-foreground">
+      <Typography variant="h2" className="mb-4">
+        Section Title
+      </Typography>
+      <Typography variant="body" color="muted">
         This is the section content area with automatic container and padding.
-      </p>
+      </Typography>
     </Section>
   ),
 };
@@ -45,26 +48,30 @@ export const AllVariants: Story = {
   render: () => (
     <div>
       <Section padding="sm">
-        <p className="text-sm text-muted-foreground">padding=&quot;sm&quot;</p>
-        <h3 className="text-xl ">Small Padding Section</h3>
+        <Typography variant="small" color="muted" className="block">
+          padding=&quot;sm&quot;
+        </Typography>
+        <Typography variant="h5">Small Padding Section</Typography>
       </Section>
       <Section padding="md" background="muted">
-        <p className="text-sm text-muted-foreground">
+        <Typography variant="small" color="muted" className="block">
           padding=&quot;md&quot; background=&quot;muted&quot;
-        </p>
-        <h3 className="text-xl ">Medium Padding with Muted Background</h3>
+        </Typography>
+        <Typography variant="h5">
+          Medium Padding with Muted Background
+        </Typography>
       </Section>
       <Section padding="lg">
-        <p className="text-sm text-muted-foreground">
+        <Typography variant="small" color="muted" className="block">
           padding=&quot;lg&quot; (default)
-        </p>
-        <h3 className="text-xl ">Large Padding Section</h3>
+        </Typography>
+        <Typography variant="h5">Large Padding Section</Typography>
       </Section>
       <Section padding="xl" background="muted">
-        <p className="text-sm text-muted-foreground">
+        <Typography variant="small" color="muted" className="block">
           padding=&quot;xl&quot; background=&quot;muted&quot;
-        </p>
-        <h3 className="text-xl ">Extra Large Padding Section</h3>
+        </Typography>
+        <Typography variant="h5">Extra Large Padding Section</Typography>
       </Section>
     </div>
   ),

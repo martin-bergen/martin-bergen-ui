@@ -4,6 +4,7 @@ import { cn } from "../../../lib/utils";
 import { LucideIcon } from "lucide-react";
 import { Card } from "../../atoms/card";
 import { FeatureList } from "../../molecules/list";
+import { Typography } from "../../atoms/typography";
 
 const featureCardVariants = cva("", {
   variants: {
@@ -127,33 +128,39 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
 
               {badge && (
                 <div className="flex h-6 items-center justify-start px-6 bg-berget-brand-spruce rounded-full">
-                  <span className="text-p font-p leading-p text-berget-warning-foreground">
+                  <Typography
+                    variant="body"
+                    as="span"
+                    className="text-berget-warning-foreground"
+                  >
                     {badge}
-                  </span>
+                  </Typography>
                 </div>
               )}
             </div>
           )}
 
-          <h2 className="text-h2 font-h2 leading-h2 tracking-h2 text-foreground">
+          <Typography variant="h2" className="text-foreground">
             {title}
-          </h2>
+          </Typography>
 
-          <p className="text-p font-p leading-p text-foreground/80">
+          <Typography variant="body" className="text-foreground/80">
             {description}
-          </p>
+          </Typography>
 
           {items && items.length > 0 && (
             <FeatureList items={items} variant="bullet" />
           )}
 
           {linkText && linkHref && (
-            <a
+            <Typography
+              variant="body"
+              as="a"
               href={linkHref}
-              className="text-p font-p leading-p text-berget-accent"
+              className="text-berget-accent"
             >
               {linkText} →
-            </a>
+            </Typography>
           )}
         </div>
       </Card>

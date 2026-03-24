@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from ".";
+import { Typography } from "../typography";
 import { Icon } from "../icon";
 import {
   Shield,
@@ -119,7 +120,9 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Default Variant</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Default Variant
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge variant="default" status="default">
             Default
@@ -145,7 +148,9 @@ export const AllVariants: Story = {
       </div>
 
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">Tag Variant</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Tag Variant
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge variant="tag" status="tagDefault">
             Tag Default
@@ -160,7 +165,9 @@ export const AllVariants: Story = {
       </div>
 
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">Semantic Variant</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Semantic Variant
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge variant="semantic" status="info">
             Info
@@ -186,7 +193,9 @@ export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Size: sm</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Size: sm
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge size="sm" variant="default" status="default">
             Default
@@ -209,7 +218,9 @@ export const Sizes: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">Size: md</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Size: md
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge size="md" variant="default" status="default">
             Default
@@ -241,9 +252,9 @@ export const WithIcons: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           With text and icons
-        </p>
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge
             variant="default"
@@ -290,7 +301,9 @@ export const WithIcons: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">Icon-only</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Icon-only
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge
             variant="semantic"
@@ -324,7 +337,9 @@ export const Examples: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Status Indicators</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Status Indicators
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge variant="semantic" status="info">
             Processing
@@ -341,7 +356,9 @@ export const Examples: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">Feature Flags</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Feature Flags
+        </Typography>
         <div className="flex flex-wrap gap-2">
           <Badge variant="tag" status="tagActive">
             New
@@ -355,9 +372,9 @@ export const Examples: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">
-          Privacy & Security
-        </p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Privacy &amp; Security
+        </Typography>
         <div className="flex flex-wrap gap-3">
           <Badge
             variant="default"

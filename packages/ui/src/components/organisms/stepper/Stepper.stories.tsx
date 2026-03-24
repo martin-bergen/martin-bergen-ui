@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Stepper, type Step } from "./Stepper";
 import { Button } from "../../atoms/button";
 import { Icon } from "../../atoms/icon";
+import { Typography } from "../../atoms/typography";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 // Wrapper components for interactive stories
@@ -72,10 +73,19 @@ type Story = StoryObj<typeof meta>;
 // Sample step content components
 const AccountStep = () => (
   <div className="p-6 space-y-4">
-    <h3 className="text-2xl  mb-4">Create Account</h3>
+    <Typography variant="h3" className="mb-4">
+      Create Account
+    </Typography>
     <div className="space-y-3">
       <div>
-        <label className="block text-sm text-white/60 mb-1">Email</label>
+        <Typography
+          variant="small"
+          as="label"
+          color="muted"
+          className="block mb-1"
+        >
+          Email
+        </Typography>
         <input
           type="email"
           placeholder="you@example.com"
@@ -83,7 +93,14 @@ const AccountStep = () => (
         />
       </div>
       <div>
-        <label className="block text-sm text-white/60 mb-1">Password</label>
+        <Typography
+          variant="small"
+          as="label"
+          color="muted"
+          className="block mb-1"
+        >
+          Password
+        </Typography>
         <input
           type="password"
           placeholder="••••••••"
@@ -96,10 +113,19 @@ const AccountStep = () => (
 
 const CompanyStep = () => (
   <div className="p-6 space-y-4">
-    <h3 className="text-2xl  mb-4">Company Information</h3>
+    <Typography variant="h3" className="mb-4">
+      Company Information
+    </Typography>
     <div className="space-y-3">
       <div>
-        <label className="block text-sm text-white/60 mb-1">Company Name</label>
+        <Typography
+          variant="small"
+          as="label"
+          color="muted"
+          className="block mb-1"
+        >
+          Company Name
+        </Typography>
         <input
           type="text"
           placeholder="Acme Corporation"
@@ -107,7 +133,14 @@ const CompanyStep = () => (
         />
       </div>
       <div>
-        <label className="block text-sm text-white/60 mb-1">Industry</label>
+        <Typography
+          variant="small"
+          as="label"
+          color="muted"
+          className="block mb-1"
+        >
+          Industry
+        </Typography>
         <select className="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/20">
           <option>Technology</option>
           <option>Healthcare</option>
@@ -121,15 +154,21 @@ const CompanyStep = () => (
 
 const PlanStep = () => (
   <div className="p-6 space-y-4">
-    <h3 className="text-2xl  mb-4">Choose Your Plan</h3>
+    <Typography variant="h3" className="mb-4">
+      Choose Your Plan
+    </Typography>
     <div className="grid grid-cols-3 gap-4">
       {["Starter", "Professional", "Enterprise"].map((plan) => (
         <div
           key={plan}
           className="p-4 border border-white/10 rounded-lg hover:border-white/30 cursor-pointer transition-colors"
         >
-          <div className=" mb-2">{plan}</div>
-          <div className="text-sm text-white/60">Perfect for small teams</div>
+          <Typography variant="body" className="mb-2">
+            {plan}
+          </Typography>
+          <Typography variant="small" color="muted">
+            Perfect for small teams
+          </Typography>
         </div>
       ))}
     </div>
@@ -138,19 +177,27 @@ const PlanStep = () => (
 
 const ConfirmStep = () => (
   <div className="p-6 space-y-4">
-    <h3 className="text-2xl  mb-4">Confirm Details</h3>
+    <Typography variant="h3" className="mb-4">
+      Confirm Details
+    </Typography>
     <div className="space-y-3">
       <div className="p-4 bg-white/5 rounded-lg">
-        <div className="text-sm text-white/60 mb-1">Email</div>
-        <div>you@example.com</div>
+        <Typography variant="small" color="muted" className="mb-1 block">
+          Email
+        </Typography>
+        <Typography variant="body">you@example.com</Typography>
       </div>
       <div className="p-4 bg-white/5 rounded-lg">
-        <div className="text-sm text-white/60 mb-1">Company</div>
-        <div>Acme Corporation</div>
+        <Typography variant="small" color="muted" className="mb-1 block">
+          Company
+        </Typography>
+        <Typography variant="body">Acme Corporation</Typography>
       </div>
       <div className="p-4 bg-white/5 rounded-lg">
-        <div className="text-sm text-white/60 mb-1">Plan</div>
-        <div>Professional</div>
+        <Typography variant="small" color="muted" className="mb-1 block">
+          Plan
+        </Typography>
+        <Typography variant="body">Professional</Typography>
       </div>
     </div>
   </div>

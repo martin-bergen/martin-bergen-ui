@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { cn } from "../../../lib/utils";
+import { Typography } from "../../atoms/typography";
 import {
   Terminal as TerminalIcon,
   CheckCircle2,
@@ -320,7 +321,9 @@ export const Terminal = React.forwardRef<HTMLDivElement, TerminalProps>(
         <div className="flex items-center justify-between px-4 py-3 bg-black/60 border-b border-[hsl(var(--border))]">
           <div className="flex items-center gap-2">
             <TerminalIcon className="w-7 h-7 text-white/60" strokeWidth={2} />
-            <span className="text-xs text-white/60 font-mono">Terminal</span>
+            <Typography variant="code" color="muted">
+              Terminal
+            </Typography>
           </div>
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />

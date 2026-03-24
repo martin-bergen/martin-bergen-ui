@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BlogCard, BlogGrid, type BlogPost } from "./BlogCard";
+import { Typography } from "../../atoms/typography";
 
 const meta = {
   title: "Organisms/Blog Card",
@@ -206,10 +207,15 @@ export const BlogPageExample: StoryObj<typeof BlogGrid> = {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl  mb-4">Blog & Insights</h1>
-          <p className="text-xl text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
+          <Typography variant="h1" className="mb-4">
+            Blog &amp; Insights
+          </Typography>
+          <Typography
+            variant="h5"
+            className="text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto"
+          >
             Latest updates, tutorials, and insights from the Berget AI team
-          </p>
+          </Typography>
         </div>
 
         {/* Blog Grid */}

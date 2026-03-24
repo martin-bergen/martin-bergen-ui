@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { cn } from "../../../lib/utils";
 import { CarouselNav } from "../../molecules/carousel-nav";
+import { Typography } from "../../atoms/typography";
 
 export interface TerminalExample {
   title: string;
@@ -139,9 +140,9 @@ export const TerminalCarousel = React.forwardRef<
               <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
               <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
             </div>
-            <div className="text-sm text-white/60 font-mono">
+            <Typography variant="code" color="muted">
               {currentExample.title}
-            </div>
+            </Typography>
             <div className="w-16" />
           </div>
 

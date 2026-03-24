@@ -6,6 +6,7 @@ import { Badge } from "../../atoms/badge";
 import { Icon } from "../../atoms/icon";
 import { PatternBackground } from "../../foundations/pattern-background";
 import { Container } from "../../atoms/container";
+import { Typography } from "../../atoms/typography";
 
 const heroBlockVariants = cva(
   "relative overflow-hidden min-h-[70dvh] flex items-center py-fluid-2xl",
@@ -147,13 +148,13 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
               </Badge>
             )}
 
-            <h1 className="text-h1 font-h1 leading-h1 tracking-h1 mb-fluid-md">
+            <Typography variant="h1" className="mb-fluid-md">
               {title}
-            </h1>
+            </Typography>
 
-            <p className="text-p font-p leading-p text-white/80 mb-fluid-lg">
+            <Typography variant="body" className="text-white/80 mb-fluid-lg">
               {description}
-            </p>
+            </Typography>
 
             {actions && (
               <div className="flex flex-wrap gap-fluid-md justify-center">

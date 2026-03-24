@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../lib/utils";
 import { Badge } from "../../atoms/badge";
+import { Typography } from "../../atoms/typography";
 
 export interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -24,12 +25,12 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
             </Badge>
           )}
 
-          <h1 className="text-h1 font-h1 leading-h1 tracking-h1">{title}</h1>
+          <Typography variant="h1">{title}</Typography>
 
           {description && (
-            <h3 className="text-h3 font-h3 leading-h3 tracking-h3 text-muted-foreground">
+            <Typography variant="h3" color="muted">
               {description}
-            </h3>
+            </Typography>
           )}
 
           {action && <div className="mt-4">{action}</div>}

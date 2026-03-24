@@ -2,6 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 import { Separator } from "../../../primitives/separator";
+import { Typography } from "../typography";
 
 const dividerVariants = cva("", {
   variants: {
@@ -59,9 +60,13 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
               className={cn(dividerVariants({ variant, size }), "flex-1")}
             />
           )}
-          <span className="px-4 text-sm text-muted-foreground whitespace-nowrap">
+          <Typography
+            variant="small"
+            color="muted"
+            className="px-4 whitespace-nowrap"
+          >
             {label}
-          </span>
+          </Typography>
           {labelPosition !== "left" && (
             <Separator
               orientation="horizontal"

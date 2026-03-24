@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Panel } from ".";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof Panel> = {
   title: "Atoms/Panel",
@@ -31,10 +32,12 @@ export const Interactive: Story = {
     radius: "default",
     children: (
       <div className="relative z-10">
-        <h3 className=" mb-2">Panel Component</h3>
-        <p className="text-sm text-muted-foreground">
+        <Typography variant="body" as="h3" className="mb-2">
+          Panel Component
+        </Typography>
+        <Typography variant="small" color="muted">
           Base container with rounded corners, backdrop blur, and border.
-        </p>
+        </Typography>
       </div>
     ),
   },
@@ -46,13 +49,13 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-4 w-[600px]">
       <Panel padding="sm">
-        <p className="text-sm">Small padding</p>
+        <Typography variant="small">Small padding</Typography>
       </Panel>
       <Panel padding="md">
-        <p className="text-sm">Medium padding (default)</p>
+        <Typography variant="small">Medium padding (default)</Typography>
       </Panel>
       <Panel padding="lg">
-        <p className="text-sm">Large padding</p>
+        <Typography variant="small">Large padding</Typography>
       </Panel>
     </div>
   ),
@@ -64,16 +67,28 @@ export const RadiusVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6 w-[600px]">
       <Panel radius="default" padding="lg">
-        <p className="text-base  mb-1">Default (rounded-2xl)</p>
-        <p className="text-sm text-white/60">Standard border radius</p>
+        <Typography variant="body" className="mb-1 block">
+          Default (rounded-2xl)
+        </Typography>
+        <Typography variant="small" color="muted">
+          Standard border radius
+        </Typography>
       </Panel>
       <Panel radius="lg" padding="lg">
-        <p className="text-base  mb-1">Large (rounded-3xl)</p>
-        <p className="text-sm text-white/60">Larger border radius</p>
+        <Typography variant="body" className="mb-1 block">
+          Large (rounded-3xl)
+        </Typography>
+        <Typography variant="small" color="muted">
+          Larger border radius
+        </Typography>
       </Panel>
       <Panel radius="xl" padding="lg">
-        <p className="text-base  mb-1">XL (rounded-[2rem])</p>
-        <p className="text-sm text-white/60">Extra large border radius</p>
+        <Typography variant="body" className="mb-1 block">
+          XL (rounded-[2rem])
+        </Typography>
+        <Typography variant="small" color="muted">
+          Extra large border radius
+        </Typography>
       </Panel>
     </div>
   ),

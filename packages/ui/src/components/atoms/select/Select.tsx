@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
+import { Typography } from "../typography";
 import {
   Select as SelectRoot,
   SelectTrigger,
@@ -89,10 +90,12 @@ const Select = React.forwardRef<
     return (
       <div className="flex flex-col gap-2">
         {label && (
-          <label
+          <Typography
+            variant="small"
+            as="label"
             htmlFor={selectId}
             className={cn(
-              "text-sm  leading-none",
+              "leading-none",
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
@@ -100,7 +103,7 @@ const Select = React.forwardRef<
             )}
           >
             {label}
-          </label>
+          </Typography>
         )}
 
         <SelectRoot
@@ -142,18 +145,19 @@ const Select = React.forwardRef<
         </SelectRoot>
 
         {description && (
-          <p id={descriptionId} className="text-xs text-muted-foreground">
+          <Typography variant="xs" color="muted" id={descriptionId}>
             {description}
-          </p>
+          </Typography>
         )}
 
         {error && (
-          <p
+          <Typography
+            variant="xs"
             id={errorId}
-            className="text-xs text-berget-destructive-foreground"
+            className="text-berget-destructive-foreground"
           >
             {error}
-          </p>
+          </Typography>
         )}
       </div>
     );

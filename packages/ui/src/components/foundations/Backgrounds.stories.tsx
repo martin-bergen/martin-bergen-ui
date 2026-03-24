@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Typography } from "../atoms/typography";
 import { GradientBackground } from "./gradient-background";
 import type { GradientBackgroundVariant } from "./gradient-background";
 import { NetworkBackground } from "./network-background";
@@ -58,10 +59,12 @@ export const GradientBackgroundDemo: StoryObj<{
       className="min-h-screen flex items-center justify-center"
     >
       <div className="text-center max-w-2xl px-6">
-        <h1 className="text-4xl md:text-5xl mb-4 text-white">
+        <Typography variant="h1" className="mb-4 text-white">
           Gradient Background
-        </h1>
-        <p className="text-white/80 text-lg">Variant: {args.variant}</p>
+        </Typography>
+        <Typography variant="large" color="muted">
+          Variant: {args.variant}
+        </Typography>
       </div>
     </GradientBackground>
   ),
@@ -101,15 +104,17 @@ export const GridPattern: StoryObj<{
       className="min-h-screen flex items-center justify-center"
     >
       <div className="text-center max-w-2xl px-6">
-        <h1 className="text-5xl mb-4 text-white">Grid Pattern</h1>
-        <p className="text-white/90 text-lg mb-4">
+        <Typography variant="h1" className="mb-4 text-white">
+          Grid Pattern
+        </Typography>
+        <Typography variant="large" color="muted" className="mb-4 block">
           Grid pattern with small dots in corners.
-        </p>
-        <p className="text-white/60 text-sm mb-8">
+        </Typography>
+        <Typography variant="small" color="muted" className="mb-8 block">
           Size: {args.size} (
           {args.size === "sm" ? "24px" : args.size === "md" ? "34px" : "48px"})
           • Lines: {args.lineOpacity} • Dots: {args.dotOpacity}
-        </p>
+        </Typography>
         <Button>View Details</Button>
       </div>
     </PatternBackground>
@@ -123,11 +128,13 @@ export const NetworkAnimated: StoryObj = {
     <div className="relative min-h-screen bg-background flex items-center justify-center">
       <NetworkBackground opacity={0.4} nodeCount={50} />
       <div className="relative z-10 text-center max-w-2xl px-6">
-        <h1 className="text-5xl mb-4 text-white">Network Background</h1>
-        <p className="text-white/80 text-lg mb-8">
+        <Typography variant="h1" className="mb-4 text-white">
+          Network Background
+        </Typography>
+        <Typography variant="large" color="muted" className="mb-8 block">
           Animated network of connected nodes with flowing particles. Perfect
           for tech/SaaS platforms and enterprise products.
-        </p>
+        </Typography>
       </div>
     </div>
   ),
@@ -355,15 +362,17 @@ export const GrainyGradient: StoryObj<{
         className="min-h-screen flex items-center justify-center"
       >
         <div className="text-center max-w-2xl px-6">
-          <h1 className="text-5xl mb-4 text-white">Grainy Gradient</h1>
-          <p className="text-white/90 text-lg mb-4">
+          <Typography variant="h1" className="mb-4 text-white">
+            Grainy Gradient
+          </Typography>
+          <Typography variant="large" color="muted" className="mb-4 block">
             Artistic grainy gradient with multiple colored ellipses and blur
             overlay.
-          </p>
-          <p className="text-white/60 text-sm">
+          </Typography>
+          <Typography variant="small" color="muted" className="block">
             Blur: {args.blur}px • Grain: {args.grain} • Speed:{" "}
             {args.animationSpeed}
-          </p>
+          </Typography>
           <Button className="mt-6">Explore</Button>
         </div>
       </GrainyGradientBackground>

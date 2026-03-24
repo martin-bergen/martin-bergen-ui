@@ -2,6 +2,7 @@ import * as React from "react";
 import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { cn } from "../../../lib/utils";
 import { Badge } from "../../atoms/badge";
+import { Typography } from "../../atoms/typography";
 
 export interface BlogPost {
   /**
@@ -160,22 +161,24 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
           </div>
 
           {/* Title */}
-          <h3
-            className={cn(
-              " mb-3",
-              variant === "featured" ? "text-2xl md:text-3xl" : "text-xl",
-            )}
+          <Typography
+            variant={variant === "featured" ? "h3" : "h5"}
+            className="mb-3"
           >
             {post.title}
-          </h3>
+          </Typography>
 
           {/* Excerpt */}
-          <p className="text-muted-foreground mb-4 line-clamp-3">
+          <Typography
+            variant="body"
+            color="muted"
+            className="mb-4 line-clamp-3"
+          >
             {post.excerpt}
-          </p>
+          </Typography>
 
           {/* Author Byline */}
-          <div className="flex items-center gap-3 text-sm">
+          <div className="flex items-center gap-3">
             {post.authorImage && (
               <img
                 src={post.authorImage}
@@ -183,7 +186,7 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                 className="w-8 h-8 rounded-full object-cover"
               />
             )}
-            <div className="flex-1">
+            <Typography variant="small" as="div" className="flex-1">
               <div className="flex items-center gap-2 flex-wrap text-muted-foreground">
                 {!post.authorImage && (
                   <User className="w-4 h-4 text-white" strokeWidth={2} />
@@ -204,19 +207,23 @@ export const BlogCard = React.forwardRef<HTMLDivElement, BlogCardProps>(
                   </>
                 )}
               </div>
-            </div>
+            </Typography>
           </div>
 
           {/* Read More */}
           {variant !== "minimal" && (
             <div className="mt-4 pt-4 border-t border-border">
-              <div className="flex items-center gap-2 text-sm  text-secondary">
+              <Typography
+                variant="small"
+                as="div"
+                className="flex items-center gap-2 text-secondary"
+              >
                 Read More
                 <ArrowRight
                   className="w-4 h-4 text-secondary"
                   strokeWidth={2}
                 />
-              </div>
+              </Typography>
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Stack } from "./Stack";
+import { Typography } from "../typography";
 
 const meta: Meta<typeof Stack> = {
   title: "Atoms/Stack",
@@ -143,7 +144,9 @@ export const VisualGrid: Story = {
     gap: 6,
     children: (
       <>
-        <div className="text-sm text-muted-foreground">Direction Variants</div>
+        <Typography variant="small" color="muted">
+          Direction Variants
+        </Typography>
         <div className="grid grid-cols-2 gap-4">
           <Stack direction="row" gap={2}>
             <Placeholder color="bg-moss/20" label="Row" />
@@ -155,7 +158,9 @@ export const VisualGrid: Story = {
           </Stack>
         </div>
 
-        <div className="text-sm text-muted-foreground">Alignment Variants</div>
+        <Typography variant="small" color="muted">
+          Alignment Variants
+        </Typography>
         <div className="grid grid-cols-3 gap-4">
           <Stack direction="row" gap={2} align="start">
             <Placeholder color="bg-spruce/20" label="Start" />
@@ -171,7 +176,9 @@ export const VisualGrid: Story = {
           </Stack>
         </div>
 
-        <div className="text-sm text-muted-foreground">Justify Variants</div>
+        <Typography variant="small" color="muted">
+          Justify Variants
+        </Typography>
         <div className="grid grid-cols-3 gap-4">
           <Stack direction="row" gap={2} justify="start">
             <Placeholder color="bg-moss/20" label="Start" />
@@ -187,24 +194,32 @@ export const VisualGrid: Story = {
           </Stack>
         </div>
 
-        <div className="text-sm text-muted-foreground">Gap Scale</div>
+        <Typography variant="small" color="muted">
+          Gap Scale
+        </Typography>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground w-8">gap-2</span>
+            <Typography variant="xs" color="muted" className="w-8">
+              gap-2
+            </Typography>
             <Stack direction="row" gap={2}>
               <Placeholder color="bg-fjord/20" label="2" />
               <Placeholder color="bg-fjord/20" label="2" />
             </Stack>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground w-8">gap-4</span>
+            <Typography variant="xs" color="muted" className="w-8">
+              gap-4
+            </Typography>
             <Stack direction="row" gap={4}>
               <Placeholder color="bg-cloud/20" label="4" />
               <Placeholder color="bg-cloud/20" label="4" />
             </Stack>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-xs text-muted-foreground w-8">gap-8</span>
+            <Typography variant="xs" color="muted" className="w-8">
+              gap-8
+            </Typography>
             <Stack direction="row" gap={8}>
               <Placeholder color="bg-moss/20" label="8" />
               <Placeholder color="bg-moss/20" label="8" />

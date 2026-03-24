@@ -3,6 +3,7 @@ import { ArrowUp, Plus, Mic, X } from "lucide-react";
 import { Panel } from "../../atoms/panel";
 import { Button } from "../../atoms/button";
 import { Textarea } from "../../atoms/textarea";
+import { Typography } from "../../atoms/typography";
 
 export interface AIChatMessage {
   id: string;
@@ -127,7 +128,7 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
     <Panel className={`flex flex-col ${compact ? "p-4" : "p-6"} ${chatHeight}`}>
       {showHeader && (
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg  text-white">{headerTitle}</h3>
+          <Typography variant="large">{headerTitle}</Typography>
           {showClear && onClearClick && (
             <button
               type="button"
@@ -163,11 +164,11 @@ export const AIChatBox: React.FC<AIChatBoxProps> = ({
                   : "bg-black/20 text-gray-200"
               }`}
             >
-              <div className="text-sm">{message.content}</div>
+              <Typography variant="small">{message.content}</Typography>
               {message.timestamp && (
-                <div className="text-xs text-gray-400 mt-1">
+                <Typography variant="xs" className="text-gray-400 mt-1 block">
                   {message.timestamp.toLocaleTimeString()}
-                </div>
+                </Typography>
               )}
             </div>
           </div>

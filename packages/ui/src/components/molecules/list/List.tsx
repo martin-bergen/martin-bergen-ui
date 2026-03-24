@@ -2,6 +2,7 @@ import * as React from "react";
 import { cn } from "../../../lib/utils";
 import { Icon } from "../../atoms/icon/Icon";
 import { Divider } from "../../atoms/divider";
+import { Typography } from "../../atoms/typography";
 import { Check } from "lucide-react";
 
 export interface ListProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -88,10 +89,7 @@ const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
         {...props}
       >
         {items.map((item, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-fluid-md text-p font-p leading-p"
-          >
+          <li key={index} className="flex items-start gap-fluid-md">
             {variant === "bullet" ? (
               <span className="w-1.5 h-1.5 rounded-full bg-berget-brand-cloud/60 flex-shrink-0 mt-2" />
             ) : (
@@ -103,7 +101,9 @@ const FeatureList = React.forwardRef<HTMLUListElement, FeatureListProps>(
                 />
               </div>
             )}
-            <span className="text-muted-foreground">{item}</span>
+            <Typography variant="body" color="muted">
+              {item}
+            </Typography>
           </li>
         ))}
       </ul>

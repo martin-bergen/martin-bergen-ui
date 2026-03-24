@@ -6,6 +6,7 @@ import {
   Checkbox as CheckboxBase,
   CheckboxIndicator,
 } from "../../../primitives/checkbox";
+import { Typography } from "../typography";
 
 const checkboxVariants = cva(
   "inline-flex items-center justify-center rounded-md transition-all duration-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
@@ -115,33 +116,38 @@ const Checkbox = React.forwardRef<
         {(label || description || error) && (
           <div className="flex flex-col gap-1">
             {label && (
-              <label
+              <Typography
+                variant="small"
+                as="label"
                 htmlFor={checkboxId}
                 className={cn(
-                  "text-sm  leading-none",
+                  "leading-none",
                   disabled
                     ? "text-white/40 cursor-not-allowed"
                     : variant === "error"
                       ? "text-berget-destructive-foreground cursor-pointer"
                       : variant === "success"
                         ? "text-berget-success-foreground cursor-pointer"
-                        : "text-white cursor-pointer",
+                        : "cursor-pointer",
                   error && "text-berget-destructive-foreground",
                 )}
               >
                 {label}
-              </label>
+              </Typography>
             )}
             {description && (
-              <p className="text-xs text-white/60">{description}</p>
+              <Typography variant="xs" color="muted">
+                {description}
+              </Typography>
             )}
             {error && (
-              <p
+              <Typography
+                variant="xs"
                 id={errorId}
-                className="text-xs text-berget-destructive-foreground"
+                className="text-berget-destructive-foreground"
               >
                 {error}
-              </p>
+              </Typography>
             )}
           </div>
         )}

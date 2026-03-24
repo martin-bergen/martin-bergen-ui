@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PricingCards, type PricingTier } from "./PricingCards";
+import { Typography } from "../../atoms/typography";
 
 const meta = {
   title: "Organisms/Pricing Cards",
@@ -299,10 +300,12 @@ export const OnDarkBackground: Story = {
     (Story) => (
       <div className="bg-[hsl(var(--background))] p-8 rounded-2xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl  mb-4">Choose Your Plan</h2>
-          <p className="text-white/60">
+          <Typography variant="h2" className="mb-4">
+            Choose Your Plan
+          </Typography>
+          <Typography variant="body" color="muted">
             Select the perfect plan for your needs
-          </p>
+          </Typography>
         </div>
         <Story />
       </div>

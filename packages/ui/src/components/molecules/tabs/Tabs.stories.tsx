@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from ".";
+import { Typography } from "../../atoms/typography";
 import { Icon } from "../../atoms/icon";
 import { Home, Search, User } from "lucide-react";
 
@@ -65,7 +66,9 @@ export const AllVariants: Story = {
   render: () => (
     <div className="space-y-8 w-[500px]">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Default</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Default
+        </Typography>
         <Tabs defaultValue="tab1">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -76,7 +79,9 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Primary</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Primary
+        </Typography>
         <Tabs defaultValue="tab1" variant="primary">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -87,7 +92,9 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Subtle</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Subtle
+        </Typography>
         <Tabs defaultValue="tab1" variant="subtle">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -98,7 +105,9 @@ export const AllVariants: Story = {
       </div>
 
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Muted</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Muted
+        </Typography>
         <Tabs defaultValue="tab1" variant="muted">
           <TabsList>
             <TabsTrigger value="tab1">Dashboard</TabsTrigger>
@@ -172,7 +181,9 @@ export const Sizes: Story = {
   render: () => (
     <div className="space-y-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Small</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Small
+        </Typography>
         <Tabs defaultValue="tab1" size="sm">
           <TabsList>
             <TabsTrigger value="tab1">Small</TabsTrigger>
@@ -182,7 +193,9 @@ export const Sizes: Story = {
         </Tabs>
       </div>
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Default</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Default
+        </Typography>
         <Tabs defaultValue="tab1">
           <TabsList>
             <TabsTrigger value="tab1">Default</TabsTrigger>
@@ -192,7 +205,9 @@ export const Sizes: Story = {
         </Tabs>
       </div>
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Large</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Large
+        </Typography>
         <Tabs defaultValue="tab1" size="lg">
           <TabsList>
             <TabsTrigger value="tab1">Large</TabsTrigger>
@@ -212,9 +227,9 @@ export const Controlled: Story = {
 
     return (
       <div className="flex flex-col gap-4">
-        <div className="text-white/80 text-sm">
+        <Typography variant="small" color="muted">
           Selected tab: <span className="font-mono text-primary">{value}</span>
-        </div>
+        </Typography>
         <Tabs value={value} onValueChange={setValue}>
           <TabsList>
             <TabsTrigger value="tab1">Tab 1</TabsTrigger>

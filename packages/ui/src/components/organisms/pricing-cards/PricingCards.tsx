@@ -3,6 +3,7 @@ import { cn } from "../../../lib/utils";
 import { Button } from "../../atoms/button";
 import { Card } from "../../atoms/card";
 import { FeatureList } from "../../molecules/list";
+import { Typography } from "../../atoms/typography";
 
 export interface PricingTier {
   /**
@@ -125,15 +126,15 @@ export const PricingCards = React.forwardRef<HTMLDivElement, PricingCardsProps>(
             className="w-full p-fluid-md md:p-fluid-lg"
           >
             <div className="mb-6">
-              <h3 className="text-h3 font-h3 leading-h3 tracking-h3 mb-2">
+              <Typography variant="h3" className="mb-2">
                 {tier.name}
-              </h3>
-              <p className="text-p font-p leading-p text-[hsl(var(--muted-foreground))] mb-4">
+              </Typography>
+              <Typography variant="body" color="muted" className="mb-4">
                 {tier.description}
-              </p>
-              <div className="text-h2 font-h2 leading-h2 tracking-h2">
+              </Typography>
+              <Typography variant="h2" as="div">
                 {tier.price}
-              </div>
+              </Typography>
             </div>
 
             <Button

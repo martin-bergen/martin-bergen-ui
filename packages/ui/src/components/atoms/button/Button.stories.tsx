@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from ".";
+import { Typography } from "../typography";
 import { Icon } from "../icon";
 import { ArrowRight, Download, Loader2, Mail, Plus } from "lucide-react";
 import { cn } from "../../../lib/utils";
@@ -92,7 +93,9 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Variants</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Variants
+        </Typography>
         <div className="flex flex-wrap gap-3">
           <Button variant="default">Default</Button>
           <Button variant="primary">Primary</Button>
@@ -105,7 +108,9 @@ export const AllVariants: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">States</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          States
+        </Typography>
         <div className="flex flex-wrap gap-3">
           <Button disabled>Disabled</Button>
           <Button>
@@ -124,7 +129,9 @@ export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-sm  text-muted-foreground mb-3">Sizes</p>
+        <Typography variant="small" color="muted" className="mb-3 block">
+          Sizes
+        </Typography>
         <div className="flex flex-wrap items-center gap-3">
           <Button size="sm">Small</Button>
           <Button size="default">Default</Button>
@@ -135,9 +142,9 @@ export const Sizes: Story = {
         </div>
       </div>
       <div className="border-t border-border pt-4">
-        <p className="text-sm  text-muted-foreground mb-3">
+        <Typography variant="small" color="muted" className="mb-3 block">
           Sizes with variant &quot;primary&quot;
-        </p>
+        </Typography>
         <div className="flex flex-wrap items-center gap-3">
           <Button variant="primary" size="sm">
             Small
