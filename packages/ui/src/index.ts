@@ -110,6 +110,13 @@ export type { LinkProps } from "./components/atoms/link";
 export { NetworkBackground } from "./components/foundations/network-background";
 export type { NetworkBackgroundProps } from "./components/foundations/network-background";
 
+export { HeroBackground } from "./components/foundations/hero-background";
+export type {
+  HeroBackgroundProps,
+  MediaType,
+  ParticleColor,
+} from "./components/foundations/hero-background";
+
 export { Panel, panelVariants } from "./components/atoms/panel";
 export type { PanelProps } from "./components/atoms/panel";
 
