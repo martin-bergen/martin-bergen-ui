@@ -75,13 +75,7 @@ export function Page() {
           >
             {!usernameHidden && (
               <Field>
-                <FieldLabel htmlFor="username">
-                  {!realm.loginWithEmailAllowed
-                    ? msg("email")
-                    : !realm.registrationEmailAsUsername
-                      ? msg("usernameOrEmail")
-                      : msg("username")}
-                </FieldLabel>
+                <FieldLabel htmlFor="username">{msg("email")}</FieldLabel>
                 <Input
                   tabIndex={2}
                   type="text"

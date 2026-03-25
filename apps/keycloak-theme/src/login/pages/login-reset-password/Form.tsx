@@ -19,14 +19,7 @@ export function Form() {
       method="post"
     >
       <Field>
-        <FieldLabel htmlFor="username">
-          {" "}
-          {!kcContext.realm.loginWithEmailAllowed
-            ? msg("username")
-            : !kcContext.realm.registrationEmailAsUsername
-              ? msg("usernameOrEmail")
-              : msg("email")}
-        </FieldLabel>
+        <FieldLabel htmlFor="username">{msg("email")}</FieldLabel>
         <Input
           type="text"
           id="username"

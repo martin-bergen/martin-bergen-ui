@@ -47,13 +47,7 @@ export function Form() {
             >
               {!kcContext.usernameHidden && (
                 <Field>
-                  <FieldLabel htmlFor="username">
-                    {!kcContext.realm.loginWithEmailAllowed
-                      ? msg("email")
-                      : !kcContext.realm.registrationEmailAsUsername
-                        ? msg("usernameOrEmail")
-                        : msg("username")}
-                  </FieldLabel>
+                  <FieldLabel htmlFor="username">{msg("email")}</FieldLabel>
                   <Input
                     tabIndex={2}
                     type="text"
