@@ -20,7 +20,6 @@ export function Page() {
   return (
     <Template
       displayMessage={messagesPerField.exists("global")}
-      displayRequiredFields
       headerNode={msg("updateEmailTitle")}
     >
       <form

@@ -17,7 +17,6 @@ export function Page() {
   return (
     <Template
       displayMessage={kcContext.messagesPerField.exists("global")}
-      displayRequiredFields
       headerNode={msg("loginIdpReviewProfileTitle")}
     >
       <form

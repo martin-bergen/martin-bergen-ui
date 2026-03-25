@@ -21,7 +21,6 @@ export function Page() {
 
   return (
     <Template
-      displayRequiredFields
       headerNode={msg("loginProfileTitle")}
       displayMessage={messagesPerField.exists("global")}
     >
