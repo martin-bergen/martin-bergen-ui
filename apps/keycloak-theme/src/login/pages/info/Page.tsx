@@ -1,5 +1,5 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@berget-ai/ui";
+import { Button, Link } from "@berget-ai/ui";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { assert } from "tsafe/assert";
 import { Template } from "../../components/Template";
@@ -62,24 +62,27 @@ export function Page() {
 
         if (kcContext.pageRedirectUri) {
           return (
-            <Button type="button" className="mt-2 flex ms-auto">
-              <a href={kcContext.pageRedirectUri}>{msg("backToApplication")}</a>
-            </Button>
+            <Link
+              href={kcContext.pageRedirectUri}
+              className="mt-2 flex ms-auto"
+            >
+              {msg("backToApplication")}
+            </Link>
           );
         }
         if (kcContext.actionUri) {
           return (
-            <Button type="button" className="mt-2 flex ms-auto ">
-              <a href={kcContext.actionUri}>{msg("proceedWithAction")}</a>
-            </Button>
+            <Link href={kcContext.actionUri} className="mt-2 flex ms-auto">
+              {msg("proceedWithAction")}
+            </Link>
           );
         }
 
         if (kcContext.client.baseUrl) {
           return (
-            <Button type="button" className="mt-2 flex  ms-auto-end">
-              <a href={kcContext.client.baseUrl}>{msg("backToApplication")}</a>
-            </Button>
+            <Link href={kcContext.client.baseUrl} className="mt-2 flex ms-auto">
+              {msg("backToApplication")}
+            </Link>
           );
         }
       })()}

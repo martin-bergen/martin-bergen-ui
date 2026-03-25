@@ -1,5 +1,5 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@berget-ai/ui";
+import { Button, Link } from "@berget-ai/ui";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { assert } from "tsafe/assert";
 import { useKcContext } from "../../KcContext";
@@ -30,11 +30,9 @@ export function Page() {
           kcContext.client !== undefined &&
           kcContext.client.baseUrl !== undefined && (
             <div className="mt-2 flex justify-end">
-              <Button type="button">
-                <a id="backToApplication" href={kcContext.client.baseUrl}>
-                  {msg("backToApplication")}
-                </a>
-              </Button>
+              <Link id="backToApplication" href={kcContext.client.baseUrl}>
+                {msg("backToApplication")}
+              </Link>
             </div>
           )}
       </div>

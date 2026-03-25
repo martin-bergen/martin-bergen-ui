@@ -1,4 +1,4 @@
-import { Button, Input } from "@berget-ai/ui";
+import { Button, Input, Link } from "@berget-ai/ui";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { assert } from "tsafe/assert";
@@ -55,11 +55,9 @@ export function Form() {
       </Button>
 
       <div className="flex justify-end">
-        <Button variant="default" type="button">
-          <a id="backToApplication" href={kcContext.url.loginUrl}>
-            {msg("backToApplication")}
-          </a>
-        </Button>
+        <Link id="backToApplication" href={kcContext.url.loginUrl}>
+          {msg("backToApplication")}
+        </Link>
       </div>
     </form>
   );
