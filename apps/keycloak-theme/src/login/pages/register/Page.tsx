@@ -18,7 +18,6 @@ export function Page() {
           : msg("registerTitle")
       }
       displayMessage={kcContext.messagesPerField.exists("global")}
-      displayRequiredFields
     >
       <Form />
     </Template>

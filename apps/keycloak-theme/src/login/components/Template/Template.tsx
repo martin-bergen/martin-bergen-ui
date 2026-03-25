@@ -73,7 +73,6 @@ function getPageSubtitle(pageId: string): string {
 export function Template(props: {
   displayInfo?: boolean;
   displayMessage?: boolean;
-  displayRequiredFields?: boolean;
   headerNode: ReactNode;
   socialProvidersNode?: ReactNode;
   infoNode?: ReactNode;
@@ -84,7 +83,6 @@ export function Template(props: {
   const {
     displayInfo = false,
     displayMessage = true,
-    displayRequiredFields = false,
     headerNode,
     socialProvidersNode = null,
     infoNode = null,
@@ -175,10 +173,6 @@ export function Template(props: {
                 </div>
               );
 
-              if (displayRequiredFields) {
-                return node;
-              }
-
               return node;
             })()}
           </CardTitle>
@@ -187,16 +181,7 @@ export function Template(props: {
           )}
         </CardHeader>
 
-        <CardContent className="space-y-6 relative">
-          {displayRequiredFields && (
-            <div className="absolute right-0 top-0">
-              <span className="subtitle text-sm text-white/60">
-                <span className="text-red-400">*</span>
-                {msg("requiredFields")}
-              </span>
-            </div>
-          )}
-
+        <CardContent className="space-y-6">
           {displayMessage &&
             message !== undefined &&
             (message.type !== "warning" || !isAppInitiatedAction) && (
