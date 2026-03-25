@@ -1,12 +1,10 @@
+import { BASE_URL } from "@/kc.gen";
 import { useInsertScriptTags } from "@keycloakify/login-ui/tools/useInsertScriptTags";
 import { useEffect } from "react";
 import { useKcContext } from "../../KcContext";
-import { useAuthChecker } from "./useAuthChecker";
 
 export function useInitializeTemplate() {
   const { kcContext } = useKcContext();
-
-  useAuthChecker();
 
   const { insertScriptTags } = useInsertScriptTags({
     effectId: "Template",
@@ -17,6 +15,16 @@ export function useInitializeTemplate() {
             type: "text/javascript" as const,
             src,
           }))),
+      {
+        type: "module",
+        textContent: [
+          `import { startSessionPolling, checkAuthSession } from "${BASE_URL}keycloak-theme/login/js/authChecker.js";`,
+          `startSessionPolling("${kcContext.url.ssoLoginInOtherTabsUrl}");`,
+          kcContext.authenticationSession === undefined
+            ? ""
+            : `checkAuthSession("${kcContext.authenticationSession.authSessionIdHash}");`,
+        ].join("\n"),
+      },
     ],
   });
 
