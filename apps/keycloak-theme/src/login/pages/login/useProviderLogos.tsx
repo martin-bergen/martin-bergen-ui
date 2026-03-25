@@ -3,7 +3,7 @@ import bankidLogo from "./providers/bankid.svg";
 import bitbucketLogo from "./providers/bitbucket.svg";
 import discordLogo from "./providers/discord.svg";
 import facebookLogo from "./providers/facebook.svg";
-import frejaLogo from "./providers/freja.png";
+import frejaLogo from "./providers/freja.svg";
 import githubLogo from "./providers/github.svg";
 import gitlabLogo from "./providers/gitlab.svg";
 import googleLogo from "./providers/google.svg";
