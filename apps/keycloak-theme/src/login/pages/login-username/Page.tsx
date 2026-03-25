@@ -1,5 +1,4 @@
-import { Button, Checkbox, Input, Label, Typography } from "@berget-ai/ui";
-import { clsx } from "keycloakify/tools/clsx";
+import { Button, Checkbox, Input, Label } from "@berget-ai/ui";
 import { useState } from "react";
 
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
@@ -11,6 +10,7 @@ import { Fingerprint } from "lucide-react";
 import { assert } from "tsafe/assert";
 import { Template } from "../../components/Template";
 import { useScript } from "./useScript";
+import { SocialProviders } from "../login/SocialProviders";
 
 export function Page() {
   const { kcContext } = useKcContext();
@@ -59,46 +59,7 @@ export function Page() {
         </div>
       }
       headerNode={msg("doLogIn")}
-      socialProvidersNode={
-        <>
-          {realm.password &&
-            social?.providers !== undefined &&
-            social.providers.length !== 0 && (
-              <div id="kc-social-providers" className="space-y-4">
-                <div className="text-center">
-                  <Typography variant="h4" as="h2" color="muted">
-                    {msg("identity-provider-login-label")}
-                  </Typography>
-                </div>
-                <div
-                  className={clsx(
-                    "grid gap-2",
-                    social.providers.length > 3 ? "grid-cols-2" : "grid-cols-1",
-                  )}
-                >
-                  {social.providers.map((p) => (
-                    <a
-                      key={p.alias}
-                      id={`social-${p.alias}`}
-                      className="flex items-center justify-center gap-2 px-4 py-2 border rounded-md hover:bg-accent transition-colors"
-                      href={p.loginUrl}
-                    >
-                      {p.iconClasses && (
-                        <i
-                          className={clsx(p.iconClasses)}
-                          aria-hidden="true"
-                        ></i>
-                      )}
-                      <span className="text-sm font-medium">
-                        {p.displayName}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-        </>
-      }
+      socialProvidersNode={<SocialProviders />}
     >
       <div>
         {realm.password && (

@@ -58,3 +58,29 @@ export const WithEmailAsUsername: Story = {
     },
   },
 };
+
+export const WithSocialProviders: Story = {
+  args: {
+    kcContext: {
+      social: {
+        displayInfo: true,
+        providers: [
+          {
+            loginUrl: "google",
+            alias: "google",
+            providerId: "google",
+            displayName: "Google",
+            iconClasses: "fa fa-google",
+          },
+          {
+            loginUrl: "microsoft",
+            alias: "microsoft",
+            providerId: "microsoft",
+            displayName: "Microsoft",
+            iconClasses: "fa fa-windows",
+          },
+        ],
+      },
+    },
+  },
+};
