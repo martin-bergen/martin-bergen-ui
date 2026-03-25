@@ -30,7 +30,12 @@ export function Page() {
           kcContext.client !== undefined &&
           kcContext.client.baseUrl !== undefined && (
             <div className="mt-2 flex justify-end">
-              <Link id="backToApplication" href={kcContext.client.baseUrl}>
+              <Link
+                id="backToApplication"
+                href={kcContext.client.baseUrl}
+                variant="muted"
+                size="sm"
+              >
                 {msg("backToApplication")}
               </Link>
             </div>

@@ -98,7 +98,9 @@ export function Form() {
       </div>
 
       <div className="flex justify-end">
-        <Link href={kcContext.url.loginUrl}>{msg("backToLogin")}</Link>
+        <Link href={kcContext.url.loginUrl} variant="muted" size="sm">
+          {msg("backToLogin")}
+        </Link>
       </div>
     </form>
   );

@@ -36,7 +36,9 @@ export function Page() {
 
         {!logoutConfirm.skipLink && client.baseUrl && (
           <div className="flex justify-end">
-            <Link href={client.baseUrl}>{msg("backToApplication")}</Link>
+            <Link href={client.baseUrl} variant="muted" size="sm">
+              {msg("backToApplication")}
+            </Link>
           </div>
         )}
       </div>

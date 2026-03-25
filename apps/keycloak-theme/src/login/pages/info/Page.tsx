@@ -65,6 +65,8 @@ export function Page() {
             <Link
               href={kcContext.pageRedirectUri}
               className="mt-2 flex ms-auto"
+              variant="muted"
+              size="sm"
             >
               {msg("backToApplication")}
             </Link>
@@ -72,7 +74,12 @@ export function Page() {
         }
         if (kcContext.actionUri) {
           return (
-            <Link href={kcContext.actionUri} className="mt-2 flex ms-auto">
+            <Link
+              href={kcContext.actionUri}
+              className="mt-2 flex ms-auto"
+              variant="muted"
+              size="sm"
+            >
               {msg("proceedWithAction")}
             </Link>
           );
@@ -80,7 +87,12 @@ export function Page() {
 
         if (kcContext.client.baseUrl) {
           return (
-            <Link href={kcContext.client.baseUrl} className="mt-2 flex ms-auto">
+            <Link
+              href={kcContext.client.baseUrl}
+              className="mt-2 flex ms-auto"
+              variant="muted"
+              size="sm"
+            >
               {msg("backToApplication")}
             </Link>
           );
