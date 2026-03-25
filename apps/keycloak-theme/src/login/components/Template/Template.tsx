@@ -176,17 +176,7 @@ export function Template(props: {
               );
 
               if (displayRequiredFields) {
-                return (
-                  <div className="flex flex-col items-center gap-2">
-                    {node}
-                    <div>
-                      <span className="subtitle text-sm">
-                        <span className="text-red-500">*</span>
-                        {msg("requiredFields")}
-                      </span>
-                    </div>
-                  </div>
-                );
+                return node;
               }
 
               return node;
@@ -197,7 +187,16 @@ export function Template(props: {
           )}
         </CardHeader>
 
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 relative">
+          {displayRequiredFields && (
+            <div className="absolute right-0 top-0">
+              <span className="subtitle text-sm text-white/60">
+                <span className="text-red-400">*</span>
+                {msg("requiredFields")}
+              </span>
+            </div>
+          )}
+
           {displayMessage &&
             message !== undefined &&
             (message.type !== "warning" || !isAppInitiatedAction) && (
