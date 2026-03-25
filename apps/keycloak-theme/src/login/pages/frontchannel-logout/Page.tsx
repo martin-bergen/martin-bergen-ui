@@ -15,15 +15,13 @@ export function Page() {
   const [iframeLoadCount, setIframeLoadCount] = useState(0);
 
   useEffect(() => {
-    if (!kcContext.logout.logoutRedirectUri) {
-      return;
-    }
-
     if (iframeLoadCount !== kcContext.logout.clients.length) {
       return;
     }
 
-    window.location.replace(kcContext.logout.logoutRedirectUri);
+    window.location.replace(
+      kcContext.logout.logoutRedirectUri ?? kcContext.url.loginUrl,
+    );
   }, [iframeLoadCount]);
 
   return (
