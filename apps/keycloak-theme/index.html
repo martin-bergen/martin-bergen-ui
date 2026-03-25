@@ -26,8 +26,16 @@
       data-before-send="prefixHostname"
     ></script>
     <script>
-      function prefixHostname(payload) {
-        payload.url = '/' + window.location.hostname + payload.url;
+      window.prefixHostname = function(type, payload) {
+        if (!payload || typeof payload !== 'object') {
+          return payload;
+        }
+        if (typeof payload.url === 'string') {
+          return {
+            ...payload,
+            url: '/' + window.location.hostname + payload.url
+          };
+        }
         return payload;
       }
     </script>
