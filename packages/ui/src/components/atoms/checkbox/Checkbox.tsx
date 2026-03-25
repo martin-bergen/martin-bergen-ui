@@ -1,11 +1,9 @@
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Check } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
-import {
-  Checkbox as CheckboxBase,
-  CheckboxIndicator,
-} from "../../../primitives/checkbox";
+import { Checkbox as CheckboxBase } from "../../../primitives/checkbox";
 import { Typography } from "../typography";
 
 const checkboxVariants = cva(
@@ -14,7 +12,7 @@ const checkboxVariants = cva(
     variants: {
       variant: {
         default:
-          "border border-berget-brand-cloud/20 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
+          "text-foreground border border-berget-brand-cloud/20 bg-berget-brand-cloud/5 hover:bg-berget-brand-cloud/10",
         error:
           "border border-berget-destructive-border bg-berget-destructive text-berget-destructive-foreground hover:bg-berget-destructive/90",
         success:
@@ -43,7 +41,6 @@ export interface CheckboxProps
   label?: string;
   description?: string;
   error?: string;
-  checkedIcon?: React.ReactNode;
   className?: string;
 }
 
@@ -59,7 +56,6 @@ const Checkbox = React.forwardRef<
       label,
       description,
       error,
-      checkedIcon,
       id,
       disabled,
       ...props
@@ -81,35 +77,16 @@ const Checkbox = React.forwardRef<
             aria-describedby={error ? errorId : undefined}
             className={cn(
               checkboxVariants({ variant, size }),
-              error &&
-                "border border-berget-destructive-border bg-berget-destructive text-berget-destructive-foreground",
               "cursor-pointer",
               disabled && "cursor-not-allowed pointer-events-none",
               className,
             )}
             {...props}
           >
-            <CheckboxIndicator>
-              {checkedIcon || (
-                <svg
-                  className={cn(
-                    size === "sm" && "w-3 h-3",
-                    size === "default" && "w-3.5 h-3.5",
-                    size === "lg" && "w-4 h-4",
-                  )}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={
-                    size === "sm" ? 1.2 : size === "default" ? 1.5 : 1.6
-                  }
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              )}
-            </CheckboxIndicator>
+            <Check
+              className="h-4 w-4 text-current stroke-current"
+              style={{ color: "currentColor", stroke: "currentColor" }}
+            />
           </CheckboxBase>
         </div>
 

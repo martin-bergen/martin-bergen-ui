@@ -16,6 +16,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
+      "@berget-ai/ui/styles": resolve(
+        __dirname,
+        "../../packages/ui/dist/styles/index.css",
+      ),
     },
   },
 });
