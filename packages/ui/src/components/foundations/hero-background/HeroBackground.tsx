@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export type MediaType = "image" | "video" | "gradient";
@@ -149,11 +149,14 @@ const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const animationFrameRef = useRef<number>(null);
-    const particleColorValue = useMemo(() => {
+    const [particleColorValue, setParticleColorValue] =
+      useState<string>("hsl(151 44% 52%)"); // Default moss color
+
+    useEffect(() => {
       const root = document.documentElement;
       const varName = `--berget-brand-${particleColor}`;
       const rawValue = getComputedStyle(root).getPropertyValue(varName).trim();
-      return `hsl(${rawValue})`;
+      setParticleColorValue(`hsl(${rawValue})`);
     }, [particleColor]);
 
     const [videoError, setVideoError] = useState(false);
