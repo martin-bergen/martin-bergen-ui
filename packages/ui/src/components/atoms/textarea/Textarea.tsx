@@ -78,12 +78,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="flex flex-col gap-2">
         {label && (
-          <Typography
-            variant="small"
-            as="label"
+          <label
             htmlFor={textareaId}
             className={cn(
-              "leading-none",
+              "text-sm font-sans leading-none",
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
@@ -91,7 +89,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             )}
           >
             {label}
-          </Typography>
+          </label>
         )}
 
         <div className="relative">

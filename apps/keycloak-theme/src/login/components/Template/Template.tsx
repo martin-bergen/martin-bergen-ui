@@ -1,9 +1,6 @@
-import { Languages } from "@/components/langauges";
-import { ModeToggle } from "@/components/theme-toggle";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@berget-ai/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { redirectUrlOrigin } from "@/login/shared/redirectUrlOrigin";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
 import {
@@ -16,7 +13,6 @@ import { useSetClassName } from "keycloakify/tools/useSetClassName";
 import { RotateCcw } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect } from "react";
-import { FiHome } from "react-icons/fi";
 import { useI18n } from "../../i18n";
 import { useKcContext } from "../../KcContext";
 import { useInitializeTemplate } from "./useInitializeTemplate";
@@ -127,19 +123,6 @@ export function Template(props: {
 
   return (
     <div className="berget-auth-container px-4">
-      {/* Navigation */}
-      <div className="fixed top-4 start-4 z-20 flex gap-2">
-        <Button type="button" variant="default" size="icon" asChild>
-          <a href={kcContext.client?.baseUrl ?? redirectUrlOrigin}>
-            <FiHome />
-          </a>
-        </Button>
-
-        {enabledLanguages.length > 1 && <Languages />}
-
-        {kcContext.darkMode !== false && <ModeToggle />}
-      </div>
-
       <Card className="stat-card w-full max-w-2xl mx-auto">
         <CardHeader className="text-center pb-8">
           <div className="flex justify-center mb-6">

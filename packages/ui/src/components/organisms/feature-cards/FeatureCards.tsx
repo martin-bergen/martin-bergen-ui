@@ -153,14 +153,12 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
           )}
 
           {linkText && linkHref && (
-            <Typography
-              variant="body"
-              as="a"
+            <a
               href={linkHref}
-              className="text-berget-accent"
+              className="text-p font-p leading-p text-berget-accent"
             >
               {linkText} →
-            </Typography>
+            </a>
           )}
         </div>
       </Card>

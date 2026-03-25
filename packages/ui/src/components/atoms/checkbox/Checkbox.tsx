@@ -116,12 +116,10 @@ const Checkbox = React.forwardRef<
         {(label || description || error) && (
           <div className="flex flex-col gap-1">
             {label && (
-              <Typography
-                variant="small"
-                as="label"
+              <label
                 htmlFor={checkboxId}
                 className={cn(
-                  "leading-none",
+                  "text-sm font-sans leading-none",
                   disabled
                     ? "text-white/40 cursor-not-allowed"
                     : variant === "error"
@@ -133,7 +131,7 @@ const Checkbox = React.forwardRef<
                 )}
               >
                 {label}
-              </Typography>
+              </label>
             )}
             {description && (
               <Typography variant="xs" color="muted">

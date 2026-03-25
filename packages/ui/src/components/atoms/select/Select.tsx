@@ -90,12 +90,10 @@ const Select = React.forwardRef<
     return (
       <div className="flex flex-col gap-2">
         {label && (
-          <Typography
-            variant="small"
-            as="label"
+          <label
             htmlFor={selectId}
             className={cn(
-              "leading-none",
+              "text-sm font-sans leading-none",
               disabled
                 ? "text-muted-foreground cursor-not-allowed"
                 : "text-foreground",
@@ -103,7 +101,7 @@ const Select = React.forwardRef<
             )}
           >
             {label}
-          </Typography>
+          </label>
         )}
 
         <SelectRoot

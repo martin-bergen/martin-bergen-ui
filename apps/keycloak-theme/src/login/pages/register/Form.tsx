@@ -97,10 +97,13 @@ export function Form() {
         )}
       </div>
 
-      <div className=" flex justify-end">
-        <Button type="button" variant="default">
-          <a href={kcContext.url.loginUrl}>{msg("backToLogin")}</a>
-        </Button>
+      <div className="flex justify-end">
+        <a
+          href={kcContext.url.loginUrl}
+          className="text-sm text-[hsl(var(--berget-brand-cloud))] hover:underline"
+        >
+          {msg("backToLogin")}
+        </a>
       </div>
     </form>
   );
