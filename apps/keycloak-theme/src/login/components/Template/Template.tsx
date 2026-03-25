@@ -177,10 +177,10 @@ export function Template(props: {
 
               if (displayRequiredFields) {
                 return (
-                  <div className="flex items-center justify-between gap-2">
-                    <div>{node}</div>
+                  <div className="flex flex-col items-center gap-2">
+                    {node}
                     <div>
-                      <span className="subtitle">
+                      <span className="subtitle text-sm">
                         <span className="text-red-500">*</span>
                         {msg("requiredFields")}
                       </span>
