@@ -1,4 +1,4 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Typography } from "@berget-ai/ui";
 import {
   Select,
   SelectContent,
@@ -67,9 +67,9 @@ export function Page() {
     <Template headerNode={msg("organization.selectTitle")}>
       <form ref={formRef} action={kcContext.url.loginAction} method="post">
         <div id="kc-user-organizations" className="space-y-2">
-          <h2 className="text-md font-semibold">
+          <Typography variant="h4" as="h2">
             {msg("organization.select")}
-          </h2>
+          </Typography>
           {useSelect ? (
             <div className="space-y-2">
               <Select

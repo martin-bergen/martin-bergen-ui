@@ -1,5 +1,5 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button, Checkbox, Label } from "@berget-ai/ui";
+import { Button, Checkbox, Label, Typography } from "@berget-ai/ui";
 import { LogoutOtherSessions } from "@/login/components/LogoutOtherSessions";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
@@ -26,9 +26,9 @@ export function Page() {
         <Alert variant="warning">
           <AlertDescription>
             <div className="space-y-2">
-              <h4 className="font-medium">
+              <Typography variant="h5" as="h4">
                 {msg("recovery-code-config-warning-title")}
-              </h4>
+              </Typography>
               <p className="text-sm">
                 {msg("recovery-code-config-warning-message")}
               </p>

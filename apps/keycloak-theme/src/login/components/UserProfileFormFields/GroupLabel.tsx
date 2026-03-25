@@ -2,6 +2,7 @@ import { cn } from "@/components/lib/utils";
 import { useI18n } from "@/login/i18n";
 import type { Attribute } from "@keycloakify/login-ui/KcContext";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
+import { Typography } from "@berget-ai/ui";
 import { assert } from "tsafe/assert";
 
 export function GroupLabel(props: {
@@ -43,15 +44,14 @@ export function GroupLabel(props: {
 
             return (
               <div className={cn("", kcClsx("kcContentWrapperClass"))}>
-                <h3
+                <Typography
+                  variant="h4"
+                  as="h3"
                   id={`header-${attribute.group.name}`}
-                  className={cn(
-                    "text-lg font-semibold",
-                    kcClsx("kcFormGroupHeader"),
-                  )}
+                  className={cn(kcClsx("kcFormGroupHeader"))}
                 >
                   {groupHeaderText}
-                </h3>
+                </Typography>
               </div>
             );
           })()}

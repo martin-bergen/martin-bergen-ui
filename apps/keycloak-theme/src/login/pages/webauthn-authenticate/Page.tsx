@@ -1,4 +1,4 @@
-import { Button, Input } from "@berget-ai/ui";
+import { Button, Input, Typography } from "@berget-ai/ui";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
@@ -78,9 +78,9 @@ export function Page() {
             {shouldDisplayAuthenticators && (
               <div className="space-y-4">
                 {authenticators.authenticators.length > 1 && (
-                  <h3 className="text-sm font-medium text-center">
+                  <Typography variant="h4" as="h3" className="text-center">
                     {msg("webauthn-available-authenticators")}
-                  </h3>
+                  </Typography>
                 )}
 
                 <div className="space-y-2">

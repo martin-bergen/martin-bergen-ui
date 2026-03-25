@@ -1,4 +1,4 @@
-import { Checkbox, Label } from "@berget-ai/ui";
+import { Checkbox, Label, Typography } from "@berget-ai/ui";
 import { FieldError } from "@/components/ui/field";
 import { useI18n } from "@/login/i18n";
 import type { KcContext } from "@/login/KcContext";
@@ -17,7 +17,9 @@ export function TermsAcceptance(props: {
   return (
     <div className="space-y-4">
       <div className="p-4 bg-muted/50 rounded-lg space-y-2">
-        <h3 className="font-medium text-sm">{msg("termsTitle")}</h3>
+        <Typography variant="h4" as="h3">
+          {msg("termsTitle")}
+        </Typography>
         <div className="text-sm text-muted-foreground">{msg("termsText")}</div>
       </div>
 

@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, Label } from "@berget-ai/ui";
+import { Button, Checkbox, Input, Label, Typography } from "@berget-ai/ui";
 import { clsx } from "keycloakify/tools/clsx";
 import { useState } from "react";
 
@@ -66,9 +66,9 @@ export function Page() {
             social.providers.length !== 0 && (
               <div id="kc-social-providers" className="space-y-4">
                 <div className="text-center">
-                  <h2 className="text-sm font-medium text-muted-foreground">
+                  <Typography variant="h4" as="h2" color="muted">
                     {msg("identity-provider-login-label")}
-                  </h2>
+                  </Typography>
                 </div>
                 <div
                   className={clsx(

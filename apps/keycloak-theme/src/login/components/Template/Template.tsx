@@ -1,5 +1,5 @@
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button } from "@berget-ai/ui";
+import { Button, Typography } from "@berget-ai/ui";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { kcSanitize } from "@keycloakify/login-ui/kcSanitize";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
@@ -135,9 +135,13 @@ export function Template(props: {
                 auth.showUsername &&
                 !auth.showResetCredentials
               ) ? (
-                <h1 className="text-3xl text-white font-serif mb-2">
+                <Typography
+                  variant="h3"
+                  as="h1"
+                  className="text-white font-serif mb-2"
+                >
                   {headerNode}
-                </h1>
+                </Typography>
               ) : (
                 <div
                   id="kc-username"
