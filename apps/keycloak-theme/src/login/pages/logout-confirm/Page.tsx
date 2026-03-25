@@ -1,4 +1,4 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Link } from "@berget-ai/ui";
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
 import { assert } from "tsafe/assert";
@@ -36,12 +36,7 @@ export function Page() {
 
         {!logoutConfirm.skipLink && client.baseUrl && (
           <div className="flex justify-end">
-            <a
-              href={client.baseUrl}
-              className="text-sm text-primary dark:text-white hover:text-primary/80 underline underline-offset-4"
-            >
-              {msg("backToApplication")}
-            </a>
+            <Link href={client.baseUrl}>{msg("backToApplication")}</Link>
           </div>
         )}
       </div>

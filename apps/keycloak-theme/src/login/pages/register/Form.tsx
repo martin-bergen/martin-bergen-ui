@@ -1,4 +1,4 @@
-import { Button } from "@berget-ai/ui";
+import { Button, Link } from "@berget-ai/ui";
 import { clsx } from "@keycloakify/login-ui/tools/clsx";
 import { useKcClsx } from "@keycloakify/login-ui/useKcClsx";
 import { useLayoutEffect, useState } from "react";
@@ -98,12 +98,7 @@ export function Form() {
       </div>
 
       <div className="flex justify-end">
-        <a
-          href={kcContext.url.loginUrl}
-          className="text-sm text-[hsl(var(--berget-brand-cloud))] hover:underline"
-        >
-          {msg("backToLogin")}
-        </a>
+        <Link href={kcContext.url.loginUrl}>{msg("backToLogin")}</Link>
       </div>
     </form>
   );
