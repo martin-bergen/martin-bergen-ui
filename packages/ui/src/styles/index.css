@@ -199,6 +199,19 @@
     --radius: 0.5rem;
   }
 
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  span {
+    orphans: 2;
+    widows: 2;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

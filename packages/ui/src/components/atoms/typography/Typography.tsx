@@ -6,19 +6,19 @@ const typographyVariants = cva("", {
   variants: {
     variant: {
       // Fluid heading scale — use @theme tokens (clamp-based, 390px → 1440px)
-      h1: "text-h1 font-h1 leading-h1 tracking-h1",
-      h2: "text-h2 font-h2 leading-h2 tracking-h2",
-      h3: "text-h3 font-h3 leading-h3 tracking-h3",
-      h4: "text-h4 font-h4 leading-h4 tracking-h4",
+      h1: "text-h1 font-h1 leading-h1 tracking-h1 text-balance",
+      h2: "text-h2 font-h2 leading-h2 tracking-h2 text-balance",
+      h3: "text-h3 font-h3 leading-h3 tracking-h3 text-balance",
+      h4: "text-h4 font-h4 leading-h4 tracking-h4 text-balance",
       // Static sans-serif sub-heading (no fluid token exists for this size)
-      h5: "text-xl font-sans",
+      h5: "text-xl font-sans text-balance",
       // Body and UI text — use @theme tokens where available
-      large: "text-lg font-sans",
-      body: "text-p font-p leading-p",
-      small: "text-sm font-sans",
-      xs: "text-xs font-sans",
+      large: "text-lg font-sans text-pretty",
+      body: "text-p font-p leading-p text-pretty",
+      small: "text-sm font-sans text-pretty",
+      xs: "text-xs font-sans text-pretty",
       // Monospaced — use @theme token
-      mono: "text-mono font-mono leading-mono",
+      mono: "text-mono font-mono leading-mono text-pretty",
       // Inline code / spec labels
       code: "text-xs font-mono",
     },
