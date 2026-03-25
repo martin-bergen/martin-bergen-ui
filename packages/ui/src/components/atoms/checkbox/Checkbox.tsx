@@ -83,10 +83,12 @@ const Checkbox = React.forwardRef<
             )}
             {...props}
           >
-            <Check
-              className="h-4 w-4 text-current stroke-current"
-              style={{ color: "currentColor", stroke: "currentColor" }}
-            />
+            <CheckboxPrimitive.Indicator>
+              <Check
+                className="h-4 w-4 text-current stroke-current"
+                style={{ color: "currentColor", stroke: "currentColor" }}
+              />
+            </CheckboxPrimitive.Indicator>
           </CheckboxBase>
         </div>
 
