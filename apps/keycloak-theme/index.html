@@ -31,9 +31,10 @@
           return payload;
         }
         if (typeof payload.url === 'string') {
+          const url = new URL(payload.url, window.location.href);
           return {
             ...payload,
-            url: '/' + window.location.hostname + payload.url
+            url: '/' + window.location.hostname + url.pathname
           };
         }
         return payload;
