@@ -3,6 +3,7 @@ import bankidLogo from "./providers/bankid.svg";
 import bitbucketLogo from "./providers/bitbucket.svg";
 import discordLogo from "./providers/discord.svg";
 import facebookLogo from "./providers/facebook.svg";
+import frejaLogo from "./providers/freja.png";
 import githubLogo from "./providers/github.svg";
 import gitlabLogo from "./providers/gitlab.svg";
 import googleLogo from "./providers/google.svg";
@@ -22,6 +23,7 @@ const useProviderLogos: () => Record<string, string> = () => ({
   bitbucket: bitbucketLogo,
   discord: discordLogo,
   facebook: facebookLogo,
+  freja: frejaLogo,
   github: githubLogo,
   gitlab: gitlabLogo,
   google: googleLogo,
