@@ -6,6 +6,8 @@ import { Stack } from "../../atoms/stack";
 import { Divider } from "../../atoms/divider";
 import { Badge } from "../../atoms/badge";
 import { Icon } from "../../atoms/icon";
+import { BergetLogotype } from "../../atoms/berget-logotype";
+import { BergetSymbol } from "../../atoms/berget-symbol";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type SidebarStyleContextValue = {
@@ -60,13 +62,16 @@ const SidebarNavigation = React.forwardRef<
           ref={ref}
           variant={variant}
           padding="none"
-          className={cn(width, "transition-all duration-300", className)}
+          className={cn(
+            width,
+            "transition-all duration-400 ease-out",
+            className,
+          )}
           {...props}
         >
           <Stack
             direction="column"
-            gap={6}
-            align={isMinimized ? "center" : "start"}
+            align={isMinimized ? "center" : "stretch"}
             className="h-full"
           >
             {children}
@@ -81,23 +86,30 @@ SidebarNavigation.displayName = "SidebarNavigation";
 export type SidebarHeaderProps = React.HTMLAttributes<HTMLDivElement>;
 
 const SidebarHeader = React.forwardRef<HTMLDivElement, SidebarHeaderProps>(
-  ({ className, children, ...props }, ref) => {
-    const { isMinimized, collapsible } = useSidebarContext();
+  ({ className, ...props }, ref) => {
+    const { isMinimized, onToggle, collapsible } = useSidebarContext();
 
     return (
       <div
         ref={ref}
         className={cn(
-          "flex items-center py-4",
-          !isMinimized && "justify-between px-6",
+          "flex items-center py-4 mt-6",
+          !isMinimized ? "justify-between px-6" : "justify-end px-4",
           className,
         )}
         {...props}
       >
-        {!isMinimized && (
-          <div className="flex items-center gap-3">{children}</div>
+        {!isMinimized ? (
+          <BergetLogotype variant="white" size={48} />
+        ) : (
+          <div
+            onClick={onToggle}
+            className="cursor-pointer transition-all duration-200 hover:opacity-80"
+          >
+            <BergetSymbol variant="white" size={32} />
+          </div>
         )}
-        {collapsible && <SidebarToggle />}
+        {collapsible && !isMinimized && <SidebarToggle />}
       </div>
     );
   },
@@ -122,7 +134,7 @@ const SidebarFooter = React.forwardRef<HTMLDivElement, SidebarFooterProps>(
     return (
       <div
         ref={ref}
-        className={cn("py-4", !isMinimized && "px-6", className)}
+        className={cn("py-4 mt-6", !isMinimized && "px-6", className)}
         {...props}
       />
     );
@@ -144,7 +156,7 @@ const SidebarListItem = React.forwardRef<HTMLDivElement, SidebarListItemProps>(
       <div
         ref={ref}
         className={cn(
-          "flex items-center px-0 py-5",
+          "flex items-center py-5",
           interactive &&
             "transition-all duration-200 hover:bg-berget-brand-cloud/[0.02] cursor-pointer",
           className,
@@ -152,16 +164,18 @@ const SidebarListItem = React.forwardRef<HTMLDivElement, SidebarListItemProps>(
         {...props}
       >
         {isMinimized ? (
-          icon
+          <div className="w-full flex items-center justify-center">{icon}</div>
         ) : (
-          <div className="flex items-center justify-between flex-1 px-6">
+          <div className="flex items-center justify-between flex-1 w-full px-6">
             <div className="flex items-center gap-4">
               {icon && (
                 <div className="flex-shrink-0 flex items-center justify-center">
                   {icon}
                 </div>
               )}
-              <span>{children}</span>
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+                {children}
+              </span>
             </div>
             {badge && (
               <Badge variant="tag" status="tagActive" className="ml-3">
@@ -186,7 +200,9 @@ const SidebarList = React.forwardRef<HTMLDivElement, SidebarListProps>(
         {childrenArray.map((child, index) => (
           <React.Fragment key={index}>
             {child}
-            {index < childrenArray.length - 1 && <Divider variant="subtle" />}
+            {index < childrenArray.length - 1 && (
+              <Divider variant="subtle" className="w-full" />
+            )}
           </React.Fragment>
         ))}
       </div>
@@ -208,7 +224,7 @@ const SidebarToggle = React.forwardRef<HTMLDivElement, SidebarToggleProps>(
         ref={ref}
         onClick={onToggle}
         className={cn(
-          "flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition-all duration-200 hover:bg-berget-brand-cloud/10",
+          "flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition-all duration-200 hover:bg-berget-brand-cloud/10 mr-4",
           className,
         )}
         {...props}
