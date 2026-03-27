@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from "./Header";
 import { Button } from "../../atoms/button";
+import type { LanguageSelectorOption } from "../../molecules/language-selector";
 import { Home, Star, CreditCard, LogIn } from "lucide-react";
 
 const meta = {
@@ -52,7 +53,7 @@ const defaultLinks = [
   { label: "Pricing", href: "/pricing" },
 ];
 
-const languageOptions = [
+const languageOptions: LanguageSelectorOption[] = [
   { value: "en", label: "English" },
   { value: "sv", label: "Svenska" },
   { value: "de", label: "Deutsch" },
