@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Header } from "./Header";
 import { Button } from "../../atoms/button";
 import type { LanguageSelectorOption } from "../../molecules/language-selector";
-import { Home, Star, CreditCard, LogIn } from "lucide-react";
+import * as React from "react";
 
 const meta = {
   title: "Organisms/Header",
@@ -18,7 +18,7 @@ Responsive header component with logo, navigation links, language selector, logi
 - Sticky header with blur backdrop
 - Full layout on desktop (logo left, nav center, actions right)
 - Hamburger menu with dropdown on mobile
-- Language selector using Select component
+- Language selector using globe icon trigger
 
 **When to Use:**
 - Main site navigation
@@ -47,12 +47,6 @@ Responsive header component with logo, navigation links, language selector, logi
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const defaultLinks = [
-  { label: "Home", href: "/" },
-  { label: "Features", href: "/features" },
-  { label: "Pricing", href: "/pricing" },
-];
-
 const languageOptions: LanguageSelectorOption[] = [
   { value: "en", label: "English" },
   { value: "sv", label: "Svenska" },
@@ -60,162 +54,9 @@ const languageOptions: LanguageSelectorOption[] = [
 ];
 
 /**
- * Default header with all elements
+ * Full header with all elements - shows all features
  */
-export const Default: Story = {
-  args: {
-    links: defaultLinks,
-    languageOptions,
-    currentLanguage: "en",
-    loginButton: (
-      <Button variant="default" size="sm">
-        <LogIn size={16} className="mr-2" />
-        Login
-      </Button>
-    ),
-    ctaButton: (
-      <Button variant="primary" size="sm">
-        Get Started
-      </Button>
-    ),
-  },
-};
-
-/**
- * With icons - navigation links with icons
- */
-export const WithIcons: Story = {
-  args: {
-    links: [
-      { label: "Home", href: "/", icon: Home },
-      { label: "Features", href: "/features", icon: Star },
-      { label: "Pricing", href: "/pricing", icon: CreditCard },
-    ],
-    languageOptions,
-    currentLanguage: "en",
-    loginButton: (
-      <Button variant="default" size="sm">
-        Login
-      </Button>
-    ),
-    ctaButton: (
-      <Button variant="primary" size="sm">
-        Get Started
-      </Button>
-    ),
-  },
-};
-
-/**
- * With active link
- */
-export const WithActiveLink: Story = {
-  args: {
-    links: [
-      { label: "Home", href: "/" },
-      { label: "Features", href: "/features", active: true },
-      { label: "Pricing", href: "/pricing" },
-    ],
-    languageOptions,
-    currentLanguage: "en",
-    loginButton: (
-      <Button variant="default" size="sm">
-        Login
-      </Button>
-    ),
-    ctaButton: (
-      <Button variant="primary" size="sm">
-        Get Started
-      </Button>
-    ),
-  },
-};
-
-/**
- * Without CTA button
- */
-export const WithoutCTA: Story = {
-  args: {
-    links: defaultLinks,
-    languageOptions,
-    currentLanguage: "en",
-    loginButton: (
-      <Button variant="default" size="sm">
-        Login
-      </Button>
-    ),
-    ctaButton: undefined,
-  },
-};
-
-/**
- * Minimal - logo and nav only
- */
-export const Minimal: Story = {
-  args: {
-    links: defaultLinks,
-    languageOptions: [],
-    loginButton: undefined,
-    ctaButton: undefined,
-  },
-};
-
-/**
- * Transparent variant (for hero overlays)
- */
-export const Transparent: Story = {
-  args: {
-    variant: "transparent",
-    links: defaultLinks,
-    languageOptions,
-    currentLanguage: "en",
-    loginButton: (
-      <Button variant="default" size="sm">
-        Login
-      </Button>
-    ),
-    ctaButton: (
-      <Button variant="primary" size="sm">
-        Get Started
-      </Button>
-    ),
-  },
-  parameters: {
-    backgrounds: {
-      default: "dark",
-    },
-  },
-};
-
-/**
- * With Swedish language selected
- */
-export const SwedishLanguage: Story = {
-  args: {
-    links: [
-      { label: "Hem", href: "/" },
-      { label: "Funktioner", href: "/features" },
-      { label: "Priser", href: "/pricing" },
-    ],
-    languageOptions,
-    currentLanguage: "sv",
-    loginButton: (
-      <Button variant="default" size="sm">
-        Logga in
-      </Button>
-    ),
-    ctaButton: (
-      <Button variant="primary" size="sm">
-        Kom igång
-      </Button>
-    ),
-  },
-};
-
-/**
- * With more navigation links
- */
-export const MoreLinks: Story = {
+export const Full: Story = {
   args: {
     links: [
       { label: "Home", href: "/" },
@@ -241,27 +82,7 @@ export const MoreLinks: Story = {
 };
 
 /**
- * Without language selector
- */
-export const WithoutLanguageSelector: Story = {
-  args: {
-    links: defaultLinks,
-    languageOptions: [],
-    loginButton: (
-      <Button variant="default" size="sm">
-        Login
-      </Button>
-    ),
-    ctaButton: (
-      <Button variant="primary" size="sm">
-        Get Started
-      </Button>
-    ),
-  },
-};
-
-/**
- * With custom logo
+ * Custom logo example - shows how to replace the default logotype
  */
 export const CustomLogo: Story = {
   args: {
@@ -273,7 +94,11 @@ export const CustomLogo: Story = {
         <span className="text-berget-foreground font-semibold">Berget</span>
       </div>
     ),
-    links: defaultLinks,
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Features", href: "/features" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     languageOptions,
     currentLanguage: "en",
     loginButton: (
@@ -290,11 +115,15 @@ export const CustomLogo: Story = {
 };
 
 /**
- * Mobile view - narrow viewport
+ * Mobile view - hamburger menu with dropdown
  */
-export const MobileView: Story = {
+export const Mobile: Story = {
   args: {
-    links: defaultLinks,
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Features", href: "/features" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     languageOptions,
     currentLanguage: "en",
     loginButton: (
@@ -316,11 +145,15 @@ export const MobileView: Story = {
 };
 
 /**
- * With language change handler example
+ * Interactive - test different configurations with controls
  */
-export const WithLanguageChange: Story = {
+export const Interactive: Story = {
   args: {
-    links: defaultLinks,
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Features", href: "/features" },
+      { label: "Pricing", href: "/pricing" },
+    ],
     languageOptions,
     currentLanguage: "en",
     loginButton: (
@@ -346,5 +179,3 @@ export const WithLanguageChange: Story = {
     );
   },
 };
-
-import * as React from "react";

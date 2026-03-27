@@ -48,7 +48,7 @@ const languageOptions = [
 ];
 
 /**
- * Default language selector with English selected
+ * Default language selector with multiple languages
  */
 export const Default: Story = {
   args: {
@@ -58,29 +58,22 @@ export const Default: Story = {
 };
 
 /**
- * With Swedish language selected
+ * Minimal - only two language options (common use case)
  */
-export const SwedishSelected: Story = {
+export const Minimal: Story = {
   args: {
-    options: languageOptions,
-    value: "sv",
+    options: [
+      { value: "en", label: "English" },
+      { value: "sv", label: "Svenska" },
+    ],
+    value: "en",
   },
 };
 
 /**
- * With German language selected
+ * Interactive - test different configurations with controls
  */
-export const GermanSelected: Story = {
-  args: {
-    options: languageOptions,
-    value: "de",
-  },
-};
-
-/**
- * With language change handler
- */
-export const WithLanguageChange: Story = {
+export const Interactive: Story = {
   args: {
     options: languageOptions,
     value: "en",
@@ -95,44 +88,5 @@ export const WithLanguageChange: Story = {
         onValueChange={setCurrentLanguage}
       />
     );
-  },
-};
-
-/**
- * With disabled option
- */
-export const WithDisabledOption: Story = {
-  args: {
-    options: [
-      { value: "en", label: "English" },
-      { value: "sv", label: "Svenska" },
-      { value: "de", label: "Deutsch", disabled: true },
-      { value: "fr", label: "Français" },
-    ],
-    value: "en",
-  },
-};
-
-/**
- * Minimal language options
- */
-export const MinimalOptions: Story = {
-  args: {
-    options: [
-      { value: "en", label: "English" },
-      { value: "sv", label: "Svenska" },
-    ],
-    value: "en",
-  },
-};
-
-/**
- * With custom className
- */
-export const WithCustomClass: Story = {
-  args: {
-    options: languageOptions,
-    value: "en",
-    className: "border-berget-brand-moss/30",
   },
 };
