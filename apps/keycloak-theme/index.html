@@ -26,19 +26,19 @@
       data-before-send="prefixHostname"
     ></script>
     <script>
-      window.prefixHostname = function(type, payload) {
-        if (!payload || typeof payload !== 'object') {
+      window.prefixHostname = function (type, payload) {
+        if (!payload || typeof payload !== "object") {
           return payload;
         }
-        if (typeof payload.url === 'string') {
+        if (typeof payload.url === "string") {
           const url = new URL(payload.url, window.location.href);
           return {
             ...payload,
-            url: '/' + window.location.hostname + url.pathname
+            url: "/" + window.location.hostname + url.pathname + url.search,
           };
         }
         return payload;
-      }
+      };
     </script>
   </head>
 
