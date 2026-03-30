@@ -133,32 +133,30 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         {/* Content */}
         <Container size="xl" className="relative z-10 max-w-[95%]">
           <div className="mx-auto text-center">
-            {tagline && (
-              <Badge
-                variant="default"
-                icon={
-                  TaglineIcon ? (
-                    <Icon icon={TaglineIcon} size={16} />
-                  ) : undefined
-                }
-                iconGap={2}
-                className="mb-fluid-md"
-              >
-                {tagline}
-              </Badge>
-            )}
+            <div className="max-w-3xl mx-auto">
+              {tagline && (
+                <Badge
+                  variant="default"
+                  icon={
+                    TaglineIcon ? (
+                      <Icon icon={TaglineIcon} size={16} />
+                    ) : undefined
+                  }
+                  iconGap={2}
+                  className="mb-fluid-md"
+                >
+                  {tagline}
+                </Badge>
+              )}
 
-            <Typography variant="h1" className="mb-fluid-md">
-              {title}
-            </Typography>
+              <Typography variant="h1" className="mb-fluid-md">
+                {title}
+              </Typography>
 
-            <Typography
-              variant="h3"
-              color="muted"
-              className="mb-fluid-lg max-w-[60ch] mx-auto"
-            >
-              {description}
-            </Typography>
+              <Typography variant="h3" color="muted" className="mb-fluid-lg">
+                {description}
+              </Typography>
+            </div>
 
             {actions && (
               <div className="flex flex-wrap gap-fluid-md justify-center">
