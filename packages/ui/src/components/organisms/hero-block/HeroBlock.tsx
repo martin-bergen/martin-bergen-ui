@@ -133,7 +133,7 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
         {/* Content */}
         <Container size="xl" className="relative z-10 max-w-[95%]">
           <div className="mx-auto text-center">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               {tagline && (
                 <Badge
                   variant="default"
