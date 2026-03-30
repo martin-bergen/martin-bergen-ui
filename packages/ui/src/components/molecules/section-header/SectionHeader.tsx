@@ -31,19 +31,23 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
         {...props}
       >
         <div className="flex flex-col items-center gap-fluid-lg">
-          {tagline && (
-            <Badge variant="default" className="text-sm">
-              {tagline}
-            </Badge>
-          )}
+          <div className="max-w-3xl mx-auto flex flex-col items-center gap-fluid-lg">
+            {tagline && (
+              <Badge variant="default" className="text-sm">
+                {tagline}
+              </Badge>
+            )}
 
-          <Typography variant="h2">{title}</Typography>
+            <div className="flex flex-col items-center gap-fluid-sm">
+              <Typography variant="h2">{title}</Typography>
 
-          {description && (
-            <Typography variant={descriptionVariant} color="muted">
-              {description}
-            </Typography>
-          )}
+              {description && (
+                <Typography variant={descriptionVariant} color="muted">
+                  {description}
+                </Typography>
+              )}
+            </div>
+          </div>
 
           {action && <div className="mt-4">{action}</div>}
         </div>
