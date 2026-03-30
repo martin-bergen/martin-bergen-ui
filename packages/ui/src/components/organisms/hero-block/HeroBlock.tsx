@@ -9,7 +9,7 @@ import { Container } from "../../atoms/container";
 import { Typography } from "../../atoms/typography";
 
 const heroBlockVariants = cva(
-  "relative overflow-hidden min-h-[70dvh] flex items-center py-fluid-2xl",
+  "relative overflow-hidden min-h-[40dvh] flex items-center py-fluid-2xl",
   {
     variants: {
       variant: {
