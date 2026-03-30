@@ -17,7 +17,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
       className,
       title,
       description,
-      descriptionVariant = "h3",
+      descriptionVariant = "large",
       tagline,
       action,
       ...props

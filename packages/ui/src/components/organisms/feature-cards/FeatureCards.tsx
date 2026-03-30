@@ -140,7 +140,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
             </div>
           )}
 
-          <Typography variant="h2" className="text-foreground">
+          <Typography variant="h3" className="text-foreground">
             {title}
           </Typography>
 
