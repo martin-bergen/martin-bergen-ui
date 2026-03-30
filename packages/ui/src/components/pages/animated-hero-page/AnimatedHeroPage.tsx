@@ -75,6 +75,7 @@ const AnimatedHeroPage = React.forwardRef<
             <SectionHeader
               title={title}
               description={description}
+              descriptionVariant="h2"
               tagline={tagline}
             />
           </div>

@@ -6,12 +6,24 @@ import { Typography } from "../../atoms/typography";
 export interface SectionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   description?: string;
+  descriptionVariant?: "h2" | "h3" | "h4" | "large" | "body";
   tagline?: string;
   action?: React.ReactNode;
 }
 
 const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
-  ({ className, title, description, tagline, action, ...props }, ref) => {
+  (
+    {
+      className,
+      title,
+      description,
+      descriptionVariant = "h3",
+      tagline,
+      action,
+      ...props
+    },
+    ref,
+  ) => {
     return (
       <div
         ref={ref}
@@ -28,7 +40,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
           <Typography variant="h2">{title}</Typography>
 
           {description && (
-            <Typography variant="h3" color="muted">
+            <Typography variant={descriptionVariant} color="muted">
               {description}
             </Typography>
           )}
