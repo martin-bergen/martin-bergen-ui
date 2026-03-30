@@ -14,7 +14,7 @@ const sectionVariants = cva("relative", {
     },
     background: {
       transparent: "",
-      muted: "bg-muted/30",
+      muted: "bg-white/[0.03]",
     },
   },
   defaultVariants: {

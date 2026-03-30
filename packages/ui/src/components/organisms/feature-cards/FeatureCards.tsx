@@ -2,19 +2,20 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 import { LucideIcon } from "lucide-react";
-import { Card } from "../../atoms/card";
+import { Card, type CardProps } from "../../atoms/card";
 import { FeatureList } from "../../molecules/list";
 import { Typography } from "../../atoms/typography";
 
 const featureCardVariants = cva("", {
   variants: {
     variant: {
-      default: "",
       highlight: "",
+      glass: "",
+      solid: "",
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: "highlight",
   },
 });
 
@@ -92,7 +93,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
   (
     {
       className,
-      variant: _variant,
+      variant = "highlight",
       icon: Icon,
       iconColor,
       title,
@@ -109,7 +110,7 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
     return (
       <Card
         ref={ref}
-        variant="highlight"
+        variant={variant as CardProps["variant"]}
         className={cn("w-full py-fluid-lg px-fluid-md", className)}
         {...props}
       >
