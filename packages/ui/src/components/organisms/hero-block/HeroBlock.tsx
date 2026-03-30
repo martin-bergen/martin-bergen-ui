@@ -152,7 +152,11 @@ const HeroBlock = React.forwardRef<HTMLDivElement, HeroBlockProps>(
               {title}
             </Typography>
 
-            <Typography variant="h3" color="muted" className="mb-fluid-lg">
+            <Typography
+              variant="h3"
+              color="muted"
+              className="mb-fluid-lg max-w-[60ch] mx-auto"
+            >
               {description}
             </Typography>
 
