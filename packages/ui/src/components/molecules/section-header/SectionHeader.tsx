@@ -25,7 +25,7 @@ const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps>(
             </Badge>
           )}
 
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="h2">{title}</Typography>
 
           {description && (
             <Typography variant="h3" color="muted">
