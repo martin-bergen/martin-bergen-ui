@@ -823,3 +823,237 @@ export const ImageBackgroundStory: StoryObj<{
     </ImageBackground>
   ),
 };
+
+export const Parallax: StoryObj<{
+  backgroundType: "video" | "image" | "particle";
+  parallaxSpeed: number;
+  videoSrc: string;
+  videoFallbackImageSrc: string;
+  videoLoading: "eager" | "lazy";
+  imageSrc: string;
+  imagePosition: ImagePosition;
+  imageFit: ImageFit;
+  imageOverlay: OverlayType;
+  particleCount: number;
+  particleColor: ParticleColor;
+  particleOpacity: number;
+  particleSize: number;
+  particleInteractionRadius: number;
+}> = {
+  name: "Parallax",
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    backgroundType: "image",
+    parallaxSpeed: 0.5,
+    videoSrc: "/backgrounds/videos/hero-particles-01.mp4",
+    videoFallbackImageSrc: "/backgrounds/images/hero-abstract-01.png",
+    videoLoading: "eager",
+    imageSrc: "/backgrounds/images/hero-abstract-01.png",
+    imagePosition: "center",
+    imageFit: "cover",
+    imageOverlay: "night",
+    particleCount: 80,
+    particleColor: "moss",
+    particleOpacity: 0.6,
+    particleSize: 2,
+    particleInteractionRadius: 150,
+  },
+  argTypes: {
+    backgroundType: {
+      control: { type: "select" },
+      options: ["video", "image", "particle"],
+      description: "Choose background type with parallax effect",
+    },
+    parallaxSpeed: {
+      control: { type: "range", min: 0.1, max: 1, step: 0.1 },
+      description: "Parallax speed (0.1 = slow, 1.0 = fast)",
+    },
+    videoSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/videos/hero-particles-01.mp4",
+        "/backgrounds/videos/hero-particles-02.mp4",
+      ],
+      description: "Video source",
+      if: { arg: "backgroundType", eq: "video" },
+    },
+    videoFallbackImageSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/images/hero-abstract-01.png",
+        "/backgrounds/images/hero-abstract-02.png",
+        "/backgrounds/images/hero-abstract-03.png",
+      ],
+      description: "Fallback image source",
+      if: { arg: "backgroundType", eq: "video" },
+    },
+    videoLoading: {
+      control: { type: "select" },
+      options: ["eager", "lazy"] as const,
+      description: "Loading strategy",
+      if: { arg: "backgroundType", eq: "video" },
+    },
+    imageSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/images/hero-abstract-01.png",
+        "/backgrounds/images/hero-abstract-02.png",
+        "/backgrounds/images/hero-abstract-03.png",
+        "/backgrounds/images/hero-abstract-04.png",
+        "/backgrounds/images/hero-abstract-05.png",
+        "/backgrounds/images/hero-abstract-06.png",
+      ],
+      description: "Image source",
+      if: { arg: "backgroundType", eq: "image" },
+    },
+    imagePosition: {
+      control: { type: "select" },
+      options: [
+        "center",
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "left-top",
+        "right-top",
+        "left-bottom",
+        "right-bottom",
+      ] as ImagePosition[],
+      description: "Image position",
+      if: { arg: "backgroundType", eq: "image" },
+    },
+    imageFit: {
+      control: { type: "select" },
+      options: ["cover", "contain", "fill"] as ImageFit[],
+      description: "Image fit",
+      if: { arg: "backgroundType", eq: "image" },
+    },
+    imageOverlay: {
+      control: { type: "select" },
+      options: [
+        "none",
+        "night",
+        "moss",
+        "lichen",
+        "spruce",
+        "slate",
+        "cloud",
+        "peak",
+      ] as OverlayType[],
+      description: "Overlay type",
+      if: { arg: "backgroundType", eq: "image" },
+    },
+    particleCount: {
+      control: { type: "range", min: 10, max: 200, step: 1 },
+      description: "Number of particles",
+      if: { arg: "backgroundType", eq: "particle" },
+    },
+    particleColor: {
+      control: { type: "select" },
+      options: [
+        "moss",
+        "lichen",
+        "spruce",
+        "fjord",
+        "cloud",
+      ] as ParticleColor[],
+      description: "Color of particles",
+      if: { arg: "backgroundType", eq: "particle" },
+    },
+    particleOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Opacity of particles (0-1)",
+      if: { arg: "backgroundType", eq: "particle" },
+    },
+    particleSize: {
+      control: { type: "range", min: 1, max: 10, step: 0.5 },
+      description: "Size of particles",
+      if: { arg: "backgroundType", eq: "particle" },
+    },
+    particleInteractionRadius: {
+      control: { type: "range", min: 50, max: 300, step: 10 },
+      description: "Interaction radius for mouse repulsion",
+      if: { arg: "backgroundType", eq: "particle" },
+    },
+  },
+  render: (args) => {
+    const renderContent = () => (
+      <div className="relative z-10 h-full">
+        <section className="min-h-screen flex items-center justify-center">
+          <div className="text-center max-w-2xl px-6 bg-black/30 backdrop-blur-sm p-8 rounded-2xl">
+            <Typography variant="h1" className="mb-4 text-white">
+              Parallax Demo
+            </Typography>
+            <Typography variant="large" color="muted" className="mb-4 block">
+              Background: {args.backgroundType} • Speed: {args.parallaxSpeed}
+            </Typography>
+            <Typography variant="small" color="muted">
+              ↓ Scroll down to see parallax effect ↓
+            </Typography>
+          </div>
+        </section>
+        <section className="min-h-screen flex items-center justify-center">
+          <div className="text-center max-w-2xl px-6 bg-black/30 backdrop-blur-sm p-8 rounded-2xl">
+            <Typography variant="h1" className="mb-4 text-white">
+              Content Section
+            </Typography>
+            <Typography variant="large" color="muted">
+              The background moves at a different speed than the content
+            </Typography>
+            <Typography variant="small" color="muted" className="mt-4 block">
+              ↑ Scroll back up ↑
+            </Typography>
+          </div>
+        </section>
+      </div>
+    );
+
+    switch (args.backgroundType) {
+      case "video":
+        return (
+          <VideoBackground
+            src={args.videoSrc}
+            fallbackImageSrc={args.videoFallbackImageSrc}
+            loading={args.videoLoading}
+            parallax={true}
+            parallaxSpeed={args.parallaxSpeed}
+            className="h-[200vh]"
+          >
+            {renderContent()}
+          </VideoBackground>
+        );
+      case "image":
+        return (
+          <ImageBackground
+            src={args.imageSrc}
+            position={args.imagePosition}
+            fit={args.imageFit}
+            overlay={args.imageOverlay}
+            parallax={true}
+            parallaxSpeed={args.parallaxSpeed}
+            fadeIn={true}
+            className="h-[200vh]"
+          >
+            {renderContent()}
+          </ImageBackground>
+        );
+      case "particle":
+        return (
+          <ParticleBackground
+            particleCount={args.particleCount}
+            particleColor={args.particleColor}
+            particleOpacity={args.particleOpacity}
+            particleSize={args.particleSize}
+            particleInteractionRadius={args.particleInteractionRadius}
+            parallax={true}
+            parallaxSpeed={args.parallaxSpeed}
+            className="h-[200vh]"
+          >
+            {renderContent()}
+          </ParticleBackground>
+        );
+    }
+  },
+};
