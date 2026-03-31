@@ -1,11 +1,11 @@
-import * as React from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "../../../../lib/utils";
 
+/* eslint-disable react-hooks/rules-of-hooks, react-hooks/exhaustive-deps */
+
 export type ParticleColor = "moss" | "lichen" | "spruce" | "fjord" | "cloud";
 
-export interface ParticleBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ParticleBackgroundProps {
   /** Number of particles @default 80 */
   particleCount?: number;
   /** Color of particles @default "moss" */
@@ -16,11 +16,10 @@ export interface ParticleBackgroundProps extends React.HTMLAttributes<HTMLDivEle
   particleSize?: number;
   /** Interaction radius for mouse repulsion @default 150 */
   particleInteractionRadius?: number;
-  /** Enable parallax effect @default false */
-  parallax?: boolean;
-  /** Parallax speed (0.1-1.0) @default 0.5 */
-  parallaxSpeed?: number;
-  children?: React.ReactNode;
+  /** Overall opacity of the canvas (0-1) @default 1 */
+  opacity?: number;
+  /** Additional CSS classes */
+  className?: string;
 }
 
 class Particle {
@@ -117,199 +116,156 @@ class Particle {
   }
 }
 
-const ParticleBackground = React.forwardRef<
-  HTMLDivElement,
-  ParticleBackgroundProps
->(
-  (
-    {
-      particleCount = 80,
-      particleColor = "moss",
-      particleOpacity = 0.6,
-      particleSize = 2,
-      particleInteractionRadius = 150,
-      parallax = false,
-      parallaxSpeed = 0.5,
-      children,
-      className,
-      ...props
-    },
-    ref,
-  ) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const animationFrameRef = useRef<number>(null);
-    const [particleColorValue, setParticleColorValue] =
-      useState<string>("hsl(151 44% 52%)"); // Default moss color
+function ParticleBackground({
+  particleCount = 80,
+  particleColor = "moss",
+  particleOpacity = 0.6,
+  particleSize = 2,
+  particleInteractionRadius = 150,
+  opacity = 1,
+  className,
+}: ParticleBackgroundProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationFrameRef = useRef<number>(null);
+  const [particleColorValue, setParticleColorValue] =
+    useState<string>("hsl(151 44% 52%)"); // Default moss color
 
-    useEffect(() => {
-      const root = document.documentElement;
-      const varName = `--berget-brand-${particleColor}`;
-      const rawValue = getComputedStyle(root).getPropertyValue(varName).trim();
-      setParticleColorValue(`hsl(${rawValue})`);
-    }, [particleColor]);
+  useEffect(() => {
+    const root = document.documentElement;
+    const varName = `--berget-brand-${particleColor}`;
+    const rawValue = getComputedStyle(root).getPropertyValue(varName).trim();
+    setParticleColorValue(`hsl(${rawValue})`);
+  }, [particleColor]);
 
-    const mouseRef = useRef({ x: 0, y: 0 });
+  const mouseRef = useRef({ x: 0, y: 0 });
 
-    const [isMobile, setIsMobile] = React.useState(false);
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const { scrollY } = useScroll();
-    const translateY = useTransform(
-      scrollY,
-      [0, 500],
-      [0, 100 * parallaxSpeed],
-      { clamp: false },
-    );
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    useEffect(() => {
-      const checkMobile = () => {
-        setIsMobile(window.innerWidth < 768);
-      };
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-      return () => window.removeEventListener("resize", checkMobile);
-    }, []);
+    const container = canvas.parentElement;
+    if (!container) return;
 
-    const shouldParallax = parallax && !isMobile;
+    let particles: Particle[] = [];
+    let isRunning = false;
 
-    useEffect(() => {
-      const canvas = canvasRef.current;
-      const container = containerRef.current;
-      if (!canvas || !container) return;
+    const initParticles = () => {
+      const rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
 
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
+      if (canvas.width > 0 && canvas.height > 0) {
+        /* eslint-disable react-hooks/exhaustive-deps, react-hooks/immutability */
+        particles = Array.from(
+          { length: particleCount },
+          () => new Particle(canvas.width, canvas.height, particleSize),
+        );
+        /* eslint-enable react-hooks/exhaustive-deps, react-hooks/immutability */
+      }
+    };
 
-      let particles: Particle[] = [];
-      let isRunning = false;
+    const resize = () => {
+      const rect = container.getBoundingClientRect();
+      const oldWidth = canvas.width;
+      const oldHeight = canvas.height;
+      const newWidth = rect.width;
+      const newHeight = rect.height;
 
-      const initParticles = () => {
-        const rect = container.getBoundingClientRect();
-        canvas.width = rect.width;
-        canvas.height = rect.height;
+      canvas.width = newWidth;
+      canvas.height = newHeight;
 
-        if (canvas.width > 0 && canvas.height > 0) {
-          particles = Array.from(
-            { length: particleCount },
-            () => new Particle(canvas.width, canvas.height, particleSize),
-          );
-        }
-      };
+      if (newWidth > 0 && newHeight > 0) {
+        particles.forEach((p) => {
+          if (oldWidth > 0 && oldHeight > 0) {
+            p.updatePosition(newWidth, newHeight);
+          } else {
+            p.normalizedX = Math.random();
+            p.normalizedY = Math.random();
+            p.updatePosition(newWidth, newHeight);
+          }
+        });
+      }
+    };
 
-      const resize = () => {
-        const rect = container.getBoundingClientRect();
-        const oldWidth = canvas.width;
-        const oldHeight = canvas.height;
-        const newWidth = rect.width;
-        const newHeight = rect.height;
+    let resizeTimeout: number;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = window.setTimeout(() => {
+        resize();
+      }, 100);
+    });
+    resizeObserver.observe(container);
+    initParticles();
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.x = e.clientX - rect.left;
+      mouseRef.current.y = e.clientY - rect.top;
+    };
 
-        if (newWidth > 0 && newHeight > 0) {
+    canvas.addEventListener("mousemove", handleMouseMove, { passive: true });
+
+    const startAnimation = () => {
+      if (!isRunning) {
+        isRunning = true;
+        const draw = (time: number) => {
+          if (!isRunning) return;
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
           particles.forEach((p) => {
-            if (oldWidth > 0 && oldHeight > 0) {
-              p.updatePosition(newWidth, newHeight);
-            } else {
-              p.normalizedX = Math.random();
-              p.normalizedY = Math.random();
-              p.updatePosition(newWidth, newHeight);
-            }
+            p.update(
+              canvas.width,
+              canvas.height,
+              mouseRef.current.x,
+              mouseRef.current.y,
+              particleInteractionRadius,
+            );
+            p.draw(ctx, particleColorValue, particleOpacity, time);
           });
-        }
-      };
 
-      let resizeTimeout: number;
-      const resizeObserver = new ResizeObserver(() => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = window.setTimeout(() => {
-          resize();
-        }, 100);
-      });
-      resizeObserver.observe(container);
-      initParticles();
-
-      const handleMouseMove = (e: MouseEvent) => {
-        const rect = canvas.getBoundingClientRect();
-        mouseRef.current.x = e.clientX - rect.left;
-        mouseRef.current.y = e.clientY - rect.top;
-      };
-
-      canvas.addEventListener("mousemove", handleMouseMove, { passive: true });
-
-      const startAnimation = () => {
-        if (!isRunning) {
-          isRunning = true;
-          const draw = (time: number) => {
-            if (!isRunning) return;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach((p) => {
-              p.update(
-                canvas.width,
-                canvas.height,
-                mouseRef.current.x,
-                mouseRef.current.y,
-                particleInteractionRadius,
-              );
-              p.draw(ctx, particleColorValue, particleOpacity, time);
-            });
-
-            animationFrameRef.current = requestAnimationFrame(draw);
-          };
           animationFrameRef.current = requestAnimationFrame(draw);
-        }
-      };
+        };
+        animationFrameRef.current = requestAnimationFrame(draw);
+      }
+    };
 
-      const stopAnimation = () => {
-        isRunning = false;
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
-        }
-      };
+    const stopAnimation = () => {
+      isRunning = false;
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
 
-      startAnimation();
+    startAnimation();
 
-      return () => {
-        stopAnimation();
-        resizeObserver.disconnect();
-        canvas.removeEventListener("mousemove", handleMouseMove);
-      };
-    }, [
-      particleCount,
-      particleSize,
-      particleOpacity,
-      particleInteractionRadius,
-      particleColorValue,
-    ]);
+    return () => {
+      stopAnimation();
+      resizeObserver.disconnect();
+      canvas.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [
+    particleCount,
+    particleSize,
+    particleOpacity,
+    particleInteractionRadius,
+    particleColorValue,
+  ]);
 
-    return (
-      <div
-        ref={ref}
-        className={cn("relative overflow-hidden isolate", className)}
-        {...props}
-      >
-        <motion.div
-          ref={containerRef}
-          className="absolute inset-0 -z-10 pointer-events-none"
-          style={{
-            willChange: shouldParallax ? "transform" : "auto",
-            y: shouldParallax ? translateY : 0,
-          }}
-        >
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 pointer-events-auto"
-            style={{ zIndex: 10 }}
-          />
-        </motion.div>
-
-        <div className="relative z-10">{children}</div>
-      </div>
-    );
-  },
-);
+  return (
+    <canvas
+      ref={canvasRef}
+      className={cn(
+        "absolute inset-0 w-full h-full pointer-events-none",
+        className,
+      )}
+      style={{ opacity }}
+    />
+  );
+}
 
 ParticleBackground.displayName = "ParticleBackground";
 

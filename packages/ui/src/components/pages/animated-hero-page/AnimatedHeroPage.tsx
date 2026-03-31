@@ -3,6 +3,8 @@ import { cn } from "../../../lib/utils";
 import { SectionHeader } from "../../molecules/section-header";
 import { VideoBackground } from "../../foundations/backgrounds/video-background";
 import { GradientBackground } from "../../foundations/backgrounds/gradient-background";
+import { ParticleBackground } from "../../foundations/backgrounds/particle-background";
+import type { ParticleColor } from "../../foundations/backgrounds/particle-background";
 
 export type AnimatedHeroPageProps = React.HTMLAttributes<HTMLDivElement> & {
   mediaType?: "video" | "gradient";
@@ -20,6 +22,13 @@ export type AnimatedHeroPageProps = React.HTMLAttributes<HTMLDivElement> & {
   showOverlay?: boolean;
   overlayColor?: string;
   overlayOpacity?: number;
+  showParticles?: boolean;
+  particleCount?: number;
+  particleColor?: ParticleColor;
+  particleOpacity?: number;
+  particleSize?: number;
+  particleInteractionRadius?: number;
+  particleOverlayOpacity?: number;
   tagline?: string;
   title?: string;
   description?: string;
@@ -38,6 +47,13 @@ const AnimatedHeroPage = React.forwardRef<
       showOverlay = true,
       overlayColor = "hsl(204 67% 21%)",
       overlayOpacity = 0.4,
+      showParticles = false,
+      particleCount = 80,
+      particleColor = "cloud",
+      particleOpacity = 0.6,
+      particleSize = 2,
+      particleInteractionRadius = 150,
+      particleOverlayOpacity = 1,
       tagline = "Welcome to the Future",
       title = "Animated Hero Experience",
       description = "A beautiful hero section with video background",
@@ -63,6 +79,16 @@ const AnimatedHeroPage = React.forwardRef<
                 }}
               />
             )}
+            {showParticles && (
+              <ParticleBackground
+                particleCount={particleCount}
+                particleColor={particleColor}
+                particleOpacity={particleOpacity}
+                particleSize={particleSize}
+                particleInteractionRadius={particleInteractionRadius}
+                opacity={particleOverlayOpacity}
+              />
+            )}
             <div className="min-h-screen flex items-center justify-center">
               <SectionHeader
                 title={title}
@@ -84,6 +110,16 @@ const AnimatedHeroPage = React.forwardRef<
                   backgroundColor: overlayColor,
                   opacity: overlayOpacity,
                 }}
+              />
+            )}
+            {showParticles && (
+              <ParticleBackground
+                particleCount={particleCount}
+                particleColor={particleColor}
+                particleOpacity={particleOpacity}
+                particleSize={particleSize}
+                particleInteractionRadius={particleInteractionRadius}
+                opacity={particleOverlayOpacity}
               />
             )}
             <div className="min-h-screen flex items-center justify-center">

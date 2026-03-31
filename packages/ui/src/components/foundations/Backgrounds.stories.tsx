@@ -520,8 +520,7 @@ export const ParticleBackgroundStory: StoryObj<{
   particleOpacity: number;
   particleSize: number;
   particleInteractionRadius: number;
-  parallax: boolean;
-  parallaxSpeed: number;
+  opacity: number;
 }> = {
   name: "Particle Background",
   args: {
@@ -530,8 +529,7 @@ export const ParticleBackgroundStory: StoryObj<{
     particleOpacity: 0.6,
     particleSize: 2,
     particleInteractionRadius: 150,
-    parallax: false,
-    parallaxSpeed: 0.5,
+    opacity: 1,
   },
   argTypes: {
     particleCount: {
@@ -561,43 +559,35 @@ export const ParticleBackgroundStory: StoryObj<{
       control: { type: "range", min: 50, max: 300, step: 10 },
       description: "Interaction radius for mouse repulsion",
     },
-    parallax: {
-      control: { type: "boolean" },
-      description: "Enable parallax effect",
-    },
-    parallaxSpeed: {
-      control: { type: "range", min: 0.1, max: 1, step: 0.1 },
-      description: "Parallax speed (0.1-1.0)",
-      if: { arg: "parallax", eq: true },
+    opacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Overall opacity of the overlay (0-1)",
     },
   },
   render: (args) => (
-    <ParticleBackground
-      particleCount={args.particleCount}
-      particleColor={args.particleColor}
-      particleOpacity={args.particleOpacity}
-      particleSize={args.particleSize}
-      particleInteractionRadius={args.particleInteractionRadius}
-      parallax={args.parallax}
-      parallaxSpeed={args.parallaxSpeed}
-      className="min-h-screen flex items-center justify-center"
-    >
-      <div className="text-center max-w-2xl px-6">
+    <div className="relative min-h-screen bg-berget-brand-night flex items-center justify-center">
+      <ParticleBackground
+        particleCount={args.particleCount}
+        particleColor={args.particleColor}
+        particleOpacity={args.particleOpacity}
+        particleSize={args.particleSize}
+        particleInteractionRadius={args.particleInteractionRadius}
+        opacity={args.opacity}
+      />
+      <div className="text-center max-w-2xl px-6 relative z-10">
         <Typography variant="h1" className="mb-4 text-white">
           Particle Background
         </Typography>
         <Typography variant="large" color="muted" className="mb-4 block">
-          Interactive particle system with mouse repulsion and parallax effect.
+          Interactive particle overlay with mouse repulsion effect.
         </Typography>
         <Typography variant="small" color="muted" className="block">
           Particles: {args.particleCount} • Color: {args.particleColor} •
           Interaction: {args.particleInteractionRadius}px
-          {args.parallax &&
-            ` • Parallax: ${args.parallax ? "Enabled" : "Disabled"}`}
         </Typography>
         <Button className="mt-6">Explore</Button>
       </div>
-    </ParticleBackground>
+    </div>
   ),
 };
 
@@ -825,7 +815,7 @@ export const ImageBackgroundStory: StoryObj<{
 };
 
 export const Parallax: StoryObj<{
-  backgroundType: "video" | "image" | "particle";
+  backgroundType: "video" | "image";
   parallaxSpeed: number;
   videoSrc: string;
   videoFallbackImageSrc: string;
@@ -834,11 +824,6 @@ export const Parallax: StoryObj<{
   imagePosition: ImagePosition;
   imageFit: ImageFit;
   imageOverlay: OverlayType;
-  particleCount: number;
-  particleColor: ParticleColor;
-  particleOpacity: number;
-  particleSize: number;
-  particleInteractionRadius: number;
 }> = {
   name: "Parallax",
   parameters: {
@@ -854,16 +839,11 @@ export const Parallax: StoryObj<{
     imagePosition: "center",
     imageFit: "cover",
     imageOverlay: "night",
-    particleCount: 80,
-    particleColor: "moss",
-    particleOpacity: 0.6,
-    particleSize: 2,
-    particleInteractionRadius: 150,
   },
   argTypes: {
     backgroundType: {
       control: { type: "select" },
-      options: ["video", "image", "particle"],
+      options: ["video", "image"],
       description: "Choose background type with parallax effect",
     },
     parallaxSpeed: {
@@ -945,38 +925,6 @@ export const Parallax: StoryObj<{
       description: "Overlay type",
       if: { arg: "backgroundType", eq: "image" },
     },
-    particleCount: {
-      control: { type: "range", min: 10, max: 200, step: 1 },
-      description: "Number of particles",
-      if: { arg: "backgroundType", eq: "particle" },
-    },
-    particleColor: {
-      control: { type: "select" },
-      options: [
-        "moss",
-        "lichen",
-        "spruce",
-        "fjord",
-        "cloud",
-      ] as ParticleColor[],
-      description: "Color of particles",
-      if: { arg: "backgroundType", eq: "particle" },
-    },
-    particleOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-      description: "Opacity of particles (0-1)",
-      if: { arg: "backgroundType", eq: "particle" },
-    },
-    particleSize: {
-      control: { type: "range", min: 1, max: 10, step: 0.5 },
-      description: "Size of particles",
-      if: { arg: "backgroundType", eq: "particle" },
-    },
-    particleInteractionRadius: {
-      control: { type: "range", min: 50, max: 300, step: 10 },
-      description: "Interaction radius for mouse repulsion",
-      if: { arg: "backgroundType", eq: "particle" },
-    },
   },
   render: (args) => {
     const renderContent = () => (
@@ -1039,21 +987,192 @@ export const Parallax: StoryObj<{
             {renderContent()}
           </ImageBackground>
         );
-      case "particle":
-        return (
-          <ParticleBackground
-            particleCount={args.particleCount}
-            particleColor={args.particleColor}
-            particleOpacity={args.particleOpacity}
-            particleSize={args.particleSize}
-            particleInteractionRadius={args.particleInteractionRadius}
-            parallax={true}
-            parallaxSpeed={args.parallaxSpeed}
-            className="h-[200vh]"
-          >
-            {renderContent()}
-          </ParticleBackground>
-        );
     }
   },
 };
+
+export const CombinedBackgrounds: StoryObj<{
+  baseBackground: "gradient" | "video" | "image";
+  gradientVariant: GradientBackgroundVariant;
+  videoSrc: string;
+  videoFallbackImageSrc: string;
+  imageSrc: string;
+  imageOverlay: OverlayType;
+  particleCount: number;
+  particleColor: ParticleColor;
+  particleOpacity: number;
+  particleSize: number;
+  particleInteractionRadius: number;
+  particleOverlayOpacity: number;
+}> = {
+  name: "Combined Backgrounds",
+  parameters: {
+    layout: "fullscreen",
+  },
+  args: {
+    baseBackground: "gradient",
+    gradientVariant: "spruce-fjord",
+    videoSrc: "/backgrounds/videos/hero-particles-01.mp4",
+    videoFallbackImageSrc: "/backgrounds/images/hero-abstract-01.png",
+    imageSrc: "/backgrounds/images/hero-abstract-01.png",
+    imageOverlay: "night",
+    particleCount: 80,
+    particleColor: "cloud",
+    particleOpacity: 0.6,
+    particleSize: 2,
+    particleInteractionRadius: 150,
+    particleOverlayOpacity: 1,
+  },
+  argTypes: {
+    baseBackground: {
+      control: { type: "select" },
+      options: ["gradient", "video", "image"],
+      description: "Choose base background",
+    },
+    gradientVariant: {
+      control: { type: "select" },
+      options: [
+        "fjord-slate",
+        "slate-night",
+        "spruce-fjord",
+        "spruce-slate",
+        "spruce-night",
+        "moss-lichen",
+        "moss-spruce",
+        "lichen-cloud",
+      ],
+      description: "Gradient variant",
+      if: { arg: "baseBackground", eq: "gradient" },
+    },
+    videoSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/videos/hero-particles-01.mp4",
+        "/backgrounds/videos/hero-particles-02.mp4",
+      ],
+      description: "Video source",
+      if: { arg: "baseBackground", eq: "video" },
+    },
+    videoFallbackImageSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/images/hero-abstract-01.png",
+        "/backgrounds/images/hero-abstract-02.png",
+        "/backgrounds/images/hero-abstract-03.png",
+      ],
+      description: "Fallback image source",
+      if: { arg: "baseBackground", eq: "video" },
+    },
+    imageSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/images/hero-abstract-01.png",
+        "/backgrounds/images/hero-abstract-02.png",
+        "/backgrounds/images/hero-abstract-03.png",
+        "/backgrounds/images/hero-abstract-04.png",
+        "/backgrounds/images/hero-abstract-05.png",
+        "/backgrounds/images/hero-abstract-06.png",
+      ],
+      description: "Image source",
+      if: { arg: "baseBackground", eq: "image" },
+    },
+    imageOverlay: {
+      control: { type: "select" },
+      options: [
+        "none",
+        "night",
+        "moss",
+        "lichen",
+        "spruce",
+        "slate",
+        "cloud",
+        "peak",
+      ] as OverlayType[],
+      description: "Image overlay type",
+      if: { arg: "baseBackground", eq: "image" },
+    },
+    particleCount: {
+      control: { type: "range", min: 10, max: 200, step: 1 },
+      description: "Number of particles",
+    },
+    particleColor: {
+      control: { type: "select" },
+      options: [
+        "moss",
+        "lichen",
+        "spruce",
+        "fjord",
+        "cloud",
+      ] as ParticleColor[],
+      description: "Color of particles",
+    },
+    particleOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Opacity of particles (0-1)",
+    },
+    particleSize: {
+      control: { type: "range", min: 1, max: 10, step: 0.5 },
+      description: "Size of particles",
+    },
+    particleInteractionRadius: {
+      control: { type: "range", min: 50, max: 300, step: 10 },
+      description: "Interaction radius for mouse repulsion",
+    },
+    particleOverlayOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Overall opacity of particle overlay (0-1)",
+    },
+  },
+  render: (args) => {
+    const renderBaseBackground = () => {
+      switch (args.baseBackground) {
+        case "gradient":
+          return (
+            <GradientBackground variant={args.gradientVariant} />
+          );
+        case "video":
+          return (
+            <VideoBackground
+              src={args.videoSrc}
+              fallbackImageSrc={args.videoFallbackImageSrc}
+            />
+          );
+        case "image":
+          return (
+            <ImageBackground
+              src={args.imageSrc}
+              overlay={args.imageOverlay}
+              fadeIn={true}
+            />
+          );
+      }
+    };
+
+    return (
+      <div className="relative min-h-screen flex items-center justify-center">
+        {renderBaseBackground()}
+        <ParticleBackground
+          particleCount={args.particleCount}
+          particleColor={args.particleColor}
+          particleOpacity={args.particleOpacity}
+          particleSize={args.particleSize}
+          particleInteractionRadius={args.particleInteractionRadius}
+          opacity={args.particleOverlayOpacity}
+        />
+        <div className="relative z-10 text-center max-w-2xl px-6">
+          <Typography variant="h1" className="mb-4 text-white">
+            Combined Backgrounds
+          </Typography>
+          <Typography variant="large" color="muted" className="mb-4 block">
+            Base: {args.baseBackground} + (args.baseBackground === "gradient" ? ` (${args.gradientVariant})` : "") • Particles: {args.particleColor}
+          </Typography>
+          <Typography variant="small" color="muted">
+            Move your mouse to interact with particles
+          </Typography>
+          <Button className="mt-6">Explore</Button>
+        </div>
+      </div>
+    );
+  },
+};
+
