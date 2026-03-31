@@ -212,7 +212,7 @@ const GrainyBackground = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "relative overflow-hidden bg-berget-brand-night",
+          "relative overflow-hidden bg-berget-brand-night isolate",
           className,
         )}
         {...props}

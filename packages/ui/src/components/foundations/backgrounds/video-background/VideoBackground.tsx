@@ -52,7 +52,7 @@ const VideoBackground = React.forwardRef<HTMLDivElement, VideoBackgroundProps>(
     return (
       <div
         ref={ref}
-        className={cn("relative overflow-hidden", className)}
+        className={cn("relative overflow-hidden isolate", className)}
         {...props}
       >
         <motion.div

@@ -44,7 +44,10 @@ const GradientBackground = React.forwardRef<
     return (
       <div
         ref={ref}
-        className={cn("relative min-h-screen overflow-hidden", className)}
+        className={cn(
+          "relative min-h-screen overflow-hidden isolate",
+          className,
+        )}
         {...props}
       >
         <div
