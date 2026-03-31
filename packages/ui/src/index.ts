@@ -91,18 +91,18 @@ export type {
   SidebarToggleProps,
 } from "./components/molecules/sidebar-navigation";
 
-export { GradientBackground } from "./components/foundations/gradient-background";
+export { GradientBackground } from "./components/foundations/backgrounds/gradient-background";
 export type {
   GradientBackgroundProps,
   GradientBackgroundVariant,
-} from "./components/foundations/gradient-background";
+} from "./components/foundations/backgrounds/gradient-background";
 
-export { GrainyGradientBackground } from "./components/foundations/grainy-gradient-background";
+export { GrainyBackground } from "./components/foundations/backgrounds/grainy-background";
 export type {
-  GrainyGradientBackgroundProps,
+  GrainyBackgroundProps,
   EllipseConfig,
   EllipseColor,
-} from "./components/foundations/grainy-gradient-background";
+} from "./components/foundations/backgrounds/grainy-background";
 
 export { Input } from "./components/atoms/input";
 export type { InputProps } from "./components/atoms/input";
@@ -112,21 +112,40 @@ export { Label } from "./components/atoms/label";
 export { Link, linkVariants } from "./components/atoms/link";
 export type { LinkProps } from "./components/atoms/link";
 
-export { NetworkBackground } from "./components/foundations/network-background";
-export type { NetworkBackgroundProps } from "./components/foundations/network-background";
+export { NetworkBackground } from "./components/foundations/backgrounds/network-background";
+export type { NetworkBackgroundProps } from "./components/foundations/backgrounds/network-background";
 
-export { HeroBackground } from "./components/foundations/hero-background";
+export { ParticleBackground } from "./components/foundations/backgrounds/particle-background";
 export type {
-  HeroBackgroundProps,
-  MediaType,
+  ParticleBackgroundProps,
   ParticleColor,
-} from "./components/foundations/hero-background";
+} from "./components/foundations/backgrounds/particle-background";
+
+export { VideoBackground } from "./components/foundations/backgrounds/video-background";
+export type { VideoBackgroundProps } from "./components/foundations/backgrounds/video-background";
+
+export { ImageBackground } from "./components/foundations/backgrounds/image-background";
+export type {
+  ImageBackgroundProps,
+  ImagePosition,
+  ImageFit,
+  OverlayType,
+} from "./components/foundations/backgrounds/image-background";
+
+export { GridBackground } from "./components/foundations/backgrounds/grid-background";
+export type {
+  GridBackgroundProps,
+  GridSize,
+} from "./components/foundations/backgrounds/grid-background";
 
 export { Panel, panelVariants } from "./components/atoms/panel";
 export type { PanelProps } from "./components/atoms/panel";
 
-export { PatternBackground } from "./components/foundations/pattern-background";
-export type { PatternBackgroundProps } from "./components/foundations/pattern-background";
+export { PatternBackground } from "./components/foundations/backgrounds/grid-background";
+export type {
+  PatternBackgroundProps,
+  PatternSize,
+} from "./components/foundations/backgrounds/grid-background";
 
 export { Section, sectionVariants } from "./components/atoms/section";
 export type { SectionProps } from "./components/atoms/section";

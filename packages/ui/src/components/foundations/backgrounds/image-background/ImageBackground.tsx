@@ -17,105 +17,53 @@ export type ImageFit = "cover" | "contain" | "fill";
 
 export type OverlayType =
   | "none"
-  | "dark"
-  | "light"
+  | "night"
   | "moss"
   | "lichen"
   | "spruce"
   | "slate"
-  | "night";
+  | "cloud"
+  | "peak";
 
-export interface ImageBackgroundProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface ImageBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string;
   alt?: string;
-
   position?: ImagePosition;
   fit?: ImageFit;
-
   overlay?: OverlayType;
   overlayOpacity?: number;
-
   imageOpacity?: number;
-
   loading?: "eager" | "lazy";
-
   parallax?: boolean;
   parallaxSpeed?: number;
-
-  srcSet?: string;
-  sizes?: string;
-
   fadeIn?: boolean;
   fadeInDuration?: number;
-
   children?: React.ReactNode;
 }
 
-const positionMap: Record<ImagePosition, string> = {
-  center: "center",
-  top: "center top",
-  bottom: "center bottom",
-  left: "left center",
-  right: "right center",
-  "left-top": "left top",
-  "right-top": "right top",
-  "left-bottom": "left bottom",
-  "right-bottom": "right bottom",
-};
-
-const overlayColorMap: Record<OverlayType, string> = {
-  none: "",
-  dark: "hsl(var(--berget-brand-night))",
-  light: "hsl(var(--berget-brand-peak))",
-  moss: "hsl(var(--berget-brand-moss))",
-  lichen: "hsl(var(--berget-brand-lichen))",
-  spruce: "hsl(var(--berget-brand-spruce))",
-  slate: "hsl(var(--berget-brand-slate))",
-  night: "hsl(var(--berget-brand-night))",
-};
-
-const overlayOpacityDefaults: Record<OverlayType, number> = {
-  none: 0,
-  dark: 0.5,
-  light: 0.3,
-  moss: 0.4,
-  lichen: 0.3,
-  spruce: 0.4,
-  slate: 0.5,
-  night: 0.7,
-};
-
-const ImageBackground = React.forwardRef<
-  HTMLDivElement,
-  ImageBackgroundProps
->(
+const ImageBackground = React.forwardRef<HTMLDivElement, ImageBackgroundProps>(
   (
     {
       src,
       alt = "",
       position = "center",
       fit = "cover",
-      overlay = "none",
-      overlayOpacity,
+      overlay = "night",
+      overlayOpacity = 0.04,
       imageOpacity = 1,
       loading = "lazy",
-      parallax = false,
+      parallax = true,
       parallaxSpeed = 0.5,
-      srcSet,
-      sizes,
       fadeIn = true,
       fadeInDuration = 600,
-      className,
       children,
+      className,
       ...props
     },
     ref,
   ) => {
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [isMobile, setIsMobile] = React.useState(false);
-
-    const containerRef = React.useRef<HTMLDivElement>(null);
 
     const { scrollY } = useScroll();
     const translateY = useTransform(
@@ -138,6 +86,29 @@ const ImageBackground = React.forwardRef<
 
     const shouldParallax = parallax && !isMobile;
 
+    const positionMap: Record<ImagePosition, string> = {
+      center: "center",
+      top: "center top",
+      bottom: "center bottom",
+      left: "left center",
+      right: "right center",
+      "left-top": "left top",
+      "right-top": "right top",
+      "left-bottom": "left bottom",
+      "right-bottom": "right bottom",
+    };
+
+    const overlayColorMap: Record<OverlayType, string> = {
+      none: "",
+      night: "hsl(var(--berget-brand-night))",
+      moss: "hsl(var(--berget-brand-moss))",
+      lichen: "hsl(var(--berget-brand-lichen))",
+      spruce: "hsl(var(--berget-brand-spruce))",
+      slate: "hsl(var(--berget-brand-slate))",
+      cloud: "hsl(var(--berget-brand-cloud))",
+      peak: "hsl(var(--berget-brand-peak))",
+    };
+
     return (
       <div
         ref={ref}
@@ -145,7 +116,6 @@ const ImageBackground = React.forwardRef<
         {...props}
       >
         <motion.div
-          ref={containerRef}
           className="absolute inset-0 -z-10 pointer-events-none"
           style={{
             willChange: shouldParallax ? "transform" : "auto",
@@ -167,10 +137,10 @@ const ImageBackground = React.forwardRef<
               opacity: imageOpacity,
             }}
             loading={loading}
-            srcSet={srcSet}
-            sizes={sizes}
             initial={fadeIn ? { opacity: 0 } : undefined}
-            animate={fadeIn ? { opacity: isLoaded ? imageOpacity : 0 } : undefined}
+            animate={
+              fadeIn ? { opacity: isLoaded ? imageOpacity : 0 } : undefined
+            }
             transition={{
               duration: fadeInDuration / 1000,
               ease: "easeOut",
@@ -184,7 +154,7 @@ const ImageBackground = React.forwardRef<
             className="absolute inset-0 -z-10 pointer-events-none"
             style={{
               background: overlayColorMap[overlay],
-              opacity: overlayOpacity ?? overlayOpacityDefaults[overlay],
+              opacity: overlayOpacity,
             }}
           />
         )}

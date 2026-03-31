@@ -1,13 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "../atoms/button";
 import { Typography } from "../atoms/typography";
 import { GradientBackground } from "./backgrounds/gradient-background";
 import type { GradientBackgroundVariant } from "./backgrounds/gradient-background";
 import { NetworkBackground } from "./backgrounds/network-background";
-import { GrainyGradientBackground } from "./backgrounds/grainy-gradient-background";
-import type { EllipseConfig, EllipseColor } from "./backgrounds/grainy-gradient-background";
-import { PatternBackground } from "./backgrounds/pattern-background";
-import { Button } from "../atoms/button";
+import { GrainyBackground } from "./backgrounds/grainy-background";
+import type {
+  EllipseConfig,
+  EllipseColor,
+} from "./backgrounds/grainy-background";
+import { GridBackground } from "./backgrounds/grid-background";
+import { ParticleBackground } from "./backgrounds/particle-background";
+import type { ParticleColor } from "./backgrounds/particle-background";
+import { VideoBackground } from "./backgrounds/video-background";
+import { ImageBackground } from "./backgrounds/image-background";
+import type {
+  ImagePosition,
+  ImageFit,
+  OverlayType,
+} from "./backgrounds/image-background";
 
 const gradientOptions: GradientBackgroundVariant[] = [
   "fjord-slate",
@@ -27,7 +39,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "Background components for the Berget Design System: Gradient (8 linear variants), Pattern, Network, and Grainy Gradient.",
+          "Background components for the Berget Design System: Gradient, Grid, Network, Grainy, Particle, Video, and Image backgrounds.",
       },
     },
   },
@@ -38,10 +50,12 @@ export default meta;
 
 export const GradientBackgroundDemo: StoryObj<{
   variant?: GradientBackgroundVariant;
+  rotation?: number;
 }> = {
   name: "Gradient Background",
   args: {
     variant: "fjord-slate",
+    rotation: 0,
   },
   argTypes: {
     variant: {
@@ -49,10 +63,15 @@ export const GradientBackgroundDemo: StoryObj<{
       options: gradientOptions,
       description: "Gradient variant to display",
     },
+    rotation: {
+      control: { type: "range", min: 0, max: 360, step: 1 },
+      description: "Gradient rotation (0-360 degrees)",
+    },
   },
   render: (args) => (
     <GradientBackground
       variant={args.variant}
+      rotation={args.rotation}
       className="min-h-screen flex items-center justify-center"
     >
       <div className="text-center max-w-2xl px-6">
@@ -62,27 +81,30 @@ export const GradientBackgroundDemo: StoryObj<{
         <Typography variant="large" color="muted">
           Variant: {args.variant}
         </Typography>
+        <Typography variant="small" color="muted" className="mb-8 block">
+          Rotation: {args.rotation}°
+        </Typography>
       </div>
     </GradientBackground>
   ),
 };
 
-export const GridPattern: StoryObj<{
+export const GridBackgroundStory: StoryObj<{
   size: "sm" | "md" | "lg";
   lineOpacity: number;
   dotOpacity: number;
 }> = {
-  name: "Grid Pattern",
+  name: "Grid Background",
   args: {
-    size: "lg",
-    lineOpacity: 0.1,
-    dotOpacity: 0.1,
+    size: "md",
+    lineOpacity: 0.04,
+    dotOpacity: 0.04,
   },
   argTypes: {
     size: {
       control: { type: "select" },
       options: ["sm", "md", "lg"],
-      description: "Pattern tile size",
+      description: "Grid tile size",
     },
     lineOpacity: {
       control: { type: "range", min: 0, max: 1, step: 0.01 },
@@ -94,7 +116,7 @@ export const GridPattern: StoryObj<{
     },
   },
   render: (args) => (
-    <PatternBackground
+    <GridBackground
       size={args.size}
       lineOpacity={args.lineOpacity}
       dotOpacity={args.dotOpacity}
@@ -102,7 +124,7 @@ export const GridPattern: StoryObj<{
     >
       <div className="text-center max-w-2xl px-6">
         <Typography variant="h1" className="mb-4 text-white">
-          Grid Pattern
+          Grid Background
         </Typography>
         <Typography variant="large" color="muted" className="mb-4 block">
           Grid pattern with small dots in corners.
@@ -114,12 +136,12 @@ export const GridPattern: StoryObj<{
         </Typography>
         <Button>View Details</Button>
       </div>
-    </PatternBackground>
+    </GridBackground>
   ),
 };
 
-export const NetworkAnimated: StoryObj = {
-  name: "Network — Animated",
+export const NetworkBackgroundStory: StoryObj = {
+  name: "Network Background",
   parameters: { controls: { hide: true } },
   render: () => (
     <div className="relative min-h-screen bg-background flex items-center justify-center">
@@ -137,7 +159,7 @@ export const NetworkAnimated: StoryObj = {
   ),
 };
 
-export const GrainyGradient: StoryObj<{
+export const GrainyBackgroundStory: StoryObj<{
   blur: number;
   grain: number;
   motionEnabled: boolean;
@@ -172,41 +194,41 @@ export const GrainyGradient: StoryObj<{
   ellipse5SizeX: number;
   ellipse5SizeY: number;
 }> = {
-  name: "Grainy Gradient",
+  name: "Grainy Background",
   args: {
-    blur: 130,
-    grain: 0.1,
+    blur: 99,
+    grain: 0.11,
     motionEnabled: true,
     ellipse1Color: "berget-brand-moss",
-    ellipse1Left: 60,
-    ellipse1Top: 45,
-    ellipse1Rotation: 0,
-    ellipse1SizeX: 25,
-    ellipse1SizeY: 25,
-    ellipse2Color: "berget-brand-moss",
-    ellipse2Left: -3,
+    ellipse1Left: 49,
+    ellipse1Top: 7,
+    ellipse1Rotation: 4,
+    ellipse1SizeX: 70,
+    ellipse1SizeY: 85,
+    ellipse2Color: "berget-brand-spruce",
+    ellipse2Left: 14,
     ellipse2Top: 10,
-    ellipse2Rotation: 45,
-    ellipse2SizeX: 25,
-    ellipse2SizeY: 25,
-    ellipse3Color: "berget-brand-lichen",
-    ellipse3Left: 35,
-    ellipse3Top: -32,
-    ellipse3Rotation: 90,
-    ellipse3SizeX: 25,
-    ellipse3SizeY: 25,
+    ellipse2Rotation: 0,
+    ellipse2SizeX: 68,
+    ellipse2SizeY: 73,
+    ellipse3Color: "berget-brand-fjord",
+    ellipse3Left: 20,
+    ellipse3Top: 73,
+    ellipse3Rotation: 11,
+    ellipse3SizeX: 60,
+    ellipse3SizeY: 68,
     ellipse4Color: "berget-brand-spruce",
-    ellipse4Left: -23,
-    ellipse4Top: -21,
-    ellipse4Rotation: 135,
-    ellipse4SizeX: 25,
-    ellipse4SizeY: 25,
-    ellipse5Color: "berget-brand-fjord",
-    ellipse5Left: 30,
-    ellipse5Top: 70,
-    ellipse5Rotation: 180,
-    ellipse5SizeX: 25,
-    ellipse5SizeY: 25,
+    ellipse4Left: 91,
+    ellipse4Top: 32,
+    ellipse4Rotation: 0,
+    ellipse4SizeX: 58,
+    ellipse4SizeY: 86,
+    ellipse5Color: "berget-brand-spruce",
+    ellipse5Left: 68,
+    ellipse5Top: 81,
+    ellipse5Rotation: 0,
+    ellipse5SizeX: 64,
+    ellipse5SizeY: 82,
   },
   argTypes: {
     blur: {
@@ -248,11 +270,11 @@ export const GrainyGradient: StoryObj<{
       description: "Ellipse 1 rotation (degrees)",
     },
     ellipse1SizeX: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 1 horizontal size (vw)",
     },
     ellipse1SizeY: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 1 vertical size (vh)",
     },
     ellipse2Color: {
@@ -282,11 +304,11 @@ export const GrainyGradient: StoryObj<{
       description: "Ellipse 2 rotation (degrees)",
     },
     ellipse2SizeX: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 2 horizontal size (vw)",
     },
     ellipse2SizeY: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 2 vertical size (vh)",
     },
     ellipse3Color: {
@@ -316,11 +338,11 @@ export const GrainyGradient: StoryObj<{
       description: "Ellipse 3 rotation (degrees)",
     },
     ellipse3SizeX: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 3 horizontal size (vw)",
     },
     ellipse3SizeY: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 3 vertical size (vh)",
     },
     ellipse4Color: {
@@ -350,11 +372,11 @@ export const GrainyGradient: StoryObj<{
       description: "Ellipse 4 rotation (degrees)",
     },
     ellipse4SizeX: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 4 horizontal size (vw)",
     },
     ellipse4SizeY: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 4 vertical size (vh)",
     },
     ellipse5Color: {
@@ -384,11 +406,11 @@ export const GrainyGradient: StoryObj<{
       description: "Ellipse 5 rotation (degrees)",
     },
     ellipse5SizeX: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 5 horizontal size (vw)",
     },
     ellipse5SizeY: {
-      control: { type: "range", min: 10, max: 50, step: 1 },
+      control: { type: "range", min: 40, max: 100, step: 1 },
       description: "Ellipse 5 vertical size (vh)",
     },
   },
@@ -467,7 +489,7 @@ export const GrainyGradient: StoryObj<{
     ];
 
     return (
-      <GrainyGradientBackground
+      <GrainyBackground
         blur={args.blur}
         grain={args.grain}
         ellipses={ellipses}
@@ -475,10 +497,10 @@ export const GrainyGradient: StoryObj<{
       >
         <div className="text-center max-w-2xl px-6">
           <Typography variant="h1" className="mb-4 text-white">
-            Grainy Gradient
+            Grainy Background
           </Typography>
           <Typography variant="large" color="muted" className="mb-4 block">
-            Artistic grainy gradient with multiple colored ellipses and blur
+            Artistic grainy background with multiple colored ellipses and blur
             overlay.
           </Typography>
           <Typography variant="small" color="muted" className="block">
@@ -487,7 +509,317 @@ export const GrainyGradient: StoryObj<{
           </Typography>
           <Button className="mt-6">Explore</Button>
         </div>
-      </GrainyGradientBackground>
+      </GrainyBackground>
     );
   },
+};
+
+export const ParticleBackgroundStory: StoryObj<{
+  particleCount: number;
+  particleColor: ParticleColor;
+  particleOpacity: number;
+  particleSize: number;
+  particleInteractionRadius: number;
+  parallax: boolean;
+  parallaxSpeed: number;
+}> = {
+  name: "Particle Background",
+  args: {
+    particleCount: 80,
+    particleColor: "moss",
+    particleOpacity: 0.6,
+    particleSize: 2,
+    particleInteractionRadius: 150,
+    parallax: false,
+    parallaxSpeed: 0.5,
+  },
+  argTypes: {
+    particleCount: {
+      control: { type: "range", min: 10, max: 200, step: 1 },
+      description: "Number of particles",
+    },
+    particleColor: {
+      control: { type: "select" },
+      options: [
+        "moss",
+        "lichen",
+        "spruce",
+        "fjord",
+        "cloud",
+      ] as ParticleColor[],
+      description: "Color of particles",
+    },
+    particleOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Opacity of particles (0-1)",
+    },
+    particleSize: {
+      control: { type: "range", min: 1, max: 10, step: 0.5 },
+      description: "Size of particles",
+    },
+    particleInteractionRadius: {
+      control: { type: "range", min: 50, max: 300, step: 10 },
+      description: "Interaction radius for mouse repulsion",
+    },
+    parallax: {
+      control: { type: "boolean" },
+      description: "Enable parallax effect",
+    },
+    parallaxSpeed: {
+      control: { type: "range", min: 0.1, max: 1, step: 0.1 },
+      description: "Parallax speed (0.1-1.0)",
+      if: { arg: "parallax", eq: true },
+    },
+  },
+  render: (args) => (
+    <ParticleBackground
+      particleCount={args.particleCount}
+      particleColor={args.particleColor}
+      particleOpacity={args.particleOpacity}
+      particleSize={args.particleSize}
+      particleInteractionRadius={args.particleInteractionRadius}
+      parallax={args.parallax}
+      parallaxSpeed={args.parallaxSpeed}
+      className="min-h-screen flex items-center justify-center"
+    >
+      <div className="text-center max-w-2xl px-6">
+        <Typography variant="h1" className="mb-4 text-white">
+          Particle Background
+        </Typography>
+        <Typography variant="large" color="muted" className="mb-4 block">
+          Interactive particle system with mouse repulsion and parallax effect.
+        </Typography>
+        <Typography variant="small" color="muted" className="block">
+          Particles: {args.particleCount} • Color: {args.particleColor} •
+          Interaction: {args.particleInteractionRadius}px
+          {args.parallax &&
+            ` • Parallax: ${args.parallax ? "Enabled" : "Disabled"}`}
+        </Typography>
+        <Button className="mt-6">Explore</Button>
+      </div>
+    </ParticleBackground>
+  ),
+};
+
+export const VideoBackgroundStory: StoryObj<{
+  src: string;
+  fallbackImageSrc: string;
+  loading: "eager" | "lazy";
+  parallax: boolean;
+  parallaxSpeed: number;
+}> = {
+  name: "Video Background",
+  args: {
+    src: "/backgrounds/videos/hero-particles-01.mp4",
+    fallbackImageSrc: "/backgrounds/images/hero-abstract-01.png",
+    loading: "eager",
+    parallax: false,
+    parallaxSpeed: 0.5,
+  },
+  argTypes: {
+    src: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/videos/hero-particles-01.mp4",
+        "/backgrounds/videos/hero-particles-02.mp4",
+      ],
+      description: "Video source",
+    },
+    fallbackImageSrc: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/images/hero-abstract-01.png",
+        "/backgrounds/images/hero-abstract-02.png",
+        "/backgrounds/images/hero-abstract-03.png",
+      ],
+      description: "Fallback image source",
+    },
+    loading: {
+      control: { type: "select" },
+      options: ["eager", "lazy"] as const,
+      description: "Loading strategy",
+    },
+    parallax: {
+      control: { type: "boolean" },
+      description: "Enable parallax effect",
+    },
+    parallaxSpeed: {
+      control: { type: "range", min: 0.1, max: 1, step: 0.1 },
+      description: "Parallax speed (0.1-1.0)",
+      if: { arg: "parallax", eq: true },
+    },
+  },
+  render: (args) => (
+    <VideoBackground
+      src={args.src}
+      fallbackImageSrc={args.fallbackImageSrc}
+      loading={args.loading}
+      parallax={args.parallax}
+      parallaxSpeed={args.parallaxSpeed}
+      className="min-h-screen flex items-center justify-center"
+    >
+      <div className="text-center max-w-2xl px-6">
+        <Typography variant="h1" className="mb-4 text-white">
+          Video Background
+        </Typography>
+        <Typography variant="large" color="muted" className="mb-4 block">
+          Video background with automatic fallback and parallax effect.
+        </Typography>
+        <Typography variant="small" color="muted" className="block">
+          Loading: {args.loading}
+          {args.parallax &&
+            ` • Parallax: ${args.parallax ? "Enabled" : "Disabled"}`}
+        </Typography>
+        <Button className="mt-6">Explore</Button>
+      </div>
+    </VideoBackground>
+  ),
+};
+
+export const ImageBackgroundStory: StoryObj<{
+  src: string;
+  alt: string;
+  position: ImagePosition;
+  fit: ImageFit;
+  overlay: OverlayType;
+  overlayOpacity: number;
+  imageOpacity: number;
+  loading: "eager" | "lazy";
+  parallax: boolean;
+  parallaxSpeed: number;
+  fadeIn: boolean;
+  fadeInDuration: number;
+}> = {
+  name: "Image Background",
+  args: {
+    src: "/backgrounds/images/hero-abstract-01.png",
+    alt: "Hero background image",
+    position: "center",
+    fit: "cover",
+    overlay: "night",
+    overlayOpacity: 0.04,
+    imageOpacity: 1,
+    loading: "lazy",
+    parallax: true,
+    parallaxSpeed: 0.5,
+    fadeIn: true,
+    fadeInDuration: 600,
+  },
+  argTypes: {
+    src: {
+      control: { type: "select" },
+      options: [
+        "/backgrounds/images/hero-abstract-01.png",
+        "/backgrounds/images/hero-abstract-02.png",
+        "/backgrounds/images/hero-abstract-03.png",
+        "/backgrounds/images/hero-abstract-04.png",
+        "/backgrounds/images/hero-abstract-05.png",
+        "/backgrounds/images/hero-abstract-06.png",
+      ],
+      description: "Image source",
+    },
+    alt: {
+      control: { type: "text" },
+      description: "Alt text for image",
+    },
+    position: {
+      control: { type: "select" },
+      options: [
+        "center",
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "left-top",
+        "right-top",
+        "left-bottom",
+        "right-bottom",
+      ] as ImagePosition[],
+      description: "Image position",
+    },
+    fit: {
+      control: { type: "select" },
+      options: ["cover", "contain", "fill"] as ImageFit[],
+      description: "Image fit",
+    },
+    overlay: {
+      control: { type: "select" },
+      options: [
+        "none",
+        "night",
+        "moss",
+        "lichen",
+        "spruce",
+        "slate",
+        "cloud",
+        "peak",
+      ] as OverlayType[],
+      description: "Overlay type (Night default)",
+    },
+    overlayOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Overlay opacity (0-1)",
+      if: { arg: "overlay", neq: "none" },
+    },
+    imageOpacity: {
+      control: { type: "range", min: 0, max: 1, step: 0.01 },
+      description: "Image opacity (0-1)",
+    },
+    loading: {
+      control: { type: "select" },
+      options: ["eager", "lazy"] as const,
+      description: "Loading strategy",
+    },
+    parallax: {
+      control: { type: "boolean" },
+      description: "Enable parallax effect",
+    },
+    parallaxSpeed: {
+      control: { type: "range", min: 0.1, max: 1, step: 0.1 },
+      description: "Parallax speed (0.1-1.0)",
+      if: { arg: "parallax", eq: true },
+    },
+    fadeIn: {
+      control: { type: "boolean" },
+      description: "Enable fade-in animation",
+    },
+    fadeInDuration: {
+      control: { type: "range", min: 200, max: 2000, step: 100 },
+      description: "Fade-in duration (ms)",
+      if: { arg: "fadeIn", eq: true },
+    },
+  },
+  render: (args) => (
+    <ImageBackground
+      src={args.src}
+      alt={args.alt}
+      position={args.position}
+      fit={args.fit}
+      overlay={args.overlay}
+      overlayOpacity={args.overlayOpacity}
+      imageOpacity={args.imageOpacity}
+      loading={args.loading}
+      parallax={args.parallax}
+      parallaxSpeed={args.parallaxSpeed}
+      fadeIn={args.fadeIn}
+      fadeInDuration={args.fadeInDuration}
+      className="min-h-screen flex items-center justify-center"
+    >
+      <div className="text-center max-w-2xl px-6">
+        <Typography variant="h1" className="mb-4 text-white">
+          Image Background
+        </Typography>
+        <Typography variant="large" color="muted" className="mb-4 block">
+          Image background with overlay, parallax, and fade-in animation.
+        </Typography>
+        <Typography variant="small" color="muted" className="block">
+          Position: {args.position} • Fit: {args.fit} • Overlay: {args.overlay}
+          {args.parallax &&
+            ` • Parallax: ${args.parallax ? "Enabled" : "Disabled"}`}
+          {args.fadeIn && ` • Fade In: ${args.fadeIn ? "Enabled" : "Disabled"}`}
+        </Typography>
+        <Button className="mt-6">Explore</Button>
+      </div>
+    </ImageBackground>
+  ),
 };
