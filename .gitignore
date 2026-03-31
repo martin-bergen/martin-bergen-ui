@@ -5,3 +5,4 @@ storybook-static/
 .keycloakify/
 package-lock.json
 .env
+apps/storybook/public/backgrounds/

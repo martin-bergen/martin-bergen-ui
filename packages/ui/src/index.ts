@@ -102,7 +102,6 @@ export type {
   GrainyGradientBackgroundProps,
   EllipseConfig,
   EllipseColor,
-  EllipseAnimation,
 } from "./components/foundations/grainy-gradient-background";
 
 export { Input } from "./components/atoms/input";

@@ -3,5 +3,4 @@ export type {
   GrainyGradientBackgroundProps,
   EllipseConfig,
   EllipseColor,
-  EllipseAnimation,
 } from "./GrainyGradientBackground";
