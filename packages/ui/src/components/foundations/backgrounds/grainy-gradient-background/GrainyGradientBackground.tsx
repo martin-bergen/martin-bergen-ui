@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { cn } from "../../../lib/utils";
+import { cn } from "../../../../lib/utils";
 
 export type EllipseColor =
   | "berget-brand-moss"
@@ -210,12 +210,20 @@ const GrainyGradientBackground = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "relative overflow-hidden bg-berget-brand-night",
+          "relative overflow-hidden bg-berget-brand-night isolate",
           className,
         )}
         {...props}
       >
-        <div className={`absolute inset-0 blur-[${blur}px]`}>
+        <div
+          className="absolute inset-0 -z-10 pointer-events-none"
+          style={
+            {
+              filter: `blur(${blur}px)`,
+              "--blur-amount": `${blur}px`,
+            } as React.CSSProperties
+          }
+        >
           {ellipses.map((ellipse, index) => (
             <BackgroundEllipse key={index} ellipse={ellipse} />
           ))}
@@ -223,7 +231,7 @@ const GrainyGradientBackground = React.forwardRef<
 
         {grain > 0 && (
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 -z-10 pointer-events-none"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
               opacity: grain,
