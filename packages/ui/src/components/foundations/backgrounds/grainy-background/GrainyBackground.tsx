@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { cn } from "../../../lib/utils";
+import { cn } from "../../../../lib/utils";
 
 export type EllipseColor =
   | "berget-brand-moss"
@@ -16,7 +16,9 @@ export interface EllipseConfig {
   color: EllipseColor;
   rotation?: number;
   opacity?: number;
+  /** Size in viewport width units (vw). @default 40 */
   sizeX?: number;
+  /** Size in viewport height units (vh). @default 40 */
   sizeY?: number;
   duration?: number;
   delay?: number;
@@ -27,7 +29,7 @@ export interface EllipseConfig {
   motionEnabled?: boolean;
 }
 
-export interface GrainyGradientBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GrainyBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   /** Blur amount in pixels @default 130 */
   blur?: number;
@@ -42,8 +44,8 @@ const defaultEllipses: EllipseConfig[] = [
     color: "berget-brand-moss",
     rotation: 0,
     opacity: 1,
-    sizeX: 25,
-    sizeY: 25,
+    sizeX: 40,
+    sizeY: 40,
     duration: 120,
     delay: 0,
     xPath: ["-5vw", "5vw", "-2vw", "3vw", "-5vw"],
@@ -56,8 +58,8 @@ const defaultEllipses: EllipseConfig[] = [
     color: "berget-brand-moss",
     rotation: 45,
     opacity: 1,
-    sizeX: 25,
-    sizeY: 25,
+    sizeX: 40,
+    sizeY: 40,
     duration: 120,
     delay: 24,
     xPath: ["4vw", "-4vw", "5vw", "-2vw", "4vw"],
@@ -70,8 +72,8 @@ const defaultEllipses: EllipseConfig[] = [
     color: "berget-brand-lichen",
     rotation: 90,
     opacity: 1,
-    sizeX: 25,
-    sizeY: 25,
+    sizeX: 40,
+    sizeY: 40,
     duration: 120,
     delay: 48,
     xPath: ["-3vw", "3vw", "-4vw", "2vw", "-3vw"],
@@ -84,8 +86,8 @@ const defaultEllipses: EllipseConfig[] = [
     color: "berget-brand-spruce",
     rotation: 135,
     opacity: 1,
-    sizeX: 25,
-    sizeY: 25,
+    sizeX: 40,
+    sizeY: 40,
     duration: 120,
     delay: 72,
     xPath: ["2vw", "-2vw", "3vw", "-4vw", "2vw"],
@@ -98,8 +100,8 @@ const defaultEllipses: EllipseConfig[] = [
     color: "berget-brand-fjord",
     rotation: 180,
     opacity: 1,
-    sizeX: 25,
-    sizeY: 25,
+    sizeX: 40,
+    sizeY: 40,
     duration: 120,
     delay: 96,
     xPath: ["-4vw", "4vw", "-2vw", "3vw", "-4vw"],
@@ -157,8 +159,8 @@ const BackgroundEllipse = React.memo<BackgroundEllipseProps>(({ ellipse }) => {
             className={cn("absolute inset-0", colorClassMap[ellipse.color])}
             initial={{ x: "0%", y: "0%" }}
             animate={{
-              x: ellipse.xPath || ["-15%", "15%", "-15%"],
-              y: ellipse.yPath || ["-10%", "10%", "-10%"],
+              x: ellipse.xPath || ["-10vw", "10vw", "-10vw"],
+              y: ellipse.yPath || ["-8vh", "8vh", "-8vh"],
             }}
             transition={{
               type: "tween",
@@ -191,9 +193,9 @@ const BackgroundEllipse = React.memo<BackgroundEllipseProps>(({ ellipse }) => {
 
 BackgroundEllipse.displayName = "BackgroundEllipse";
 
-const GrainyGradientBackground = React.forwardRef<
+const GrainyBackground = React.forwardRef<
   HTMLDivElement,
-  GrainyGradientBackgroundProps
+  GrainyBackgroundProps
 >(
   (
     {
@@ -210,12 +212,20 @@ const GrainyGradientBackground = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "relative overflow-hidden bg-berget-brand-night",
+          "relative overflow-hidden bg-berget-brand-night isolate",
           className,
         )}
         {...props}
       >
-        <div className={`absolute inset-0 blur-[${blur}px]`}>
+        <div
+          className="absolute inset-0 -z-10 pointer-events-none"
+          style={
+            {
+              filter: `blur(${blur}px)`,
+              "--blur-amount": `${blur}px`,
+            } as React.CSSProperties
+          }
+        >
           {ellipses.map((ellipse, index) => (
             <BackgroundEllipse key={index} ellipse={ellipse} />
           ))}
@@ -223,7 +233,7 @@ const GrainyGradientBackground = React.forwardRef<
 
         {grain > 0 && (
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 -z-10 pointer-events-none"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
               opacity: grain,
@@ -236,6 +246,6 @@ const GrainyGradientBackground = React.forwardRef<
     );
   },
 );
-GrainyGradientBackground.displayName = "GrainyGradientBackground";
+GrainyBackground.displayName = "GrainyBackground";
 
-export { GrainyGradientBackground };
+export { GrainyBackground };

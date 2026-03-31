@@ -1,12 +1,12 @@
 import * as React from "react";
-import { cn } from "../../../lib/utils";
+import { cn } from "../../../../lib/utils";
 
-export type PatternSize = "sm" | "md" | "lg";
+export type GridSize = "sm" | "md" | "lg";
 
-export interface PatternBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   /** Size of the pattern tiles @default "lg" */
-  size?: PatternSize;
+  size?: GridSize;
   /** Don't set background color, only show pattern overlay @default false */
   overlayOnly?: boolean;
   /** Opacity of the grid lines (0-1) @default 0.1 */
@@ -23,10 +23,7 @@ const sizeMap = {
   lg: 48,
 };
 
-const PatternBackground = React.forwardRef<
-  HTMLDivElement,
-  PatternBackgroundProps
->(
+const GridBackground = React.forwardRef<HTMLDivElement, GridBackgroundProps>(
   (
     {
       children,
@@ -94,6 +91,7 @@ const PatternBackground = React.forwardRef<
     );
   },
 );
-PatternBackground.displayName = "PatternBackground";
 
-export { PatternBackground };
+GridBackground.displayName = "GridBackground";
+
+export { GridBackground };

@@ -1,33 +1,25 @@
 import * as React from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../../../lib/utils";
 
-export type MediaType = "image" | "video" | "gradient";
 export type ParticleColor = "moss" | "lichen" | "spruce" | "fjord" | "cloud";
 
-export type GradientBackgroundVariant =
-  | "fjord-slate"
-  | "slate-night"
-  | "spruce-fjord"
-  | "spruce-slate"
-  | "spruce-night"
-  | "moss-lichen"
-  | "moss-spruce"
-  | "lichen-cloud";
-
-export interface HeroBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
-  mediaType: MediaType;
-  mediaSrc?: string;
-  fallbackImageSrc?: string;
-  gradientVariant?: GradientBackgroundVariant;
+export interface ParticleBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Number of particles @default 80 */
   particleCount?: number;
+  /** Color of particles @default "moss" */
   particleColor?: ParticleColor;
+  /** Opacity of particles (0-1) @default 0.6 */
   particleOpacity?: number;
+  /** Size of particles @default 2 */
   particleSize?: number;
+  /** Interaction radius for mouse repulsion @default 150 */
   particleInteractionRadius?: number;
-  showOverlay?: boolean;
-  overlayColor?: string;
-  overlayOpacity?: number;
+  /** Enable parallax effect @default false */
+  parallax?: boolean;
+  /** Parallax speed (0.1-1.0) @default 0.5 */
+  parallaxSpeed?: number;
   children?: React.ReactNode;
 }
 
@@ -125,21 +117,19 @@ class Particle {
   }
 }
 
-const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
+const ParticleBackground = React.forwardRef<
+  HTMLDivElement,
+  ParticleBackgroundProps
+>(
   (
     {
-      mediaType,
-      mediaSrc,
-      fallbackImageSrc,
-      gradientVariant = "fjord-slate",
       particleCount = 80,
       particleColor = "moss",
       particleOpacity = 0.6,
       particleSize = 2,
       particleInteractionRadius = 150,
-      showOverlay = true,
-      overlayColor = "hsl(0 0% 0%)",
-      overlayOpacity = 0.3,
+      parallax = false,
+      parallaxSpeed = 0.5,
       children,
       className,
       ...props
@@ -159,9 +149,28 @@ const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
       setParticleColorValue(`hsl(${rawValue})`);
     }, [particleColor]);
 
-    const [videoError, setVideoError] = useState(false);
-
     const mouseRef = useRef({ x: 0, y: 0 });
+
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    const { scrollY } = useScroll();
+    const translateY = useTransform(
+      scrollY,
+      [0, 500],
+      [0, 100 * parallaxSpeed],
+      { clamp: false },
+    );
+
+    useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth < 768);
+      };
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    const shouldParallax = parallax && !isMobile;
 
     useEffect(() => {
       const canvas = canvasRef.current;
@@ -278,85 +287,30 @@ const HeroBackground = React.forwardRef<HTMLDivElement, HeroBackgroundProps>(
     return (
       <div
         ref={ref}
-        className={cn(
-          "relative overflow-hidden w-full h-full isolate",
-          className,
-        )}
-        style={{ isolation: "isolate" }}
+        className={cn("relative overflow-hidden isolate", className)}
         {...props}
       >
-        <div ref={containerRef} className="absolute inset-0">
-          <div style={{ zIndex: 0 }} className="absolute inset-0">
-            {mediaType === "gradient" && (
-              <div
-                className="w-full h-full"
-                style={{
-                  backgroundImage: `var(--bg-image-gradient-${gradientVariant || "fjord-slate"})`,
-                }}
-              />
-            )}
-            {mediaType === "image" && mediaSrc && (
-              <img
-                src={mediaSrc}
-                alt=""
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
-            )}
-            {mediaType === "video" &&
-              mediaSrc &&
-              (videoError && fallbackImageSrc ? (
-                <img
-                  src={fallbackImageSrc}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              ) : (
-                <video
-                  src={mediaSrc}
-                  muted
-                  playsInline
-                  autoPlay
-                  loop
-                  className="w-full h-full object-cover"
-                  onError={() => setVideoError(true)}
-                />
-              ))}
-          </div>
-
+        <motion.div
+          ref={containerRef}
+          className="absolute inset-0 -z-10 pointer-events-none"
+          style={{
+            willChange: shouldParallax ? "transform" : "auto",
+            y: shouldParallax ? translateY : 0,
+          }}
+        >
           <canvas
             ref={canvasRef}
             className="absolute inset-0 pointer-events-auto"
             style={{ zIndex: 10 }}
           />
+        </motion.div>
 
-          {showOverlay && (
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                zIndex: 15,
-                background: overlayColor,
-                opacity: overlayOpacity,
-              }}
-            />
-          )}
-        </div>
-
-        <div
-          className="relative"
-          style={{
-            zIndex: 20,
-            opacity: 0,
-            animation: "fadeIn 0.6s ease-out forwards",
-          }}
-        >
-          {children}
-        </div>
+        <div className="relative z-10">{children}</div>
       </div>
     );
   },
 );
-HeroBackground.displayName = "HeroBackground";
 
-export { HeroBackground };
+ParticleBackground.displayName = "ParticleBackground";
+
+export { ParticleBackground };

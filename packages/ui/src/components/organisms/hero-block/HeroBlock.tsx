@@ -4,7 +4,7 @@ import { cn } from "../../../lib/utils";
 import { LucideIcon } from "lucide-react";
 import { Badge } from "../../atoms/badge";
 import { Icon } from "../../atoms/icon";
-import { PatternBackground } from "../../foundations/pattern-background";
+import { PatternBackground } from "../../foundations/backgrounds/grid-background";
 import { Container } from "../../atoms/container";
 import { Typography } from "../../atoms/typography";
 
