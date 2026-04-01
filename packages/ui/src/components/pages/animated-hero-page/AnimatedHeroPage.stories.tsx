@@ -20,11 +20,6 @@ export const Default: Story = {
       "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815.mp4",
     fallbackImageSrc:
       "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-    particleCount: 100,
-    particleColor: "cloud",
-    particleOpacity: 0.5,
-    particleSize: 1.5,
-    particleInteractionRadius: 120,
     showOverlay: true,
     overlayColor: "hsl(204 67% 21%)",
     overlayOpacity: 0.4,
@@ -78,23 +73,6 @@ export const Default: Story = {
       ],
       if: { arg: "mediaType", eq: "gradient" },
     },
-    particleCount: {
-      control: { type: "range", min: 10, max: 200, step: 1 },
-      description: "Number of particles",
-    },
-    particleColor: {
-      control: { type: "select" },
-      options: ["moss", "lichen", "spruce", "fjord", "cloud"],
-    },
-    particleOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-    },
-    particleSize: {
-      control: { type: "range", min: 1, max: 10, step: 0.5 },
-    },
-    particleInteractionRadius: {
-      control: { type: "range", min: 50, max: 300, step: 10 },
-    },
     showOverlay: {
       control: { type: "boolean" },
     },
@@ -122,11 +100,6 @@ export const WithGradient: Story = {
   args: {
     mediaType: "gradient",
     gradientVariant: "spruce-fjord",
-    particleCount: 80,
-    particleColor: "lichen",
-    particleOpacity: 0.7,
-    particleSize: 2,
-    particleInteractionRadius: 150,
     showOverlay: false,
     tagline: "Welcome to the Future",
     title: "Animated Hero with Gradient",
@@ -177,23 +150,6 @@ export const WithGradient: Story = {
       ],
       if: { arg: "mediaType", eq: "gradient" },
     },
-    particleCount: {
-      control: { type: "range", min: 10, max: 200, step: 1 },
-      description: "Number of particles",
-    },
-    particleColor: {
-      control: { type: "select" },
-      options: ["moss", "lichen", "spruce", "fjord", "cloud"],
-    },
-    particleOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-    },
-    particleSize: {
-      control: { type: "range", min: 1, max: 10, step: 0.5 },
-    },
-    particleInteractionRadius: {
-      control: { type: "range", min: 50, max: 300, step: 10 },
-    },
     showOverlay: {
       control: { type: "boolean" },
     },
@@ -219,20 +175,13 @@ export const WithGradient: Story = {
 export const WithImage: Story = {
   name: "With Image Background",
   args: {
-    mediaType: "image",
+    mediaType: "gradient",
     mediaSrc:
       "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-    particleCount: 80,
-    particleColor: "moss",
-    particleOpacity: 0.6,
-    particleSize: 2,
-    particleInteractionRadius: 150,
     showOverlay: true,
-    overlayColor: "hsl(0 0% 0%)",
-    overlayOpacity: 0.3,
     tagline: "Welcome to the Future",
-    title: "Animated Hero with Image",
-    description: "Interactive particles over image background",
+    title: "Animated Hero with Gradient",
+    description: "Gradient background with overlay",
   },
   argTypes: {
     mediaType: {
@@ -278,23 +227,6 @@ export const WithImage: Story = {
         "lichen-cloud",
       ],
       if: { arg: "mediaType", eq: "gradient" },
-    },
-    particleCount: {
-      control: { type: "range", min: 10, max: 200, step: 1 },
-      description: "Number of particles",
-    },
-    particleColor: {
-      control: { type: "select" },
-      options: ["moss", "lichen", "spruce", "fjord", "cloud"],
-    },
-    particleOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-    },
-    particleSize: {
-      control: { type: "range", min: 1, max: 10, step: 0.5 },
-    },
-    particleInteractionRadius: {
-      control: { type: "range", min: 50, max: 300, step: 10 },
     },
     showOverlay: {
       control: { type: "boolean" },
