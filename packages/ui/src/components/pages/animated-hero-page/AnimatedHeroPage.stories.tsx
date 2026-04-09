@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    mediaType: "video",
+    backgroundType: "video",
     mediaSrc:
       "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815.mp4",
     fallbackImageSrc:
@@ -98,7 +98,7 @@ export const Default: Story = {
 export const WithGradient: Story = {
   name: "With Gradient Background",
   args: {
-    mediaType: "gradient",
+    backgroundType: "gradient",
     gradientVariant: "spruce-fjord",
     showOverlay: false,
     tagline: "Welcome to the Future",
@@ -175,13 +175,13 @@ export const WithGradient: Story = {
 export const WithImage: Story = {
   name: "With Image Background",
   args: {
-    mediaType: "gradient",
+    backgroundType: "image",
     mediaSrc:
       "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
     showOverlay: true,
     tagline: "Welcome to the Future",
-    title: "Animated Hero with Gradient",
-    description: "Gradient background with overlay",
+    title: "Animated Hero with Image",
+    description: "Image background with overlay",
   },
   argTypes: {
     mediaType: {
