@@ -208,7 +208,8 @@ const AnimatedHeroPage = React.forwardRef<
         )}
         {/* Network background */}
         {backgroundType === "network" && (
-          <NetworkBackground className="absolute inset-0">
+          <>
+            <NetworkBackground className="absolute inset-0" />
             {showOverlay && (
               <div
                 className="absolute inset-0 pointer-events-none"
@@ -236,7 +237,7 @@ const AnimatedHeroPage = React.forwardRef<
                 tagline={tagline}
               />
             </div>
-          </NetworkBackground>
+          </>
         )}
       </main>
     );

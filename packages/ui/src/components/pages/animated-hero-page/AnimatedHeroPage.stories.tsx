@@ -11,7 +11,7 @@ const meta: Meta<typeof AnimatedHeroPage> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof AnimatedHeroPage>;
 
 export const Default: Story = {
   args: {
@@ -28,71 +28,6 @@ export const Default: Story = {
     description:
       "A beautiful hero section with video background and interactive particles",
   },
-  argTypes: {
-    mediaType: {
-      control: { type: "select" },
-      options: ["image", "video", "gradient"],
-    },
-    mediaSrc: {
-      control: { type: "select" },
-      options: [
-        "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-        "/hero/images/freepik__generate-9-different-angles-of-this-image-medium-l__5211.png",
-        "/hero/images/freepik__muted-grainy-out-of-focus-photo-of-rock-surface-wi__5273.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5283.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5287.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-photo-of-a-rock-surface-so__5276.png",
-        "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815.mp4",
-        "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815_2.mp4",
-      ],
-      if: { arg: "mediaType", neq: "gradient" },
-    },
-    fallbackImageSrc: {
-      control: { type: "select" },
-      options: [
-        "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-        "/hero/images/freepik__generate-9-different-angles-of-this-image-medium-l__5211.png",
-        "/hero/images/freepik__muted-grainy-out-of-focus-photo-of-rock-surface-wi__5273.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5283.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5287.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-photo-of-a-rock-surface-so__5276.png",
-      ],
-      if: { arg: "mediaType", eq: "video" },
-    },
-    gradientVariant: {
-      control: { type: "select" },
-      options: [
-        "fjord-slate",
-        "slate-night",
-        "spruce-fjord",
-        "spruce-slate",
-        "spruce-night",
-        "moss-lichen",
-        "moss-spruce",
-        "lichen-cloud",
-      ],
-      if: { arg: "mediaType", eq: "gradient" },
-    },
-    showOverlay: {
-      control: { type: "boolean" },
-    },
-    overlayColor: {
-      control: { type: "color" },
-      if: { arg: "showOverlay", eq: true },
-    },
-    overlayOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-    },
-    tagline: {
-      control: { type: "text" },
-    },
-    title: {
-      control: { type: "text" },
-    },
-    description: {
-      control: { type: "text" },
-    },
-  },
 };
 
 export const WithGradient: Story = {
@@ -104,71 +39,6 @@ export const WithGradient: Story = {
     tagline: "Welcome to the Future",
     title: "Animated Hero with Gradient",
     description: "Interactive particles over gradient background",
-  },
-  argTypes: {
-    mediaType: {
-      control: { type: "select" },
-      options: ["image", "video", "gradient"],
-    },
-    mediaSrc: {
-      control: { type: "select" },
-      options: [
-        "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-        "/hero/images/freepik__generate-9-different-angles-of-this-image-medium-l__5211.png",
-        "/hero/images/freepik__muted-grainy-out-of-focus-photo-of-rock-surface-wi__5273.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5283.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5287.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-photo-of-a-rock-surface-so__5276.png",
-        "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815.mp4",
-        "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815_2.mp4",
-      ],
-      if: { arg: "mediaType", neq: "gradient" },
-    },
-    fallbackImageSrc: {
-      control: { type: "select" },
-      options: [
-        "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-        "/hero/images/freepik__generate-9-different-angles-of-this-image-medium-l__5211.png",
-        "/hero/images/freepik__muted-grainy-out-of-focus-photo-of-rock-surface-wi__5273.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5283.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5287.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-photo-of-a-rock-surface-so__5276.png",
-      ],
-      if: { arg: "mediaType", eq: "video" },
-    },
-    gradientVariant: {
-      control: { type: "select" },
-      options: [
-        "fjord-slate",
-        "slate-night",
-        "spruce-fjord",
-        "spruce-slate",
-        "spruce-night",
-        "moss-lichen",
-        "moss-spruce",
-        "lichen-cloud",
-      ],
-      if: { arg: "mediaType", eq: "gradient" },
-    },
-    showOverlay: {
-      control: { type: "boolean" },
-    },
-    overlayColor: {
-      control: { type: "color" },
-      if: { arg: "showOverlay", eq: true },
-    },
-    overlayOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-    },
-    tagline: {
-      control: { type: "text" },
-    },
-    title: {
-      control: { type: "text" },
-    },
-    description: {
-      control: { type: "text" },
-    },
   },
 };
 
@@ -183,69 +53,30 @@ export const WithImage: Story = {
     title: "Animated Hero with Image",
     description: "Image background with overlay",
   },
-  argTypes: {
-    mediaType: {
-      control: { type: "select" },
-      options: ["image", "video", "gradient"],
-    },
-    mediaSrc: {
-      control: { type: "select" },
-      options: [
-        "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-        "/hero/images/freepik__generate-9-different-angles-of-this-image-medium-l__5211.png",
-        "/hero/images/freepik__muted-grainy-out-of-focus-photo-of-rock-surface-wi__5273.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5283.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5287.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-photo-of-a-rock-surface-so__5276.png",
-        "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815.mp4",
-        "/hero/videos/freepik_slow-motion-macroshot-of-particles-and-waves-soft-_kling_720p_16-9_24fps_94815_2.mp4",
-      ],
-      if: { arg: "mediaType", neq: "gradient" },
-    },
-    fallbackImageSrc: {
-      control: { type: "select" },
-      options: [
-        "/hero/images/freepik__dark-mode-abstract-background-with-grainy-gradient__5239.png",
-        "/hero/images/freepik__generate-9-different-angles-of-this-image-medium-l__5211.png",
-        "/hero/images/freepik__muted-grainy-out-of-focus-photo-of-rock-surface-wi__5273.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5283.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-dark-abstract-backdrop-wit__5287.png",
-        "/hero/images/freepik__muted-grainy-outoffocus-photo-of-a-rock-surface-so__5276.png",
-      ],
-      if: { arg: "mediaType", eq: "video" },
-    },
-    gradientVariant: {
-      control: { type: "select" },
-      options: [
-        "fjord-slate",
-        "slate-night",
-        "spruce-fjord",
-        "spruce-slate",
-        "spruce-night",
-        "moss-lichen",
-        "moss-spruce",
-        "lichen-cloud",
-      ],
-      if: { arg: "mediaType", eq: "gradient" },
-    },
-    showOverlay: {
-      control: { type: "boolean" },
-    },
-    overlayColor: {
-      control: { type: "color" },
-      if: { arg: "showOverlay", eq: true },
-    },
-    overlayOpacity: {
-      control: { type: "range", min: 0, max: 1, step: 0.01 },
-    },
-    tagline: {
-      control: { type: "text" },
-    },
-    title: {
-      control: { type: "text" },
-    },
-    description: {
-      control: { type: "text" },
-    },
+};
+
+export const WithGrid: Story = {
+  name: "With Grid Background",
+  args: {
+    backgroundType: "grid",
+    showOverlay: true,
+    overlayColor: "hsl(204 67% 21%)",
+    overlayOpacity: 0.4,
+    tagline: "Welcome to the Future",
+    title: "Animated Hero with Grid",
+    description: "Grid pattern with particles overlay",
+  },
+};
+
+export const WithNetwork: Story = {
+  name: "With Network Background",
+  args: {
+    backgroundType: "network",
+    showOverlay: true,
+    overlayColor: "hsl(204 67% 21%)",
+    overlayOpacity: 0.4,
+    tagline: "Welcome to the Future",
+    title: "Animated Hero with Network",
+    description: "Network pattern with particles overlay",
   },
 };
