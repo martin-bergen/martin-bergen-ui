@@ -6,7 +6,8 @@ import { BergetLogotype } from "../../atoms/berget-logotype";
 import { Link } from "../../atoms/link";
 import { Stack } from "../../atoms/stack";
 import { Icon } from "../../atoms/icon";
-import { Select, type SelectOption } from "../../atoms/select";
+import { LanguageSelector } from "../../molecules/language-selector";
+import type { LanguageSelectorOption } from "../../molecules/language-selector";
 import { Container } from "../../atoms/container";
 
 const headerVariants = cva(
@@ -37,7 +38,7 @@ export interface HeaderProps
     VariantProps<typeof headerVariants> {
   logo?: React.ReactNode;
   links: HeaderLink[];
-  languageOptions: SelectOption[];
+  languageOptions: LanguageSelectorOption[];
   loginButton?: React.ReactNode;
   ctaButton?: React.ReactNode;
   currentLanguage?: string;
@@ -103,7 +104,7 @@ HeaderNav.displayName = "HeaderNav";
 const HeaderActions = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
-    languageOptions: SelectOption[];
+    languageOptions: LanguageSelectorOption[];
     currentLanguage?: string;
     onLanguageChange?: (value: string) => void;
     loginButton?: React.ReactNode;
@@ -129,13 +130,10 @@ const HeaderActions = React.forwardRef<
         {...props}
       >
         {languageOptions.length > 0 && (
-          <Select
+          <LanguageSelector
             options={languageOptions}
             value={currentLanguage}
             onValueChange={onLanguageChange}
-            variant="subtle"
-            size="sm"
-            className="w-32"
           />
         )}
         {loginButton}
@@ -178,7 +176,7 @@ const MobileMenu = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & {
     links: HeaderLink[];
-    languageOptions: SelectOption[];
+    languageOptions: LanguageSelectorOption[];
     currentLanguage?: string;
     onLanguageChange?: (value: string) => void;
     loginButton?: React.ReactNode;
@@ -237,13 +235,10 @@ const MobileMenu = React.forwardRef<
           <div className="px-fluid-md py-fluid-md">
             {languageOptions.length > 0 && (
               <div className="mb-fluid-md">
-                <Select
+                <LanguageSelector
                   options={languageOptions}
                   value={currentLanguage}
                   onValueChange={onLanguageChange}
-                  variant="subtle"
-                  size="sm"
-                  className="w-full"
                 />
               </div>
             )}

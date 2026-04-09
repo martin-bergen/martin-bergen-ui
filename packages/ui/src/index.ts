@@ -159,6 +159,12 @@ export type { SectionHeaderProps } from "./components/molecules/section-header";
 export { Select, selectVariants } from "./components/atoms/select";
 export type { SelectProps, SelectOption } from "./components/atoms/select";
 
+export { LanguageSelector } from "./components/molecules/language-selector";
+export type {
+  LanguageSelectorProps,
+  LanguageSelectorOption,
+} from "./components/molecules/language-selector";
+
 export { Stack, stackVariants } from "./components/atoms/stack";
 export type {
   StackProps,
