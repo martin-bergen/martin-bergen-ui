@@ -144,3 +144,5 @@ export const ShowcasePage = React.forwardRef<HTMLElement, React.HTMLAttributes<H
 );
 
 ShowcasePage.displayName = "ShowcasePage";
+
+export default ShowcasePage;
