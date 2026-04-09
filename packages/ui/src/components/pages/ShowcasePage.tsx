@@ -11,7 +11,7 @@ import { GridBackground } from "../foundations/backgrounds/grid-background";
 import { ParticleBackground } from "../foundations/backgrounds/particle-background";
 
 // UI atoms / molecules / organisms
-import { Header } from "../organisms/header/Header";
+import { Header } from "../organisms/header";
 import { HeroBlock } from "../organisms/hero-block";
 import { FeatureCards } from "../organisms/feature-cards";
 import { Section } from "../atoms/section";
@@ -23,10 +23,11 @@ export const ShowcasePage = React.forwardRef<HTMLElement, React.HTMLAttributes<H
     return (
       <main ref={ref} className={cn("min-h-screen", className)} {...props}>
         {/* Header */}
-        <Header
-          logo={{ src: "/logo.svg", alt: "Berget" }}
-          links={[{ href: "#", label: "Home" }, { href: "#features", label: "Features" }]}
-        />
+<Header
+           logo={{ src: "/logo.svg", alt: "Berget" }}
+           links={[{ href: "#", label: "Home" }, { href: "#features", label: "Features" }]}
+           languageOptions={[]}
+         />
 
         {/* Hero – Video background + HeroBlock */}
         <section className="relative min-h-[70vh] overflow-hidden">
