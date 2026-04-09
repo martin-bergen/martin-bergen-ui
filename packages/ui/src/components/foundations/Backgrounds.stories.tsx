@@ -993,6 +993,7 @@ export const Parallax: StoryObj<{
 
 export const CombinedBackgrounds: StoryObj<{
   baseBackground: "gradient" | "video" | "image";
+  overlayBackground?: "none" | "grid" | "network";
   gradientVariant: GradientBackgroundVariant;
   videoSrc: string;
   videoFallbackImageSrc: string;
@@ -1011,6 +1012,7 @@ export const CombinedBackgrounds: StoryObj<{
   },
   args: {
     baseBackground: "gradient",
+    overlayBackground: "none",
     gradientVariant: "spruce-fjord",
     videoSrc: "/backgrounds/videos/hero-particles-01.mp4",
     videoFallbackImageSrc: "/backgrounds/images/hero-abstract-01.png",
@@ -1028,6 +1030,11 @@ export const CombinedBackgrounds: StoryObj<{
       control: { type: "select" },
       options: ["gradient", "video", "image"],
       description: "Choose base background",
+    },
+    overlayBackground: {
+      control: { type: "select" },
+      options: ["none", "grid", "network"],
+      description: "Overlay background layer (none = only particles)",
     },
     gradientVariant: {
       control: { type: "select" },
@@ -1128,13 +1135,17 @@ export const CombinedBackgrounds: StoryObj<{
       switch (args.baseBackground) {
         case "gradient":
           return (
-            <GradientBackground variant={args.gradientVariant} />
+            <GradientBackground
+              variant={args.gradientVariant}
+              className="absolute inset-0"
+            />
           );
         case "video":
           return (
             <VideoBackground
               src={args.videoSrc}
               fallbackImageSrc={args.videoFallbackImageSrc}
+              className="absolute inset-0"
             />
           );
         case "image":
@@ -1143,6 +1154,7 @@ export const CombinedBackgrounds: StoryObj<{
               src={args.imageSrc}
               overlay={args.imageOverlay}
               fadeIn={true}
+              className="absolute inset-0"
             />
           );
       }
@@ -1151,6 +1163,12 @@ export const CombinedBackgrounds: StoryObj<{
     return (
       <div className="relative min-h-screen flex items-center justify-center">
         {renderBaseBackground()}
+        {args.overlayBackground === "grid" && (
+          <GridBackground overlayOnly className="absolute inset-0" />
+        )}
+        {args.overlayBackground === "network" && (
+          <NetworkBackground className="absolute inset-0" />
+        )}
         <ParticleBackground
           particleCount={args.particleCount}
           particleColor={args.particleColor}
@@ -1164,7 +1182,8 @@ export const CombinedBackgrounds: StoryObj<{
             Combined Backgrounds
           </Typography>
           <Typography variant="large" color="muted" className="mb-4 block">
-            Base: {args.baseBackground} + (args.baseBackground === "gradient" ? ` (${args.gradientVariant})` : "") • Particles: {args.particleColor}
+            Base: {args.baseBackground} + (args.baseBackground === "gradient" ?
+            ` (${args.gradientVariant})` : "") • Particles: {args.particleColor}
           </Typography>
           <Typography variant="small" color="muted">
             Move your mouse to interact with particles
@@ -1175,4 +1194,3 @@ export const CombinedBackgrounds: StoryObj<{
     );
   },
 };
-

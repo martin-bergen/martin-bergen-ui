@@ -8,6 +8,13 @@ import { Button } from "../atoms/button";
 import { SectionHeader } from "../molecules/section-header";
 import { LucideIcon } from "lucide-react";
 
+type BgOption = "gradient" | "video" | "image" | "grid" | "network";
+import { GradientBackground } from "../foundations/backgrounds/gradient-background";
+import { VideoBackground } from "../foundations/backgrounds/video-background";
+import { ImageBackground } from "../foundations/backgrounds/image-background";
+import { GridBackground } from "../foundations/backgrounds/grid-background";
+import { NetworkBackground } from "../foundations/backgrounds/network-background";
+
 export type LandingPageProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LandingPageData {
@@ -156,9 +163,58 @@ export const defaultLandingPageData: LandingPageData = {
 const LandingPage = React.forwardRef<HTMLElement, LandingPageProps>(
   ({ className, ...props }, ref) => {
     const data = defaultLandingPageData;
+    const [bgType, setBgType] = React.useState<BgOption>("gradient");
+    const handleBgChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
+      setBgType(e.target.value as BgOption);
 
     return (
-      <main ref={ref} className={cn("min-h-screen", className)} {...props}>
+      <main
+        ref={ref}
+        className={cn("relative min-h-screen", className)}
+        {...props}
+      >
+        {/* Background selector */}
+        <select
+          value={bgType}
+          onChange={handleBgChange}
+          className="absolute top-4 right-4 z-20 rounded border bg-white/80 p-1"
+        >
+          <option value="gradient">Gradient</option>
+          <option value="video">Video</option>
+          <option value="image">Image</option>
+          <option value="grid">Grid</option>
+          <option value="network">Network</option>
+        </select>
+
+        {/* Background rendering */}
+        {bgType === "gradient" && (
+          <GradientBackground
+            variant="spruce-fjord"
+            className="absolute inset-0"
+          />
+        )}
+        {bgType === "video" && (
+          <VideoBackground
+            src="/backgrounds/videos/hero-particles-01.mp4"
+            fallbackImageSrc="/backgrounds/images/hero-abstract-01.png"
+            className="absolute inset-0"
+          />
+        )}
+        {bgType === "image" && (
+          <ImageBackground
+            src="/backgrounds/images/hero-abstract-01.png"
+            overlay="night"
+            className="absolute inset-0"
+          />
+        )}
+        {bgType === "grid" && (
+          <GridBackground overlayOnly className="absolute inset-0" />
+        )}
+        {bgType === "network" && (
+          <NetworkBackground className="absolute inset-0" />
+        )}
+
+        {/* Page content */}
         <HeroBlock
           tagline={data.hero.tagline}
           title={data.hero.title}

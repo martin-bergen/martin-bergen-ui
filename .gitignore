@@ -6,3 +6,4 @@ storybook-static/
 package-lock.json
 .env
 apps/storybook/public/backgrounds/
+.DS_Store
